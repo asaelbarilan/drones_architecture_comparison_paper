@@ -3011,3 +3011,18 @@ Evidence: reports/commitment_pair_20260916/REPORT.md,COMPARISON.json,MECHANISM.j
 This supports the mechanism on one development seed, not general reliability.
 Next repeat frozen pair across development seeds; keep geofence recovery separate.
 Dedicated11435 stopped,8766 retained, shared11434/Valley untouched. No third flight.
+
+
+## D-124: unchanged C5 validation on two additional development seeds (2026-09-16)
+
+User approved four flights followed by C3 comparison preparation. Freeze seeds1060
+and1062, off then on on each, with D-123 configs, localQwen3-VL4B GPU,240s budgets
+and identical45s stationary repetition diagnostic stop (censored). No runtime,
+prompt or navigation fixes between flights. Parameterize existing run/report/UI
+harness paths and seed, preserve D-123 evidence. Five harness tests pass.
+Rationale: test whether target persistence benefit extends beyond1061 before
+adding new mechanisms. Audit exact model images, trajectory replay, source age,
+lease deadlines and pre-intervention divergence; visually inspect failures.
+Evidence: reports/commitment_validation_20260916/PLAN.json and per-seed FREEZE.json.
+Status: frozen; flights pending. Shared11434 and Valley untouched, no cloud.
+C3 preparation follows; resolve canonical family/profile before claiming comparison.

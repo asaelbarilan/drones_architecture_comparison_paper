@@ -1,12 +1,17 @@
 """Inspect both matched240s trajectories and actual decision sources in Edge."""
 
+import argparse
 import base64
 import json
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-out = Path("reports/commitment_pair_20260916/browser")
+parser = argparse.ArgumentParser()
+parser.add_argument("--out", default="reports/commitment_pair_20260916")
+parser.add_argument("--page", default="commitment_240")
+args = parser.parse_args()
+out = Path(args.out) / "browser"
 out.mkdir(parents=True, exist_ok=True)
 errors = []
 checks = []
@@ -14,7 +19,7 @@ with sync_playwright() as p:
     browser = p.chromium.launch(channel="msedge", headless=True)
     page = browser.new_page(viewport={"width": 1600, "height": 1100})
     page.on("pageerror", lambda e: errors.append(str(e)))
-    page.goto("http://127.0.0.1:8766/commitment_240_comparison.html")
+    page.goto(f"http://127.0.0.1:8766/{args.page}_comparison.html")
     page.wait_for_function('typeof run !== "undefined" && run && run.frames.length>0')
     for i, variant in enumerate(["off", "on"]):
         page.locator("#run").select_option(str(i))

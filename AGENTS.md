@@ -16,6 +16,14 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
+## Active D-124 validation (2026-09-16)
+
+Four authorized unchanged C5 flights: seeds1060/1062, off/on each,240s maximum.
+Read reports/commitment_validation_20260916/PLAN.json and per-seed STATE.json.
+Preserve D-123; no navigation changes or retries within batch. Audit actual source
+images and dashboard, then freeze C5 variant and prepare C3 comparison.
+Use dedicated11435 localQwen GPU; shared11434/Valley untouched. No cloud.
+
 ## Latest D-123 matched240s pair complete (2026-09-16)
 
 Read reports/commitment_pair_20260916/REPORT.md and STATE.json FIRST.

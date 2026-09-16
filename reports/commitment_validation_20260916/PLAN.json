@@ -1,0 +1,30 @@
+{
+  "decision": "D-124",
+  "seeds": [
+    1060,
+    1062
+  ],
+  "order": [
+    [
+      1060,
+      "off"
+    ],
+    [
+      1060,
+      "on"
+    ],
+    [
+      1062,
+      "off"
+    ],
+    [
+      1062,
+      "on"
+    ]
+  ],
+  "max_flights": 4,
+  "max_sim_s": 240,
+  "baseline": "D-123 unchanged local Qwen3-VL4B + SUPER; commitment0/20 only",
+  "criteria": "Same frozen45s repetitive stationary diagnostic censorship as D-123; preserve failed and censored flights. Inspect cameras, source images, controls, leases and pre-intervention equality. No tuning between flights.",
+  "next": "Freeze C5 variant after validation; audit C3 mapping and implementation for comparable scenario setup. No broad task sweep."
+}

@@ -125,12 +125,15 @@ def configs():
 
 
 async def main(args):
+    global OUT
+    OUT = Path(args.out)
     arches, env = configs()
     if args.freeze:
+        assert not (OUT / "FREEZE.json").exists(), "Refusing to overwrite frozen experiment"
         write(
             OUT / "FREEZE.json",
             dict(
-                seed=1061,
+                seed=args.seed,
                 order=["off", "on"],
                 environment=env.model_dump(mode="json"),
                 architectures={k: v.model_dump(mode="json") for k, v in arches.items()},
@@ -151,6 +154,7 @@ async def main(args):
         )
         return
     frozen = json.loads((OUT / "FREEZE.json").read_text(encoding="utf-8"))
+    assert frozen["seed"] == args.seed
     assert frozen["environment"] == env.model_dump(mode="json")
     model = next(m for m in api("/api/tags")["models"] if m["name"] == "qwen3-vl:4b")
     assert model["digest"] == DIGEST
@@ -159,16 +163,16 @@ async def main(args):
     for variant in ["off", "on"]:
         arch = arches[variant]
         assert arch.model_dump(mode="json") == frozen["architectures"][variant]
-        name = f"c5_commitment_{variant}_240_20260916_s1061"
+        name = f"c5_commitment_{variant}_240_20260916_s{args.seed}"
         out = Path("runs") / name
         assert not out.exists(), f"Run already exists:{out}"
         state["active"] = variant
         write(OUT / "STATE.json", state)
-        write_manifest(build_manifest(arch, env, seeds=[1061]), out)
+        write_manifest(build_manifest(arch, env, seeds=[args.seed]), out)
         runner = ObservedRun(
             arch,
             env,
-            EpisodeSpec(episode_id=name, seed=1061),
+            EpisodeSpec(episode_id=name, seed=args.seed),
             out_dir=out,
             debug_capture=True,
             variant=variant,
@@ -197,4 +201,6 @@ async def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--freeze", action="store_true")
+    parser.add_argument("--seed", type=int, choices=range(1060, 1065), default=1061)
+    parser.add_argument("--out", default=str(OUT))
     asyncio.run(main(parser.parse_args()))

@@ -18,6 +18,7 @@ from PIL import Image
 from uavlab.analysis.flight_debugger import _sources, html_document, load_run
 
 OUT = Path("reports/commitment_pair_20260916")
+PAGE = "commitment_240"
 
 
 def read(path):
@@ -29,7 +30,8 @@ def events(root):
 
 
 async def one(variant):
-    name = f"c5_commitment_{variant}_240_20260916_s1061"
+    frozen = read(OUT / "FREEZE.json")
+    name = f"c5_commitment_{variant}_240_20260916_s{frozen['seed']}"
     root = Path("runs") / name
     dest = OUT / variant
     dest.mkdir(exist_ok=True)
@@ -142,7 +144,7 @@ async def one(variant):
     shutil.copytree(root / "debug", dest / "debug", dirs_exist_ok=True)
     (dest / "replay.json").write_text(json.dumps(replay), encoding="utf-8")
     page = html_document(dict(schema=1, runs=[replay], sources=_sources()))
-    Path(f"reports/debugger/commitment_240_{variant}.html").write_text(page, encoding="utf-8")
+    Path(f"reports/debugger/{PAGE}_{variant}.html").write_text(page, encoding="utf-8")
     print(
         json.dumps(
             {
@@ -212,10 +214,10 @@ def compare():
     )
     banner = (
         '<div style="padding:12px 24px;background:#18303d;color:#e3f5ff">'
-        "D-123: fresh GPU flights, same seed and 240 s limit. "
+        "Fresh GPU flights, same seed and 240 s limit. "
         "Only target commitment differs (off / 20 s). Single development comparison.</div>"
     )
-    Path("reports/debugger/commitment_240_comparison.html").write_text(
+    Path(f"reports/debugger/{PAGE}_comparison.html").write_text(
         page.replace("<body>", "<body>" + banner, 1), encoding="utf-8"
     )
     print(json.dumps(dict(first_control_difference=first, first_lease=first_lease)))
@@ -224,7 +226,11 @@ def compare():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("variant", choices=["off", "on", "compare"])
+    parser.add_argument("--out", default=str(OUT))
+    parser.add_argument("--page", default=PAGE)
     args = parser.parse_args()
+    OUT = Path(args.out)
+    PAGE = args.page
     if args.variant == "compare":
         compare()
     else:

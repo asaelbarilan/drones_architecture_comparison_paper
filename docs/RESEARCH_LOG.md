@@ -2946,3 +2946,15 @@ run a C3 diagnostic incapable of emittingSTOP. Prior10 offline tests passed.
 Evidence: reports/c2_c3_preflight_20260916/FREEZE.json. Status:frozen, pending
 C5 completion; maximum2 flights, no retries or navigation changes within pair.
 Failures will be classified using original model images and exact replay.
+
+
+## D-127: correct misleading bounds termination detail (2026-09-16)
+
+D-126 C3 stops at altitude0.499768m below0.5m, while x44.462m remains inside
+the45m horizontal fence. Runtime reported all out_of_bounds as left the geofence.
+After ALL six flights finished, change diagnostic detail only: report below/above
+altitude bound when supported by status; otherwise use generic permitted-flight-
+bounds wording rather than asserting an unverified horizontal cause. Termination
+conditions, enum, scoring, controls and saved runs remain unchanged.
+31 focused bounds/scenario tests pass, including exact recorded C3 altitude,
+ceiling and other boundary cases. No new flights. Original logs remain preserved.

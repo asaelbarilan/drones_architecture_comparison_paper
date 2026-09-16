@@ -732,7 +732,19 @@ class Orchestrator:
             self._finish(TerminationReason.COLLISION, "vehicle collided")
             return True
         if status.out_of_bounds:
-            self._finish(TerminationReason.OUT_OF_BOUNDS, "left the geofence")
+            limits = self.mission.constraints
+            altitude = status.position.z
+            if altitude < limits.min_altitude_m:
+                detail = (
+                    f"below minimum altitude: {altitude:.6f} m < {limits.min_altitude_m:g} m"
+                )
+            elif altitude > limits.max_altitude_m:
+                detail = (
+                    f"above maximum altitude: {altitude:.6f} m > {limits.max_altitude_m:g} m"
+                )
+            else:
+                detail = "left permitted flight bounds; altitude is within mission limits"
+            self._finish(TerminationReason.OUT_OF_BOUNDS, detail)
             return True
 
         criteria = self.mission.success

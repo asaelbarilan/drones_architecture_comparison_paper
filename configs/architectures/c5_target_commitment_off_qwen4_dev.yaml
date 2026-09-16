@@ -1,0 +1,10 @@
+_base_: c5_clutter_qwen4_validated_dev.yaml
+id: c5_target_commitment_off_qwen4_dev
+name: "C5 Qwen4 matched target commitment disabled"
+description: "D-123 ablation: identical to target commitment profile except commitment_s=0."
+policy:
+  params:
+    target_commitment_s: 0.0
+monitor:
+  params:
+    fresh_after_lost_reorientation: true

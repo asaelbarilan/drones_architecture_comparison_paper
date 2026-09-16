@@ -2863,3 +2863,19 @@ not causal architecture comparison or reliability evidence. No runtimefix requir
 Evidence: reports/continuation_20260916/REPORT.md and raw/audit artifacts.
 Next matched commitment on/off under identical placement/budget/seeds. Dedicated
 11435 unloaded/stopped, debugger8766 retained, shared11434/Valley untouched.
+
+
+## 2026-09-16 — D-123: matched240s target-commitment pair
+
+User authorizes240s for both variants and local model use. Freeze two fresh flights,
+seed1061, commitment0 versus20; all other resolved architecture parameters identical.
+GPU is available (main11434 has no loaded model); use dedicated11435 GPU for both,
+record residency, preserve shared11434/Valley. No CPU/GPU comparison across this pair.
+Only horizon and evaluation maxflighttime extend240s for both. Native termination
+unchanged. Conservative diagnostic early stop requires45s positions within0.5m,
+yaw commands<=0.01rad/s and>=15 same-kind goals within0.5m. Label it censored, never
+as a full240s timeout. Moving detours/scans must not trigger; five tests pass.
+Sibling ablation config avoids exceeding existing inheritance depth16; loader
+unchanged. No prompt/model/planner modifications between flights. Freeze all outcomes
+and inspect realized prefix divergence before causal claims. One pair is development
+evidence, not reliability. Read reports/commitment_pair_20260916/FREEZE.json/STATE.json.

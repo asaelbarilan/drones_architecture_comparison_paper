@@ -16,6 +16,16 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
+## Active D-123 matched240s pair (2026-09-16)
+
+User explicitly authorizes240s and comparison. Read reports/commitment_pair_20260916/
+STATE.json and FREEZE.json FIRST. Two fresh GPU flights, off then on, seed1061,
+identical resolved configs except target_commitment_s0/20. Dedicated11435; shared
+11434/Valley untouched. Five harness tests pass. Run scripts/run_commitment_pair.py
+once; check tmp/commitment_pair.pid and existing run outputs before any relaunch.
+No changes between variants. Audit both actual dashboards, source images and prefix
+divergence.45s immobile/repeated-goal diagnostic stop is explicitly censored.
+
 ## Latest: D-122 continuation succeeds (2026-09-16)
 
 Read reports/continuation_20260916/REPORT.md and STATE.json FIRST. Exact cached

@@ -1,0 +1,6 @@
+_base_: grid_nav_onfly_depth_v2_dev.yaml
+id: grid_nav_clutter_240_dev
+max_episode_s: 240.0
+params:
+  success:
+    max_flight_time_s: 240.0

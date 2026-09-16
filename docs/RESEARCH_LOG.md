@@ -2930,3 +2930,19 @@ Evidence: reports/commitment_validation_20260916/c3_readiness/REPORT.md and JSON
 Status: prepared, not model-validated. No extra flight/inference or runtime changes.
 Next matched visible-target preflight, then clutter if contracts work. A near-label
 stop can still be premature; report it rather than inferring physical arrival.
+
+
+## D-126: bounded matched C2/C3 visible-target preflight (2026-09-16)
+
+Following the authorized C5 validation and C3 comparison work, freeze exactly
+two new flights after all four C5 flights finish: C2 then C3, seed1061, single
+visible red pillar. Use D-125 profiles with retained localQwen GPU and identical
+240s maximum,0.6m/s envelope,camera pitch-0.15 and shared dynamics. Existing
+60s/2m/s fixture is preserved; named slow240s derivative is explicit. Task
+criterion remains within2m and terminalSTOP; no relaxation, oracle guidance,
+extra semantic monitor or policy fixes. Native termination only for this pair.
+Rationale: prove model/output/termination interface before clutter rather than
+run a C3 diagnostic incapable of emittingSTOP. Prior10 offline tests passed.
+Evidence: reports/c2_c3_preflight_20260916/FREEZE.json. Status:frozen, pending
+C5 completion; maximum2 flights, no retries or navigation changes within pair.
+Failures will be classified using original model images and exact replay.

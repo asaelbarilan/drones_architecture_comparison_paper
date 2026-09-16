@@ -1,0 +1,13 @@
+# D-126: visible-target preflight, 240s maximum and C5-normalized flight envelope.
+_base_: capability_visible_target.yaml
+id: capability_visible_target_slow_240_dev
+max_episode_s: 240.0
+params:
+  max_speed_mps: 0.6
+  accel_tau_s: 1.0
+  camera_pitch_rad: -0.15
+  success:
+    max_flight_time_s: 240.0
+  constraints:
+    max_speed_mps: 0.6
+    max_accel_mps2: 0.6

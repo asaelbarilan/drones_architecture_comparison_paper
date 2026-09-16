@@ -137,7 +137,8 @@ async def main(args):
                 criteria="One fresh flight per variant; same240s budget. LocalQwen GPU. "
                 "Only commitment0/20 differs. Preserve all results. Stop on native termination "
                 "or45s stationary within0.5m, yaw<=0.01rad/s, >=15 proposals all same kind "
-                "and goals within0.5m. Such early stops are diagnostic censorship, not240s failures.",
+                "and goals within0.5m. Such early stops are diagnostic censorship, "
+                "not240s failures.",
                 inference="Dedicated11435 GPU, one model, no shared11434/Valley mutations. "
                 "temperature0 seed0 fixed policy1s/monitor1.2s simulation latency. "
                 "Record realized prefix divergence and do not assume deterministic model outputs.",

@@ -2988,3 +2988,5 @@ Sibling ablation config avoids exceeding existing inheritance depth16; loader
 unchanged. No prompt/model/planner modifications between flights. Freeze all outcomes
 and inspect realized prefix divergence before causal claims. One pair is development
 evidence, not reliability. Read reports/commitment_pair_20260916/FREEZE.json/STATE.json.
+
+D-123 prelaunch: wrap harness freeze prose to satisfy lint; semantics/configs unchanged.

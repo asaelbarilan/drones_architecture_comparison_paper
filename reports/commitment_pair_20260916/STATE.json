@@ -1,5 +1,30 @@
 {
-  "status": "frozen",
-  "next": "Start dedicatedGPU server and matched pair",
-  "runs": []
+  "status": "complete_audited",
+  "runs": [
+    {
+      "variant": "off",
+      "run": "c5_commitment_off_240_20260916_s1061",
+      "success": false,
+      "termination": "timeout",
+      "censored": true,
+      "sim_s": 175.0,
+      "final_m": 51.181631915093284,
+      "error": null
+    },
+    {
+      "variant": "on",
+      "run": "c5_commitment_on_240_20260916_s1061",
+      "success": true,
+      "termination": "agent_stopped",
+      "censored": false,
+      "sim_s": 71.2,
+      "final_m": 1.5337997018167993,
+      "error": null
+    }
+  ],
+  "active": null,
+  "next": "Repeat frozen on/off pair on additional development seeds at240s; preserve geofence case for separate recovery diagnosis. No third flight scheduled.",
+  "completed_at_utc": "2026-09-16T17:13:10.415371+00:00",
+  "cleanup": "Dedicated11435 unloaded/stopped;8766 retained;shared11434/Valley untouched.",
+  "prefix": "Same requests/replies before36s; first lease36s, first control difference37s."
 }

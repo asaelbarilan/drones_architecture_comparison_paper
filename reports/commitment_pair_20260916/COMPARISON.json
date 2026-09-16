@@ -1,0 +1,863 @@
+{
+  "first_different_control_s": 37.0,
+  "first_commitment_activation_s": 36.0,
+  "common_requests": [
+    {
+      "role": "policy",
+      "t": 0.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 0.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 1.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 2.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 2.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 3.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 4.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 4.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 5.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 6.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 6.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 7.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 8.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 8.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 9.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 10.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 10.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 11.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 12.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 12.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 13.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 14.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 14.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 15.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 16.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 16.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 17.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 18.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 18.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 19.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 20.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 20.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 21.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 22.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 22.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 23.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 24.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 24.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 25.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 26.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 26.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 27.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 28.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 28.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 29.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 30.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 30.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 31.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 32.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 32.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 33.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 34.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 34.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 35.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 36.0,
+      "same_input": false,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 36.0,
+      "same_input": true,
+      "same_response": true,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 37.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 38.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 38.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 39.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 40.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 40.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 41.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 42.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 42.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 43.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 44.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 44.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 45.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 46.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 46.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 47.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 48.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 48.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 49.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 50.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 50.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 51.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 52.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 52.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 53.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 54.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 54.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 55.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 56.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 56.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 57.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 58.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 58.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 59.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 60.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 60.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 61.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 62.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 62.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 63.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 64.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 64.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 65.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 66.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 66.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 67.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 68.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 68.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 69.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "policy",
+      "t": 70.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    },
+    {
+      "role": "monitor",
+      "t": 70.0,
+      "same_input": false,
+      "same_response": false,
+      "off_response": null,
+      "on_response": null
+    }
+  ],
+  "caveat": "Single development-seed pair, fixed order off/on. Matched configuration and GPU placement do not guarantee deterministic model outputs or reliability."
+}

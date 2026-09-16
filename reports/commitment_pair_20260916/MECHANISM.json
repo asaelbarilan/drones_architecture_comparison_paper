@@ -1,0 +1,253 @@
+{
+  "off": {
+    "first_new_target_after_occlusion": null,
+    "geofence_rejections": 52,
+    "first_geofence_rejection": {
+      "episode_id": "c5_commitment_off_240_20260916_s1061",
+      "seq": 3471,
+      "component": "verifier",
+      "event_type": "verifier",
+      "t_sim_ns": 124000000000,
+      "t_wall_ns": 14030821605200,
+      "trace_id": "5243c23fe601",
+      "payload": {
+        "accepted": false,
+        "modified": false,
+        "reason": "target is 60.4 m from home, outside the 60 m geofence",
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 696,
+          "function": "_handle_envelope",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      }
+    },
+    "terminal_rejection": {
+      "episode_id": "c5_commitment_off_240_20260916_s1061",
+      "seq": 4847,
+      "component": "verifier",
+      "event_type": "verifier",
+      "t_sim_ns": 175000000000,
+      "t_wall_ns": 14106090405300,
+      "trace_id": "621aa04190f7",
+      "payload": {
+        "accepted": false,
+        "modified": false,
+        "reason": "target is 62.6 m from home, outside the 60 m geofence",
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 696,
+          "function": "_handle_envelope",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      }
+    },
+    "recoveries": [
+      {
+        "episode_id": "c5_commitment_off_240_20260916_s1061",
+        "seq": 1044,
+        "component": "monitor",
+        "event_type": "recovery_trigger",
+        "t_sim_ns": 37200000000,
+        "t_wall_ns": 13886684845900,
+        "trace_id": null,
+        "payload": {
+          "trigger": "onfly_lost",
+          "cause": "visual monitor classified lost from 1 frames; arrival_source=bounded_confirmed_rgbd_target; target_range_m=16.995022740759197; visual_confirmations=4/2; original_target_t_ns=33950000000; ttl_s=4.0; fresh_frame=True; arrival_limit_m=2.0; earlier_visible=True; latest_visible=False; latest_scale=absent; ever_acquired=True; acquisition_count=0/2; history_continuous=False; identity_source=current_frame_vlm; grounding='The image shows a large gray structure on the left, a smaller gray rectangular object near the center, a green ground, a'; scale_source=metric_candidate_not_visual; consistency_scope=geometry_only; progress_source=visibility_rule",
+          "target_yaw_rad": 0.5891843207750788,
+          "_debug_source": {
+            "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+            "line": 555,
+            "function": "_run_supervision",
+            "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+          }
+        }
+      }
+    ],
+    "last_policy_request": {
+      "model_id": "qwen3-vl:4b",
+      "role": "policy",
+      "prompt_hash": "onfly:decision:grounded_v1",
+      "input_tokens": 262,
+      "image_count": 1,
+      "observation_seq": 3480,
+      "prompt": "Drone mission: fly to the red tower and stop there. Return the point as relative coordinates on a 1000 by 1000 reference grid: u=0 is the left edge, u=999 the right edge, v=0 the top edge, and v=999 the bottom edge. Inspect this current camera image. In evidence use a short noun phrase describing the visible objects and colors. If the exact requested object is visible, set kind=target and point u,v on its visible body. Otherwise set kind=exploration and point u,v through an open passage that can reveal more of the scene. An obstacle face is not an open passage. Match all requested attributes; a similar shape alone is insufficient. The flight verifier or planner rejected the previous proposal: verifier rejected: target is 62.6 m from home, outside the 60 m geofence. Rejected points in the current coordinate system: [(499, 500), (250, 450), (250, 250), (300, 400)]. Do not repeat or choose near those points. Select a visibly open, traversable continuation that makes progress around the obstruction. Return JSON with evidence, kind, u, v.",
+      "response_schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "target",
+              "exploration"
+            ]
+          },
+          "u": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "v": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          }
+        },
+        "required": [
+          "evidence",
+          "kind",
+          "u",
+          "v"
+        ],
+        "additionalProperties": false
+      },
+      "id": "call-000262",
+      "status": "complete",
+      "source": {
+        "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\onfly.py",
+        "line": 609,
+        "function": "decide",
+        "snapshot": "debug/sources/d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py"
+      },
+      "started_t_sim_ns": 174000000000,
+      "image_files": [
+        "debug/images/call-000262-0.png"
+      ],
+      "completed_t_sim_ns": 175000000000,
+      "response": "{\n  \"evidence\": \"clear blue sky and flat terrain\",\n  \"kind\": \"exploration\",\n  \"u\": 499,\n  \"v\": 500\n}",
+      "latency_ns": 773357000,
+      "output_tokens": 42,
+      "cache_hit": false
+    }
+  },
+  "on": {
+    "first_new_target_after_occlusion": {
+      "episode_id": "c5_commitment_on_240_20260916_s1061",
+      "seq": 1355,
+      "component": "policy",
+      "event_type": "decision_proposed",
+      "t_sim_ns": 49000000000,
+      "t_wall_ns": 14230789310300,
+      "trace_id": "47c92c14c270",
+      "payload": {
+        "kind": "waypoint",
+        "producer": "onfly_decision",
+        "confidence": 1.0,
+        "source_observation_seq": 960,
+        "production_latency_s": 1.05,
+        "provenance": {
+          "model_id": "qwen3-vl:4b",
+          "note": "OnFly image target lifted with synchronized depth and bearing gate",
+          "waypoint_kind": "target",
+          "visual_evidence": "red tower",
+          "pixel_u": "3.34835",
+          "pixel_v": "100.45",
+          "model_u": "15",
+          "model_v": "450",
+          "coordinate_contract": "qwen_relative_1000",
+          "camera_pitch_rad": "-0.150000000",
+          "source_position_x": "23.812546410",
+          "source_position_y": "9.527087317",
+          "source_position_z": "3.486806962",
+          "source_yaw_rad": "0.624397854",
+          "sampled_depth_m": "7.000000",
+          "gated_range_m": "2.242886",
+          "executable_range_m": "1.242886",
+          "altitude_constraint": "camera_ray",
+          "step_source": "depth",
+          "model_step_level": "0",
+          "history_pixel": "None",
+          "history_model_point": "None",
+          "rgb_digest": "84ae7db168919d06",
+          "depth_digest": "97a98057cc3f1013"
+        },
+        "decision_payload": {
+          "kind": "waypoint",
+          "target": {
+            "x": 24.12025550947824,
+            "y": 11.23495416250882,
+            "z": 3.427800820307971,
+            "frame": "enu"
+          },
+          "target_label": "target",
+          "tolerance_m": 1.0,
+          "stop_at_target": false,
+          "view_yaw_rad": null
+        },
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 639,
+          "function": "_handle_envelope",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      }
+    },
+    "geofence_rejections": 0,
+    "first_geofence_rejection": null,
+    "terminal_rejection": null,
+    "recoveries": [],
+    "last_policy_request": {
+      "model_id": "qwen3-vl:4b",
+      "role": "policy",
+      "prompt_hash": "onfly:decision:grounded_v1",
+      "input_tokens": 219,
+      "image_count": 1,
+      "observation_seq": 1400,
+      "prompt": "Drone mission: fly to the red tower and stop there. Return the point as relative coordinates on a 1000 by 1000 reference grid: u=0 is the left edge, u=999 the right edge, v=0 the top edge, and v=999 the bottom edge. Inspect this current camera image. In evidence use a short noun phrase describing the visible objects and colors. If the exact requested object is visible, set kind=target and point u,v on its visible body. Otherwise set kind=exploration and point u,v through an open passage that can reveal more of the scene. An obstacle face is not an open passage. Match all requested attributes; a similar shape alone is insufficient. If the named destination is not currently visible, select an obviously open, traversable continuation toward the subtask; never point at a nearby obstacle surface merely because a point is required. Return JSON with evidence, kind, u, v.",
+      "response_schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "target",
+              "exploration"
+            ]
+          },
+          "u": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "v": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          }
+        },
+        "required": [
+          "evidence",
+          "kind",
+          "u",
+          "v"
+        ],
+        "additionalProperties": false
+      },
+      "id": "call-000106",
+      "status": "complete",
+      "source": {
+        "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\onfly.py",
+        "line": 609,
+        "function": "decide",
+        "snapshot": "debug/sources/d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py"
+      },
+      "started_t_sim_ns": 70000000000,
+      "image_files": [
+        "debug/images/call-000106-0.png"
+      ],
+      "completed_t_sim_ns": 71000000000,
+      "response": "{\n  \"evidence\": \"red tower\",\n  \"kind\": \"target\",\n  \"u\": 500,\n  \"v\": 500\n}",
+      "latency_ns": 1547931900,
+      "output_tokens": 37,
+      "cache_hit": false
+    }
+  }
+}

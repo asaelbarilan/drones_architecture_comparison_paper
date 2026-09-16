@@ -16,15 +16,21 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
-## Active D-123 matched240s pair (2026-09-16)
+## Latest D-123 matched240s pair complete (2026-09-16)
 
-User explicitly authorizes240s and comparison. Read reports/commitment_pair_20260916/
-STATE.json and FREEZE.json FIRST. Two fresh GPU flights, off then on, seed1061,
-identical resolved configs except target_commitment_s0/20. Dedicated11435; shared
-11434/Valley untouched. Five harness tests pass. Run scripts/run_commitment_pair.py
-once; check tmp/commitment_pair.pid and existing run outputs before any relaunch.
-No changes between variants. Audit both actual dashboards, source images and prefix
-divergence.45s immobile/repeated-goal diagnostic stop is explicitly censored.
+Read reports/commitment_pair_20260916/REPORT.md and STATE.json FIRST.
+On succeeds71.2s, final1.5338m, speed0.0104m/s, zero collisions. Off ends175s after
+frozen45s repeated rejection: censored, NOT a measured240s timeout. Final51.182m;
+first geofence rejection124s,52rejections. Feedback fails to produce useful recovery.
+Both fresh GPU runs use identical configs except commitment0/20. Inputs/replies
+match before36s, controls before37s; firstlease36s. On target reacquisition49s.
+Full4926poses/372input images match;17UIseeks/2playbacks and actual views reviewed.
+Five harness tests pass;369completed localcalls+3cancellations. No newmodel/cloud.
+Next repeat frozen pair on additional development seeds at240s. Diagnose saved
+geofence recovery separately; do not alter baseline while measuring the ablation.
+Named extension remains separate from nativepaper. One case is not reliability.
+Dedicated11435 unloaded/stopped;8766 retained;shared11434/Valley untouched.
+No third flight scheduled. Prior D122 next comparison is completed by this entry.
 
 ## Latest: D-122 continuation succeeds (2026-09-16)
 

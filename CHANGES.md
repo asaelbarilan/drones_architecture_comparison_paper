@@ -2990,3 +2990,24 @@ and inspect realized prefix divergence before causal claims. One pair is develop
 evidence, not reliability. Read reports/commitment_pair_20260916/FREEZE.json/STATE.json.
 
 D-123 prelaunch: wrap harness freeze prose to satisfy lint; semantics/configs unchanged.
+
+
+### D-123 outcome: clean shared prefix, commitment success, off rejection loop
+
+Both fresh local GPU runs had240s budget and identical settings except commitment0/20.
+On succeeds71.2s, final1.5338m, speed0.0104m/s, no collisions. Off diagnostically stopped
+175s after45s immobility/repeated goals; closest13.401m, final51.182m, no collisions.
+Off is censored, not a measured240s failure. First geofence rejection124s;52 rejected
+proposals; feedback contains the explicit reason but final proposals repeat.
+Inputs/replies match before36s, controls/poses match before37s; lease activates36s.
+Same target35s then same exploration36s; only retention differs. On reacquires49s,
+then completes. One bounded lease,260 authorized control ticks,220 older than4s.
+Replay3501+1425poses and264+108sourceimages exact.17UIseeks/2playbacks and actual
+camera/map reviewed.5preflight tests pass. All model residency fullyGPU, identical
+model size/context;369 completed requests+3cancellations. No cloud or downloads.
+Raw557/350speedcounts are <=2.22e-16m/s excess. Audit-only old-age source-less hold
+assumption corrected; its command is zero. No changes between flight variants.
+Evidence: reports/commitment_pair_20260916/REPORT.md,COMPARISON.json,MECHANISM.json.
+This supports the mechanism on one development seed, not general reliability.
+Next repeat frozen pair across development seeds; keep geofence recovery separate.
+Dedicated11435 stopped,8766 retained, shared11434/Valley untouched. No third flight.

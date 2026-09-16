@@ -10,15 +10,16 @@ becomes a decision with evidence.
 
 ---
 
-## D-122 next: matched architecture comparison
+## D-123 next: repeat frozen pair, isolate geofence recovery
 
-Exact continuation is complete: arrival94.5s, terminalSTOP97.2s, distance0.9363m,
-zero collisions, speed0.05176m/s. See reports/continuation_20260916/REPORT.md.
-Original90s timeout remains. Next freeze target_commitment_s=20 versus0 with
-otherwise identical model/CPU placement, task horizon and seed schedule. Repeats
-must establish reliability before promoting the extension. Sustained hover is a
-separate task criterion, not established by terminalSTOP. No flight is scheduled.
-Earlier D116–D121 NEXT items below are historical and superseded by this entry.
+Matched240s comparison is complete. Commitment on succeeds71.2s; off is stopped
+at175s after45s repeated rejected goals (censored). Before36s inputs/replies match;
+first control difference37s follows commitment activation36s. Read
+reports/commitment_pair_20260916/REPORT.md. Repeat the unchanged pair on additional
+development seeds before reliability claims. Separately reconstruct the off124–175s
+blank-camera/geofence failure and test actionable recovery context/authority.
+Do not add that recovery change to this ablation or attribute extensions to native
+OnFly. No third flight launched. Older D116–D122 NEXT items below are superseded.
 
 ## D-107: remaining tool-choice and ordered-state diagnosis
 

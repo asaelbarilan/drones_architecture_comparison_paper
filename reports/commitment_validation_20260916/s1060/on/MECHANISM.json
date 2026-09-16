@@ -1,0 +1,110 @@
+{
+  "seed": 1060,
+  "variant": "on",
+  "run": "c5_commitment_on_240_20260916_s1060",
+  "success": false,
+  "sim_s": 240.0,
+  "censored": false,
+  "final_m": 93.14195868329074,
+  "closest_m": 24.766377544632494,
+  "closest_s": 39.1,
+  "collisions": 0.0,
+  "out_of_bounds": 0.0,
+  "calls": {
+    "complete": 359,
+    "cancelled": 1
+  },
+  "poses": 4800,
+  "target_proposals": 7,
+  "first_target_s": 5.0,
+  "target_times_s": [
+    5.0,
+    6.0,
+    8.0,
+    9.0,
+    10.0,
+    54.0,
+    55.0
+  ],
+  "lease_count": 2,
+  "monitor_labels": {
+    "continue": 120
+  },
+  "recoveries": 0.0,
+  "geofence_rejections": 67,
+  "first_geofence_s": 172.0,
+  "last_monitor": "pre-acquisition LOST contradicted by declared history; normalized; arrival_source=bounded_confirmed_rgbd_target; target_range_m=None; visual_confirmations=0/2; original_target_t_ns=-1; ttl_s=4.0; fresh_frame=True; arrival_limit_m=2.0; earlier_visible=False; latest_visible=False; latest_scale=absent; ever_acquired=False; acquisition_count=0/2; history_continuous=False; identity_source=current_frame_vlm; grounding='The image shows a clear blue sky above a flat, greenish-brown ground. There are no visible objects such as a red tower.'; scale_source=metric_candidate_not_visual; consistency_scope=geometry_only; progress_source=visibility_rule",
+  "rejection_reasons": {
+    "target commitment retained: exploratory replacement deferred": 8,
+    "verifier rejected: target is 60.5 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 61.1 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 61.7 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 62.2 m from home, outside the 60 m geofence": 2,
+    "verifier rejected: target is 62.4 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 62.5 m from home, outside the 60 m geofence": 2,
+    "verifier rejected: target is 60.0 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 60.6 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 61.2 m from home, outside the 60 m geofence": 1,
+    "verifier rejected: target is 63.4 m from home, outside the 60 m geofence": 28,
+    "verifier rejected: target is 61.3 m from home, outside the 60 m geofence": 28
+  },
+  "last_policy": {
+    "model_id": "qwen3-vl:4b",
+    "role": "policy",
+    "prompt_hash": "onfly:decision:grounded_v1",
+    "input_tokens": 262,
+    "image_count": 1,
+    "observation_seq": 4760,
+    "prompt": "Drone mission: fly to the red tower and stop there. Return the point as relative coordinates on a 1000 by 1000 reference grid: u=0 is the left edge, u=999 the right edge, v=0 the top edge, and v=999 the bottom edge. Inspect this current camera image. In evidence use a short noun phrase describing the visible objects and colors. If the exact requested object is visible, set kind=target and point u,v on its visible body. Otherwise set kind=exploration and point u,v through an open passage that can reveal more of the scene. An obstacle face is not an open passage. Match all requested attributes; a similar shape alone is insufficient. The flight verifier or planner rejected the previous proposal: verifier rejected: target is 63.4 m from home, outside the 60 m geofence. Rejected points in the current coordinate system: [(499, 500), (250, 500), (250, 250), (300, 400)]. Do not repeat or choose near those points. Select a visibly open, traversable continuation that makes progress around the obstruction. Return JSON with evidence, kind, u, v.",
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "target",
+            "exploration"
+          ]
+        },
+        "u": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        },
+        "v": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        }
+      },
+      "required": [
+        "evidence",
+        "kind",
+        "u",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    "id": "call-000358",
+    "status": "complete",
+    "source": {
+      "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\onfly.py",
+      "line": 609,
+      "function": "decide",
+      "snapshot": "debug/sources/d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py"
+    },
+    "started_t_sim_ns": 238000000000,
+    "image_files": [
+      "debug/images/call-000358-0.png"
+    ],
+    "completed_t_sim_ns": 239000000000,
+    "response": "{\n  \"evidence\": \"clear blue sky and flat terrain\",\n  \"kind\": \"exploration\",\n  \"u\": 300,\n  \"v\": 400\n}",
+    "latency_ns": 744868900,
+    "output_tokens": 42,
+    "cache_hit": false
+  }
+}

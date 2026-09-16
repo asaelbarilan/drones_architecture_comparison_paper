@@ -1,0 +1,156 @@
+[
+  {
+    "t": 2.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:30:07.2260385+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 32.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:31:19.6773842+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 62.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:32:25.9939706+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 92.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:33:11.7313052+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 122.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:33:53.0820681+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 152.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:34:34.7772042+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  },
+  {
+    "t": 182.0,
+    "model": {
+      "name": "qwen3-vl:4b",
+      "model": "qwen3-vl:4b",
+      "size": 4235345264,
+      "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl"
+        ],
+        "parameter_size": "4.4B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-09-16T21:35:15.9483841+03:00",
+      "size_vram": 4235345264,
+      "context_length": 8192
+    }
+  }
+]

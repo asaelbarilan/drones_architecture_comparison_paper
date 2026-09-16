@@ -1,0 +1,37 @@
+{
+  "src_tree_at_batch_freeze": "151fe5c5c1dea7fe10ce617bd451ee3f22976eee",
+  "src_tree_after_flights": "151fe5c5c1dea7fe10ce617bd451ee3f22976eee",
+  "tracked_src_worktree_diff": "",
+  "config_equality_with_D123": {
+    "1060": {
+      "environment": true,
+      "architectures": true
+    },
+    "1062": {
+      "environment": true,
+      "architectures": true
+    }
+  },
+  "runtime_source_snapshots": {
+    "1060_off": [
+      "456462e7e3e95386e46c7d531ac6cac6f0385caa6ef379abe4abb8c197d3a626.py",
+      "d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py",
+      "e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+    ],
+    "1060_on": [
+      "456462e7e3e95386e46c7d531ac6cac6f0385caa6ef379abe4abb8c197d3a626.py",
+      "d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py",
+      "e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+    ],
+    "1062_off": [
+      "456462e7e3e95386e46c7d531ac6cac6f0385caa6ef379abe4abb8c197d3a626.py",
+      "d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py",
+      "e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+    ],
+    "1062_on": [
+      "456462e7e3e95386e46c7d531ac6cac6f0385caa6ef379abe4abb8c197d3a626.py",
+      "d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py",
+      "e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+    ]
+  }
+}

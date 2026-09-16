@@ -1,0 +1,1488 @@
+{
+  "checks": [
+    {
+      "t": 0,
+      "observation_seq": 1,
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "yaw": 0,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "distance": 12,
+      "collided": false,
+      "control": {
+        "position_x": 0,
+        "position_y": 0,
+        "position_z": 3,
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "yaw_rate": 0,
+        "decision_age_s": null,
+        "safety_modified": false,
+        "source_observation_seq": null,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": null,
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 0,
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 3,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 12,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 0,
+          "path_length_m": 0,
+          "shortest_path_m": 12,
+          "speed_mps": 0,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 0,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 15,
+      "observation_seq": 301,
+      "position": [
+        6.311224381190295,
+        0,
+        2.6820790699616706
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4288775016183897,
+        0,
+        -0.021604228585724857
+      ],
+      "distance": 5.697652302389133,
+      "collided": false,
+      "control": {
+        "position_x": 6.311224381190295,
+        "position_y": 0,
+        "position_z": 2.6820790699616706,
+        "vx": 0.5992401870570345,
+        "vy": 0,
+        "vz": -0.030186059959033097,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 280,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "f9737b14ee32",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 15000000000,
+          "position": {
+            "x": 6.311224381190295,
+            "y": 0,
+            "z": 2.6820790699616706,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 5.697652302389133,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 8,
+          "path_length_m": 6.319226764999597,
+          "shortest_path_m": 12,
+          "speed_mps": 0.4294213013896913,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 20,
+      "observation_seq": 401,
+      "position": [
+        8.63607122886964,
+        0,
+        2.5649674879026114
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4288576895184008,
+        0,
+        -0.021603230573156267
+      ],
+      "distance": 3.391941931080244,
+      "collided": false,
+      "control": {
+        "position_x": 8.63607122886964,
+        "position_y": 0,
+        "position_z": 2.5649674879026114,
+        "vx": 0.5992401870570345,
+        "vy": 0,
+        "vz": -0.030186059959031373,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 380,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "0137182172b2",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 20000000000,
+          "position": {
+            "x": 8.63607122886964,
+            "y": 0,
+            "z": 2.5649674879026114,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 3.391941931080244,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 11,
+          "path_length_m": 8.6470214268667,
+          "shortest_path_m": 12,
+          "speed_mps": 0.42940146416874037,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 25,
+      "observation_seq": 501,
+      "position": [
+        10.932541381461789,
+        0,
+        2.326601918667667
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.3946888939146711,
+        0,
+        -0.21445213248214173
+      ],
+      "distance": 1.262114447359499,
+      "collided": false,
+      "control": {
+        "position_x": 10.932541381461789,
+        "position_y": 0,
+        "position_z": 2.326601918667667,
+        "vx": 0.5995760679169154,
+        "vy": 0,
+        "vz": -0.022550804448850912,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 480,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "498e76a75822",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 25000000000,
+          "position": {
+            "x": 10.932541381461789,
+            "y": 0,
+            "z": 2.326601918667667,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 1.262114447359499,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": true,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 14,
+          "path_length_m": 10.972732623360308,
+          "shortest_path_m": 12,
+          "speed_mps": 0.44918708808883245,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 1,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 27.15,
+      "observation_seq": 544,
+      "position": [
+        11.914796280695475,
+        0,
+        2.168512571848664
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4521763904407733,
+        0,
+        -0.0387861876103085
+      ],
+      "distance": 0.8358415022939739,
+      "collided": false,
+      "control": {
+        "position_x": 11.914796280695475,
+        "position_y": 0,
+        "position_z": 2.168512571848664,
+        "vx": 0.5915856926345884,
+        "vy": 0,
+        "vz": -0.10013175455395859,
+        "yaw_rate": 0,
+        "decision_age_s": 1.2,
+        "safety_modified": false,
+        "source_observation_seq": 520,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "87b61fddcd0b",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 27150000000,
+          "position": {
+            "x": 11.914796280695475,
+            "y": 0,
+            "z": 2.168512571848664,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 0.8358415022939739,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": true,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 18,
+          "path_length_m": 11.97465434189404,
+          "shortest_path_m": 12,
+          "speed_mps": 0.45383681695229255,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 1,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 40,
+      "observation_seq": 801,
+      "position": [
+        19.469236052710137,
+        0,
+        1.7325979307502455
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.5992398974734406,
+        0,
+        -0.03018602394474599
+      ],
+      "distance": 7.576001268231379,
+      "collided": false,
+      "control": {
+        "position_x": 19.469236052710137,
+        "position_y": 0,
+        "position_z": 1.7325979307502455,
+        "vx": 0.599240187031638,
+        "vy": 0,
+        "vz": -0.03018606046319152,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 780,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "cd862eb78f99",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 40000000000,
+          "position": {
+            "x": 19.469236052710137,
+            "y": 0,
+            "z": 1.7325979307502455,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 7.576001268231379,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 91,
+          "path_length_m": 19.543311345656097,
+          "shortest_path_m": 12,
+          "speed_mps": 0.5999997089712398,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 82.65,
+      "observation_seq": 1654,
+      "position": [
+        45.02491225392533,
+        0,
+        0.5256930690959801
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.5998251334887758,
+        0,
+        -0.01321903538127616
+      ],
+      "distance": 33.117473094543115,
+      "collided": false,
+      "control": {},
+      "trace_id": null,
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 82650000000,
+          "position": {
+            "x": 45.02491225392533,
+            "y": 0,
+            "z": 0.5256930690959801,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 33.117473094543115,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": true,
+          "constraint_violations": 272,
+          "path_length_m": 45.129273874807716,
+          "shortest_path_m": 12,
+          "speed_mps": 0.599970777339396,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c2_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 0,
+      "observation_seq": 1,
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "yaw": 0,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "distance": 12,
+      "collided": false,
+      "control": {
+        "position_x": 0,
+        "position_y": 0,
+        "position_z": 3,
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "yaw_rate": 0,
+        "decision_age_s": null,
+        "safety_modified": false,
+        "source_observation_seq": null,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": null,
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 0,
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 3,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 12,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 0,
+          "path_length_m": 0,
+          "shortest_path_m": 12,
+          "speed_mps": 0,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 0,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 15,
+      "observation_seq": 301,
+      "position": [
+        6.311224381190295,
+        0,
+        2.6820790699616706
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4288775016183897,
+        0,
+        -0.021604228585724857
+      ],
+      "distance": 5.697652302389133,
+      "collided": false,
+      "control": {
+        "position_x": 6.311224381190295,
+        "position_y": 0,
+        "position_z": 2.6820790699616706,
+        "vx": 0.5992401870570345,
+        "vy": 0,
+        "vz": -0.030186059959033097,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 280,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "c37b9321be85",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 15000000000,
+          "position": {
+            "x": 6.311224381190295,
+            "y": 0,
+            "z": 2.6820790699616706,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 5.697652302389133,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 8,
+          "path_length_m": 6.319226764999597,
+          "shortest_path_m": 12,
+          "speed_mps": 0.4294213013896913,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 20,
+      "observation_seq": 401,
+      "position": [
+        8.63607122886964,
+        0,
+        2.5649674879026114
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4288576895184008,
+        0,
+        -0.021603230573156267
+      ],
+      "distance": 3.391941931080244,
+      "collided": false,
+      "control": {
+        "position_x": 8.63607122886964,
+        "position_y": 0,
+        "position_z": 2.5649674879026114,
+        "vx": 0.5992401870570345,
+        "vy": 0,
+        "vz": -0.030186059959031373,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 380,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "424431e1b704",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 20000000000,
+          "position": {
+            "x": 8.63607122886964,
+            "y": 0,
+            "z": 2.5649674879026114,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 3.391941931080244,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 11,
+          "path_length_m": 8.6470214268667,
+          "shortest_path_m": 12,
+          "speed_mps": 0.42940146416874037,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 25,
+      "observation_seq": 501,
+      "position": [
+        10.932541381461789,
+        0,
+        2.326601918667667
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.3946888939146711,
+        0,
+        -0.21445213248214173
+      ],
+      "distance": 1.262114447359499,
+      "collided": false,
+      "control": {
+        "position_x": 10.932541381461789,
+        "position_y": 0,
+        "position_z": 2.326601918667667,
+        "vx": 0.5995760679169154,
+        "vy": 0,
+        "vz": -0.022550804448850912,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 480,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "e6068b4e606e",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 25000000000,
+          "position": {
+            "x": 10.932541381461789,
+            "y": 0,
+            "z": 2.326601918667667,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 1.262114447359499,
+          "goal_visible": true,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": true,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 14,
+          "path_length_m": 10.972732623360308,
+          "shortest_path_m": 12,
+          "speed_mps": 0.44918708808883245,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 1,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 27.15,
+      "observation_seq": 544,
+      "position": [
+        11.914796280695475,
+        0,
+        2.168512571848664
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.4521763904407733,
+        0,
+        -0.0387861876103085
+      ],
+      "distance": 0.8358415022939739,
+      "collided": false,
+      "control": {
+        "position_x": 11.914796280695475,
+        "position_y": 0,
+        "position_z": 2.168512571848664,
+        "vx": 0.5915856926345884,
+        "vy": 0,
+        "vz": -0.10013175455395859,
+        "yaw_rate": 0,
+        "decision_age_s": 1.2,
+        "safety_modified": false,
+        "source_observation_seq": 520,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "901240d3ce6b",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 27150000000,
+          "position": {
+            "x": 11.914796280695475,
+            "y": 0,
+            "z": 2.168512571848664,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 0.8358415022939739,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": true,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 18,
+          "path_length_m": 11.97465434189404,
+          "shortest_path_m": 12,
+          "speed_mps": 0.45383681695229255,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 1,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 40,
+      "observation_seq": 801,
+      "position": [
+        19.469236052710137,
+        0,
+        1.7325979307502455
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.5992398974734406,
+        0,
+        -0.03018602394474599
+      ],
+      "distance": 7.576001268231379,
+      "collided": false,
+      "control": {
+        "position_x": 19.469236052710137,
+        "position_y": 0,
+        "position_z": 1.7325979307502455,
+        "vx": 0.599240187031638,
+        "vy": 0,
+        "vz": -0.03018606046319152,
+        "yaw_rate": 0,
+        "decision_age_s": 1.05,
+        "safety_modified": false,
+        "source_observation_seq": 780,
+        "_debug_source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\core\\orchestrator.py",
+          "line": 320,
+          "function": "_control_loop",
+          "snapshot": "debug/sources/e329a9792bfc051cd3d75a6193ac0ef87a84919a3f57bdb60b2358622027eb6a.py"
+        }
+      },
+      "trace_id": "2fbb9e653018",
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 40000000000,
+          "position": {
+            "x": 19.469236052710137,
+            "y": 0,
+            "z": 1.7325979307502455,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 7.576001268231379,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": false,
+          "constraint_violations": 91,
+          "path_length_m": 19.543311345656097,
+          "shortest_path_m": 12,
+          "speed_mps": 0.5999997089712398,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    },
+    {
+      "t": 82.35,
+      "observation_seq": 1648,
+      "position": [
+        44.4620970262886,
+        0,
+        0.499768024158146
+      ],
+      "yaw": 0,
+      "velocity": [
+        0.1488804879123019,
+        0,
+        -0.00504505889248889
+      ],
+      "distance": 32.55823863904799,
+      "collided": false,
+      "control": {},
+      "trace_id": null,
+      "scene": {
+        "obstacles": [],
+        "landmarks": [
+          {
+            "position": [
+              12,
+              0,
+              3
+            ],
+            "label": "red pillar",
+            "target": true,
+            "color": [
+              206,
+              44,
+              44
+            ]
+          }
+        ],
+        "goal": [
+          12,
+          0,
+          3
+        ],
+        "scenario": "visible_target",
+        "vehicles": [],
+        "task_events": [],
+        "task_status": {
+          "t_sim_ns": 82350000000,
+          "position": {
+            "x": 44.4620970262886,
+            "y": 0,
+            "z": 0.499768024158146,
+            "frame": "enu"
+          },
+          "distance_to_goal_m": 32.55823863904799,
+          "goal_visible": false,
+          "subgoals_completed": 0,
+          "subgoals_total": 0,
+          "task_complete": false,
+          "collided": false,
+          "collision_count": 0,
+          "min_obstacle_distance_m": Infinity,
+          "out_of_bounds": true,
+          "constraint_violations": 220,
+          "path_length_m": 44.56672329118778,
+          "shortest_path_m": 12,
+          "speed_mps": 0.14896594342410535,
+          "terminated": false,
+          "termination_reason": null,
+          "extras": {
+            "goal_radius_m": 2,
+            "lure_dwell_s": 0,
+            "landmarks": 1,
+            "obstacles": 0,
+            "skipped_injections": 0,
+            "min_injected_block_clearance_m": -1,
+            "hover_streak_s": 0,
+            "target_contact": 0,
+            "task_complete": 0,
+            "target_ever_visible": 1,
+            "branch_correct": 0,
+            "wrong_branch": 0,
+            "passage_closed": 0,
+            "tracking_good_s": 0,
+            "tracking_total_s": 0,
+            "tracking_fraction": 0,
+            "shortest_path_valid": 1
+          }
+        }
+      },
+      "name": "c3_visible_preflight_20260916_s1061"
+    }
+  ],
+  "playbacks": 2,
+  "errors": [],
+  "c5_overview": [
+    {
+      "name": "c5_commitment_off_240_20260916_s1060",
+      "t": 199.05
+    },
+    {
+      "name": "c5_commitment_on_240_20260916_s1060",
+      "t": 240
+    },
+    {
+      "name": "c5_commitment_off_240_20260916_s1062",
+      "t": 171.05
+    },
+    {
+      "name": "c5_commitment_on_240_20260916_s1062",
+      "t": 169.05
+    }
+  ]
+}

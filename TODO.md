@@ -10,16 +10,20 @@ becomes a decision with evidence.
 
 ---
 
-## D-123 next: repeat frozen pair, isolate geofence recovery
+## D-124/D-126 next: offline STOP and identity contracts
 
-Matched240s comparison is complete. Commitment on succeeds71.2s; off is stopped
-at175s after45s repeated rejected goals (censored). Before36s inputs/replies match;
-first control difference37s follows commitment activation36s. Read
-reports/commitment_pair_20260916/REPORT.md. Repeat the unchanged pair on additional
-development seeds before reliability claims. Separately reconstruct the off124–175s
-blank-camera/geofence failure and test actionable recovery context/authority.
-Do not add that recovery change to this ablation or attribute extensions to native
-OnFly. No third flight launched. Older D116–D122 NEXT items below are superseded.
+Six flights completed/audited. Read reports/commitment_validation_20260916/REPORT.md
+and reports/c2_c3_preflight_20260916/REPORT.md. C5 repeats did not generalize:
+1060 falsely identifies green,1062 fails search; retain frozen target-commitment
+extension and prior1061 success. No navigation fixes were mixed into validation.
+C2/C3 both reach0.836m but never emit near-label1/2 orSTOP. First use exact24–26s
+saved inputs to isolate the travel-label/termination mismatch, without new flights.
+Separately replay C3 final state below0.5m to assess altitude margin/controller
+integration. D-127 already fixes misleading termination wording, not physical
+boundary enforcement. C5 identity confirmation and pre-acquisition search/rejection
+recovery are separate future experiments. Do not append a monitor to C3 silently,
+call a censored run a240s failure, or promote any profile as accepted/reliable.
+No additional run scheduled. D-123 repeat request and D-125 preparation completed.
 
 ## D-107: remaining tool-choice and ordered-state diagnosis
 

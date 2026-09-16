@@ -1,0 +1,708 @@
+{
+  "variant": "c3",
+  "name": "c3_visible_preflight_20260916_s1061",
+  "result": {
+    "episode_id": "c3_visible_preflight_20260916_s1061",
+    "architecture_id": "c3_spf_qwen4_current_dev",
+    "environment_id": "capability_visible_target_slow_240_dev",
+    "task_family": "semantic_goal_nav",
+    "seed": 1061,
+    "success": false,
+    "termination_reason": "out_of_bounds",
+    "termination_detail": "left the geofence",
+    "sim_duration_s": 82.3,
+    "wall_duration_s": 47.67161280000073,
+    "metrics": {
+      "flight_time_s": 82.3,
+      "path_length_m": 44.56672329118778,
+      "distance_to_goal_m": 32.55823863904799,
+      "collisions": 0.0,
+      "collision_rate": 0.0,
+      "min_obstacle_distance_m": -1.0,
+      "out_of_bounds": 1.0,
+      "constraint_violations": 220.0,
+      "subgoals_completed": 0.0,
+      "subgoal_completion": 1.0,
+      "reached_goal": 1.0,
+      "time_to_goal_s": 23.05,
+      "path_efficiency": 0.269259194165903,
+      "semantic_latency_median_s": 0.47524105,
+      "semantic_latency_p95_s": 0.6444717600000001,
+      "decision_production_latency_median_s": 1.05,
+      "decision_age_median_s": 1.55,
+      "decision_age_p95_s": 2.0,
+      "decision_age_max_s": 4.05,
+      "stale_action_rate": 0.0,
+      "stale_rejection_rate": 0.0,
+      "control_updates": 1647.0,
+      "actual_control_hz": 20.012150668286758,
+      "configured_control_hz": 20.0,
+      "control_rate_fidelity": 1.0006075334143378,
+      "decisions_proposed": 82.0,
+      "decisions_executed": 78.0,
+      "executable_plan_rate": 1.0,
+      "verifier_rejection_rate": 0.04878048780487805,
+      "verifier_repair_rate": 0.0,
+      "rejected_or_modified_proposal_rate": 0.04878048780487805,
+      "safety_interventions": 0.0,
+      "safety_intervention_rate": 0.0,
+      "safety_rejections": 0.0,
+      "safety_stops": 0.0,
+      "safety_modification_rate": 0.0,
+      "monitor_assessments": 0.0,
+      "monitor_stop_calls": 0.0,
+      "monitor_lost_calls": 0.0,
+      "monitor_blocked_calls": 0.0,
+      "recovery_triggers": 0.0,
+      "recovery_decisions": 0.0,
+      "task_goal_radius_m": 2.0,
+      "task_lure_dwell_s": 0.0,
+      "task_landmarks": 1.0,
+      "task_obstacles": 0.0,
+      "task_skipped_injections": 0.0,
+      "task_min_injected_block_clearance_m": -1.0,
+      "task_hover_streak_s": 0.0,
+      "task_target_contact": 0.0,
+      "task_task_complete": 0.0,
+      "task_target_ever_visible": 1.0,
+      "task_branch_correct": 0.0,
+      "task_wrong_branch": 0.0,
+      "task_passage_closed": 0.0,
+      "task_tracking_good_s": 0.0,
+      "task_tracking_total_s": 0.0,
+      "task_tracking_fraction": 0.0,
+      "task_shortest_path_valid": 1.0,
+      "agent_stopped": 0.0,
+      "correct_terminal_stop": 0.0,
+      "premature_stop": 0.0,
+      "arrived_without_stopping": 0.0,
+      "recovery_attempted": 0.0,
+      "recovery_success": 0.0,
+      "lure_dwell_s": 0.0,
+      "false_target_commitment": 0.0,
+      "inference_errors": 0.0,
+      "inference_calls_policy": 82.0,
+      "inference_tokens_policy": 2296.0,
+      "inference_latency_s_policy": 42.2317843,
+      "inference_server_setup_s_policy": 0.231438,
+      "inference_charged_s_policy": 83.0,
+      "inference_mean_latency_s_policy": 0.5150217597560975,
+      "inference_calls_total": 82.0,
+      "inference_tokens_total": 2296.0,
+      "reasoner_calls": 0.0,
+      "spf_valid_outputs": 82.0,
+      "spf_invalid_outputs": 0.0,
+      "spf_waypoints": 82.0,
+      "spf_stop_outputs": 0.0,
+      "spf_near_count": 0.0,
+      "spf_mean_distance_label": 4.365853658536586,
+      "spf_last_step_m": 2.871745887492587,
+      "spf_distance_label_1": 0.0,
+      "spf_distance_label_2": 0.0,
+      "spf_distance_label_3": 26.0,
+      "spf_distance_label_4": 0.0,
+      "spf_distance_label_5": 56.0,
+      "spf_distance_label_6": 0.0,
+      "spf_distance_label_7": 0.0,
+      "spf_distance_label_8": 0.0,
+      "spf_distance_label_9": 0.0,
+      "spf_distance_label_10": 0.0,
+      "feature_cache_hits": 0.0,
+      "feature_cache_misses": 0.0,
+      "feature_cache_stores": 0.0,
+      "feature_cache_evictions": 0.0,
+      "feature_cache_hit_rate": 0.0,
+      "router_proposed": 82.0,
+      "router_executed": 78.0,
+      "router_rejected_stale": 0.0,
+      "router_verifier_rejected": 4.0,
+      "router_fence_recoveries": 0.0,
+      "router_verifier_modified": 0.0,
+      "router_plans_requested": 78.0,
+      "router_plans_infeasible": 0.0,
+      "router_directives": 0.0,
+      "router_chunk_actions_executed": 0.0,
+      "router_chunk_actions_discarded": 0.0,
+      "router_safety_accept": 0.0,
+      "router_safety_modify": 0.0,
+      "router_safety_reject": 0.0,
+      "router_safety_stop": 0.0,
+      "router_commands_issued": 1647.0,
+      "router_stale_commands_executed": 0.0,
+      "router_target_commitment_commands": 0.0,
+      "router_stale_commands_rejected": 1.0,
+      "router_decision_age_ns_total": 2503050000000.0,
+      "router_decision_age_samples": 1601.0,
+      "router_unknown_skill": 0.0,
+      "router_invalid_skill_args": 0.0,
+      "router_mean_decision_age_s": 1.5634291068082449,
+      "peak_rss_mb": 0.0,
+      "reasoner_calls_per_minute": 0.0,
+      "tokens_per_minute": 1673.8760631834753
+    },
+    "status": {
+      "t_sim_ns": 82350000000,
+      "position": {
+        "x": 44.4620970262886,
+        "y": 0.0,
+        "z": 0.499768024158146,
+        "frame": "enu"
+      },
+      "distance_to_goal_m": 32.55823863904799,
+      "goal_visible": false,
+      "subgoals_completed": 0,
+      "subgoals_total": 0,
+      "task_complete": false,
+      "collided": false,
+      "collision_count": 0,
+      "min_obstacle_distance_m": Infinity,
+      "out_of_bounds": true,
+      "constraint_violations": 220,
+      "path_length_m": 44.56672329118778,
+      "shortest_path_m": 12.0,
+      "speed_mps": 0.14896594342410535,
+      "terminated": false,
+      "termination_reason": null,
+      "extras": {
+        "goal_radius_m": 2.0,
+        "lure_dwell_s": 0.0,
+        "landmarks": 1.0,
+        "obstacles": 0.0,
+        "skipped_injections": 0.0,
+        "min_injected_block_clearance_m": -1.0,
+        "hover_streak_s": 0.0,
+        "target_contact": 0.0,
+        "task_complete": 0.0,
+        "target_ever_visible": 1.0,
+        "branch_correct": 0.0,
+        "wrong_branch": 0.0,
+        "passage_closed": 0.0,
+        "tracking_good_s": 0.0,
+        "tracking_total_s": 0.0,
+        "tracking_fraction": 0.0,
+        "shortest_path_valid": 1.0
+      }
+    },
+    "config_hash": "0a18767c95d1620a",
+    "used_privileged_observations": false,
+    "error": null
+  },
+  "provenance": {
+    "run_commit": "6a65eb98e288f74b56dcba7fec6bdc81e1ad3b9a",
+    "run_dirty": true,
+    "max_position_error_m": 0.0,
+    "checked_positions": 1647,
+    "final_distance_error_m": 0.0,
+    "source_reference_checks": 0,
+    "missing_source_frames": 0,
+    "recorded_calls": 83,
+    "events_sha256": "7d51048311cad758f12e043f483ea2559ff7c3def4ad3cc7c2e7202fa6a894ca",
+    "image_status": "Replay-rendered with current simulator; reference digests are pose IDs, not pixel hashes"
+  },
+  "poses": 1648,
+  "source_images": 83,
+  "completed_calls": 82,
+  "cancelled_calls": 1,
+  "closest_m": 0.8358415022939739,
+  "outputs": [
+    {
+      "t": 0.0,
+      "seq": 1,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 1.0,
+      "seq": 20,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 2.0,
+      "seq": 40,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 3.0,
+      "seq": 60,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 4.0,
+      "seq": 80,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 5.0,
+      "seq": 100,
+      "status": "complete",
+      "response": "{\n    \"u\": 500,\n    \"v\": 450,\n    \"distance\": 3\n}"
+    },
+    {
+      "t": 6.0,
+      "seq": 120,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 7.0,
+      "seq": 140,
+      "status": "complete",
+      "response": "{\n    \"u\": 500,\n    \"v\": 450,\n    \"distance\": 3\n}"
+    },
+    {
+      "t": 8.0,
+      "seq": 160,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 9.0,
+      "seq": 180,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 10.0,
+      "seq": 200,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 11.0,
+      "seq": 220,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 12.0,
+      "seq": 240,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 13.0,
+      "seq": 260,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 14.0,
+      "seq": 280,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 15.0,
+      "seq": 300,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 16.0,
+      "seq": 320,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 17.0,
+      "seq": 340,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 18.0,
+      "seq": 360,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 19.0,
+      "seq": 380,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 20.0,
+      "seq": 400,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 21.0,
+      "seq": 420,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 22.0,
+      "seq": 440,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 23.0,
+      "seq": 460,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 600,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 24.0,
+      "seq": 480,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 25.0,
+      "seq": 500,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 3\n}"
+    },
+    {
+      "t": 26.0,
+      "seq": 520,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 27.0,
+      "seq": 540,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 28.0,
+      "seq": 560,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 29.0,
+      "seq": 580,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 30.0,
+      "seq": 600,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 31.0,
+      "seq": 620,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 32.0,
+      "seq": 640,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 33.0,
+      "seq": 660,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 34.0,
+      "seq": 680,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 35.0,
+      "seq": 700,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 36.0,
+      "seq": 720,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 37.0,
+      "seq": 740,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 38.0,
+      "seq": 760,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 39.0,
+      "seq": 780,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 40.0,
+      "seq": 800,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 41.0,
+      "seq": 820,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 42.0,
+      "seq": 840,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 43.0,
+      "seq": 860,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 44.0,
+      "seq": 880,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 45.0,
+      "seq": 900,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 46.0,
+      "seq": 920,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 47.0,
+      "seq": 940,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 48.0,
+      "seq": 960,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 49.0,
+      "seq": 980,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 50.0,
+      "seq": 1000,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 51.0,
+      "seq": 1020,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 52.0,
+      "seq": 1040,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 53.0,
+      "seq": 1060,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 54.0,
+      "seq": 1080,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 55.0,
+      "seq": 1100,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 56.0,
+      "seq": 1120,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 57.0,
+      "seq": 1140,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 58.0,
+      "seq": 1160,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 59.0,
+      "seq": 1180,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 60.0,
+      "seq": 1200,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 61.0,
+      "seq": 1220,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 62.0,
+      "seq": 1240,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 63.0,
+      "seq": 1260,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 64.0,
+      "seq": 1280,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 65.0,
+      "seq": 1300,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 66.0,
+      "seq": 1320,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 67.0,
+      "seq": 1340,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 68.0,
+      "seq": 1360,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 69.0,
+      "seq": 1380,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 70.0,
+      "seq": 1400,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 71.0,
+      "seq": 1420,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 72.0,
+      "seq": 1440,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 73.0,
+      "seq": 1460,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 74.0,
+      "seq": 1480,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 75.0,
+      "seq": 1500,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 76.0,
+      "seq": 1520,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 77.0,
+      "seq": 1540,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 78.0,
+      "seq": 1560,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 79.0,
+      "seq": 1580,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 80.0,
+      "seq": 1600,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 81.0,
+      "seq": 1620,
+      "status": "complete",
+      "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}"
+    },
+    {
+      "t": 82.0,
+      "seq": 1640,
+      "status": "cancelled",
+      "response": null
+    }
+  ],
+  "stop_events": []
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "seed": 1060,
+    "variant": "off",
+    "run": "c5_commitment_off_240_20260916_s1060",
+    "success": false,
+    "sim_s": 199.0,
+    "censored": true,
+    "final_m": 46.028909903332924,
+    "closest_m": 24.863841605627858,
+    "closest_s": 39.8,
+    "collisions": 0.0,
+    "out_of_bounds": 0.0,
+    "calls": {
+      "complete": 298,
+      "cancelled": 2
+    },
+    "poses": 3981,
+    "target_proposals": 2,
+    "first_target_s": 5.0,
+    "lease_count": 0,
+    "monitor_labels": {
+      "continue": 99
+    },
+    "recoveries": 0.0,
+    "geofence_rejections": 59,
+    "first_geofence_s": 141.0
+  },
+  {
+    "seed": 1060,
+    "variant": "on",
+    "run": "c5_commitment_on_240_20260916_s1060",
+    "success": false,
+    "sim_s": 240.0,
+    "censored": false,
+    "final_m": 93.14195868329074,
+    "closest_m": 24.766377544632494,
+    "closest_s": 39.1,
+    "collisions": 0.0,
+    "out_of_bounds": 0.0,
+    "calls": {
+      "complete": 359,
+      "cancelled": 1
+    },
+    "poses": 4800,
+    "target_proposals": 7,
+    "first_target_s": 5.0,
+    "lease_count": 2,
+    "monitor_labels": {
+      "continue": 120
+    },
+    "recoveries": 0.0,
+    "geofence_rejections": 67,
+    "first_geofence_s": 172.0
+  },
+  {
+    "seed": 1062,
+    "variant": "off",
+    "run": "c5_commitment_off_240_20260916_s1062",
+    "success": false,
+    "sim_s": 171.0,
+    "censored": true,
+    "final_m": 61.24845816057591,
+    "closest_m": 20.090508634420058,
+    "closest_s": 34.75,
+    "collisions": 0.0,
+    "out_of_bounds": 0.0,
+    "calls": {
+      "complete": 256,
+      "cancelled": 2
+    },
+    "poses": 3421,
+    "target_proposals": 0,
+    "first_target_s": null,
+    "lease_count": 0,
+    "monitor_labels": {
+      "continue": 85
+    },
+    "recoveries": 0.0,
+    "geofence_rejections": 52,
+    "first_geofence_s": 120.0
+  },
+  {
+    "seed": 1062,
+    "variant": "on",
+    "run": "c5_commitment_on_240_20260916_s1062",
+    "success": false,
+    "sim_s": 169.0,
+    "censored": true,
+    "final_m": 58.51850929250032,
+    "closest_m": 20.090508634420058,
+    "closest_s": 34.75,
+    "collisions": 0.0,
+    "out_of_bounds": 0.0,
+    "calls": {
+      "complete": 253,
+      "cancelled": 2
+    },
+    "poses": 3381,
+    "target_proposals": 0,
+    "first_target_s": null,
+    "lease_count": 0,
+    "monitor_labels": {
+      "continue": 84
+    },
+    "recoveries": 0.0,
+    "geofence_rejections": 53,
+    "first_geofence_s": 117.0
+  }
+]

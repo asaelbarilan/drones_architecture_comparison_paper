@@ -1,0 +1,68 @@
+[
+  {
+    "seed": 1060,
+    "variant": "on",
+    "policy_call_started_s": 4.0,
+    "source_note": "Policy says green vertical structure, kind target; actual frame has green pillar and gray buildings. Mission asks red tower. Selected pixel lies on green pillar.",
+    "classification": "wrong target identity",
+    "call": "call-000007",
+    "source_seq": 80,
+    "image": "debug/images/call-000007-0.png",
+    "response": "{\n  \"evidence\": \"green vertical structure\",\n  \"kind\": \"target\",\n  \"u\": 450,\n  \"v\": 200\n}"
+  },
+  {
+    "seed": 1060,
+    "variant": "on",
+    "policy_call_started_s": 53.0,
+    "source_note": "Policy says green rectangle, kind target; actual camera shows solitary green rectangle.",
+    "classification": "wrong target identity",
+    "call": "call-000081",
+    "source_seq": 1060,
+    "image": "debug/images/call-000081-0.png",
+    "response": "{\n  \"evidence\": \"green rectangle\",\n  \"kind\": \"target\",\n  \"u\": 600,\n  \"v\": 300\n}"
+  },
+  {
+    "seed": 1060,
+    "variant": "on",
+    "policy_call_started_s": 190.0,
+    "source_note": "Empty sky/ground; repeated exploration points continue beyond fence.",
+    "classification": "search/rejection recovery",
+    "call": "call-000286",
+    "source_seq": 3800,
+    "image": "debug/images/call-000286-0.png",
+    "response": "{\n  \"evidence\": \"clear blue sky and flat terrain\",\n  \"kind\": \"exploration\",\n  \"u\": 300,\n  \"v\": 400\n}"
+  },
+  {
+    "seed": 1062,
+    "variant": "off",
+    "policy_call_started_s": 0.0,
+    "source_note": "Camera shows gray obstacle cluster; requested red tower not visible in this inspected frame.",
+    "classification": "search required",
+    "call": "call-000001",
+    "source_seq": 1,
+    "image": "debug/images/call-000001-0.png",
+    "response": "{\n  \"evidence\": \"gray stone structures\",\n  \"kind\": \"exploration\",\n  \"u\": 550,\n  \"v\": 450\n}"
+  },
+  {
+    "seed": 1062,
+    "variant": "off",
+    "policy_call_started_s": 35.0,
+    "source_note": "Camera close to gray obstacle faces, no red visible in this inspected frame.",
+    "classification": "exploration",
+    "call": "call-000054",
+    "source_seq": 700,
+    "image": "debug/images/call-000054-0.png",
+    "response": "{\n  \"evidence\": \"gray wall and blue sky\",\n  \"kind\": \"exploration\",\n  \"u\": 333,\n  \"v\": 500\n}"
+  },
+  {
+    "seed": 1062,
+    "variant": "off",
+    "policy_call_started_s": 100.0,
+    "source_note": "Camera faces empty sky/ground.",
+    "classification": "search/rejection recovery",
+    "call": "call-000151",
+    "source_seq": 2000,
+    "image": "debug/images/call-000151-0.png",
+    "response": "{\n  \"evidence\": \"clear blue sky above and flat gray ground below\",\n  \"kind\": \"exploration\",\n  \"u\": 500,\n  \"v\": 500\n}"
+  }
+]

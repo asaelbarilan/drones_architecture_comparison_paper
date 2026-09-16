@@ -16,13 +16,26 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
-## Active D-124 validation (2026-09-16)
+## Latest D-124/D-126 complete, D-127 diagnostic fix (2026-09-16)
 
-Four authorized unchanged C5 flights: seeds1060/1062, off/on each,240s maximum.
-Read reports/commitment_validation_20260916/PLAN.json and per-seed STATE.json.
-Preserve D-123; no navigation changes or retries within batch. Audit actual source
-images and dashboard, then freeze C5 variant and prepare C3 comparison.
-Use dedicated11435 localQwen GPU; shared11434/Valley untouched. No cloud.
+Read reports/commitment_validation_20260916/REPORT.md and
+reports/c2_c3_preflight_20260916/REPORT.md FIRST. Six authorized flights complete,
+all audited; no active or queued run. C5 new seeds1060/1062:0/4 completions,
+three censored early stops and one240s timeout. Prior1061 success remains valid.
+1060 falsely targets green; commitment can retain false identity.1062 no target
+proposal/lease; model variation precedes control divergence. All four end at
+rejected geofence goals, zero collisions/out-of-bounds. Freeze navigation version.
+C2/C3 new matched SPF profiles physically reach0.836m but missSTOP and overshoot.
+C2 exits horizontal fence; C3 crosses altitude floor. D-127 fixes misleading
+geofence diagnostic text AFTER flights; no controls/outcomes changed.
+18,883 control poses and1,339 exact input images verified,54UIseeks/6playbacks,
+plus4 overview selections. Actual camera/observer/map/close-up images inspected.
+1,330 complete localcalls+9 cancellations; no cloud/reinstalls/key reads.
+Next offline saved24–26s SPF close-up STOP contract, then isolated C3 final
+altitude/control boundary. C5 target identity and pre-acquisition search remain
+separate limitations; no broad new architecture/task sweep before interface gates.
+Dedicated11435 unloaded/stopped;8766 debugger retained;shared11434/Valley untouched.
+All navigation configs/results frozen, including failures. Commit each change.
 
 ## Latest D-123 matched240s pair complete (2026-09-16)
 

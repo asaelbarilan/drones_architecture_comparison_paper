@@ -1,0 +1,52 @@
+{
+  "model_id": "qwen3-vl:4b",
+  "role": "policy",
+  "prompt_hash": "spf:point-distance:v1",
+  "input_tokens": 247,
+  "image_count": 1,
+  "observation_seq": 260,
+  "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "u": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000
+      },
+      "v": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000
+      },
+      "distance": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+      }
+    },
+    "required": [
+      "u",
+      "v",
+      "distance"
+    ],
+    "additionalProperties": false
+  },
+  "id": "call-000014",
+  "status": "complete",
+  "source": {
+    "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+    "line": 222,
+    "function": "_infer",
+    "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+  },
+  "started_t_sim_ns": 13000000000,
+  "image_files": [
+    "debug/images/call-000014-0.png"
+  ],
+  "completed_t_sim_ns": 14000000000,
+  "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}",
+  "latency_ns": 572346600,
+  "output_tokens": 28,
+  "cache_hit": false
+}

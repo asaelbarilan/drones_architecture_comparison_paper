@@ -3069,3 +3069,28 @@ bounds wording rather than asserting an unverified horizontal cause. Termination
 conditions, enum, scoring, controls and saved runs remain unchanged.
 31 focused bounds/scenario tests pass, including exact recorded C3 altitude,
 ceiling and other boundary cases. No new flights. Original logs remain preserved.
+
+
+## D-124 / D-126 results: C5 freeze and C2/C3 preflight failures (2026-09-16)
+
+Four unchanged C5 flights complete:1060off199s censored/on240s timeout;1062off171s
+and on169s censored. Zero successes/collisions/out-of-bounds.1060 wrongly labels
+green as target and on activates two leases;1062 never proposes target/no lease.
+1062 identical-input replies differ6s, controls45s; no commitment-effect claim.
+All end in rejected outside-fence goals. Prior1061 success remains valid; do not
+claim reliable C5 or replace failed results. Freeze named extension for comparison.
+15,583 poses/1,173 inputs exact;40UIseeks/4playbacks.1,166 calls+7 cancellations.
+Read reports/commitment_validation_20260916/REPORT.md and per-run MECHANISM.json.
+
+C2/C3 matched visible-target preflight also complete: both reach0.83584m at27.15s
+but never output near-distance labels1/2, neverSTOP, and overshoot. C2 exits45m
+radius82.6s;C3 dips below0.5m82.3s after four gate rejections79–82s. Controls
+differ65s before gate rejects; not a clean final-score gate effect.3,300 poses
+and166 source images exact,14UIseeks/2playbacks,164 calls+2 cancellations.
+Read reports/c2_c3_preflight_20260916/REPORT.md. D-127 fixes diagnostic wording only
+after all flights, preserving outcomes.5 harness+10 preparation+31 diagnostic/
+scenario tests pass. No navigation fixes/model download/cloud calls.
+Both dashboards reviewed, evidence archived. Dedicated11435 unloaded/stopped;
+8766 retained; shared11434/Valley untouched. No pending flights or retries.
+Next saved-frame STOP/identity contract analysis; broad task/architecture rankings
+remain premature. C3 now has an executable profile and an isolated arrival failure.

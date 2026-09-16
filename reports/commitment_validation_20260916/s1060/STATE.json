@@ -1,5 +1,28 @@
 {
-  "status": "frozen",
-  "next": "Start dedicatedGPU server and matched pair",
-  "runs": []
+  "status": "complete_audited",
+  "runs": [
+    {
+      "variant": "off",
+      "run": "c5_commitment_off_240_20260916_s1060",
+      "success": false,
+      "termination": "timeout",
+      "censored": true,
+      "sim_s": 199.0,
+      "final_m": 46.028909903332924,
+      "error": null
+    },
+    {
+      "variant": "on",
+      "run": "c5_commitment_on_240_20260916_s1060",
+      "success": false,
+      "termination": "timeout",
+      "censored": false,
+      "sim_s": 240.0,
+      "final_m": 93.14195868329074,
+      "error": null
+    }
+  ],
+  "active": null,
+  "completed_at_utc": "2026-09-16T18:32:31.773805+00:00",
+  "next": "Frozen; no reruns scheduled. Read parent REPORT.md for failure classification."
 }

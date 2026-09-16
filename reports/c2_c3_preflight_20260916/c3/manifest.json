@@ -1,0 +1,214 @@
+{
+  "architecture_config": {
+    "ablation_of": null,
+    "action_horizon": null,
+    "admission": null,
+    "allow_privileged_observations": false,
+    "authority": "waypoint",
+    "chunk_length": 1,
+    "controller": {
+      "name": "mock_velocity",
+      "params": {
+        "kp": 1.1,
+        "lookahead_m": 3.0,
+        "max_speed_mps": 5.0,
+        "max_yaw_rate_rps": 0.4,
+        "yaw_hold_radius_m": 0.25,
+        "yaw_kp": 1.5
+      }
+    },
+    "description": "Matched C2 plus geometric proposal verifier; no monitor or semantic memory. Preflight pending.",
+    "family": "hybrid_stack",
+    "feature_cache": {
+      "capacity": 32,
+      "enabled": false
+    },
+    "id": "c3_spf_qwen4_current_dev",
+    "inference": {
+      "name": "ollama",
+      "params": {
+        "charge_mode": "fixed",
+        "endpoint": "chat",
+        "expected_digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+        "fixed_latency_s": {
+          "monitor": 1.2,
+          "policy": 1.0
+        },
+        "host": "http://127.0.0.1:11435",
+        "jitter_frac": 0.0,
+        "keep_alive": "30m",
+        "latency_s": {
+          "monitor": 1.6,
+          "perception": 0.02,
+          "policy": 0.35,
+          "reasoner": 2.4
+        },
+        "model_id": "qwen3-vl:4b",
+        "num_ctx": 8192,
+        "num_predict": 192,
+        "response_channel": "thinking",
+        "sampling_seed": 0,
+        "temperature": 0.0,
+        "think": false,
+        "timeout_s": 180.0,
+        "tokens_per_call": {
+          "monitor": 320,
+          "policy": 160,
+          "reasoner": 800
+        }
+      }
+    },
+    "memory": {
+      "name": "no_memory",
+      "params": {}
+    },
+    "memory_consumers": [
+      "policy"
+    ],
+    "monitor": null,
+    "name": "C3 SPF plus verifier current local Qwen4 development",
+    "perception": {
+      "name": "identity",
+      "params": {
+        "charge_latency": false,
+        "drone_radius_m": 0.4,
+        "min_score": 0.0
+      }
+    },
+    "planner": {
+      "name": "super_local",
+      "params": {
+        "clearance_margin_m": 1.2,
+        "commit_horizon_m": 2.5,
+        "max_acc_mps2": 0.6,
+        "planning_horizon_m": 16.0,
+        "resolution_m": 0.5,
+        "sensing_horizon_m": 25.0,
+        "temporal_window_s": 12.0
+      }
+    },
+    "policy": {
+      "name": "spf_waypoint",
+      "params": {
+        "camera_pitch_rad": -0.15,
+        "exponent": 1.8,
+        "hop_m": 12.0,
+        "levels": 10,
+        "min_altitude_m": 0.5,
+        "minimum_step_m": 0.1,
+        "model_id": "qwen3-vl:4b",
+        "scale_m": 10.0,
+        "self_terminate": true,
+        "stop_confidence": 0.35,
+        "stop_confirmations": 2,
+        "stop_label_max": 2,
+        "stop_radius_m": 2.0,
+        "waypoint_tolerance_m": 0.35
+      }
+    },
+    "profile_of": "c3",
+    "recovery": null,
+    "scheduler": {
+      "control_hz": 20.0,
+      "cooldown_s": 2.0,
+      "decision_hz": 2.0,
+      "kind": "periodic",
+      "max_calls": null,
+      "monitor_hz": null,
+      "reasoner_hz": null,
+      "trigger": null,
+      "trigger_check_hz": 5.0
+    },
+    "semantic_memory": "no_memory",
+    "semantic_supervision": "none",
+    "shield": null,
+    "staleness": {
+      "max_decision_age_s": 4.0,
+      "reject_stale": true
+    },
+    "subfamily": null,
+    "tags": [
+      "development",
+      "real_model",
+      "vision",
+      "spf",
+      "normalized_profile",
+      "preflight_pending"
+    ],
+    "unsafe_ablation": false,
+    "verifier": {
+      "name": "semantic_geometric",
+      "params": {
+        "max_waypoint_distance_m": 10.0,
+        "min_clearance_m": 1.8,
+        "repair": false,
+        "require_semantic_support": false,
+        "sensing_horizon_m": 25.0
+      }
+    }
+  },
+  "architecture_config_hash": "0a18767c95d1620a",
+  "architecture_id": "c3_spf_qwen4_current_dev",
+  "container_image_digest": null,
+  "dependency_hash": "c0a4d5978d742980",
+  "environment_config": {
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "id": "capability_visible_target_slow_240_dev",
+    "instruction": "Fly to the red pillar and stop within 2 metres.",
+    "max_episode_s": 240.0,
+    "params": {
+      "accel_tau_s": 1.0,
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ],
+      "camera_pitch_rad": -0.15,
+      "constraints": {
+        "geofence_radius_m": 45,
+        "max_accel_mps2": 0.6,
+        "max_altitude_m": 7,
+        "max_speed_mps": 0.6,
+        "min_altitude_m": 0.5,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "fov_deg": 90,
+      "image_size": 224,
+      "max_speed_mps": 0.6,
+      "render": true,
+      "render_depth": true,
+      "scenario": "visible_target",
+      "success": {
+        "goal_radius_m": 2,
+        "max_flight_time_s": 240.0,
+        "require_terminal_stop": true
+      },
+      "world_size": [
+        100,
+        100,
+        12
+      ]
+    },
+    "task_family": "semantic_goal_nav"
+  },
+  "environment_id": "capability_visible_target_slow_240_dev",
+  "git_branch": "master",
+  "git_dirty": true,
+  "git_dirty_files": 246,
+  "git_sha": "6a65eb98e288f74b56dcba7fec6bdc81e1ad3b9a",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "python": "3.12.3",
+  "schema": "uavlab/manifest/1",
+  "seeds": [
+    1061
+  ]
+}

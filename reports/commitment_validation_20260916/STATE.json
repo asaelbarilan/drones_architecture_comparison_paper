@@ -1,0 +1,14 @@
+{
+  "status": "complete_audited",
+  "flights": 4,
+  "new_successes": 0,
+  "censored": 3,
+  "full_timeouts": 1,
+  "source_images": 1173,
+  "replayed_positions": 15583,
+  "completed_local_calls": 1166,
+  "cancelled": 7,
+  "next": "C5 remains frozen. Offline identity/search diagnosis; C2/C3 preflight completed separately.",
+  "cleanup": "Dedicated11435 unloaded/stopped;8766 remains;shared11434/Valley untouched.",
+  "completed_at_utc": "2026-09-16T18:32:31.773805+00:00"
+}

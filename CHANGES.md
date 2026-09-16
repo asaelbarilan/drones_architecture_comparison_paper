@@ -3026,3 +3026,18 @@ lease deadlines and pre-intervention divergence; visually inspect failures.
 Evidence: reports/commitment_validation_20260916/PLAN.json and per-seed FREEZE.json.
 Status: frozen; flights pending. Shared11434 and Valley untouched, no cloud.
 C3 preparation follows; resolve canonical family/profile before claiming comparison.
+
+
+## D-125: prepare a matched C2/C3 verifier comparison (2026-09-16)
+
+Rationale: latest ASP-UAV design p3 defines C3=C2+verifier. Existing OnFly C3
+diagnostic has no stop producer and stale model digest, so blindly running it
+on an explicit-stop task is not a valid capability test. Offline close-depth
+stub and source audit confirm self_terminate flag does not add OnFly stop logic.
+Prepare named normalized SPF C2/C3 profiles on current C5 common flight stack
+and retained localQwen digest; only gate/identity differ. Use SPF's existing own
+stop mechanism, no extra monitor. Preserve old profiles.10 focused tests pass.
+Evidence: reports/commitment_validation_20260916/c3_readiness/REPORT.md and JSONs.
+Status: prepared, not model-validated. No extra flight/inference or runtime changes.
+Next matched visible-target preflight, then clutter if contracts work. A near-label
+stop can still be premature; report it rather than inferring physical arrival.

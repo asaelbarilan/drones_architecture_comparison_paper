@@ -1,0 +1,50 @@
+{
+  "method": "Offline perfect center-point stub on0.8m synthetic depth; no inference or mission success claim. Repeat same observation to inspect available output types only.",
+  "results": [
+    {
+      "self_terminate": false,
+      "step": 0,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    },
+    {
+      "self_terminate": false,
+      "step": 1,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    },
+    {
+      "self_terminate": false,
+      "step": 2,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    },
+    {
+      "self_terminate": true,
+      "step": 0,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    },
+    {
+      "self_terminate": true,
+      "step": 1,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    },
+    {
+      "self_terminate": true,
+      "step": 2,
+      "kind": "waypoint",
+      "stop_at_target": false,
+      "waypoint_distance_m": 0.800000011920929
+    }
+  ],
+  "decide_sha256": "07574a1abd499b6d9231badf895d6bf9227763aa752a3fc91858d69cee9a1a78",
+  "declared_stop_path_in_decide": false,
+  "calls_maybe_stop": false
+}

@@ -3223,3 +3223,16 @@ unloaded/stopped; other training and shared11434 untouched. STATE remains frozen
 empty runs; same frozen replacement IDs may be used once resources permit.
 11gate tests pass. Evidence: reports/spf_arrival_retry_20260917/REPORT.md,
 HEADROOM.json,RESOURCE_START.json,ADMISSION.json. Goal remains active/incomplete.
+
+
+### D-131 blocked audit, third consecutive goal turn (2026-09-17)
+
+Previous turn was progress: resource admission guard implemented/tested, replacement
+pair frozen, and a loaded-model shortage prevented flight. This turn revalidated
+live training PID24992 and current resource gate failure (about2.6GiB RAM free).
+Same memory-contention blocker spans original allocation failure, admission refusal,
+and current live-process check. No active flight or queued inference; no useful
+remaining validation can run without the external memory release. Mark goal blocked,
+not complete. Preserve full scope and resume the frozen replacement pair after
+resources permit. Evidence: reports/spf_arrival_retry_20260917/BLOCKED_AUDIT.json.
+No training/shared-server changes, no model calls, no new flight.

@@ -1,0 +1,51 @@
+{
+  "goal_status": "blocked",
+  "condition": "insufficient_local_memory_during_independent_training",
+  "consecutive_goal_turns": 3,
+  "previous_turn_classification": "progress",
+  "current_turn_classification": "verified_wait",
+  "previous_evidence": [
+    "646c5cd: image-encode/export allocation failures during first goal turn",
+    "10bd40e: replacement admission refused during second goal turn"
+  ],
+  "current_resources": {
+    "ready": false,
+    "phase": "before_load",
+    "snapshot": {
+      "checked_at": "2026-09-17T10:34:27.801800+00:00",
+      "available_physical_gib": 2.607269287109375,
+      "available_commit_gib": 9.835601806640625,
+      "available_gpu_gib": 5.4326171875
+    },
+    "shortfalls": [
+      {
+        "resource": "available_physical_gib",
+        "available_gib": 2.607269287109375,
+        "required_gib": 8.0
+      },
+      {
+        "resource": "available_commit_gib",
+        "available_gib": 9.835601806640625,
+        "required_gib": 10.0
+      },
+      {
+        "resource": "available_gpu_gib",
+        "available_gib": 5.4326171875,
+        "required_gib": 5.5
+      }
+    ]
+  },
+  "live_training_process": {
+    "Id": 24992,
+    "WorkingSet64": 17031520256,
+    "CPU": 209.71875
+  },
+  "remaining": [
+    "Fresh local C2/C3 flight validation",
+    "Exact replay/source-image audit of those flights",
+    "Visual dashboard review and completion audit"
+  ],
+  "resume": "After other training releases resources, run pre-load gate, load dedicated11435, then scripts/run_spf_arrival.py --replacement. Preserve freeze and original interrupted run.",
+  "no_active_flight": true,
+  "no_inference_queued": true
+}

@@ -16,7 +16,7 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
-## Active D-131 replacement arrival flights: waiting for memory (2026-09-17)
+## Blocked goal: D-131 replacement arrival flights await memory (2026-09-17)
 
 Read reports/spf_arrival_retry_20260917/REPORT.md and ADMISSION.json first.
 No replacement flight/image call started. Training16380 exited, but new expanded
@@ -25,7 +25,8 @@ refused. Dedicated43524/11435 unloaded/stopped; other training/11434 untouched.
 11gate tests pass. STATE is still frozen with empty runs; do not refreeze it.
 Next recheck live process24992 and actual headroom. Run resource gate BEFORE load,
 then runner --replacement rechecks AFTER load. Reuse frozen2flight IDs when safe.
-Goal remains active, arrival/braking not validated. No background runner queued.
+Goal marked blocked after three consecutive memory-blocked turns; see BLOCKED_AUDIT.json.
+Arrival/braking not validated. No background runner queued.
 Preserve original interrupted D129 run; no approval needed when resources release.
 
 ## Active goal: D-129 arrival validation, resource interruption (2026-09-17)

@@ -25,3 +25,9 @@ scripts/local_inference_resources.py and require exit0; after loading, the runne
 checks again. Run scripts/run_spf_arrival.py --replacement only when admitted.
 No process is waiting in the background and no further calls are queued.
 Goal remains active; arrival/braking validation is incomplete.
+
+## Goal status update
+
+Third consecutive goal turn confirmed the same external memory blocker with live
+training PID24992. See BLOCKED_AUDIT.json for current readings and remaining scope.
+Goal is blocked, not complete; resume the same frozen pair after memory release.

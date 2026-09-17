@@ -16,6 +16,15 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
+## Active D-131 replacement arrival flights (2026-09-17)
+
+Training PID16380 exited; resource gate now passes. Read
+reports/spf_arrival_retry_20260917/FREEZE.json/STATE.json. Two fresh replacement
+C2/C3 flights, unchanged D-129 policy/configs, seed1061/max240s. Preserve original
+interrupted run.11resource-gate tests pass. Check before-load and loaded-model
+headroom; only dedicated11435. Audit actual images/controls and low-speedSTOP.
+Goal remains active; no reliability or completion claim until flight evidence.
+
 ## Active goal: D-129 arrival validation, resource interruption (2026-09-17)
 
 Read reports/spf_arrival_20260917/REPORT.md/STATE.json first. Extension9841cbb:

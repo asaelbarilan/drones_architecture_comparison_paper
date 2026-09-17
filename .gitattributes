@@ -30,3 +30,5 @@
 /reports/spf_stop_contract_20260917/** -text
 
 /reports/spf_arrival_20260917/** -text
+
+/reports/spf_arrival_retry_20260917/** -text

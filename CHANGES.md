@@ -3193,3 +3193,21 @@ changes.9export/debug-capture tests pass including injected ArrowMemoryError.
 Goal remains active: wait for memory availability without touching other work,
 then freeze replacement IDs before any fresh inference; preserve this interruption.
 Suggested pre-load headroom:8GiB physical/10GiB virtual/5.5GiB GPU. No queued call.
+
+
+## D-131: resource-gated replacement arrival preflight (2026-09-17)
+
+Previous goal turn made progress (D-129 implementation and interrupted-flight
+analysis, D-130 export fix). Rechecked live PID16380 and host/GPU memory; training
+remained live initially, then exited during this turn. Current HEADROOM.json
+passes before-load gates (16.30GiB physical/25.43GiB commit/5.99GiB GPU at sample).
+No independent training process was interrupted. Add read-only Windows/NVIDIA
+resource gate: before-load8/10/5.5GiB; after-load1.5/2/0.75GiB respectively.
+Unknown/nonfinite or insufficient values refuse admission;11 focused tests pass.
+
+Freeze two fresh replacement IDs c2/c3_spf_arrival_retry_20260917_s1061 under
+reports/spf_arrival_retry_20260917. Same navigation code/config/model/seed and240s
+maximum as D-129, no automatic further retries. Original interrupted run remains
+untouched; its31s record does not measure arrival. C2 thenC3, exact replay and
+camera/dashboard audit required before any completion claim. Flight acceptance
+pending. Pre-load check passes; dedicated11435 only. Shared11434 untouched.

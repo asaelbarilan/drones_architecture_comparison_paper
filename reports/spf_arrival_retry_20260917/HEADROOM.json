@@ -1,0 +1,11 @@
+{
+  "ready": true,
+  "phase": "before_load",
+  "snapshot": {
+    "checked_at": "2026-09-17T10:30:43.693206+00:00",
+    "available_physical_gib": 16.301944732666016,
+    "available_commit_gib": 25.430492401123047,
+    "available_gpu_gib": 5.9931640625
+  },
+  "shortfalls": []
+}

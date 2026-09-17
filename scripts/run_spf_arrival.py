@@ -5,6 +5,8 @@ import asyncio
 import json
 from pathlib import Path
 
+from scripts.local_inference_resources import check_headroom
+from scripts.local_inference_resources import snapshot as resource_snapshot
 from scripts.run_commitment_pair import DIGEST, api, write
 
 from uavlab.core.compose import load_architecture, load_environment
@@ -25,7 +27,10 @@ class AuditedRun(Orchestrator):
         return done
 
 
-async def main(freeze):
+async def main(freeze, replacement=False):
+    global OUT
+    if replacement:
+        OUT = Path("reports/spf_arrival_retry_20260917")
     arches = {v: load_architecture(f"{v}_spf_rgbd_arrival_qwen4_dev") for v in ["c2", "c3"]}
     env = load_environment("capability_visible_target_slow_240_dev")
     snapshot = dict(
@@ -51,6 +56,14 @@ async def main(freeze):
         ),
         stop_rule="At most two flights; preserve failures; no automatic retry or broad sweep.",
     )
+    if replacement:
+        snapshot["decision"] = "D-131"
+        snapshot["replaces_infrastructure_attempt"] = "c2_spf_arrival_20260917_s1061"
+        snapshot["retry_rationale"] = (
+            "D-129 ended before arrival due to image-encode allocation failure. "
+            "Keep that attempt; same navigation code/configs, fresh IDs, "
+            "pre-load and loaded headroom gates. No further automatic retries."
+        )
     if freeze:
         assert not (OUT / "FREEZE.json").exists()
         write(OUT / "FREEZE.json", snapshot)
@@ -59,13 +72,24 @@ async def main(freeze):
     assert json.loads((OUT / "FREEZE.json").read_text(encoding="utf-8")) == snapshot
     state = json.loads((OUT / "STATE.json").read_text(encoding="utf-8"))
     assert state["status"] == "frozen", "No implicit restart"
+    resources = check_headroom(resource_snapshot(), loaded=True)
+    write(OUT / "RESOURCE_START.json", resources)
+    if not resources["ready"]:
+        raise RuntimeError("Insufficient loaded-model headroom; no flight started")
     model = next(m for m in api("/api/ps")["models"] if m["name"] == "qwen3-vl:4b")
     assert model["digest"] == DIGEST and model["size"] == model["size_vram"]
     write(OUT / "RESIDENCY_START.json", model)
     for variant, arch in arches.items():
+        resources = check_headroom(resource_snapshot(), loaded=True)
+        write(OUT / f"RESOURCE_{variant}.json", resources)
+        if not resources["ready"]:
+            state.update(status="waiting_for_resources", active=None)
+            write(OUT / "STATE.json", state)
+            raise RuntimeError("Insufficient memory before next flight")
         state.update(status="running", active=variant)
         write(OUT / "STATE.json", state)
-        name = f"{variant}_spf_arrival_20260917_s1061"
+        suffix = "retry_20260917" if replacement else "20260917"
+        name = f"{variant}_spf_arrival_{suffix}_s1061"
         dest = Path("runs") / name
         assert not dest.exists()
         write_manifest(build_manifest(arch, env, seeds=[1061]), dest)
@@ -97,4 +121,6 @@ async def main(freeze):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--freeze", action="store_true")
-    asyncio.run(main(parser.parse_args().freeze))
+    parser.add_argument("--replacement", action="store_true")
+    args = parser.parse_args()
+    asyncio.run(main(args.freeze, args.replacement))

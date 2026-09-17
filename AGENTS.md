@@ -16,6 +16,14 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
+## Active D-128 saved-frame STOP probe (2026-09-17)
+
+Read reports/spf_stop_contract_20260917/FREEZE.json and STATE.json. Nine local
+calls only:two original repeats and seven bbox diagnostics; no flight/navigation
+change. Width threshold is not equivalent to2m. Full-close26 source is red-filled,
+not absent; actual negative source40 and green distractor included. Preserve
+all prior results. Dedicated11435 only;shared11434/Valley untouched.
+
 ## Latest D-124/D-126 complete, D-127 diagnostic fix (2026-09-16)
 
 Read reports/commitment_validation_20260916/REPORT.md and

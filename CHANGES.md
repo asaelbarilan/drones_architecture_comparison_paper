@@ -3094,3 +3094,26 @@ Both dashboards reviewed, evidence archived. Dedicated11435 unloaded/stopped;
 8766 retained; shared11434/Valley untouched. No pending flights or retries.
 Next saved-frame STOP/identity contract analysis; broad task/architecture rankings
 remain premature. C3 now has an executable profile and an isolated arrival failure.
+
+
+## D-128: isolate SPF STOP on saved images (2026-09-17)
+
+User approved saved-close-up diagnosis before new flights. Freeze nine local
+Qwen3-VL4B calls: two exact original prompt/schema repeats at request24/25s,
+then seven localization-only bbox calls (far0,width-threshold20,close24/25,
+full-close26,absent40,green distractor53 from C5). Same model/digest/options,
+actual source PNG bytes, original raw replies retained. Independent bbox task
+uses the earlier D-113 diagnostic wording, changing red tower to red pillar.
+No numeric range, truth annotation or desired answer is sent to the model.
+Evaluation-only color masks annotate rendered red bounding boxes; never used
+for control. Original images reviewed:26s input is almost all red, not absent.
+The initial preparation incorrectly named that source absent; renamed full_close26
+and added actual absent40 BEFORE any calls. Initial preparation retained.
+At20s source width26.8% already meets near-label rule but true source range3.413m
+is outside2m. At24/25s widths60.7/89.3%, distances1.614/1.273m. Thus visual-size
+label compliance alone cannot certify metric task arrival. Diagnose localization
+versus label mapping, and assess crop identity loss. No deployed navigation
+change or new flight is authorized by this probe protocol. Standing broader
+run/debug/fix authorization remains; next action follows measured findings.
+Evidence: reports/spf_stop_contract_20260917/FREEZE.json. Status:frozen,pending.
+Dedicated11435 GPU only;shared11434/Valley untouched. Nine calls maximum,no retries.

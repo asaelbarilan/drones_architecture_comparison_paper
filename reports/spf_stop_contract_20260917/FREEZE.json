@@ -1,0 +1,574 @@
+{
+  "decision": "D-128",
+  "inference": {
+    "charge_mode": "fixed",
+    "endpoint": "chat",
+    "expected_digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "fixed_latency_s": {
+      "monitor": 1.2,
+      "policy": 1.0
+    },
+    "host": "http://127.0.0.1:11435",
+    "jitter_frac": 0.0,
+    "keep_alive": "30m",
+    "latency_s": {
+      "monitor": 1.6,
+      "perception": 0.02,
+      "policy": 0.35,
+      "reasoner": 2.4
+    },
+    "model_id": "qwen3-vl:4b",
+    "num_ctx": 8192,
+    "num_predict": 192,
+    "response_channel": "thinking",
+    "sampling_seed": 0,
+    "temperature": 0.0,
+    "think": false,
+    "timeout_s": 180.0,
+    "tokens_per_call": {
+      "monitor": 320,
+      "policy": 160,
+      "reasoner": 800
+    }
+  },
+  "cases": [
+    {
+      "id": "far",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 1,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000001",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 0,
+        "image_files": [
+          "debug/images/call-000001-0.png"
+        ],
+        "completed_t_sim_ns": 1000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}",
+        "latency_ns": 1766414200,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "16d8bfdcf296ecdfcfcbd8b692820ff57162d54eca599c22f9f925add3b15a5e",
+      "image": "images/far.png",
+      "annotation_box_pixels": [
+        104,
+        62,
+        120,
+        108
+      ],
+      "visible_width_fraction": 0.07142857142857142,
+      "source_time_s": 0.0,
+      "source_distance_m": 12.0
+    },
+    {
+      "id": "width_threshold",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 400,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000021",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 20000000000,
+        "image_files": [
+          "debug/images/call-000021-0.png"
+        ],
+        "completed_t_sim_ns": 21000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 3\n}",
+        "latency_ns": 1376175600,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "77246f325c7936525aa25ce123561d1d55f2244166ddd6bd83f2a6e18e9a695f",
+      "image": "images/width_threshold.png",
+      "annotation_box_pixels": [
+        82,
+        0,
+        142,
+        129
+      ],
+      "visible_width_fraction": 0.26785714285714285,
+      "source_time_s": 19.95,
+      "source_distance_m": 3.4130713278726725
+    },
+    {
+      "id": "close24",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 480,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000025",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 24000000000,
+        "image_files": [
+          "debug/images/call-000025-0.png"
+        ],
+        "completed_t_sim_ns": 25000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 3\n}",
+        "latency_ns": 1388696600,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "f0a85076270b3a39c322b275c734f37eaef2db161c832e2e37fe3bdf792f8627",
+      "image": "images/close24.png",
+      "annotation_box_pixels": [
+        44,
+        0,
+        180,
+        166
+      ],
+      "visible_width_fraction": 0.6071428571428571,
+      "source_time_s": 23.95,
+      "source_distance_m": 1.6141649079701106
+    },
+    {
+      "id": "close25",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 500,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000026",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 25000000000,
+        "image_files": [
+          "debug/images/call-000026-0.png"
+        ],
+        "completed_t_sim_ns": 26000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 3\n}",
+        "latency_ns": 1286754600,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "7f3ec6c3a1785434b9843cb2c2ba76e9445b87c9d1e239526ce491f5f06b7c62",
+      "image": "images/close25.png",
+      "annotation_box_pixels": [
+        12,
+        0,
+        212,
+        183
+      ],
+      "visible_width_fraction": 0.8928571428571429,
+      "source_time_s": 24.95,
+      "source_distance_m": 1.2732350692326149
+    },
+    {
+      "id": "full_close26",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 520,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000027",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 26000000000,
+        "image_files": [
+          "debug/images/call-000027-0.png"
+        ],
+        "completed_t_sim_ns": 27000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 5\n}",
+        "latency_ns": 1274168800,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "609fd7e97f8dc111cd6b74f32037f1e52a06b91a559600b13b688e4b32388508",
+      "image": "images/full_close26.png",
+      "annotation_box_pixels": [
+        0,
+        0,
+        224,
+        224
+      ],
+      "visible_width_fraction": 1.0,
+      "source_time_s": 25.95,
+      "source_distance_m": 1.0156003426415794
+    },
+    {
+      "id": "absent",
+      "source": "reports\\c2_c3_preflight_20260916\\c2",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "spf:point-distance:v1",
+        "input_tokens": 247,
+        "image_count": 1,
+        "observation_seq": 800,
+        "prompt": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "distance": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "u",
+            "v",
+            "distance"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000041",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\spf.py",
+          "line": 222,
+          "function": "_infer",
+          "snapshot": "debug/sources/11daa22fe1f7c2b6e5b7033beb499bd46cbec4d2e8f16ee47d43f8078791add6.py"
+        },
+        "started_t_sim_ns": 40000000000,
+        "image_files": [
+          "debug/images/call-000041-0.png"
+        ],
+        "completed_t_sim_ns": 41000000000,
+        "response": "{\n  \"u\": 500,\n  \"v\": 450,\n  \"distance\": 5\n}",
+        "latency_ns": 492577300,
+        "output_tokens": 28,
+        "cache_hit": false
+      },
+      "input_sha256": "4d99e22d18f42ac7871871f483b9c0ce7239bb81c0d0cf035a61bb7e40dd98f2",
+      "image": "images/absent.png",
+      "annotation_box_pixels": null,
+      "visible_width_fraction": 0,
+      "source_time_s": 39.95,
+      "source_distance_m": 7.546209843875684
+    },
+    {
+      "id": "green",
+      "source": "reports\\commitment_validation_20260916\\s1060\\on",
+      "source_call": {
+        "model_id": "qwen3-vl:4b",
+        "role": "policy",
+        "prompt_hash": "onfly:decision:grounded_v1",
+        "input_tokens": 219,
+        "image_count": 1,
+        "observation_seq": 1060,
+        "prompt": "Drone mission: fly to the red tower and stop there. Return the point as relative coordinates on a 1000 by 1000 reference grid: u=0 is the left edge, u=999 the right edge, v=0 the top edge, and v=999 the bottom edge. Inspect this current camera image. In evidence use a short noun phrase describing the visible objects and colors. If the exact requested object is visible, set kind=target and point u,v on its visible body. Otherwise set kind=exploration and point u,v through an open passage that can reveal more of the scene. An obstacle face is not an open passage. Match all requested attributes; a similar shape alone is insufficient. If the named destination is not currently visible, select an obviously open, traversable continuation toward the subtask; never point at a nearby obstacle surface merely because a point is required. Return JSON with evidence, kind, u, v.",
+        "response_schema": {
+          "type": "object",
+          "properties": {
+            "evidence": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "target",
+                "exploration"
+              ]
+            },
+            "u": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 999
+            },
+            "v": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 999
+            }
+          },
+          "required": [
+            "evidence",
+            "kind",
+            "u",
+            "v"
+          ],
+          "additionalProperties": false
+        },
+        "id": "call-000081",
+        "status": "complete",
+        "source": {
+          "path": "C:\\Users\\Asael\\PycharmProjects\\drone_architectures_paper\\uav_arch_lab\\src\\uavlab\\plugins\\reasoning\\onfly.py",
+          "line": 609,
+          "function": "decide",
+          "snapshot": "debug/sources/d4a0edb46a2db72087c07b7a3f2fe35db316e0dcd14097b52774403f337aa4ce.py"
+        },
+        "started_t_sim_ns": 53000000000,
+        "image_files": [
+          "debug/images/call-000081-0.png"
+        ],
+        "completed_t_sim_ns": 54000000000,
+        "response": "{\n  \"evidence\": \"green rectangle\",\n  \"kind\": \"target\",\n  \"u\": 600,\n  \"v\": 300\n}",
+        "latency_ns": 1474053700,
+        "output_tokens": 37,
+        "cache_hit": false
+      },
+      "input_sha256": "dab81f6184dfe599fef7f800f265ff6fd8ee947b644f4a8a7b0eb07eba5e147d",
+      "image": "images/green.png",
+      "annotation_box_pixels": null,
+      "visible_width_fraction": 0,
+      "source_time_s": 52.95,
+      "source_distance_m": null
+    }
+  ],
+  "tasks": [
+    {
+      "case": "close24",
+      "variant": "original"
+    },
+    {
+      "case": "close25",
+      "variant": "original"
+    },
+    {
+      "case": "far",
+      "variant": "bbox"
+    },
+    {
+      "case": "width_threshold",
+      "variant": "bbox"
+    },
+    {
+      "case": "close24",
+      "variant": "bbox"
+    },
+    {
+      "case": "close25",
+      "variant": "bbox"
+    },
+    {
+      "case": "full_close26",
+      "variant": "bbox"
+    },
+    {
+      "case": "absent",
+      "variant": "bbox"
+    },
+    {
+      "case": "green",
+      "variant": "bbox"
+    }
+  ],
+  "diagnostic": {
+    "prompt": "Locate the red pillar in this image. This is a localization test, not navigation. Return visible=true and a tight bounding box around ONLY the visible red pillar, excluding adjacent gray buildings. Box order is [left,top,right,bottom], using a 0..999 grid: (0,0) is the image top-left and (999,999) bottom-right. If no red pillar is visible, return visible=false and box=[0,0,0,0]. Gray or green structures are not the red pillar. Evidence should briefly describe what is actually visible. Return JSON with evidence, visible and box.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "evidence",
+        "visible",
+        "box"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "calls_budget": 9,
+  "hypothesis": "Original numeric labels may fail despite usable visual localization. Box width is not assumed to certify 2m arrival.",
+  "criteria": "Original same-source label reproduction; bbox visibility correct, IoU>=0.5 and center in annotation for positives, absent for negatives. Examine source metric range separately, never provide it to model. No flights or deployed policy changes."
+}

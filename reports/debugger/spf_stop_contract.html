@@ -1,0 +1,170 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPF arrival diagnosis · D-128</title><style>
+*{box-sizing:border-box}body{margin:0;background:#0b121c;color:#dce8f2;font:16px/1.5 system-ui}main{max-width:1450px;margin:auto;padding:28px}h1{font-size:30px;margin-bottom:8px}h2{font-size:20px}p{color:#acbdd0}a{color:#62e7ef}.notice,article{background:#142130;border:1px solid #304153;border-radius:12px;padding:20px}.notice{margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:18px}.frame{width:100%;max-width:350px;aspect-ratio:1;position:relative;margin:auto}.frame img,.frame svg{position:absolute;width:100%;height:100%}.frame img{image-rendering:pixelated}.hide-boxes .model{display:none}small{display:block;color:#e8c77e;font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}dt{color:#a6bcd2;font-size:13px}dd{margin:0 0 8px}label{display:block;padding:12px 0}details{border-top:1px solid #304153;padding-top:10px;margin-top:12px}code{color:#f5d59b}
+</style><main><p>UAV LAB / SAVED-FRAME DIAGNOSIS / D-128</p>
+<h1>The pillar is localized, but the arrival label stays wrong</h1>
+<p>Nine local Qwen3-VL 4B calls · seven saved images · no new flight or deployed policy change</p>
+<div class="notice"><strong>What this establishes</strong><ul>
+<li>The original prompt repeats distance=3 at 1.61 m and 1.27 m. Localization-only boxes accurately cover the target in both images.</li>
+<li>The prompt's 25-35% “very close” width rule is already met at 3.41 m. Image width cannot certify the 2 m arrival requirement.</li>
+<li>At the red-filled close-up, localization says no pillar is visible. Overall localization score: 6/7 on these selected cases.</li></ul>
+<p>Depth at the predicted image points separates the selected far/near cases, but measures a surface point, not necessarily the task's goal center. This is a diagnostic, not proof of a working STOP controller.</p>
+<p><a href="c2_c3_preflight.html#run=c2_visible_preflight_20260916_s1061&t=24">Inspect original C2 flight at 24 s</a> · <a href="../spf_stop_contract_20260917/REPORT.md">Evidence report</a></p></div>
+<label><input id="boxes" type="checkbox" checked> Show model bounding boxes (cyan)</label><div class="grid"><article id="far"><h2>far <small>PASS</small></h2>
+      <p>Source frame 0.00 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: far" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADYElEQVR4nO3csY0TYRCAURttCVcDKSUQE9MAXVxAcin5lQExMS1Qh4ugg5N2hMYf+L0YpNXo0/j37p6vX15/X6Dq3b0vAN5yXO99BfCG46pQwnzEk2aDknZcLwqlywYlzRmUNBuUNPdBSTsuVihhNihpzqCk2aCkHe7TU+ZJEmnOoKR5kkSaDUqab/GkHVcrlDBnUNKcQUlzBiXNBiXtuHiSRJgNSpozKGneZiLNBiXNkyTSbFDSnEFJs0FJcx+UNE+SSLNBSXMGJU2gpLnNRJofbiDNlyTS/NEcaTYoab7Fk+Z1O9KcQUlzBiXNGZQ0G5Q0r9uRZoOS5gxKmreZSLNBSfMkiTQblDRnUNJsUNLcByXNk6SJny+fB//r08uPv34l/z0bdOjb09Opf/98uxn1gDPoHqMesEH3GPWAN+pJ8yRpj1EPOIPuMeoBZ9A9Rj3gDEqaDbrHqAf8ut0eox7wNtMioz7Pt/g9Rj3gDLrHqAds0D1GPeB1u01GfZqP+D1GPeAjfo9RD7jNtMioz7NB9xj1gNft9hj1gA26x6gHnEEXGfV5Nugeox5wH3SPUQ94krTJqE+zQfcY9YAz6B6jHrBB9xj1gD+aI82TpD1GPeAMuseoB5xB9xj1gDMoaTboHqMe8MMNe4x6wNtMi4z6PN/i9xj1gDPoHqMeOH59/3rva3gURj3gNhNpAiVNoKQJlDSBkiZQ0gRK2nHvC/hXPd9u976EhyDQifcfP9z7Eh6Fj3jSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEqaQEkTKGkCJU2gpAmUNIGSJlDSBEraH8PbEa9kgvnsAAAAAElFTkSuQmCC">
+      <svg viewBox="0 0 999 999"><rect class="model" x="459" y="269" width="78" height="216" fill="none" stroke="#62e7ef" stroke-width="6"/></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>12.000 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>7.1%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>12.227 m</dd></dl>
+      <p>Original prompt repeat: <code>Not repeated</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;A single red rectangular pillar is visible, standing vertically on the gray ground, with a clear blue sky background. No&quot;,
+  &quot;visible&quot;: true,
+  &quot;box&quot;: [
+    459,
+    269,
+    537,
+    485
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 450,
+  &quot;distance&quot;: 3
+}</pre></details></article><article id="width_threshold"><h2>width_threshold <small>PASS</small></h2>
+      <p>Source frame 19.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: width_threshold" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAAD4ElEQVR4nO3csW0UUQCEYRZtD66DkJzIsQuwXAUSDVAAMR2QugAaQHIX14U7QEfCzmi+r4JD8/v53e3h4/nH24cxf74//nx4uPpV/LOX2+3T19erX8X/9vHqFwB/cx5XvwLuNzjWeQz+o2sNjuVXPNGcoE0GxzqPxYtNq8GxnKBNBsdyByWaE7TJ4Fg+B20yONa5+FPZa28sJ2iTwbHcQZsMjuUEbTI41rn4j+61N5YnSU0Gx3IHbTI4lidJRHOCNhkcy7v4JoNjncfgT2WtwbHcQYnmDtpkcCx30CaDYzlBmwyOdU7+WPaaG8sJ2mRwLHfQJoNj+TZTlb2xnKBNBsfyJKnJ4FhO0CaDY7mDVtkbywnaZHAsn4M2GRzLk6Quc2M5QZsMjuUO2mRwLIE2GRzLx0xV9sbyhxuaDI7lTVKTwbH8pzmiOUGbDI7lXXyTwbF83a7J4FjuoERzB20yOJY7aJPBsZygTQbH8nW7LnNjOUGbDI7lDtpkcCzfZqqyN5YTtMngWJ4kNRkcywnaZHAsd9Aqe2M5QZsMjuVz0CaDY3mS1GVuLCdok8Gx3EGbDI7lBG0yOJZv1BPNk6Qmg2O5gzYZHMsdtMngWO6gRHOCNhkcy1+3azI4lm8zVdkby7v4JoNjuYM2GRzLCdpkcCxft+syN5Zf8U0Gx/IrvsngWD5mqrI3lhO0yeBYvm7XZHAsJ2iTwbHcQavsjeUEbTI4ls9BmwyO5UlSl7mxnKBNBsdyB20yOJYTtMngWP7THNE8SWoyOJY7aJPBsdxBmwyO5Q5KNCdok8Gx/OGGJoNj+TZTlb2xvItvMjjW+fvXt6tfA/caHMu7eKIJlGgCJZpAiSZQogmUaAIlmkCJJlCiCZRoAiWaQIkmUKIJlGgCJZpAiSZQogmUaAIlmkCJJlCiCZRoAiWaQIkmUKIJlGgCJZpAiSZQop1Xv4BrvNxuV78E7rIY6OenL1e/BO7lVzzRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0d4BKyESI7aO3TYAAAAASUVORK5CYII=">
+      <svg viewBox="0 0 999 999"><rect class="model" x="363" y="0" width="272" height="579" fill="none" stroke="#62e7ef" stroke-width="6"/></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>3.413 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>26.8%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>3.564 m</dd></dl>
+      <p>Original prompt repeat: <code>Not repeated</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;A vertical red rectangular pillar is visible, extending from the middle of the image upwards, with its base on the gray/&quot;,
+  &quot;visible&quot;: true,
+  &quot;box&quot;: [
+    363,
+    0,
+    635,
+    579
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 450,
+  &quot;distance&quot;: 3
+}</pre></details></article><article id="close24"><h2>close24 <small>PASS</small></h2>
+      <p>Source frame 23.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: close24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADtUlEQVR4nO3coZUsZRRG0W5WBfESQSIRhIB5izxYKFJ4EeCJAIfFEcWEQQLMtd8ReycwJU7fvlV/Tb9/+fbva+qf33/848uX7TXwv75+fHz/21/ba/hu++fh9rzXV0DZPI/nPb8EwuZ5+IonzQTlMs/jee/XDLrmeZigXOZ52EFJM0G5zPPwHJTLPI9n/xmhbJ2HCcplnocdlMs8DxOUyzyPZ38JlK3zcJLEZZ6HHZTLPA8nSaSZoFzmebiL5zLP43nPPyOEzfOwg5JmB+Uyz8MOymWehwnKZZ7HE/iQUOYkibB5HnZQLvM8vM3EaZ2HCcplnoeTJC7zPExQLvM87KCc1nmYoFzmeXgOymWeh5MkbvObJH3yuXkedlAu8zwEymWeh8dMnNZ5+OEGLvM83CRxmefhn+ZIM0G5zPNwF89lnofX7bjM87CDkmYH5TLPww7KZZ6HCcplnofX7bg5SSJsnocdlMs8D28zcVrnYYJymefhJInLPA8TlMs8Dzsop3UeJiiXeR6eg3KZ5+Ekidv8JkmffG6ehx2UyzwPE5TLPA9v1JPmJInLPA87KJd5HnZQLvM87KCkmaBc5nn4dTsu8zy8zcRpnYe7eC7zPOygXOZ5mKBc5nl43Y7b+iZpPsMpm+fhK57LPA+PmTit8zBBuczz8Lodl3keJiiXeR52UE7rPExQLvM8PAflMs/DSRK3+U2SPvncPA87KJd5HiYol3ke/mmONCdJXOZ52EG5zPOwg3KZ52EHJc0E5TLPww83cJnn4W0mTus83MVzmefx/P3nr+troGueh7t40gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRK2rO+gNfr9fr68bG+BKL2gf7w80/rS6DLVzxpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJ+w8sFRIrRgGCNAAAAABJRU5ErkJggg==">
+      <svg viewBox="0 0 999 999"><rect class="model" x="191" y="0" width="614" height="743" fill="none" stroke="#62e7ef" stroke-width="6"/></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>1.614 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>60.7%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>1.477 m</dd></dl>
+      <p>Original prompt repeat: <code>{&quot;u&quot;: 500, &quot;v&quot;: 500, &quot;distance&quot;: 3}</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;A solid red rectangular pillar is visible, centered vertically and horizontally in the image, with a clear blue sky and灰&quot;,
+  &quot;visible&quot;: true,
+  &quot;box&quot;: [
+    191,
+    0,
+    805,
+    743
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 500,
+  &quot;distance&quot;: 3
+}</pre></details></article><article id="close25"><h2>close25 <small>PASS</small></h2>
+      <p>Source frame 24.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: close25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADOklEQVR4nO3csY0TURRAUYzcw3ZCSEawJRCsRB+IiBbogJgKNiMkpAt3QQMj/9FKnndHnBM7mODq+3neeC5ffvx9d9ef759+Pj3d/wy8wcvt9uHb6/3PvD/mUuBtrpfpK+B/tszvelEoc5b5+YonzQnKpGV+18t6DIBHWebnBGWSGZRzc4Iyac8MCmPW90HXDcPjrPJzgjLJJok0Myhpe2bQI64DttkkUWaTRJpNEufmBGWSX/Gk7bkPKlHGLPMzg5JmBmWSGZQ0u3jS1ifojojhcWySCDODkuZpJtqcoJTZJJG2zM8JyiQzKG1mUMpskkizSSLOJokwmyTSdsygR1wGbHObiTYvbqDMixtI8+IGzs0JyiS3mUjzuB1pXtzAuZlBmWQGJc3jdqR53I44myTCzKCkeZqJNicoZTZJpHlxA2lmUNrMoJTZJJFmk0ScTRJhNkmkmUFJ869Ozs0miUk2SaSZQUkzg3JuTlAm7bkPqlDGrN9up08m2SRR5lc8aXbxpO14ot4QyiSP2xHmK540f5qjzQlKmRc3kOZxO9LMoLSZQSmz6iTNixuIs0kizCaJNDMoaf40x7nZJDHJJok0MyhpZlDOzQnKJC9uIM2LG2izSaJs/Sv+96+vR1wIbFnm51c8aQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkXfd86OV2e/R1wKZ1oB8/Px9wHbDJVzxpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRK2j+vHhItiADEPwAAAABJRU5ErkJggg==">
+      <svg viewBox="0 0 999 999"><rect class="model" x="51" y="1" width="897" height="816" fill="none" stroke="#62e7ef" stroke-width="6"/></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>1.273 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>89.3%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>0.992 m</dd></dl>
+      <p>Original prompt repeat: <code>{&quot;u&quot;: 500, &quot;v&quot;: 500, &quot;distance&quot;: 3}</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;The image shows a large solid red square in the center, which is the red pillar. The surrounding areas are blue (top) or&quot;,
+  &quot;visible&quot;: true,
+  &quot;box&quot;: [
+    51,
+    1,
+    948,
+    817
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 500,
+  &quot;distance&quot;: 3
+}</pre></details></article><article id="full_close26"><h2>full_close26 <small>FAIL — target missed</small></h2>
+      <p>Source frame 25.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: full_close26" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAACbElEQVR4nO3SIQEAIADAMCAQ/UvQiQZYLrYEF59n7wFV63cAvBiUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkXBWwC6RoCGF4AAAAASUVORK5CYII=">
+      <svg viewBox="0 0 999 999"></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>1.016 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>100.0%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>No target point</dd></dl>
+      <p>Original prompt repeat: <code>Not repeated</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;The image is entirely red with no visible pillars or structures. There are no gray or green elements present.&quot;,
+  &quot;visible&quot;: false,
+  &quot;box&quot;: [
+    0,
+    0,
+    0,
+    0
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 500,
+  &quot;distance&quot;: 5
+}</pre></details></article><article id="absent"><h2>absent <small>PASS</small></h2>
+      <p>Source frame 39.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: absent" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAACwUlEQVR4nO3cQRECMRAAwYRaofjABjZOBQ5QhALum3l0K+AxtexdAvv5/i6oepz+AHBn9ulPADdmK5QwX/GkmaCkzV4KpcsEJc0OSpoJSpr3oKTNMkIJM0FJs4OSZoKSNt7TU+YkiTQ7KGlOkkgzQUnzFE/abCOUMDsoaXZQ0uygpJmgpM1ykkSYCUqaHZQ0t5lIM0FJc5JEmglKmh2UNBOUNO9BSXOSRJoJSpodlDSBkuY1E2n+uIE0D0mk+dEcaSYoaZ7iSXPdjjQ7KGl2UNLsoKSZoKS5bkeaCUqaHZQ0t5lIM0FJc5JEmglKmh2UNBOUNO9BSXOSRJoJSpodlDQTlDQ36klzkkSaHZQ0OyhpdlDSTFDS/LsdaW4zkeYpnjQ7KGkmKGmu25HmK540X/Gkec1EmglKmut2pJmgpNlBSTNBSfMelDQnSaSZoKTZQUkzQUnzoznSnCSRZgclzQ5Kmh2UNBOUNH/cQJrbTKTN53qd/gzwl4ck0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiXtB6mABqb/SZyZAAAAAElFTkSuQmCC">
+      <svg viewBox="0 0 999 999"></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>7.546 m</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>0.0%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>No target point</dd></dl>
+      <p>Original prompt repeat: <code>Not repeated</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;The image shows a clear blue sky above a flat gray ground with no red pillars or other structures visible. The entire画面&quot;,
+  &quot;visible&quot;: false,
+  &quot;box&quot;: [
+    0,
+    0,
+    0,
+    0
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;u&quot;: 500,
+  &quot;v&quot;: 450,
+  &quot;distance&quot;: 5
+}</pre></details></article><article id="green"><h2>green <small>PASS</small></h2>
+      <p>Source frame 52.95 s · RGB PNG · 224 x 224</p>
+      <div class="frame"><img alt="Exact VLM input: green" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADtElEQVR4nO3csXGcVRhGYYnZZmiABuiAChiKIKEDYmJHTqEDJ5ARkrgBCqECO9Kw53v1PAXs7Mx7fHW1+1uvP/72zwtUffPsNwBf83h99juAr3i8KpQwP+JJc4KS9nh9UShdTlDS3EFJc4KS5nNQ0h4vjlDCnKCkuYOS5gQl7eFzesp8k0SaOyhpvkkizQlKmt/iSXu8OkL/X3//+sPbvuB3P//xti+Y8nj2G3iPvv3p+7d6qc8fPr3VSzW5g563vaA76HnbCzpBz9te8LH+L/A9WF7QCXre9oLuoOdtL+hppvumF3SCnre9oG+Sztte0Al63vaC7qD3TS/oBD1ve0Gfg563vaBvkgYsL+gEPW97QXfQ87YXFOh52wv6mOm+6QX94Ybzthf0S9J52wv6ww2kOUHP217Qb/HnbS/ocbvzthd0ByXNHfS87QXdQc/bXtAJet72gh63G7C8oBP0vO0F3UHP217Q00z3TS/oBD1ve0HfJJ23vaAT9LztBd1B75te0Al63vaCPgc9b3tB3yQNWF7QCXre9oLuoOdtL+gEPW97QU/Uk+abpPO2F3QHPW97QXfQ87YXdAclzQl63vaC/rrdedsLeprpvukF/RZ/3vaC7qDnbS/oBD1ve0GP2w1YXtCP+PO2F/Qj/rztBX3MdN/0gk7Q87YX9LjdedsLOkHP217QHfS+6QWdoOdtL+hz0PO2F/RN0oDlBZ2g520v6A563vaCTtDzthf0n+ZI803SedsLuoOet72gO+h52ws+nv0G3qPPHz49+y2c8frxz3+f/R7gi/zhBtI8zUTa46/ff3n2e4Av8kE9aQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZL2H/lyEYbrzSJKAAAAAElFTkSuQmCC">
+      <svg viewBox="0 0 999 999"></svg></div>
+      <dl><dt>Goal-center range (evaluation only)</dt><dd>Not used</dd>
+      <dt>Visible red width (evaluation only)</dt><dd>0.0%</dd>
+      <dt>Range to depth point (offline reconstruction)</dt><dd>No target point</dd></dl>
+      <p>Original prompt repeat: <code>Not repeated</code></p>
+      <details open><summary>Localization-only answer</summary><pre>{
+  &quot;evidence&quot;: &quot;The image shows a green rectangular structure with a dark border, positioned vertically against a blue sky and gray land&quot;,
+  &quot;visible&quot;: false,
+  &quot;box&quot;: [
+    0,
+    0,
+    0,
+    0
+  ]
+}</pre></details>
+      <details><summary>Original flight answer — preserved</summary><pre>{
+  &quot;evidence&quot;: &quot;green rectangle&quot;,
+  &quot;kind&quot;: &quot;target&quot;,
+  &quot;u&quot;: 600,
+  &quot;v&quot;: 300
+}</pre></details></article></div>
+<div class="notice"><h2>Method and limits</h2><p>All nine PNG request payloads match the frozen sources byte for byte. Original prompts, schemas and both raw response channels are archived. The configured JSON channel is thinking. Truth annotations and numerical ranges were not sent to the model. 801 replayed poses and six reconstructed source images match the C2 recording.</p><p>Correction to the earlier interpretation: the request at 26 s already returned distance=5 while its source image was red-filled. That label does not establish that the target had left the camera.</p><p>The localization-only task differs from the combined waypoint task. These selected frames do not establish flight reliability or a causal architectural advantage.</p></div></main>
+<script>document.getElementById('boxes').addEventListener('change',e=>document.body.classList.toggle('hide-boxes',!e.target.checked));</script></html>

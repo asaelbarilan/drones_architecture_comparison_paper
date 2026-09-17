@@ -1,0 +1,98 @@
+{
+  "status": "complete",
+  "task": {
+    "case": "close25",
+    "variant": "original"
+  },
+  "body": {
+    "model": "qwen3-vl:4b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are the spatial waypoint policy for a small autonomous drone.\n\nMISSION: Fly to the red pillar and stop within 2 metres.\n\nLook at the current forward camera image and choose exactly one image point for\nthe drone's next safe movement. Point directly at the requested goal when it is\nvisible. Otherwise point at visible free space that best advances the mission.\n\nReturn one JSON object and nothing else:\n{\"u\": <integer 0-1000>, \"v\": <integer 0-1000>, \"distance\": <integer 1-10>}\n\nCoordinates are normalized: (0,0) is top-left, (500,500) is the image center\nand (1000,1000) is bottom-right. `distance` is intended forward travel, not\nsensor depth. Use this ordered visual scale: 1 only when the requested target is\nextremely close (roughly more than 35% of image width); 2 when very close\n(roughly 25-35%); 3-5 at medium apparent size; and 6-10 when far/small. A tiny\ntarget should be 9-10. When the target is not visible, choose a safe search\npoint and use 5. Never reverse this scale.\n",
+        "images": [
+          "iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADOklEQVR4nO3csY0TURRAUYzcw3ZCSEawJRCsRB+IiBbogJgKNiMkpAt3QQMj/9FKnndHnBM7mODq+3neeC5ffvx9d9ef759+Pj3d/wy8wcvt9uHb6/3PvD/mUuBtrpfpK+B/tszvelEoc5b5+YonzQnKpGV+18t6DIBHWebnBGWSGZRzc4Iyac8MCmPW90HXDcPjrPJzgjLJJok0Myhpe2bQI64DttkkUWaTRJpNEufmBGWSX/Gk7bkPKlHGLPMzg5JmBmWSGZQ0u3jS1ifojojhcWySCDODkuZpJtqcoJTZJJG2zM8JyiQzKG1mUMpskkizSSLOJokwmyTSdsygR1wGbHObiTYvbqDMixtI8+IGzs0JyiS3mUjzuB1pXtzAuZlBmWQGJc3jdqR53I44myTCzKCkeZqJNicoZTZJpHlxA2lmUNrMoJTZJJFmk0ScTRJhNkmkmUFJ869Ozs0miUk2SaSZQUkzg3JuTlAm7bkPqlDGrN9up08m2SRR5lc8aXbxpO14ot4QyiSP2xHmK540f5qjzQlKmRc3kOZxO9LMoLSZQSmz6iTNixuIs0kizCaJNDMoaf40x7nZJDHJJok0MyhpZlDOzQnKJC9uIM2LG2izSaJs/Sv+96+vR1wIbFnm51c8aQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkXfd86OV2e/R1wKZ1oB8/Px9wHbDJVzxpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRK2j+vHhItiADEPwAAAABJRU5ErkJggg=="
+        ]
+      }
+    ],
+    "stream": false,
+    "think": false,
+    "keep_alive": "30m",
+    "format": {
+      "type": "object",
+      "properties": {
+        "u": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "v": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      },
+      "required": [
+        "u",
+        "v",
+        "distance"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0.0,
+      "seed": 0,
+      "num_ctx": 8192,
+      "num_predict": 192
+    }
+  },
+  "image_sha256": "7f3ec6c3a1785434b9843cb2c2ba76e9445b87c9d1e239526ce491f5f06b7c62",
+  "reply": {
+    "model": "qwen3-vl:4b",
+    "created_at": "2026-09-17T08:36:08.1329939Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinking": "{\n  \"u\": 500,\n  \"v\": 500,\n  \"distance\": 3\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1297355500,
+    "load_duration": 3168000,
+    "prompt_eval_count": 1310,
+    "prompt_eval_cached_count": 4,
+    "prompt_eval_duration": 777447000,
+    "eval_count": 28,
+    "eval_duration": 430093000
+  },
+  "answer": {
+    "u": 500,
+    "v": 500,
+    "distance": 3
+  },
+  "wall_s": 1.312000000005355,
+  "residency": {
+    "name": "qwen3-vl:4b",
+    "model": "qwen3-vl:4b",
+    "size": 4235345264,
+    "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3vl",
+      "families": [
+        "qwen3vl"
+      ],
+      "parameter_size": "4.4B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-09-17T12:06:08.1335198+03:00",
+    "size_vram": 4235345264,
+    "context_length": 8192
+  }
+}

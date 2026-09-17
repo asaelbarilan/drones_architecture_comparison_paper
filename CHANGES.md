@@ -3117,3 +3117,24 @@ change or new flight is authorized by this probe protocol. Standing broader
 run/debug/fix authorization remains; next action follows measured findings.
 Evidence: reports/spf_stop_contract_20260917/FREEZE.json. Status:frozen,pending.
 Dedicated11435 GPU only;shared11434/Valley untouched. Nine calls maximum,no retries.
+
+
+## D-128 results: separate localization, travel label and arrival (2026-09-17)
+
+Status: complete. Nine local saved-image calls; no flights or deployed changes.
+Original request24/25 repeats both reproduce distance3 at true1.614/1.273m.
+Localization-only boxes on the identical images have IoU0.987/0.990. Selected
+bbox cases6/7 pass; red-filled25.95s is missed, while absent and green negatives
+pass. Visual width26.8% at3.413m already meets the prompt's near rule: label
+compliance alone cannot certify2m arrival. No width-only stop fix deployed.
+Correction superseding D-126 interpretation: request26 already outputs label5
+on a red-filled image; its label does not prove the target had left view.
+Offline replay801poses/sixC2source images exact; depth at predicted box centers
+separates sampled near/far, but measures surface points rather than goal center.
+Next named metric-arrival extension must resolve this mismatch, source age/live
+pose, depth validity, identity continuity and braking before new flight evidence.
+NativeSPF remains RGB-only; adding depth is an extension, not paper reproduction.
+Evidence: reports/spf_stop_contract_20260917/REPORT.md, all9rawcalls, SUMMARY,
+DEPTH_CHECK, and visually reviewed debugger/spf_stop_contract.html. Seven images,
+four overlays and toggle states checked; no browser errors. Dedicated11435
+unloaded/stopped; shared11434/Valley untouched. No cloud/key reads/downloads.

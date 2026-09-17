@@ -1,0 +1,102 @@
+{
+  "poses_checked": 801,
+  "source_images_checked": 6,
+  "rows": [
+    {
+      "case": "far",
+      "seq": 1,
+      "t": 0.0,
+      "model_visible": true,
+      "metric_range_m": 12.22676602167713,
+      "within_2m": false,
+      "diagnostic_true_center_range_m": 12.0,
+      "pixel": [
+        111.16516516516516,
+        84.15515515515516
+      ],
+      "camera_forward_depth_m": 11.865252494812012,
+      "world_point": [
+        12.172842463433794,
+        0.08844219738196445,
+        4.143630922537415
+      ]
+    },
+    {
+      "case": "width_threshold",
+      "seq": 400,
+      "t": 19.95,
+      "model_visible": true,
+      "metric_range_m": 3.564153600760377,
+      "within_2m": false,
+      "diagnostic_true_center_range_m": 3.4130713278726725,
+      "pixel": [
+        111.38838838838839,
+        64.62312312312312
+      ],
+      "camera_forward_depth_m": 3.282508611679077,
+      "world_point": [
+        12.067776780907707,
+        0.01792518198319661,
+        3.448450875323516
+      ]
+    },
+    {
+      "case": "close24",
+      "seq": 480,
+      "t": 23.95,
+      "model_visible": true,
+      "metric_range_m": 1.4769250649121044,
+      "within_2m": true,
+      "diagnostic_true_center_range_m": 1.6141649079701106,
+      "pixel": [
+        111.16516516516516,
+        82.92742742742743
+      ],
+      "camera_forward_depth_m": 1.4295114278793335,
+      "world_point": [
+        11.9434203044216,
+        0.010655410149894238,
+        2.6256356428074934
+      ]
+    },
+    {
+      "case": "close25",
+      "seq": 500,
+      "t": 24.95,
+      "model_visible": true,
+      "metric_range_m": 0.9924971964389252,
+      "within_2m": true,
+      "diagnostic_true_center_range_m": 1.2732350692326149,
+      "pixel": [
+        111.5,
+        91.29829829829829
+      ],
+      "camera_forward_depth_m": 0.9759560823440552,
+      "world_point": [
+        11.904761591548956,
+        0.004356946796178817,
+        2.3698462842890446
+      ]
+    },
+    {
+      "case": "full_close26",
+      "seq": 520,
+      "t": 25.95,
+      "model_visible": false,
+      "metric_range_m": null,
+      "within_2m": false,
+      "diagnostic_true_center_range_m": 1.0156003426415794
+    },
+    {
+      "case": "absent",
+      "seq": 800,
+      "t": 39.95,
+      "model_visible": false,
+      "metric_range_m": null,
+      "within_2m": false,
+      "diagnostic_true_center_range_m": 7.546209843875684
+    }
+  ],
+  "close_target_point_separation_m": 0.2587708690190361,
+  "scope": "Diagnostic geometry feasibility on recorded states; not a deployed stop policy, new flight or proof of closed-loop success. Source target-center truth used only for evaluation."
+}

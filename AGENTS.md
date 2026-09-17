@@ -16,13 +16,19 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
-## Active D-128 saved-frame STOP probe (2026-09-17)
+## D-128 saved-frame STOP probe complete (2026-09-17)
 
-Read reports/spf_stop_contract_20260917/FREEZE.json and STATE.json. Nine local
-calls only:two original repeats and seven bbox diagnostics; no flight/navigation
-change. Width threshold is not equivalent to2m. Full-close26 source is red-filled,
-not absent; actual negative source40 and green distractor included. Preserve
-all prior results. Dedicated11435 only;shared11434/Valley untouched.
+Read reports/spf_stop_contract_20260917/REPORT.md first. Nine local calls complete;
+no flight or deployed policy change. Original near-image prompts repeat distance3;
+localization-only boxes succeed there but fail on red-filled crop (6/7 cases).
+Width near-rule already applies outside2m; do not deploy width-only STOP.
+Offline depth distinguishes sampled near/far, but surface range is not goal-center
+range. Next named arrival extension must resolve metric semantics, freshness/live
+pose, depth validity and target continuity; preserve native RGB-only SPF.
+D-126 interpretation corrected: label5 already occurs on red-filled source25.95s,
+not evidence of disappearance.801poses/sixsource images verified, nine request
+PNGs exact; dashboard images reviewed.11435 stopped;11434/Valley untouched.
+No pending flight/inference; C3 altitude-boundary diagnosis remains separate.
 
 ## Latest D-124/D-126 complete, D-127 diagnostic fix (2026-09-16)
 

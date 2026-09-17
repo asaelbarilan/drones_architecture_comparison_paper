@@ -10,14 +10,17 @@ becomes a decision with evidence.
 
 ---
 
-## D-124/D-126 next: offline STOP and identity contracts
+## D-128 next: explicit arrival contract and identity continuity
 
 Six flights completed/audited. Read reports/commitment_validation_20260916/REPORT.md
 and reports/c2_c3_preflight_20260916/REPORT.md. C5 repeats did not generalize:
 1060 falsely identifies green,1062 fails search; retain frozen target-commitment
 extension and prior1061 success. No navigation fixes were mixed into validation.
-C2/C3 both reach0.836m but never emit near-label1/2 orSTOP. First use exact24–26s
-saved inputs to isolate the travel-label/termination mismatch, without new flights.
+C2/C3 both reach0.836m but never emit near-label1/2 orSTOP. D-128 completed the saved-frame probe: labels fail despite accurate near boxes;
+red-filled crop loses identity; apparent width is not metric distance. Read
+reports/spf_stop_contract_20260917/REPORT.md. Next isolate a named arrival
+interface, resolving surface-versus-center range, freshness/live pose, invalid
+depth and identity continuity before a fresh flight. Keep native SPF unchanged.
 Separately replay C3 final state below0.5m to assess altitude margin/controller
 integration. D-127 already fixes misleading termination wording, not physical
 boundary enforcement. C5 identity confirmation and pre-acquisition search/rejection

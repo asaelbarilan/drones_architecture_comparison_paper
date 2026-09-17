@@ -469,6 +469,7 @@ withdrawn, and because the pattern of error is itself informative.
 
 | claim | status | what was actually true |
 |---|---|---|
+| D-126 label5 begins because the target left the camera | **corrected by D-128** | Request26 already uses label5 on red-filled source25.95s; disappearance cannot be inferred from that label |
 | D-118/D-119 history is runtime reconstruction; live35.95s history ends27.85s | **withdrawn, D-120** | Probe used dense control-cadence history. Actual event-ordered memory ends34.95s; current RGB/raw replies remain exact |
 | "C1–C6 orbit and never acquire the target" | **withdrawn** | True of seed 3, false of the regime. c2 succeeded on 14 of 20 seeds at the time. Generalised from one rendered video |
 | "C2G's nondeterminism is intermittent GPU noise" | **withdrawn** | Deterministic and structural — a recycled `id()` in the frame store (D-19) |
@@ -3006,3 +3007,24 @@ change or new flight is authorized by this probe protocol. Standing broader
 run/debug/fix authorization remains; next action follows measured findings.
 Evidence: reports/spf_stop_contract_20260917/FREEZE.json. Status:frozen,pending.
 Dedicated11435 GPU only;shared11434/Valley untouched. Nine calls maximum,no retries.
+
+
+## D-128 results: separate localization, travel label and arrival (2026-09-17)
+
+Status: complete. Nine local saved-image calls; no flights or deployed changes.
+Original request24/25 repeats both reproduce distance3 at true1.614/1.273m.
+Localization-only boxes on the identical images have IoU0.987/0.990. Selected
+bbox cases6/7 pass; red-filled25.95s is missed, while absent and green negatives
+pass. Visual width26.8% at3.413m already meets the prompt's near rule: label
+compliance alone cannot certify2m arrival. No width-only stop fix deployed.
+Correction superseding D-126 interpretation: request26 already outputs label5
+on a red-filled image; its label does not prove the target had left view.
+Offline replay801poses/sixC2source images exact; depth at predicted box centers
+separates sampled near/far, but measures surface points rather than goal center.
+Next named metric-arrival extension must resolve this mismatch, source age/live
+pose, depth validity, identity continuity and braking before new flight evidence.
+NativeSPF remains RGB-only; adding depth is an extension, not paper reproduction.
+Evidence: reports/spf_stop_contract_20260917/REPORT.md, all9rawcalls, SUMMARY,
+DEPTH_CHECK, and visually reviewed debugger/spf_stop_contract.html. Seven images,
+four overlays and toggle states checked; no browser errors. Dedicated11435
+unloaded/stopped; shared11434/Valley untouched. No cloud/key reads/downloads.

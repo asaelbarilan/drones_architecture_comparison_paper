@@ -1,4 +1,11 @@
 {
-  "status": "frozen",
-  "completed": 0
+  "status": "complete",
+  "completed": 9,
+  "new_flights": 0,
+  "deployed_changes": false,
+  "request_images_verified": 9,
+  "replay_poses": 801,
+  "replay_images": 6,
+  "dedicated_11435": "unloaded_and_stopped",
+  "shared_11434": "untouched"
 }

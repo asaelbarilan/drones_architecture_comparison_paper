@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "task": {
+    "case": "close25",
+    "variant": "bbox"
+  },
+  "body": {
+    "model": "qwen3-vl:4b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Locate the red pillar in this image. This is a localization test, not navigation. Return visible=true and a tight bounding box around ONLY the visible red pillar, excluding adjacent gray buildings. Box order is [left,top,right,bottom], using a 0..999 grid: (0,0) is the image top-left and (999,999) bottom-right. If no red pillar is visible, return visible=false and box=[0,0,0,0]. Gray or green structures are not the red pillar. Evidence should briefly describe what is actually visible. Return JSON with evidence, visible and box.",
+        "images": [
+          "iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAADOklEQVR4nO3csY0TURRAUYzcw3ZCSEawJRCsRB+IiBbogJgKNiMkpAt3QQMj/9FKnndHnBM7mODq+3neeC5ffvx9d9ef759+Pj3d/wy8wcvt9uHb6/3PvD/mUuBtrpfpK+B/tszvelEoc5b5+YonzQnKpGV+18t6DIBHWebnBGWSGZRzc4Iyac8MCmPW90HXDcPjrPJzgjLJJok0Myhpe2bQI64DttkkUWaTRJpNEufmBGWSX/Gk7bkPKlHGLPMzg5JmBmWSGZQ0u3jS1ifojojhcWySCDODkuZpJtqcoJTZJJG2zM8JyiQzKG1mUMpskkizSSLOJokwmyTSdsygR1wGbHObiTYvbqDMixtI8+IGzs0JyiS3mUjzuB1pXtzAuZlBmWQGJc3jdqR53I44myTCzKCkeZqJNicoZTZJpHlxA2lmUNrMoJTZJJFmk0ScTRJhNkmkmUFJ869Ozs0miUk2SaSZQUkzg3JuTlAm7bkPqlDGrN9up08m2SRR5lc8aXbxpO14ot4QyiSP2xHmK540f5qjzQlKmRc3kOZxO9LMoLSZQSmz6iTNixuIs0kizCaJNDMoaf40x7nZJDHJJok0MyhpZlDOzQnKJC9uIM2LG2izSaJs/Sv+96+vR1wIbFnm51c8aQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkCZQ0gZImUNIESppASRMoaQIlTaCkXfd86OV2e/R1wKZ1oB8/Px9wHbDJVzxpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRK2j+vHhItiADEPwAAAABJRU5ErkJggg=="
+        ]
+      }
+    ],
+    "stream": false,
+    "think": false,
+    "keep_alive": "30m",
+    "format": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "evidence",
+        "visible",
+        "box"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0.0,
+      "seed": 0,
+      "num_ctx": 8192,
+      "num_predict": 192
+    }
+  },
+  "image_sha256": "7f3ec6c3a1785434b9843cb2c2ba76e9445b87c9d1e239526ce491f5f06b7c62",
+  "reply": {
+    "model": "qwen3-vl:4b",
+    "created_at": "2026-09-17T08:36:14.2597266Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinking": "{\n  \"evidence\": \"The image shows a large solid red square in the center, which is the red pillar. The surrounding areas are blue (top) or\",\n  \"visible\": true,\n  \"box\": [\n    51,\n    1,\n    948,\n    817\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1278762400,
+    "load_duration": 2637300,
+    "prompt_eval_count": 1163,
+    "prompt_eval_cached_count": 1029,
+    "prompt_eval_duration": 66051000,
+    "eval_count": 72,
+    "eval_duration": 1098137000
+  },
+  "answer": {
+    "evidence": "The image shows a large solid red square in the center, which is the red pillar. The surrounding areas are blue (top) or",
+    "visible": true,
+    "box": [
+      51,
+      1,
+      948,
+      817
+    ]
+  },
+  "wall_s": 1.312999999994645,
+  "residency": {
+    "name": "qwen3-vl:4b",
+    "model": "qwen3-vl:4b",
+    "size": 4235345264,
+    "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3vl",
+      "families": [
+        "qwen3vl"
+      ],
+      "parameter_size": "4.4B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-09-17T12:06:14.2600271+03:00",
+    "size_vram": 4235345264,
+    "context_length": 8192
+  }
+}

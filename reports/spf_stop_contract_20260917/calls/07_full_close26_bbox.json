@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "task": {
+    "case": "full_close26",
+    "variant": "bbox"
+  },
+  "body": {
+    "model": "qwen3-vl:4b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Locate the red pillar in this image. This is a localization test, not navigation. Return visible=true and a tight bounding box around ONLY the visible red pillar, excluding adjacent gray buildings. Box order is [left,top,right,bottom], using a 0..999 grid: (0,0) is the image top-left and (999,999) bottom-right. If no red pillar is visible, return visible=false and box=[0,0,0,0]. Gray or green structures are not the red pillar. Evidence should briefly describe what is actually visible. Return JSON with evidence, visible and box.",
+        "images": [
+          "iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAACbElEQVR4nO3SIQEAIADAMCAQ/UvQiQZYLrYEF59n7wFV63cAvBiUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkGJc2gpBmUNIOSZlDSDEqaQUkzKGkXBWwC6RoCGF4AAAAASUVORK5CYII="
+        ]
+      }
+    ],
+    "stream": false,
+    "think": false,
+    "keep_alive": "30m",
+    "format": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "evidence",
+        "visible",
+        "box"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0.0,
+      "seed": 0,
+      "num_ctx": 8192,
+      "num_predict": 192
+    }
+  },
+  "image_sha256": "609fd7e97f8dc111cd6b74f32037f1e52a06b91a559600b13b688e4b32388508",
+  "reply": {
+    "model": "qwen3-vl:4b",
+    "created_at": "2026-09-17T08:36:15.8727575Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinking": "{\n  \"evidence\": \"The image is entirely red with no visible pillars or structures. There are no gray or green elements present.\",\n  \"visible\": false,\n  \"box\": [0, 0, 0, 0]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1575248700,
+    "load_duration": 2700300,
+    "prompt_eval_count": 1163,
+    "prompt_eval_cached_count": 4,
+    "prompt_eval_duration": 740789000,
+    "eval_count": 52,
+    "eval_duration": 755125000
+  },
+  "answer": {
+    "evidence": "The image is entirely red with no visible pillars or structures. There are no gray or green elements present.",
+    "visible": false,
+    "box": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "wall_s": 1.6090000000112923,
+  "residency": {
+    "name": "qwen3-vl:4b",
+    "model": "qwen3-vl:4b",
+    "size": 4235345264,
+    "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3vl",
+      "families": [
+        "qwen3vl"
+      ],
+      "parameter_size": "4.4B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-09-17T12:06:15.8727575+03:00",
+    "size_vram": 4235345264,
+    "context_length": 8192
+  }
+}

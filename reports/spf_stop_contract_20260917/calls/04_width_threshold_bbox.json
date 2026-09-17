@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "task": {
+    "case": "width_threshold",
+    "variant": "bbox"
+  },
+  "body": {
+    "model": "qwen3-vl:4b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Locate the red pillar in this image. This is a localization test, not navigation. Return visible=true and a tight bounding box around ONLY the visible red pillar, excluding adjacent gray buildings. Box order is [left,top,right,bottom], using a 0..999 grid: (0,0) is the image top-left and (999,999) bottom-right. If no red pillar is visible, return visible=false and box=[0,0,0,0]. Gray or green structures are not the red pillar. Evidence should briefly describe what is actually visible. Return JSON with evidence, visible and box.",
+        "images": [
+          "iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAAD4ElEQVR4nO3csW0UUQCEYRZtD66DkJzIsQuwXAUSDVAAMR2QugAaQHIX14U7QEfCzmi+r4JD8/v53e3h4/nH24cxf74//nx4uPpV/LOX2+3T19erX8X/9vHqFwB/cx5XvwLuNzjWeQz+o2sNjuVXPNGcoE0GxzqPxYtNq8GxnKBNBsdyByWaE7TJ4Fg+B20yONa5+FPZa28sJ2iTwbHcQZsMjuUEbTI41rn4j+61N5YnSU0Gx3IHbTI4lidJRHOCNhkcy7v4JoNjncfgT2WtwbHcQYnmDtpkcCx30CaDYzlBmwyOdU7+WPaaG8sJ2mRwLHfQJoNj+TZTlb2xnKBNBsfyJKnJ4FhO0CaDY7mDVtkbywnaZHAsn4M2GRzLk6Quc2M5QZsMjuUO2mRwLIE2GRzLx0xV9sbyhxuaDI7lTVKTwbH8pzmiOUGbDI7lXXyTwbF83a7J4FjuoERzB20yOJY7aJPBsZygTQbH8nW7LnNjOUGbDI7lDtpkcCzfZqqyN5YTtMngWJ4kNRkcywnaZHAsd9Aqe2M5QZsMjuVz0CaDY3mS1GVuLCdok8Gx3EGbDI7lBG0yOJZv1BPNk6Qmg2O5gzYZHMsdtMngWO6gRHOCNhkcy1+3azI4lm8zVdkby7v4JoNjuYM2GRzLCdpkcCxft+syN5Zf8U0Gx/IrvsngWD5mqrI3lhO0yeBYvm7XZHAsJ2iTwbHcQavsjeUEbTI4ls9BmwyO5UlSl7mxnKBNBsdyB20yOJYTtMngWP7THNE8SWoyOJY7aJPBsdxBmwyO5Q5KNCdok8Gx/OGGJoNj+TZTlb2xvItvMjjW+fvXt6tfA/caHMu7eKIJlGgCJZpAiSZQogmUaAIlmkCJJlCiCZRoAiWaQIkmUKIJlGgCJZpAiSZQogmUaAIlmkCJJlCiCZRoAiWaQIkmUKIJlGgCJZpAiSZQop1Xv4BrvNxuV78E7rIY6OenL1e/BO7lVzzRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0QRKNIESTaBEEyjRBEo0gRJNoEQTKNEESjSBEk2gRBMo0d4BKyESI7aO3TYAAAAASUVORK5CYII="
+        ]
+      }
+    ],
+    "stream": false,
+    "think": false,
+    "keep_alive": "30m",
+    "format": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "evidence",
+        "visible",
+        "box"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0.0,
+      "seed": 0,
+      "num_ctx": 8192,
+      "num_predict": 192
+    }
+  },
+  "image_sha256": "77246f325c7936525aa25ce123561d1d55f2244166ddd6bd83f2a6e18e9a695f",
+  "reply": {
+    "model": "qwen3-vl:4b",
+    "created_at": "2026-09-17T08:36:11.8088228Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinking": "{\n  \"evidence\": \"A vertical red rectangular pillar is visible, extending from the middle of the image upwards, with its base on the gray/\",\"visible\": true, \"box\": [363, 0, 635, 579]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1737056000,
+    "load_duration": 2804500,
+    "prompt_eval_count": 1163,
+    "prompt_eval_cached_count": 4,
+    "prompt_eval_duration": 734794000,
+    "eval_count": 59,
+    "eval_duration": 917231000
+  },
+  "answer": {
+    "evidence": "A vertical red rectangular pillar is visible, extending from the middle of the image upwards, with its base on the gray/",
+    "visible": true,
+    "box": [
+      363,
+      0,
+      635,
+      579
+    ]
+  },
+  "wall_s": 1.75,
+  "residency": {
+    "name": "qwen3-vl:4b",
+    "model": "qwen3-vl:4b",
+    "size": 4235345264,
+    "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3vl",
+      "families": [
+        "qwen3vl"
+      ],
+      "parameter_size": "4.4B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-09-17T12:06:11.8179611+03:00",
+    "size_vram": 4235345264,
+    "context_length": 8192
+  }
+}

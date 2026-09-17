@@ -1,0 +1,105 @@
+{
+  "status": "complete",
+  "task": {
+    "case": "absent",
+    "variant": "bbox"
+  },
+  "body": {
+    "model": "qwen3-vl:4b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Locate the red pillar in this image. This is a localization test, not navigation. Return visible=true and a tight bounding box around ONLY the visible red pillar, excluding adjacent gray buildings. Box order is [left,top,right,bottom], using a 0..999 grid: (0,0) is the image top-left and (999,999) bottom-right. If no red pillar is visible, return visible=false and box=[0,0,0,0]. Gray or green structures are not the red pillar. Evidence should briefly describe what is actually visible. Return JSON with evidence, visible and box.",
+        "images": [
+          "iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAIAAACVT/22AAACwUlEQVR4nO3cQRECMRAAwYRaofjABjZOBQ5QhALum3l0K+AxtexdAvv5/i6oepz+AHBn9ulPADdmK5QwX/GkmaCkzV4KpcsEJc0OSpoJSpr3oKTNMkIJM0FJs4OSZoKSNt7TU+YkiTQ7KGlOkkgzQUnzFE/abCOUMDsoaXZQ0uygpJmgpM1ykkSYCUqaHZQ0t5lIM0FJc5JEmglKmh2UNBOUNO9BSXOSRJoJSpodlDSBkuY1E2n+uIE0D0mk+dEcaSYoaZ7iSXPdjjQ7KGl2UNLsoKSZoKS5bkeaCUqaHZQ0t5lIM0FJc5JEmglKmh2UNBOUNO9BSXOSRJoJSpodlDQTlDQ36klzkkSaHZQ0OyhpdlDSTFDS/LsdaW4zkeYpnjQ7KGkmKGmu25HmK540X/Gkec1EmglKmut2pJmgpNlBSTNBSfMelDQnSaSZoKTZQUkzQUnzoznSnCSRZgclzQ5Kmh2UNBOUNH/cQJrbTKTN53qd/gzwl4ck0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiVNoKQJlDSBkiZQ0gRKmkBJEyhpAiXtB6mABqb/SZyZAAAAAElFTkSuQmCC"
+        ]
+      }
+    ],
+    "stream": false,
+    "think": false,
+    "keep_alive": "30m",
+    "format": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "evidence",
+        "visible",
+        "box"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0.0,
+      "seed": 0,
+      "num_ctx": 8192,
+      "num_predict": 192
+    }
+  },
+  "image_sha256": "4d99e22d18f42ac7871871f483b9c0ce7239bb81c0d0cf035a61bb7e40dd98f2",
+  "reply": {
+    "model": "qwen3-vl:4b",
+    "created_at": "2026-09-17T08:36:17.6150084Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "thinking": "{\n  \"evidence\": \"The image shows a clear blue sky above a flat gray ground with no red pillars or other structures visible. The entire\u753b\u9762\",\n  \"visible\": false,\n  \"box\": [0, 0, 0, 0]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 1715999200,
+    "load_duration": 3198000,
+    "prompt_eval_count": 1163,
+    "prompt_eval_cached_count": 4,
+    "prompt_eval_duration": 733251000,
+    "eval_count": 56,
+    "eval_duration": 892387000
+  },
+  "answer": {
+    "evidence": "The image shows a clear blue sky above a flat gray ground with no red pillars or other structures visible. The entire\u753b\u9762",
+    "visible": false,
+    "box": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "wall_s": 1.75,
+  "residency": {
+    "name": "qwen3-vl:4b",
+    "model": "qwen3-vl:4b",
+    "size": 4235345264,
+    "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3vl",
+      "families": [
+        "qwen3vl"
+      ],
+      "parameter_size": "4.4B",
+      "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-09-17T12:06:17.6236664+03:00",
+    "size_vram": 4235345264,
+    "context_length": 8192
+  }
+}

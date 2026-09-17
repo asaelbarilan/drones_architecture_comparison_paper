@@ -1,0 +1,168 @@
+{
+  "rows": [
+    {
+      "case": "close24",
+      "variant": "original",
+      "answer": {
+        "u": 500,
+        "v": 500,
+        "distance": 3
+      },
+      "source_distance_m": 1.6141649079701106,
+      "actual_width_fraction": 0.6071428571428571,
+      "matches_original_reply": true
+    },
+    {
+      "case": "close25",
+      "variant": "original",
+      "answer": {
+        "u": 500,
+        "v": 500,
+        "distance": 3
+      },
+      "source_distance_m": 1.2732350692326149,
+      "actual_width_fraction": 0.8928571428571429,
+      "matches_original_reply": true
+    },
+    {
+      "case": "far",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "A single red rectangular pillar is visible, standing vertically on the gray ground, with a clear blue sky background. No",
+        "visible": true,
+        "box": [
+          459,
+          269,
+          537,
+          485
+        ]
+      },
+      "source_distance_m": 12.0,
+      "actual_width_fraction": 0.07142857142857142,
+      "iou": 0.8635141748660673,
+      "predicted_width_fraction": 0.07772951522951528,
+      "center_in_target": true,
+      "passed": true
+    },
+    {
+      "case": "width_threshold",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "A vertical red rectangular pillar is visible, extending from the middle of the image upwards, with its base on the gray/",
+        "visible": true,
+        "box": [
+          363,
+          0,
+          635,
+          579
+        ]
+      },
+      "source_distance_m": 3.4130713278726725,
+      "actual_width_fraction": 0.26785714285714285,
+      "iou": 0.9780779996402781,
+      "predicted_width_fraction": 0.271056771056771,
+      "center_in_target": true,
+      "passed": true
+    },
+    {
+      "case": "close24",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "A solid red rectangular pillar is visible, centered vertically and horizontally in the image, with a clear blue sky and\u7070",
+        "visible": true,
+        "box": [
+          191,
+          0,
+          805,
+          743
+        ]
+      },
+      "source_distance_m": 1.6141649079701106,
+      "actual_width_fraction": 0.6071428571428571,
+      "iou": 0.9869897888941204,
+      "predicted_width_fraction": 0.6118707993707994,
+      "center_in_target": true,
+      "passed": true
+    },
+    {
+      "case": "close25",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "The image shows a large solid red square in the center, which is the red pillar. The surrounding areas are blue (top) or",
+        "visible": true,
+        "box": [
+          51,
+          1,
+          948,
+          817
+        ]
+      },
+      "source_distance_m": 1.2732350692326149,
+      "actual_width_fraction": 0.8928571428571429,
+      "iou": 0.9904086176100043,
+      "predicted_width_fraction": 0.893889425139425,
+      "center_in_target": true,
+      "passed": true
+    },
+    {
+      "case": "full_close26",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "The image is entirely red with no visible pillars or structures. There are no gray or green elements present.",
+        "visible": false,
+        "box": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "source_distance_m": 1.0156003426415794,
+      "actual_width_fraction": 1.0,
+      "iou": null,
+      "predicted_width_fraction": 0,
+      "passed": false
+    },
+    {
+      "case": "absent",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "The image shows a clear blue sky above a flat gray ground with no red pillars or other structures visible. The entire\u753b\u9762",
+        "visible": false,
+        "box": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "source_distance_m": 7.546209843875684,
+      "actual_width_fraction": 0,
+      "iou": null,
+      "predicted_width_fraction": 0,
+      "passed": true
+    },
+    {
+      "case": "green",
+      "variant": "bbox",
+      "answer": {
+        "evidence": "The image shows a green rectangular structure with a dark border, positioned vertically against a blue sky and gray land",
+        "visible": false,
+        "box": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "source_distance_m": null,
+      "actual_width_fraction": 0,
+      "iou": null,
+      "predicted_width_fraction": 0,
+      "passed": true
+    }
+  ],
+  "verified_request_images": 9,
+  "completed_calls": 9,
+  "cloud_calls": 0
+}

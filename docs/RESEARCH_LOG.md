@@ -3101,3 +3101,15 @@ maximum as D-129, no automatic further retries. Original interrupted run remains
 untouched; its31s record does not measure arrival. C2 thenC3, exact replay and
 camera/dashboard audit required before any completion claim. Flight acceptance
 pending. Pre-load check passes; dedicated11435 only. Shared11434 untouched.
+
+
+### D-131 admission result (2026-09-17)
+
+No replacement flights or image calls started. First VLA process16380 exited,
+but new expanded-condition training PID24992 grew during model load (~15.86GiB).
+Pre-load gates passed; loaded gate then refused with1.685GiB RAM/1.572GiB commit/
+0.598GiB GPU free. This prevented another inferenceOOM. Dedicated43524/11435
+unloaded/stopped; other training and shared11434 untouched. STATE remains frozen,
+empty runs; same frozen replacement IDs may be used once resources permit.
+11gate tests pass. Evidence: reports/spf_arrival_retry_20260917/REPORT.md,
+HEADROOM.json,RESOURCE_START.json,ADMISSION.json. Goal remains active/incomplete.

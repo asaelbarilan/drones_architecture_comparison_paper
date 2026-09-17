@@ -1,0 +1,10 @@
+{
+  "status": "refused_before_flight",
+  "replacement_flights_started": 0,
+  "image_calls": 0,
+  "dedicated_server_pid": 43524,
+  "dedicated_server_state": "unloaded_and_stopped",
+  "live_competing_training_pid": 24992,
+  "condition": "expanded",
+  "next": "Wait for resource release, check before load, then reuse frozen batch without overwriting IDs."
+}

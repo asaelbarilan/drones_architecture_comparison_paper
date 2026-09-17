@@ -10,6 +10,14 @@ becomes a decision with evidence.
 
 ---
 
+## D-131 prepared: replacement pair awaits available memory
+
+reports/spf_arrival_retry_20260917 contains frozen fresh IDs and resource checks.
+No replacement flight started: second-stage admission caught a new local VLA
+training job (PID24992) taking memory during load. Dedicated11435 stopped.
+Leave that job untouched; require pre-load headroom then loaded gate. Reuse
+frozen batch via scripts/run_spf_arrival.py --replacement. Do not overwrite D129.
+
 ## D-129 active: finish arrival preflight after resource contention
 
 Implementation9841cbb passed458unit tests. C2 interrupted31s by memory exhaustion,

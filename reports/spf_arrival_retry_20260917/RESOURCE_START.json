@@ -1,0 +1,22 @@
+{
+  "ready": false,
+  "phase": "loaded",
+  "snapshot": {
+    "checked_at": "2026-09-17T10:32:16.866116+00:00",
+    "available_physical_gib": 1.6852607727050781,
+    "available_commit_gib": 1.5723190307617188,
+    "available_gpu_gib": 0.59765625
+  },
+  "shortfalls": [
+    {
+      "resource": "available_commit_gib",
+      "available_gib": 1.5723190307617188,
+      "required_gib": 2.0
+    },
+    {
+      "resource": "available_gpu_gib",
+      "available_gib": 0.59765625,
+      "required_gib": 0.75
+    }
+  ]
+}

@@ -39,6 +39,7 @@ OPTIONAL_PLUGINS: dict[tuple[str, str], str] = {
     ("inference", "aerovla_hf"): "uavlab.plugins.inference.aerovla_hf",
     ("policy", "vlm_point_waypoint"): "uavlab.plugins.reasoning.vlm",
     ("policy", "adaptive_visual_plan"): "uavlab.plugins.reasoning.adaptive_visual_plan",
+    ("policy", "spf_rgbd_arrival"): "uavlab.plugins.reasoning.spf_arrival",
     ("policy", "spf_waypoint"): "uavlab.plugins.reasoning.spf",
     ("policy", "learned_visuomotor"): "uavlab.plugins.reasoning.learned",
     ("policy", "aerialclaw_visual_agent"): "uavlab.plugins.reasoning.aerialclaw_visual",

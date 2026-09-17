@@ -16,6 +16,17 @@ architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated
 clock. Seven families are the base; everything else is an ablation.
 
+## Active D-129 SPF RGB-D arrival extension (2026-09-17)
+
+Explicit user goal active. Read reports/spf_arrival_20260917/FREEZE.json/STATE.json.
+Separate spf_rgbd_arrival policy/configs; nativeSPF unchanged.27 focused tests pass.
+Two calls per movement decision, two distinct consistent points, surface range1m,
+6s original-source TTL, hold then fresh odometry speed<=0.15m/s STOP. Surface1m is
+not mathematically equivalent to center2m; evaluator unchanged. Internal target
+state declared. Maximum2 localGPU preflights, C2 then C3 seed1061 at240s; no retries.
+Full unit suite458 passed. Flights pending. Preserve failure artifacts; inspect dashboard.
+Dedicated11435 only, shared11434/Valley untouched. Document/commit each change.
+
 ## D-128 saved-frame STOP probe complete (2026-09-17)
 
 Read reports/spf_stop_contract_20260917/REPORT.md first. Nine local calls complete;

@@ -3138,3 +3138,35 @@ Evidence: reports/spf_stop_contract_20260917/REPORT.md, all9rawcalls, SUMMARY,
 DEPTH_CHECK, and visually reviewed debugger/spf_stop_contract.html. Seven images,
 four overlays and toggle states checked; no browser errors. Dedicated11435
 unloaded/stopped; shared11434/Valley untouched. No cloud/key reads/downloads.
+
+
+## D-129: named SPF RGB-D arrival extension (2026-09-17)
+
+User explicitly set the goal to implement and validate the D-128 next step.
+Implement spf_rgbd_arrival separately from untouched nativeSPF. Retain native
+motion prompt and equations, disable its ordinal STOP; add one separately
+charged localization call per motion decision. Snapshot RGB/depth before awaits;
+geometry uses actual camera intrinsics, source pose/yaw, no semantic/truth channel.
+Two distinct consistent target points (<=0.75m apart) establish bounded internal
+policy state. Surface range<=1m starts a hold at the measured source pose.
+Fresh odometry decisions, without another inference await, require range<=1m
+and speed<=0.15m/s for STOP. Evidence expires6s after its source capture; hold
+commands never renew it. No positive identity is inferred from a red-filled crop.
+Current runtime terminates immediately on STOP, so braking hold is explicit.
+
+Surface range1m is a conservative development parameter, NOT proven equivalent
+to task goal-center radius2m. Keep the task/evaluator unchanged and measure both.
+Extra model calls, doubled charged inference per movement decision, and bounded
+policy-local target state are declared extension costs; no native reproduction
+or isolated semantic-effect claim. Config semantic_memory refers to the unchanged
+no_memory plugin; tags/description explicitly disclose internal target state.
+Scope red-pillar stationary navigation only. Native C2/C3 profiles preserved;
+new C3 differs from new C2 only by its existing geometric proposal verifier.
+
+27 focused tests pass: near labels alone cannotSTOP; invalid/missing depth,
+absence, changed identity, duplicate frames, expiry, live speed/position,
+source eviction and two-call availability timestamps. Native SPF invariants pass.
+Full unit suite458 passed (one existing dependency deprecation warning). Frozen maximum2 fresh localGPU flights at240s, seed1061,
+C2 then C3, no retries or automatic sweep. Evidence: scripts/run_spf_arrival.py,
+reports/spf_arrival_20260917/FREEZE.json. Flight acceptance pending, failures retained.
+Dedicated11435 only; shared11434/Valley untouched. No downloads/cloud/key reads.

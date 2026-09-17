@@ -1,0 +1,364 @@
+{
+  "decision": "D-129",
+  "seed": 1061,
+  "environment": {
+    "id": "capability_visible_target_slow_240_dev",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Fly to the red pillar and stop within 2 metres.",
+    "max_episode_s": 240.0,
+    "params": {
+      "scenario": "visible_target",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 0.6,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.15,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 240.0
+      },
+      "constraints": {
+        "max_speed_mps": 0.6,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6,
+        "max_accel_mps2": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ],
+      "accel_tau_s": 1.0
+    }
+  },
+  "architectures": {
+    "c2": {
+      "id": "c2_spf_rgbd_arrival_qwen4_dev",
+      "name": "C2 SPF RGB-D arrival extension",
+      "description": "D-129 named extension: extra VLM localization, RGB-D surface proximity and bounded target continuity; hold then low-speed STOP. Native SPF motion retained. Extra inference latency is charged; not a native-paper reproduction.",
+      "family": "vlm_semantic_waypointer",
+      "subfamily": null,
+      "ablation_of": "c2_spf_qwen4_current_dev",
+      "profile_of": "c2",
+      "authority": "waypoint",
+      "action_horizon": null,
+      "chunk_length": 1,
+      "semantic_supervision": "none",
+      "semantic_memory": "no_memory",
+      "memory_consumers": [
+        "policy"
+      ],
+      "perception": {
+        "name": "identity",
+        "params": {
+          "min_score": 0.0,
+          "drone_radius_m": 0.4,
+          "charge_latency": false
+        }
+      },
+      "memory": {
+        "name": "no_memory",
+        "params": {}
+      },
+      "policy": {
+        "name": "spf_rgbd_arrival",
+        "params": {
+          "hop_m": 12.0,
+          "stop_radius_m": 2.0,
+          "stop_confidence": 0.35,
+          "model_id": "qwen3-vl:4b",
+          "scale_m": 10.0,
+          "levels": 10,
+          "exponent": 1.8,
+          "minimum_step_m": 0.1,
+          "camera_pitch_rad": -0.15,
+          "min_altitude_m": 0.5,
+          "stop_label_max": 2,
+          "stop_confirmations": 2,
+          "waypoint_tolerance_m": 0.35,
+          "self_terminate": true,
+          "localization_target": "red pillar",
+          "surface_stop_radius_m": 1.0,
+          "arrival_ttl_s": 6.0,
+          "target_consistency_m": 0.75,
+          "stop_speed_mps": 0.15
+        }
+      },
+      "verifier": null,
+      "planner": {
+        "name": "super_local",
+        "params": {
+          "resolution_m": 0.5,
+          "planning_horizon_m": 16.0,
+          "commit_horizon_m": 2.5,
+          "sensing_horizon_m": 25.0,
+          "temporal_window_s": 12.0,
+          "clearance_margin_m": 1.2,
+          "max_acc_mps2": 0.6
+        }
+      },
+      "shield": null,
+      "monitor": null,
+      "admission": null,
+      "recovery": null,
+      "controller": {
+        "name": "mock_velocity",
+        "params": {
+          "kp": 1.1,
+          "lookahead_m": 3.0,
+          "max_speed_mps": 5.0,
+          "yaw_kp": 1.5,
+          "max_yaw_rate_rps": 0.4,
+          "yaw_hold_radius_m": 0.25
+        }
+      },
+      "inference": {
+        "name": "ollama",
+        "params": {
+          "jitter_frac": 0.0,
+          "model_id": "qwen3-vl:4b",
+          "latency_s": {
+            "perception": 0.02,
+            "policy": 0.35,
+            "monitor": 1.6,
+            "reasoner": 2.4
+          },
+          "tokens_per_call": {
+            "policy": 160,
+            "monitor": 320,
+            "reasoner": 800
+          },
+          "host": "http://127.0.0.1:11435",
+          "expected_digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+          "temperature": 0.0,
+          "num_predict": 192,
+          "num_ctx": 8192,
+          "sampling_seed": 0,
+          "timeout_s": 180.0,
+          "endpoint": "chat",
+          "keep_alive": "30m",
+          "think": false,
+          "response_channel": "thinking",
+          "charge_mode": "fixed",
+          "fixed_latency_s": {
+            "policy": 1.0,
+            "monitor": 1.2
+          }
+        }
+      },
+      "scheduler": {
+        "kind": "periodic",
+        "control_hz": 20.0,
+        "decision_hz": 2.0,
+        "monitor_hz": null,
+        "reasoner_hz": null,
+        "trigger": null,
+        "cooldown_s": 2.0,
+        "max_calls": null,
+        "trigger_check_hz": 5.0
+      },
+      "staleness": {
+        "max_decision_age_s": 4.0,
+        "reject_stale": true
+      },
+      "feature_cache": {
+        "enabled": false,
+        "capacity": 32
+      },
+      "allow_privileged_observations": false,
+      "unsafe_ablation": false,
+      "tags": [
+        "development",
+        "real_model",
+        "vision",
+        "spf_rgbd_arrival_extension",
+        "bounded_policy_target_state",
+        "preflight_pending"
+      ]
+    },
+    "c3": {
+      "id": "c3_spf_rgbd_arrival_qwen4_dev",
+      "name": "C3 SPF RGB-D arrival extension",
+      "description": "D-129 named extension: extra VLM localization, RGB-D surface proximity and bounded target continuity; hold then low-speed STOP. Native SPF motion retained. Extra inference latency is charged; not a native-paper reproduction.",
+      "family": "hybrid_stack",
+      "subfamily": null,
+      "ablation_of": "c3_spf_qwen4_current_dev",
+      "profile_of": "c3",
+      "authority": "waypoint",
+      "action_horizon": null,
+      "chunk_length": 1,
+      "semantic_supervision": "none",
+      "semantic_memory": "no_memory",
+      "memory_consumers": [
+        "policy"
+      ],
+      "perception": {
+        "name": "identity",
+        "params": {
+          "min_score": 0.0,
+          "drone_radius_m": 0.4,
+          "charge_latency": false
+        }
+      },
+      "memory": {
+        "name": "no_memory",
+        "params": {}
+      },
+      "policy": {
+        "name": "spf_rgbd_arrival",
+        "params": {
+          "hop_m": 12.0,
+          "stop_radius_m": 2.0,
+          "stop_confidence": 0.35,
+          "model_id": "qwen3-vl:4b",
+          "scale_m": 10.0,
+          "levels": 10,
+          "exponent": 1.8,
+          "minimum_step_m": 0.1,
+          "camera_pitch_rad": -0.15,
+          "min_altitude_m": 0.5,
+          "stop_label_max": 2,
+          "stop_confirmations": 2,
+          "waypoint_tolerance_m": 0.35,
+          "self_terminate": true,
+          "localization_target": "red pillar",
+          "surface_stop_radius_m": 1.0,
+          "arrival_ttl_s": 6.0,
+          "target_consistency_m": 0.75,
+          "stop_speed_mps": 0.15
+        }
+      },
+      "verifier": {
+        "name": "semantic_geometric",
+        "params": {
+          "max_waypoint_distance_m": 10.0,
+          "min_clearance_m": 1.8,
+          "repair": false,
+          "sensing_horizon_m": 25.0,
+          "require_semantic_support": false
+        }
+      },
+      "planner": {
+        "name": "super_local",
+        "params": {
+          "resolution_m": 0.5,
+          "planning_horizon_m": 16.0,
+          "commit_horizon_m": 2.5,
+          "sensing_horizon_m": 25.0,
+          "temporal_window_s": 12.0,
+          "clearance_margin_m": 1.2,
+          "max_acc_mps2": 0.6
+        }
+      },
+      "shield": null,
+      "monitor": null,
+      "admission": null,
+      "recovery": null,
+      "controller": {
+        "name": "mock_velocity",
+        "params": {
+          "kp": 1.1,
+          "lookahead_m": 3.0,
+          "max_speed_mps": 5.0,
+          "yaw_kp": 1.5,
+          "max_yaw_rate_rps": 0.4,
+          "yaw_hold_radius_m": 0.25
+        }
+      },
+      "inference": {
+        "name": "ollama",
+        "params": {
+          "jitter_frac": 0.0,
+          "model_id": "qwen3-vl:4b",
+          "latency_s": {
+            "perception": 0.02,
+            "policy": 0.35,
+            "monitor": 1.6,
+            "reasoner": 2.4
+          },
+          "tokens_per_call": {
+            "policy": 160,
+            "monitor": 320,
+            "reasoner": 800
+          },
+          "host": "http://127.0.0.1:11435",
+          "expected_digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+          "temperature": 0.0,
+          "num_predict": 192,
+          "num_ctx": 8192,
+          "sampling_seed": 0,
+          "timeout_s": 180.0,
+          "endpoint": "chat",
+          "keep_alive": "30m",
+          "think": false,
+          "response_channel": "thinking",
+          "charge_mode": "fixed",
+          "fixed_latency_s": {
+            "policy": 1.0,
+            "monitor": 1.2
+          }
+        }
+      },
+      "scheduler": {
+        "kind": "periodic",
+        "control_hz": 20.0,
+        "decision_hz": 2.0,
+        "monitor_hz": null,
+        "reasoner_hz": null,
+        "trigger": null,
+        "cooldown_s": 2.0,
+        "max_calls": null,
+        "trigger_check_hz": 5.0
+      },
+      "staleness": {
+        "max_decision_age_s": 4.0,
+        "reject_stale": true
+      },
+      "feature_cache": {
+        "enabled": false,
+        "capacity": 32
+      },
+      "allow_privileged_observations": false,
+      "unsafe_ablation": false,
+      "tags": [
+        "development",
+        "real_model",
+        "vision",
+        "spf_rgbd_arrival_extension",
+        "bounded_policy_target_state",
+        "preflight_pending"
+      ]
+    }
+  },
+  "order": [
+    "c2",
+    "c3"
+  ],
+  "max_flights": 2,
+  "max_sim_s": 240,
+  "hypotheses": [
+    "Separate localization/depth can produce arrival despite wrong travel labels.",
+    "Braking hold permits low-speed STOP before confirmed target evidence expires."
+  ],
+  "success": "Unchanged task score: terminal STOP within2m goal center, plus measured terminal speed<=0.15m/s; no collision/bounds failure.",
+  "limitations": "Surface radius1m is a development margin, not a mathematical guarantee of center-radius2m. Extra model calls and bounded policy state change the architecture; no native SPF or isolated latency comparison claim.",
+  "stop_rule": "At most two flights; preserve failures; no automatic retry or broad sweep."
+}

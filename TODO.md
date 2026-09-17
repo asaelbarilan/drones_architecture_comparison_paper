@@ -10,6 +10,15 @@ becomes a decision with evidence.
 
 ---
 
+## D-129 active: finish arrival preflight after resource contention
+
+Implementation9841cbb passed458unit tests. C2 interrupted31s by memory exhaustion,
+before arrival; C3 not started. Read reports/spf_arrival_20260917/REPORT.md.
+Preserve interrupted baseline and leave independent VLA training untouched.
+Check host/GPU headroom before reloading11435; freeze fresh replacement IDs and
+inspect real stopping speed/distance in dashboard. No inference currently queued.
+D-130 protects primary evidence against optional ParquetOOM;9tests pass.
+
 ## D-128 next: explicit arrival contract and identity continuity
 
 Six flights completed/audited. Read reports/commitment_validation_20260916/REPORT.md

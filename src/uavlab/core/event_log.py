@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import sys
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -114,17 +115,29 @@ class EventLog:
             import pyarrow.parquet as pq
         except ImportError:
             return None
-        rows = self.to_rows()
-        columns: dict[str, list[Any]] = {}
-        for row in rows:
-            for key in row:
-                columns.setdefault(key, [])
-        for row in rows:
-            for key, bucket in columns.items():
-                bucket.append(row.get(key))
-        table = pa.table({k: pa.array(v) for k, v in columns.items()})
-        pq.write_table(table, target)
-        return target
+        # JSONL is the primary record. Flush it before optional columnar export
+        # so a memory-starved analysis dependency cannot discard the episode.
+        if self._jsonl is not None:
+            self._jsonl.flush()
+        try:
+            rows = self.to_rows()
+            columns: dict[str, list[Any]] = {}
+            for row in rows:
+                for key in row:
+                    columns.setdefault(key, [])
+            for row in rows:
+                for key, bucket in columns.items():
+                    bucket.append(row.get(key))
+            table = pa.table({k: pa.array(v) for k, v in columns.items()})
+            pq.write_table(table, target)
+            return target
+        except MemoryError:
+            warnings.warn(
+                "Parquet export skipped: insufficient memory; primary JSONL retained",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            return None
 
     def close(self) -> None:
         if self._jsonl is not None:

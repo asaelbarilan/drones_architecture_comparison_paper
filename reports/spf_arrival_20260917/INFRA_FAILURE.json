@@ -1,0 +1,19 @@
+{
+  "classification": "infrastructure_memory_exhaustion",
+  "run": "c2_spf_arrival_20260917_s1061",
+  "sim_s": 31.0,
+  "model_server_errors": [
+    "mtmd_batch_encode: error: std::bad_alloc",
+    "slot process_mtmd: id  0 | task 1490 | failed to encode mtmd batch for chunk idx = 4, res = 1",
+    "slot   operator(): id  0 | task 1490 | failed to process mtmd chunk, res = -1",
+    "srv    send_error: task id = 1490, error: failed to process mtmd chunk"
+  ],
+  "export_error": "pyarrow.lib.ArrowMemoryError: malloc of size 2944 failed",
+  "sampled_free_physical_kib": 713672,
+  "sampled_free_virtual_kib": 815040,
+  "sampled_gpu_used_mib": 7679,
+  "sampled_gpu_free_mib": 278,
+  "concurrent_work": "Separate local VLA training python process PID16380, approx13.53GiB working set; not modified or stopped.",
+  "dedicated_server": "PID44940 port11435 model unloaded and owned server stopped",
+  "scope": "C2 never reached arrival; not a completed algorithmic failure or success. C3 not started. Original run remains unmodified."
+}

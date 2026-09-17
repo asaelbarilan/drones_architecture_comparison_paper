@@ -3170,3 +3170,26 @@ Full unit suite458 passed (one existing dependency deprecation warning). Frozen 
 C2 then C3, no retries or automatic sweep. Evidence: scripts/run_spf_arrival.py,
 reports/spf_arrival_20260917/FREEZE.json. Flight acceptance pending, failures retained.
 Dedicated11435 only; shared11434/Valley untouched. No downloads/cloud/key reads.
+
+
+## D-129 interrupted preflight; D-130 optional export resilience (2026-09-17)
+
+Named arrival extension committed9841cbb;27 focused/458unit tests passed.
+First C2 flight interrupted31s: local model image encode std::bad_alloc, empty
+reply and runtime_error; then optional Parquet ArrowMemoryError prevented return
+of original result. C3 never launched. Arrival not reached/validated; not an
+algorithmic success/failure. Resource sample:697MiB physical/796MiB virtual free,
+278MiB GPU free, concurrent separate VLA training process ~13.53GiB working set.
+Only dedicated11435 model/server stopped; training and shared11434 untouched.
+620 control poses/31 source inputs exact;30 nonempty replies+one empty reply.
+FourUIseeks/one playback and actual terminal camera/map/observer inspected.
+Copied interrupted_c2 result explicitly reconstructs terminal metric/status;
+original result was never saved, so final-status agreement is NOT independent.
+Evidence: reports/spf_arrival_20260917/REPORT.md, INFRA_FAILURE, archived rawcalls.
+
+D-130 change: flush primaryJSONL before optional Parquet export; catchMemoryError
+with explicit warning, allowing existing result to return. No control/scoring
+changes.9export/debug-capture tests pass including injected ArrowMemoryError.
+Goal remains active: wait for memory availability without touching other work,
+then freeze replacement IDs before any fresh inference; preserve this interruption.
+Suggested pre-load headroom:8GiB physical/10GiB virtual/5.5GiB GPU. No queued call.

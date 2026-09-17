@@ -1,0 +1,57 @@
+{
+  "episode_id": "c2_spf_arrival_20260917_s1061",
+  "architecture_id": "c2_spf_rgbd_arrival_qwen4_dev",
+  "environment_id": "capability_visible_target_slow_240_dev",
+  "seed": 1061,
+  "success": false,
+  "termination_reason": "runtime_error",
+  "termination_detail": "decision: RuntimeError('invalid SPF model output: SPF model output is not valid JSON')",
+  "sim_duration_s": 31.0,
+  "metrics": {
+    "distance_to_goal_m": 3.4819912380787024
+  },
+  "status": {
+    "t_sim_ns": 31000000000,
+    "position": {
+      "x": 8.54471527694414,
+      "y": 0.0,
+      "z": 2.5695694426813462,
+      "frame": "enu"
+    },
+    "distance_to_goal_m": 3.4819912380787024,
+    "goal_visible": true,
+    "subgoals_completed": 0,
+    "subgoals_total": 0,
+    "task_complete": false,
+    "collided": false,
+    "collision_count": 0,
+    "min_obstacle_distance_m": Infinity,
+    "out_of_bounds": false,
+    "constraint_violations": 7,
+    "path_length_m": 8.555549639194213,
+    "shortest_path_m": 12.0,
+    "speed_mps": 0.3455057500672978,
+    "terminated": false,
+    "termination_reason": null,
+    "extras": {
+      "goal_radius_m": 2.0,
+      "lure_dwell_s": 0.0,
+      "landmarks": 1.0,
+      "obstacles": 0.0,
+      "skipped_injections": 0.0,
+      "min_injected_block_clearance_m": -1.0,
+      "hover_streak_s": 0.0,
+      "target_contact": 0.0,
+      "task_complete": 0.0,
+      "target_ever_visible": 1.0,
+      "branch_correct": 0.0,
+      "wrong_branch": 0.0,
+      "passage_closed": 0.0,
+      "tracking_good_s": 0.0,
+      "tracking_total_s": 0.0,
+      "tracking_fraction": 0.0,
+      "shortest_path_valid": 1.0
+    }
+  },
+  "recovery_provenance": "Original result.json was never written after optional Parquet OOM. Termination copied from episode_end; metric/status reconstructed from exact logged controls. Not an independent final-status match."
+}

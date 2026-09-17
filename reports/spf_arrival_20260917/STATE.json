@@ -1,5 +1,19 @@
 {
-  "status": "frozen",
-  "runs": [],
-  "active": null
+  "status": "infrastructure_interrupted",
+  "active": null,
+  "runs": [
+    {
+      "variant": "c2",
+      "run": "c2_spf_arrival_20260917_s1061",
+      "sim_s": 31,
+      "termination": "runtime_error",
+      "arrival_validated": false
+    }
+  ],
+  "unstarted": [
+    "c3"
+  ],
+  "dedicated_11435": "unloaded_and_stopped",
+  "shared_11434": "untouched",
+  "next": "Resume goal after local VLA training releases memory; inspect resources before loading model. Preserve interrupted run; freeze any replacement flight under a new ID. No inference currently queued."
 }

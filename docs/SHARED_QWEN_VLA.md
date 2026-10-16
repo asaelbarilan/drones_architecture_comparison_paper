@@ -1,5 +1,41 @@
 # D-132: one local Qwen base, four roles
 
+## D-134 streaming development boundary
+
+The new `QwenWorker` owns one Qwen model in a spawned process; its parent can
+poll without waiting for generation. Four raw tokens form one complete action.
+`ActionTokenStream` decodes that quartet into a JSON-compatible record immediately;
+the model does not spend tokens spelling JSON. `ActionBuffer` accepts the next
+indexed record while the consumer is already using the previous one.
+
+Records carry request ID, goal version, observation sequence, original capture
+timestamp, expiry, raw tokens and forward/right/up metres plus clockwise yaw
+radians. A later record cannot extend the image lifetime. The consumer rechecks
+expiry/goal version before taking an action. On hold/replan call both
+`worker.revoke()` and `buffer.revoke()`; late replies are discarded. An empty queue
+means no new motion command; the eventual controller must hold/brake safely.
+Cancellation is checked between tokens, not in the middle of a running GPU kernel.
+
+Use `WorkItem` with actual monotonic capture time, `buffer.begin(request_id,
+goal_version)`, then `worker.submit(item)`. Poll for action/result/done events;
+convert action events with `action_record`, append and consume from the buffer.
+Admission allows one outstanding model request; scheduling priorities belong above
+this boundary. The generic worker can run base language roles too; a long language
+call is currently discarded after revocation, not preempted within generation.
+
+`shared_qwen_vla_first_action_dev` requests four tokens rather than 32 because
+the existing policy executes only the first action. The input remains the trained
+eight-action prompt. The original and cached profiles retain eight actions.
+Streaming plus action buffering is tested separately from that synchronous profile.
+
+See [local measurements](../reports/qwen_stream_20261016/REPORT.md) and
+[research recommendation](research/20261016_latency/DECISION.md). Persistent
+VLM-approved goals, event priorities and actual controller/shield integration are
+still required. The tests do not establish flight, target-grounding or mission
+success. The rest of this document describes the earlier D-132 integration.
+
+## Original integration
+
 Development integration requested on 2026-10-16. The existing Ollama architecture
 profiles are unchanged. This profile uses the complete private D207 step8000
 package already downloaded locally, not the experimental PPO adapter.

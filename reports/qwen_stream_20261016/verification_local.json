@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "independent_equalities_and_freshness_checks": 51,
+  "pairs": 9,
+  "whole_tokens_compared": 288,
+  "median_seconds": {
+    "original": 3.5927367,
+    "stream_chunk": 3.6188575,
+    "first_action": 0.5517531
+  },
+  "first_action_speedup": 6.511493456040392,
+  "hashes": {
+    "scripts/diagnostics/probe_qwen_stream.py": "1abb002da72ebf49035baeb4331cfb36ff3b94d01c63df2a9e9d11af3a892f33",
+    "reports/shared_qwen_vla_20261016/final/input.png": "c81ae48079745045c81521ec203fb4aaefa87dd6be0dcd15f27c6da2446ce0ca",
+    "configs/experiments/qwen_stream_probe.json": "dcc953d9cd0e5f76c603219d87fba18817eeebf5ecfaedf6351202356863c37c",
+    "src/uavlab/plugins/inference/qwen_actions.py": "d138ad3cdf64d4d01b7f35215c3ed1c4ceca3944f5ca4e6d11971f3ec19a66fa",
+    "src/uavlab/plugins/inference/qwen_cache.py": "8455a8d2bc15119a8def74e00fa2d31cb82bd5277611867493d433f6e326c9c1",
+    "src/uavlab/plugins/inference/qwen_worker.py": "8d589e9666a250819241a1ba1dac0826b78b8f2ee461a470d28c7d5fdadfca98",
+    "src/uavlab/plugins/inference/shared_qwen.py": "a4ada32b291de6b50b3302cab733efdd56333f5fe2495fd41fbe78ea8975552e",
+    "src/uavlab/plugins/inference/action_stream.py": "03275049637eee740df6ae0cf88c494698c01bc79538edcb48f9ef5ccff0d8b1",
+    "src/uavlab/plugins/inference/action_buffer.py": "f173c5f0be252f735972455f5fe5338fb891edd251d9a66975ff4a18640b8637"
+  },
+  "raw_result_sha256": "7c780bb1106b5414152b6439f7c98116b13de5f579db921c75eb35c9dc05c324",
+  "scope": "No flight, no training. Saved image/states; synthetic clock-responsive consumer, no physical commands."
+}

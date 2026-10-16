@@ -11,6 +11,23 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-134 streamed JSON actions (2026-10-16)
+
+Read reports/qwen_stream_20261016/REPORT.md and
+docs/research/20261016_latency/DECISION.md. Raw action quartets stream from a
+single spawned Qwen worker into a bounded JSON-compatible queue. The controller
+can consume an earlier action before later ones arrive. Goal revocation and
+original observation expiry apply again at consumption. Historical profiles keep
+eight-action generation; shared_qwen_vla_first_action_dev generates only the
+first action with the same trained input format. No AWS, training or new model.
+This worker boundary is not yet wired into the SimClock/AirSim mission controller.
+Next: persistent VLM-approved goals, event priorities and controller/shield wiring.
+
+User code rules: functions <=40 lines excluding docstrings; files <=1000 lines;
+at most five arguments, complexity10 and12 branches. Run
+`python scripts/check_code.py <changed Python files>` and the regular Ruff check.
+The checker covers the changed files; historical code is not claimed compliant.
+
 ## Latest user work: D-133 bounded Qwen caches (2026-10-16)
 
 Read reports/shared_qwen_cache_20261016/REPORT.md. New cached development profile:

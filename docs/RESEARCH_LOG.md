@@ -3186,7 +3186,8 @@ wall-clock independent control and semantic mission validation remain open.
 
 ### D-134 — Frozen-model streaming and latency optimization (2026-10-16)
 
-Status: implementation in progress. User authorizes local implementation and
+Status: streaming/worker boundary measured; mission integration remains open.
+User authorizes local implementation and
 no-retraining latency research, with strict short-function/module rules.
 Rationale: current consumer uses one of eight generated actions, and synchronous
 generation blocks the control process. First refactor separates codec and model
@@ -3196,3 +3197,27 @@ Research: docs/research/20261016_latency/PROTOCOL.md, evidence.json, DECISION.md
 30 candidates,26 substantive inspections,18 primary sources; coverage validator
 passes. Direct approximate/pruned VLA methods and requantization are alternatives,
 not automatic deployments. Full asynchronous mission architecture remains open.
+
+D134b adds four-token streaming, bounded JSON-compatible action records, consumption
+expiry/goal checks and one spawned GPU owner. The original profile still generates
+eight actions; a separate first-action profile stops after four tokens with the same
+trained input format. It does not alter historical replay timing. PEFT switching
+re-enabled gradient flags in real_v1, causing the probe to fail despite unchanged
+parameter versions and matching actions. Freeze inside/after role contexts and
+retain the failed evidence. No gradients or optimizer updates were performed.
+
+Final real_v2: nine pairs,288 whole-chunk tokens and nine first-action prefixes
+identical; median original3.593s, streamed first action0.565s, one-action generation
+0.552s. Whole streamed chunk3.619s: streaming reduces initial waiting, not total
+eight-action decode. Base text repeats; parameter versions unchanged and frozen.
+Worker control-tick surrogate stays near20Hz, maximum50.77ms gap. Cold first action
+1.044s; warm chunk emits two actions before original1.5s expiry then cancels.
+No stale action consumed.60 focused CPU tests, Ruff and changed-file limits pass.
+Evidence: reports/qwen_stream_20261016/REPORT.md, real_v2/result.json and independent
+verification_local.json. GPU unloaded; no AWS, training, flight or publication.
+
+Next: persistent VLM goal and priority/event scheduler connected to real controller,
+shield and fresh camera/state inputs; validate mission grounding separately. Reject
+pretending a responsive test tick is a flight, executing a stale remainder, or
+claiming a6.5x mission speedup. Profile action projection/decode before kernel or
+requantization changes; no extra model or retraining chosen by the research review.

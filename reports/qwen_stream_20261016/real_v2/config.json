@@ -1,0 +1,41 @@
+{
+  "repeats": 3,
+  "watchdog_s": 600,
+  "control_hz": 20,
+  "max_tick_gap_s": 0.1,
+  "worker_ready_timeout_s": 120,
+  "observation_ttl_s": 1.5,
+  "cases": [
+    {
+      "instruction": "Move forward 2 meters.",
+      "remaining": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "brightness": 1.0
+    },
+    {
+      "instruction": "Turn right 30 degrees.",
+      "remaining": [
+        0,
+        0,
+        0,
+        30
+      ],
+      "brightness": 1.0
+    },
+    {
+      "instruction": "Ascend 2 meters.",
+      "remaining": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "brightness": 0.7
+    }
+  ],
+  "note": "Saved-frame diagnostics, no motion. 1.5s matches existing freshness budget; 20Hz is the existing control target. Three repeats are descriptive, not tail-latency certification."
+}

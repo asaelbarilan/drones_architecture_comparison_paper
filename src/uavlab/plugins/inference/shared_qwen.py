@@ -13,7 +13,7 @@ import json
 import os
 import sys
 import time
-from contextlib import nullcontext
+from contextlib import contextmanager, nullcontext
 from pathlib import Path
 
 from uavlab.core.registry import register
@@ -38,6 +38,9 @@ class SharedQwenInference:
         self.precision = options.get("precision", "nf4")
         self.model_id = options.get("model_id", "qwen3-vl-4b-d207-shared")
         self.max_new_tokens = int(options.get("max_new_tokens", 192))
+        self.pilot_actions = options.get("pilot_actions", CHUNK_ACTIONS)
+        if type(self.pilot_actions) is not int or not 1 <= self.pilot_actions <= CHUNK_ACTIONS:
+            raise ValueError("pilot_actions must fit the trained chunk")
         audit_path = options.get("audit_path")
         self.audit_path = Path(audit_path) if audit_path else None
         self._lock = asyncio.Lock()
@@ -135,25 +138,48 @@ class SharedQwenInference:
         kwargs = {"images": images} if images else {}
         return self.processor(text=[text], return_tensors="pt", **kwargs)
 
-    def _pilot(self, request):
+    def _pilot(self, request, delivery=None):
+        from .action_stream import ActionTokenStream
+
         data = read_pilot(request)
         batch = encode_pilot(self, request, data)
+        count = self.pilot_actions if delivery is None else delivery.actions
+        extra = (
+            {} if delivery is None else {"streamer": ActionTokenStream(self.tokenizer, delivery)}
+        )
         output = self._generate(
             request,
             batch,
             do_sample=False,
-            min_new_tokens=CHUNK_ACTIONS * ACTION_CHANNELS,
-            max_new_tokens=CHUNK_ACTIONS * ACTION_CHANNELS,
+            min_new_tokens=count * ACTION_CHANNELS,
+            max_new_tokens=count * ACTION_CHANNELS,
             logits_processor=action_logits(self.tokenizer),
             use_cache=True,
             pad_token_id=self.processor.tokenizer.pad_token_id,
+            **extra,
         )
         ids = output[0, batch["input_ids"].shape[1] :].tolist()
         return {
-            "steps_fru_m_yaw_rad": decode_actions(self.tokenizer, ids, CHUNK_ACTIONS),
+            "steps_fru_m_yaw_rad": decode_actions(self.tokenizer, ids, count),
             "tokens": ids,
             "remaining_supplied": data["remaining"],
         }, len(ids)
+
+    def stream_pilot(self, request, delivery):
+        """Synchronous single-owner entry point for the external GPU worker."""
+        if request.role != "pilot" or request.model_id != self.model_id:
+            raise ValueError("pilot stream requires matching role/model")
+        self._load()
+        started = time.perf_counter_ns()
+        try:
+            with self.torch.inference_mode():
+                payload, count = self._pilot(request, delivery)
+        except BaseException:
+            self.clear_caches()
+            raise
+        elapsed = time.perf_counter_ns() - started
+        self._record(request, payload, elapsed)
+        return payload, count
 
     def _generate(self, request, batch, **kwargs):
         batch = self.api.cuda(batch)
@@ -169,9 +195,8 @@ class SharedQwenInference:
 
     def _run(self, request):
         self._load()
-        mode = nullcontext() if request.role == "pilot" else self.model.disable_adapter()
         # Serialize before entering this context; no second role may switch it mid-call.
-        with mode, self.torch.inference_mode():
+        with self._role_mode(request.role), self.torch.inference_mode():
             if request.role == "pilot":
                 return self._pilot(request)
             batch = self._chat_batch(request)
@@ -185,6 +210,17 @@ class SharedQwenInference:
             )
             ids = output[0, batch["input_ids"].shape[1] :].tolist()
             return self.processor.tokenizer.decode(ids, skip_special_tokens=True), len(ids)
+
+    @contextmanager
+    def _role_mode(self, role):
+        mode = nullcontext() if role == "pilot" else self.model.disable_adapter()
+        try:
+            with mode:
+                # PEFT adapter switching can re-enable module gradients.
+                self.model.requires_grad_(False)
+                yield
+        finally:
+            self.model.requires_grad_(False)
 
     async def invoke(self, request: InferenceRequest):
         if request.role not in self.ROLES or request.model_id != self.model_id:

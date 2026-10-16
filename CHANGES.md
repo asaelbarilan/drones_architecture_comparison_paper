@@ -1,3 +1,16 @@
+## 2026-10-16 — D-134b: streamed actions and JSON buffering
+
+Implemented complete-action streaming and a bounded JSON queue in an isolated
+Qwen worker. One-action profile preserves the trained input; original profiles
+still generate eight. Final nine GPU comparisons preserve all action tokens;
+median first-action-only0.552s versus original chunk3.593s. Full streamed chunk
+remains3.619s.20Hz test ticks continue during generation; stale remainder cancels.
+Preserved initial failed frozen-flag check and fixed PEFT role switching; final
+parameters frozen/version counters unchanged.60 CPU tests and code checks pass.
+Research screens30/inspects26 sources, with deployment/quality limitations recorded.
+No training/AWS/flight. Actual goal scheduler/controller integration remains next.
+Evidence: reports/qwen_stream_20261016/REPORT.md.
+
 ## 2026-10-16 — D-134a: Qwen structure before streaming
 
 Split pilot validation/encoding/decoding from model ownership and shorten backend

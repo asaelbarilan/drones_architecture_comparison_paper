@@ -1,10 +1,17 @@
 # TODO
 
-## D-133 — next shared-Qwen efficiency boundary
+## D-134 — connect measured streaming to the mission runtime
 
-- Stream complete four-token actions and measure first-action latency; retain
-  freshness, interruptibility and independent hover/control. Current caching is
-  not streaming or asynchronous GPU scheduling.
+- Streaming quartets, a bounded JSON action buffer and a separate GPU owner are
+  implemented. Connect them to persistent VLM-approved goals, event priorities,
+  the shield and actual wall-clock controller. Keep the existing deterministic
+  SimClock profiles separate; a test control tick is not a flight validation.
+- Use a fresh camera/state observation for replacement chunks. Later actions may
+  be appended while earlier actions execute, but cannot renew the source-image
+  lifetime. Revoke the buffer on hold/replan and recheck current motion constraints.
+- Next optimization measurement: profile output projection versus NF4 decode;
+  test action-only projection only with exact output/adapter checks. See the
+  26-source review in docs/research/20261016_latency/DECISION.md.
 - Partial-prefix KV reuse is disabled after a measured NF4 output mismatch.
   Exact prompt reuse and exact visual-batch sharing are verified locally; do not
   claim OnFly-style reuse across changed latest frames or a flight speedup.

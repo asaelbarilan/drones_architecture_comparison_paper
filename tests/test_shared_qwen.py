@@ -15,6 +15,8 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import (
     remaining_fru,
 )
 
+VELOCITY_LIMIT_WITH_TOLERANCE = 2.000001
+
 
 @pytest.mark.parametrize("yaw", [0, math.pi / 2, -math.pi / 2, math.pi])
 def test_action_goal_frame_roundtrip(yaw):
@@ -24,7 +26,7 @@ def test_action_goal_frame_roundtrip(yaw):
     )
     r = remaining_fru(goal, Vec3(x=0, y=0, z=0), yaw, yaw - 0.2)
     assert r == pytest.approx([2, 1, 0.5, math.degrees(0.2)])
-    assert a.velocity.norm() <= 2.000001
+    assert a.velocity.norm() <= VELOCITY_LIMIT_WITH_TOLERANCE
     assert a.yaw_rate_rps * a.duration_s == pytest.approx(-0.2)
 
 
@@ -63,7 +65,7 @@ def test_one_backend_four_roles_and_measured_clock():
             await b.invoke(InferenceRequest(model_id=b.model_id, role=role, prompt_hash="test"))
 
     asyncio.run(calls())
-    assert len(charges) == 5 and all(x > 0 for x in charges)
+    assert len(charges) == len(modes) and all(x > 0 for x in charges)
     assert modes == ["planner", "direction", "monitor", "pilot", "planner"]
     assert b.stats()["shared_base_load_count"] == 1
 
@@ -113,27 +115,39 @@ def test_monitor_arrival_before_goal_refresh(distance, heading, expected_stop):
     assert p._goal == Vec3(x=distance, y=0, z=1)
 
 
-def test_adapter_restored_when_language_role_fails():
-    from contextlib import contextmanager, nullcontext
-
-    b = SharedQwenInference("unused")
+def switching_model():
+    from contextlib import contextmanager
 
     class Model:
         enabled = True
+        trainable = False
+
+        def requires_grad_(self, value):
+            self.trainable = value
 
         @contextmanager
         def disable_adapter(self):
             self.enabled = False
+            self.trainable = True
             try:
                 yield
             finally:
                 self.enabled = True
+                self.trainable = True
 
         def generate(self, **kw):
             assert not self.enabled
+            assert not self.trainable
             raise ValueError("deliberate failure")
 
-    b.model = Model()
+    return Model()
+
+
+def test_adapter_restored_when_language_role_fails():
+    from contextlib import nullcontext
+
+    b = SharedQwenInference("unused")
+    b.model = switching_model()
     b._load = lambda: None
     b._chat_batch = lambda r: {}
     b.torch = SimpleNamespace(inference_mode=nullcontext)
@@ -142,6 +156,15 @@ def test_adapter_restored_when_language_role_fails():
     with pytest.raises(ValueError, match="deliberate"):
         b._run(InferenceRequest(model_id=b.model_id, role="planner", prompt_hash="test"))
     assert b.model.enabled
+    assert not b.model.trainable
+
+
+def test_adapter_switch_remains_frozen_after_normal_return():
+    b = SharedQwenInference("unused")
+    b.model = switching_model()
+    with b._role_mode("monitor"):
+        assert not b.model.enabled and not b.model.trainable
+    assert b.model.enabled and not b.model.trainable
 
 
 def test_development_profile_loads():

@@ -1,0 +1,8 @@
+# D134: original prompt and codec; stop decoding after the one consumed action.
+_base_: [shared_qwen_vla_dev.yaml]
+id: shared_qwen_vla_first_action_dev
+name: Shared Qwen first action development probe
+description: Generate four causal action tokens instead of an unused eight-action chunk.
+inference:
+  params:
+    pilot_actions: 1

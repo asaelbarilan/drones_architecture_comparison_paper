@@ -11,6 +11,15 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-137 research toward200ms (2026-10-16)
+
+Read docs/research/20261016_200ms/REPORT.md. Research only; no runtime edits,
+GPU calls, flights, AWS or training. Updated34-source ledger validates coverage,
+with inherited provenance explicit. Saved warm breakdown: first token189ms,
+remaining three325ms; image acceleration alone cannot meet200ms with decode unchanged.
+Next proposed local test: actual attention backend/dtypes and conversion audit,
+then fixed-shape decode. No200ms result promised; preserve one base and1.5s TTL.
+
 ## Latest user work: D-136 latency diagnosis (2026-10-16)
 
 Read reports/qwen_latency_20261016/REPORT.md. No flights this turn. Identical

@@ -3273,3 +3273,24 @@ warm-session slowdown. Real saved-input gate passes1.065s cold/0.557–0.558s wa
 67 focused tests and code limits pass. No flights, training, AWS, weight changes,
 system power changes or extra models. Evidence: reports/qwen_latency_20261016/REPORT.md
 and verification_local.json; GPU unloaded. No follow-on flight scheduled.
+
+### D-137 — frozen pilot200ms feasibility research (2026-10-16)
+
+Status: research complete; runtime options provisional pending local measurement.
+User asks how to reduce fresh complete-action latency from~550ms to200ms without
+retraining. Update D134 bibliography:34 candidates,30 meaningful inspections,
+20 primary papers, with inherited/fresh provenance explicit. Validator passes;
+resource/license gaps remain, not deployment approval. No GPU or AWS used.
+Rationale: D136 five warm saved-input calls have median first token189.263ms,
+first action514.106ms and remaining three324.843ms. This is not a representative
+end-to-end p95. Existing math SDPA/casts merit diagnosis, not an asserted cause.
+PEFT preparation's upcast is followed by frozen-base BF16 restoration in setup;
+do not attribute fallback to it without actual layer dtypes/backend reasons.
+Prioritize eligible fused SDPA/conversion audit, then fixed-shape compile/graphs;
+profile action-only projection before implementing. Quantization/pruning remain
+separate approximate alternatives. Previous-action speculation is a hypothesis
+requiring fresh-context verification and exact greedy-token/fallback checks.
+No inspected source proves200ms on our stack. Preserve one base, trained adapter,
+role separation, original TTL, existing cache counterevidence and baseline.
+Evidence: docs/research/20261016_200ms/REPORT.md, evidence.json, local_analysis.json,
+SEARCH_LOG.md, RESOURCES.md and validation.json. No runtime changes or flight claim.

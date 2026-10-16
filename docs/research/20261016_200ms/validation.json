@@ -1,0 +1,17 @@
+{
+  "works": 34,
+  "meaningful": 30,
+  "primary": 20,
+  "categories": {
+    "dataset_benchmark": 3,
+    "direct_solution": 5,
+    "recent": 5,
+    "foundational": 6,
+    "deployment": 7,
+    "decoding": 1,
+    "runtime": 2,
+    "visual_pruning": 1
+  },
+  "valid": true,
+  "errors": []
+}

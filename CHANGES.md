@@ -1,3 +1,10 @@
+## 2026-10-16 — D-137: research200ms first complete action
+
+Updated latency review with34 sources and explicit inherited provenance. Saved
+local breakdown shows~325ms after first token; faster vision alone insufficient.
+Rank attention/backend audit then fixed-shape decode; no promised200ms speed.
+No runtime edits, inference, flight, training or AWS. See research report.
+
 ## 2026-10-16 — D-136: latency recovery and startup qualification
 
 Paired saved old/new inputs and actual worker recover ~0.55s without changing

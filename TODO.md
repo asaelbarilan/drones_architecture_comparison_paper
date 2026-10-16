@@ -1,5 +1,12 @@
 # TODO
 
+## D-137 — measure runtime acceleration before new flights
+
+- Proposed next: audit actual SDPA eligibility, per-layer dtypes and conversion cost.
+- Test fixed-shape decode separately; keep baseline and one shared base.
+- Use saved-input/role-switch timing and output checks from research report;
+  no200ms claim without end-to-end measurement, no freshness relaxation.
+
 ## D-136 — current latency qualified; past slowdown unexplained
 
 - Current saved-input actual-worker tests recover ~0.55s with unchanged inference

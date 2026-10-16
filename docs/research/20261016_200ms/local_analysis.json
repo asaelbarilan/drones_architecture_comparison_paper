@@ -1,0 +1,9 @@
+{
+  "source": "reports/qwen_latency_20261016/diagnosis/pairs.json",
+  "exclusion": "First row cold load excluded; all other rows retained",
+  "n_warm": 5,
+  "median_first_token_ms": 189.2627,
+  "median_first_action_ms": 514.1057,
+  "median_remaining_three_tokens_ms": 324.843,
+  "caveat": "Small saved-input sample, not representative p95. First-token interval includes more than vision alone. This is backend timing, not proof of capture-to-controller latency."
+}

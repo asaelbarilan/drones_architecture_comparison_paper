@@ -46,7 +46,8 @@ class DelayedWorker:
 
 def test_complete_wall_clock_grid_run_with_delayed_scripted_worker(tmp_path):
     settings = json.loads(Path("configs/experiments/qwen_async_local.json").read_text())
-    settings.update(flight_seconds=8, inference_kind="scripted test double")
+    settings.update(flight_seconds=8, inference_kind="scripted test double",
+                    latency_preflight=False)
     case = dict(id="fixture", seed=1061, instruction="Move forward one meter and stop",
                 expected_delta=[1, 0, 0, 0])
     result = asyncio.run(fly(DelayedWorker(), case, settings, tmp_path / "fixture"))

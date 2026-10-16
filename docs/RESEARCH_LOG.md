@@ -3248,3 +3248,28 @@ only in the scripted runtime. Numeric empty scenes do not validate grounding.
 Grid3d is the rendered adapter; Project AirSim remains unimplemented. Evidence:
 reports/qwen_async_20261016/REPORT.md, raw events/images, independent audit and
 visually inspected simulator_audit.png. Models unloaded; no cloud/training.
+
+### D-136 — diagnose first-action latency regression locally (2026-10-16)
+
+User authorizes saved-input latency diagnosis and repair before any more flights.
+Keep the1.5s freshness limit and weights unchanged; no AWS or flights. First
+compare D134 and D135 inputs in the same loaded process, record software/device
+identity, and profile preprocessing/prefill/decode. The shared backend SHA256
+still matches D134 evidence; both source images are224x224. Do not attribute
+the regression to the scheduler, threads or power state without measurement.
+Status: current latency recovered before a production-code change; historical
+slowdown not reproduced or causally explained. Paired old/new inputs in two
+process contexts are warm0.494–0.580s. Actual worker after all base roles:
+cold1.081s, warm0.531–0.572s,19 complete actions delivered before1.5s expiry,
+none executed. Prefix tokens match historical inputs. Current all-CUDA parameter
+placement and prompt137->141tokens exclude those as reproduced regressions.
+Loading also recovered~20->5.7s, suggesting session-wide conditions; not proof of
+power/contention cause. Profiling tables are instrumented, not latency benchmarks.
+
+Operational repair adds non-executing warmup plus three timely samples before
+entering the flight loop, original TTL unchanged and one control-tick margin.
+Failed qualification prevents flight; this is not claimed to fix the unexplained
+warm-session slowdown. Real saved-input gate passes1.065s cold/0.557–0.558s warm.
+67 focused tests and code limits pass. No flights, training, AWS, weight changes,
+system power changes or extra models. Evidence: reports/qwen_latency_20261016/REPORT.md
+and verification_local.json; GPU unloaded. No follow-on flight scheduled.

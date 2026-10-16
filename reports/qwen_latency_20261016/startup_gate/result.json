@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "qualification": [
+    {
+      "first_action_s": 1.0653479,
+      "status": "complete",
+      "request_id": 0
+    },
+    {
+      "first_action_s": 0.5580882,
+      "status": "complete",
+      "request_id": 1
+    },
+    {
+      "first_action_s": 0.5582551,
+      "status": "complete",
+      "request_id": 2
+    },
+    {
+      "first_action_s": 0.5567785,
+      "status": "complete",
+      "request_id": 3
+    }
+  ],
+  "scope": "non-executing saved-input replay",
+  "ready": [
+    {
+      "kind": "ready",
+      "payload": {
+        "load_count": 1
+      },
+      "consumed_ns": 100856802814600
+    }
+  ]
+}

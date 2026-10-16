@@ -9,6 +9,7 @@ from uavlab.plugins.inference.qwen_worker import QwenWorker
 
 from .control import LiveControl, context
 from .evidence import Evidence, summarize
+from .latency import diagnostic_request, qualify
 from .scheduler import GoalScheduler
 
 PHYSICS_STEP_NS = s_to_ns(0.05)
@@ -57,6 +58,10 @@ async def fly(worker, case, settings, out):
     control = LiveControl(state, settings, case["seed"])
     try:
         obs = await env.reset(state.mission, case["seed"])
+        if settings.get("latency_preflight", True):
+            request = diagnostic_request(obs, settings)
+            await qualify(worker, request, settings, evidence)
+            state.next_id = worker.last_id+1
         obs, gaps = await flight_loop(env, control, obs, evidence)
         result = summarize(state, obs, case, evidence, gaps)
         status = env.status()  # Scoring truth never enters state or model prompts.

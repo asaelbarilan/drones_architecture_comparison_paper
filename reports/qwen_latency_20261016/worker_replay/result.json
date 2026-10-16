@@ -1,0 +1,12 @@
+{
+  "ready": [
+    {
+      "kind": "ready",
+      "payload": {
+        "load_count": 1
+      },
+      "consumed_ns": 100724753930300
+    }
+  ],
+  "passed": true
+}

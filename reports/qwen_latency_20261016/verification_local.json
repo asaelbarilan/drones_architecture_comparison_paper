@@ -1,0 +1,54 @@
+{
+  "scope": "saved input only; no flights",
+  "sessions": {
+    "diagnosis": {
+      "old": {
+        "median_s": 0.4947536,
+        "range_s": [
+          0.4941206,
+          0.4953866
+        ],
+        "prefix_matches_historical": true
+      },
+      "new": {
+        "median_s": 0.5204916,
+        "range_s": [
+          0.5146465,
+          0.5245037
+        ],
+        "prefix_matches_historical": true
+      }
+    },
+    "launch_context": {
+      "old": {
+        "median_s": 0.5588598,
+        "range_s": [
+          0.537244,
+          0.5804756
+        ],
+        "prefix_matches_historical": true
+      },
+      "new": {
+        "median_s": 0.5460056,
+        "range_s": [
+          0.540302,
+          0.5557448
+        ],
+        "prefix_matches_historical": true
+      }
+    }
+  },
+  "worker": {
+    "pilot_calls": 7,
+    "cold_first_action_s": 1.0814575,
+    "warm_first_action_range_s": [
+      0.5311743,
+      0.5721909
+    ],
+    "actions_delivered": 19,
+    "all_delivery_before_expiry": true,
+    "forward_prefix_matches_d135": true
+  },
+  "backend_sha256": "a4ada32b291de6b50b3302cab733efdd56333f5fe2495fd41fbe78ea8975552e",
+  "original_pilot_ttl_s": 1.5
+}

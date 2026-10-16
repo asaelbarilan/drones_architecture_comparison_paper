@@ -1,3 +1,11 @@
+## 2026-10-16 — D-136: latency recovery and startup qualification
+
+Paired saved old/new inputs and actual worker recover ~0.55s without changing
+inference code. Earlier slowdown not reproduced; cause remains uncertain.
+Add non-executing startup warmup/three-sample gate before flight, retain1.5s TTL.
+Real gate passes,67 focused tests and code checks pass. No flight, AWS or training.
+See reports/qwen_latency_20261016/REPORT.md; do not call the guard a causal speed fix.
+
 ## 2026-10-16 — D-135: asynchronous runtime, failed real-model qualification
 
 Implemented persistent goals, event-driven roles, streaming action consumption,

@@ -1,5 +1,14 @@
 # TODO
 
+## D-136 — current latency qualified; past slowdown unexplained
+
+- Current saved-input actual-worker tests recover ~0.55s with unchanged inference
+  code and TTL. The new startup gate prevents flight when warm samples are slow.
+- Do not claim the past warm slowdown was fixed by warmup or CPU tuning. If it
+  recurs, capture a slow-session profile with hardware/power/contention telemetry.
+- No follow-on flight scheduled. D135 failures remain failures; AirSim, visual
+  grounding and cognitive-mission validation remain open.
+
 ## D-135 — real-model latency blocks motion after integration
 
 - Persistent-goal/worker/controller/shield integration is implemented and the

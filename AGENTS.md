@@ -11,6 +11,17 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-136 latency diagnosis (2026-10-16)
+
+Read reports/qwen_latency_20261016/REPORT.md. No flights this turn. Identical
+backend and paired old/new inputs recover ~0.55s before any production change.
+Actual worker after base roles: warm0.531–0.572s, original1.5s expiry enforced.
+Historical D135 slowdown not reproduced; do not claim its cause is proven/fixed.
+New non-executing startup warmup/latency gate blocks flight if three warm samples
+miss the deadline minus one control tick. Real gate and67 focused tests pass.
+No model optimization, TTL extension, AWS or training. GPU unloaded. Next preserve
+these qualifications; capture slow-session profile/hardware state if it recurs.
+
 ## Latest user work: D-135 asynchronous integration (2026-10-16)
 
 Read reports/qwen_async_20261016/REPORT.md. Persistent goals and event-driven

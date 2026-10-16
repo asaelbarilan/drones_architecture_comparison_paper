@@ -1,0 +1,133 @@
+{
+  "hold": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0,
+      "heading_error_deg": 0.0,
+      "final_speed_mps": 0.0,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "monitor": 1
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 150,
+      "max_tick_gap_s": 0.0515789,
+      "timing_pass": true,
+      "simulated_seconds": 7.6040558,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "hold_pass": true
+    }
+  },
+  "forward": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.3850453749220403,
+      "heading_error_deg": 0.17360083250479486,
+      "final_speed_mps": 0.00039570724141817036,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 174,
+      "max_tick_gap_s": 0.0513337,
+      "timing_pass": true,
+      "simulated_seconds": 8.8063838,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.6149607939972334,
+      "max_heading_change_deg": 0.17360083250479486
+    }
+  },
+  "turn": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.002189965247147077,
+      "heading_error_deg": 4.629606187374389,
+      "final_speed_mps": 2.920736985148381e-05,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 166,
+      "max_tick_gap_s": 0.0514856,
+      "timing_pass": true,
+      "simulated_seconds": 8.3981763,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0031930503172474495,
+      "max_heading_change_deg": 10.370393812625606
+    }
+  },
+  "move_then_turn": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": false,
+      "endpoint_error_m": 0.4204368544429312,
+      "heading_error_deg": 15.235705571787168,
+      "final_speed_mps": 9.661773186969481e-72,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 1,
+        "direction": 2,
+        "pilot": 2,
+        "monitor": 12
+      },
+      "actions_consumed": 5,
+      "fresh_actions": true,
+      "goal_authorizations": 2,
+      "control_ticks": 1184,
+      "max_tick_gap_s": 0.0590524,
+      "timing_pass": true,
+      "simulated_seconds": 60.0436396,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.5795742641645889,
+      "max_heading_change_deg": 0.23570557178718293,
+      "move_before_turn": false,
+      "intermediate_advanced": false,
+      "sequence_pass": false
+    }
+  }
+}

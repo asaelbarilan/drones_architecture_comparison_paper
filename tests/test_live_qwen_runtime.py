@@ -37,7 +37,7 @@ class DelayedWorker:
                          tokens=[1, 1, 1, 1], step_fru_m_yaw_rad=[0.2, 0, 0, 0],
                          ready_ns=now)), done]
         payload = {
-            "planner": dict(objective="Move forward one meter", target="numeric position"),
+            "planner": dict(steps=[dict(objective="Move forward one meter", target=[1, 0, 0, 0])]),
             "direction": dict(kind="relative", target=[1, 0, 0, 0], terminal=True),
             "monitor": dict(status="stop", reason="scripted test reply"),
         }[item.request.role]

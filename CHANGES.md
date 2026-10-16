@@ -1,3 +1,11 @@
+## 2026-10-17: D-145 ordered goals and numeric completion
+
+Same four local cases now4/4 versus0/4, unchanged criteria. Planner step contract,
+active-step-only direction context and measured completion gate implemented.
+Monitor arithmetic still unreliable; one explicit override.37 tests/code checks
+pass; full prompts/token inputs and failed iterations retained. GPU unloaded.
+No AWS/training. See reports/qwen_completion_fix_20261017/REPORT.md.
+
 ## 2026-10-17: D-144 four easier tasks isolate component failures
 
 Real shared-Qwen hold/1m forward/15deg turn/ordered move-turn suite completed.

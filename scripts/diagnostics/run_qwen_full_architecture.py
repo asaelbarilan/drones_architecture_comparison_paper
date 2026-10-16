@@ -10,6 +10,7 @@ from pathlib import Path
 from probe_qwen_fast_worker import ExperimentalBackend
 from run_qwen_async import deadline_exit
 
+from uavlab.live_qwen.prompts import DIRECTION, MONITOR, PLANNER
 from uavlab.live_qwen.runner import await_worker, fly
 from uavlab.plugins.inference.qwen_worker import QwenWorker
 
@@ -18,7 +19,8 @@ async def experiment(settings, out):
     worker = QwenWorker(dict(
         package_path=settings["package_path"], model_id=settings["model_id"],
         max_new_tokens=128, warmup_path=str(out / "startup_equality.json"),
-        cpu_placement="performance", cpu_qos="latency", burst_capacity=256),
+        cpu_placement="performance", cpu_qos="latency", burst_capacity=256,
+        prompt_audit=True),
         factory=ExperimentalBackend)
     worker.start()
     results = {}
@@ -55,6 +57,8 @@ def main():
     settings["inference_kind"] = "real shared Qwen; experimental D142 full graphs"
     settings["experimental_burst_capacity"] = 256
     (args.out / "config.json").write_text(json.dumps(settings, indent=2))
+    (args.out / "prompt_templates.json").write_text(json.dumps(
+        dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR), indent=2))
     provenance(args.out)
     timer = threading.Timer(settings["watchdog_s"], deadline_exit)
     timer.daemon = True

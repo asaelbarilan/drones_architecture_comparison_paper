@@ -1,0 +1,265 @@
+{
+  "hold": {
+    "first_action_produced_s": {
+      "count": 0,
+      "median": null,
+      "maximum": null
+    },
+    "first_action_received_s": {
+      "count": 0,
+      "median": null,
+      "maximum": null
+    },
+    "actions_consumed": 0,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 117075380540700,
+        "goal_version": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 117119065785700,
+        "source_seq": 34
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 117074066523900,
+        "goal_version": 0,
+        "request_id": 4,
+        "role": "planner",
+        "payload": "{\"steps\":[{\"objective\":\"Hold position and heading\",\"target\":[0,0,0,0]}]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117075380540700,
+        "goal_version": 0,
+        "request_id": 5,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117079439851800,
+        "goal_version": 1,
+        "request_id": 6,
+        "role": "monitor",
+        "payload": "{\"status\": \"stop\", \"reason\": \"Position and heading acceptable, stationary, no motion.\"}"
+      }
+    ]
+  },
+  "forward": {
+    "first_action_produced_s": {
+      "count": 2,
+      "median": 0.4993089,
+      "maximum": 0.8024234
+    },
+    "first_action_received_s": {
+      "count": 2,
+      "median": 0.50604965,
+      "maximum": 0.8091756
+    },
+    "actions_consumed": 4,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 117083453425400,
+        "goal_version": 1,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 117127084520600,
+        "source_seq": 36
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 117082085257100,
+        "goal_version": 0,
+        "request_id": 11,
+        "role": "planner",
+        "payload": "{\"steps\":[{\"objective\":\"Move forward 1 meter\",\"target\":[1,0,0,0]}]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117083453425400,
+        "goal_version": 0,
+        "request_id": 12,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117088106301900,
+        "goal_version": 1,
+        "request_id": 15,
+        "role": "monitor",
+        "payload": "{\"status\": \"stop\", \"reason\": \"Position error within tolerance, stationary, mission complete\"}"
+      }
+    ]
+  },
+  "turn": {
+    "first_action_produced_s": {
+      "count": 2,
+      "median": 0.49256845,
+      "maximum": 0.7809747
+    },
+    "first_action_received_s": {
+      "count": 2,
+      "median": 0.5308717,
+      "maximum": 0.808804
+    },
+    "actions_consumed": 4,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 117092778434200,
+        "goal_version": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 117136362677300,
+        "source_seq": 48
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 117091364545600,
+        "goal_version": 0,
+        "request_id": 20,
+        "role": "planner",
+        "payload": "{\"steps\":[{\"objective\":\"Turn right 15 degrees from the starting heading without changing position\",\"target\":[0,0,0,15]}]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117092778434200,
+        "goal_version": 0,
+        "request_id": 21,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117097031025200,
+        "goal_version": 1,
+        "request_id": 24,
+        "role": "monitor",
+        "payload": "{\"status\": \"stop\", \"reason\": \"Heading error within tolerance, stationary, position acceptable\"}"
+      }
+    ]
+  },
+  "move_then_turn": {
+    "first_action_produced_s": {
+      "count": 5,
+      "median": 0.1998146,
+      "maximum": 0.7837399
+    },
+    "first_action_received_s": {
+      "count": 5,
+      "median": 0.2028753,
+      "maximum": 0.8093354
+    },
+    "actions_consumed": 11,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 117102471231600,
+        "goal_version": 1,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 3.140843002468606,
+        "terminal": false,
+        "expires_ns": 117146155139400,
+        "source_seq": 65
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 117109058149200,
+        "goal_version": 3,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 2.8790436146694565,
+        "terminal": true,
+        "expires_ns": 117152436380900,
+        "source_seq": 189
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 117101155742800,
+        "goal_version": 0,
+        "request_id": 29,
+        "role": "planner",
+        "payload": "{\"steps\":[{\"objective\":\"move forward 1 meter\",\"target\":[1,0,0,0]},{\"objective\":\"turn right 15 degrees\",\"target\":[0,0,0,15]}]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117102471231600,
+        "goal_version": 0,
+        "request_id": 30,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117107437305200,
+        "goal_version": 1,
+        "request_id": 33,
+        "role": "monitor",
+        "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.478m exceeds 0.5m tolerance.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117109058149200,
+        "goal_version": 2,
+        "request_id": 34,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 15]}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 117114221683000,
+        "goal_version": 3,
+        "request_id": 38,
+        "role": "monitor",
+        "payload": "{\"status\": \"stop\", \"reason\": \"Heading error within tolerance, stationary, mission complete\"}"
+      }
+    ]
+  }
+}

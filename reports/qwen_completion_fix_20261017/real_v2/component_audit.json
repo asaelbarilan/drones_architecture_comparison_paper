@@ -1,0 +1,450 @@
+{
+  "hold": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0,
+      "heading_error_deg": 0.0,
+      "final_speed_mps": 0.0,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "monitor": 1
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 213,
+      "max_tick_gap_s": 0.0520827,
+      "timing_pass": true,
+      "simulated_seconds": 10.7903636,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "hold_pass": true
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "first_action_received_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "actions_consumed": 0,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116673036553300,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.6250063395074628,
+          "terminal": true,
+          "expires_ns": 116716668931500,
+          "source_seq": 33
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116671669576600,
+          "goal_version": 0,
+          "request_id": 4,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Hold position and heading\",\"target\":[0,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116673036553300,
+          "goal_version": 0,
+          "request_id": 5,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116680791901700,
+          "goal_version": 1,
+          "request_id": 6,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"The mission objective to hold position and heading is confirmed complete because position_and_heading_acceptable is true and stationary is true, with no motion detected. The system is at the target pose [0, 0, 0, 0] and meets all criteria for completion, including the final step being terminal.\"\n}"
+        }
+      ]
+    }
+  },
+  "forward": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.3838733347488191,
+      "heading_error_deg": 0.1738891921781185,
+      "final_speed_mps": 5.4850216691553724e-08,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 216,
+      "max_tick_gap_s": 0.0523768,
+      "timing_pass": true,
+      "simulated_seconds": 10.9329586,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.616132875897858,
+      "max_heading_change_deg": 0.1738891921781185
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.49537695000000004,
+        "maximum": 0.7875689
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.5068232500000001,
+        "maximum": 0.8102521
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116684795726700,
+          "goal_version": 1,
+          "position": {
+            "x": 0.9930663499241091,
+            "y": 0.11755519830448552,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 0.11782764962384992,
+          "terminal": true,
+          "expires_ns": 116728430079000,
+          "source_seq": 36
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116683432489900,
+          "goal_version": 0,
+          "request_id": 11,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Move forward 1 meter\",\"target\":[1,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116684795726700,
+          "goal_version": 0,
+          "request_id": 12,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116692545203300,
+          "goal_version": 1,
+          "request_id": 15,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"The mission objective to move forward 1 meter has been achieved, as indicated by the feedback showing arrival at the target position. The position_and_heading_acceptable and stationary conditions are satisfied, and since this is the last step, the mission is complete.\"\n}"
+        }
+      ]
+    }
+  },
+  "turn": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0021968979257532546,
+      "heading_error_deg": 4.636149518689672,
+      "final_speed_mps": 1.747761009945507e-11,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 252,
+      "max_tick_gap_s": 0.0513122,
+      "timing_pass": true,
+      "simulated_seconds": 12.7455938,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0031943326442562627,
+      "max_heading_change_deg": 10.363850481310322
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.491585,
+        "maximum": 0.7811994
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.50656295,
+        "maximum": 0.8099096
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116697266900700,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.3648623672987148,
+          "terminal": true,
+          "expires_ns": 116740800222200,
+          "source_seq": 48
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116695800844300,
+          "goal_version": 0,
+          "request_id": 20,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Turn right 15 degrees from the starting heading without changing position\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116697266900700,
+          "goal_version": 0,
+          "request_id": 21,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116706118655400,
+          "goal_version": 1,
+          "request_id": 24,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"The mission objective to turn right 15 degrees from the starting heading without changing position has been achieved, as confirmed by the measured pose matching the target [0, 0, 0, 15] within acceptable tolerances. The position_and_heading_acceptable and stationary conditions are both true, and since this is the last step, the active step is complete.\"\n}"
+        }
+      ]
+    }
+  },
+  "move_then_turn": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": false,
+      "endpoint_error_m": 0.4202024916766563,
+      "heading_error_deg": 15.235837965252376,
+      "final_speed_mps": 6.602555092504872e-72,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 1,
+        "direction": 3,
+        "pilot": 2,
+        "monitor": 5
+      },
+      "actions_consumed": 5,
+      "fresh_actions": true,
+      "goal_authorizations": 3,
+      "control_ticks": 1185,
+      "max_tick_gap_s": 0.058078,
+      "timing_pass": true,
+      "simulated_seconds": 60.007018,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.5798086386252442,
+      "max_heading_change_deg": 0.2358379652523434,
+      "move_before_turn": false,
+      "intermediate_advanced": false,
+      "sequence_pass": false
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.1989862,
+        "maximum": 0.2009764
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.20257845000000002,
+        "maximum": 0.2028434
+      },
+      "actions_consumed": 5,
+      "all_consumed_fresh": true,
+      "failures": [
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116723472113400,
+          "goal_version": 2,
+          "error": "Unterminated string starting at: line 3 column 13 (char 38)",
+          "count": 1
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116747223749300,
+          "goal_version": 4,
+          "error": "Unterminated string starting at: line 3 column 13 (char 38)",
+          "count": 2
+        }
+      ],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116711586795700,
+          "goal_version": 1,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 116755168588700,
+          "source_seq": 64
+        },
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116724936948100,
+          "goal_version": 3,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 116768470192600,
+          "source_seq": 327
+        },
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116748742108600,
+          "goal_version": 5,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 116792222819500,
+          "source_seq": 796
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116710169203800,
+          "goal_version": 0,
+          "request_id": 29,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"move forward 1 meter\",\"target\":[1,0,0,0]},{\"objective\":\"turn right 15 degrees\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116711586795700,
+          "goal_version": 0,
+          "request_id": 30,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116723472113400,
+          "goal_version": 1,
+          "request_id": 33,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"The current step is to move forward 1 meter, but the measured position [0.4779, 0.0022, 0.0021, 0.2358] indicates the robot has not yet reached the target [1, 0, 0, 0]. The position error is 0.5221 meters, which exceeds the tolerance of 0.5 meters, so the step is not complete. Additionally, the robot is not stationary, as indicated by the non-zero velocity,"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116724936948100,
+          "goal_version": 2,
+          "request_id": 34,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116735733067800,
+          "goal_version": 3,
+          "request_id": 35,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"The active step is to move forward 1 meter, but the current position is not yet at the target. The measured position [0.42019, 0.00211, 0.002297, 0.23584] indicates the robot is still 0.58 meters short of the 1-meter mark, and the heading is not yet aligned with the target. Therefore, motion is required to complete this step before proceeding to the next one.\"\n}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116747223749300,
+          "goal_version": 3,
+          "request_id": 36,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"The measured position [0.42019, 0.00211, 0.002297, 0.23584] shows the robot is still 0.58 meters short of the 1-meter target, and the heading is not aligned with the target. The position_and_heading_acceptable flag is true, but stationary is true, which means the robot is not moving. Since the position is not yet at the target, motion is required to complete this step. The robot must move forward"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116748742108600,
+          "goal_version": 4,
+          "request_id": 37,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116757455404600,
+          "goal_version": 5,
+          "request_id": 38,
+          "role": "monitor",
+          "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"The active step is to move forward 1 meter, and the current position is within acceptable tolerance (0.42m from target, which is less than 0.5m tolerance). However, the system is not yet stationary (speed_mps is non-zero, indicating motion is still occurring). Therefore, more motion is needed to complete this step before proceeding to the next one.\"\n}"
+        }
+      ]
+    }
+  }
+}

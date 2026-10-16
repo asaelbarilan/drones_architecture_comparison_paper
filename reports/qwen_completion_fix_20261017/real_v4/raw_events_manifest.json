@@ -1,0 +1,18 @@
+{
+  "hold/events.jsonl": {
+    "bytes": 80760,
+    "sha256": "a1e1fbf980cc5521f64f49e230f839f4a025055bb7697007746bfb6152518755"
+  },
+  "forward/events.jsonl": {
+    "bytes": 112650,
+    "sha256": "d2968a66bfc61a4b006063df761bf3d0ece28bb5f62ed5e20b5c75940153b84c"
+  },
+  "turn/events.jsonl": {
+    "bytes": 116919,
+    "sha256": "04ee23ba2127ea4efcf174af6e99d6dfa1223079e0abbad8cc9b43f98c1f02fc"
+  },
+  "move_then_turn/events.jsonl": {
+    "bytes": 207472,
+    "sha256": "26cb391c4ee5397a466497f603e30ab4680b9d4514b573ca83400ffff4009600"
+  }
+}

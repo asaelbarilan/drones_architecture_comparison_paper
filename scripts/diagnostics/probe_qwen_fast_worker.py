@@ -43,6 +43,7 @@ class ExperimentalBackend(SharedQwenInference):
     def __init__(self, package_path, warmup_path, **options):
         self.bf16_norms = options.pop("bf16_norms", False)
         self.burst_capacity = options.pop("burst_capacity", 512)
+        self.prompt_audit = options.pop("prompt_audit", False)
         super().__init__(package_path, **options)
         self.warmup_path = Path(warmup_path)
 
@@ -66,6 +67,8 @@ class ExperimentalBackend(SharedQwenInference):
                     self.norms.append((parameter, parameter.data, reduced))
 
     def _generate(self, request, batch, **kwargs):
+        if self.prompt_audit:
+            self.save_prompt(request, batch)
         if not self.enabled or request.role != "pilot":
             return super()._generate(request, batch, **kwargs)
         try:
@@ -82,6 +85,14 @@ class ExperimentalBackend(SharedQwenInference):
             self.decoder.forward = self.full_graph.original
             self.visual.forward = self.vision_graph.original
             self.head.forward = self.head_original
+
+    def save_prompt(self, request, batch):
+        ids = batch["input_ids"][0].tolist()
+        row = dict(role=request.role, observation_seq=request.observation_seq,
+                   request=request.prompt, input_ids=ids,
+                   decoded_input=self.processor.tokenizer.decode(ids, skip_special_tokens=False))
+        with (self.warmup_path.parent / "encoded_prompts.jsonl").open("a", encoding="utf-8") as f:
+            f.write(json.dumps(row) + "\n")
 
 
 def main():

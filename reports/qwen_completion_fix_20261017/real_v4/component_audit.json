@@ -1,0 +1,411 @@
+{
+  "hold": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0,
+      "heading_error_deg": 0.0,
+      "final_speed_mps": 0.0,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "monitor": 1
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 141,
+      "max_tick_gap_s": 0.0520742,
+      "timing_pass": true,
+      "simulated_seconds": 7.1431787,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "hold_pass": true
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "first_action_received_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "actions_consumed": 0,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116955146533600,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.6250063395074628,
+          "terminal": true,
+          "expires_ns": 116998730132300,
+          "source_seq": 35
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116953731197800,
+          "goal_version": 0,
+          "request_id": 4,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Hold position and heading\",\"target\":[0,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116955146533600,
+          "goal_version": 0,
+          "request_id": 5,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116959104780400,
+          "goal_version": 1,
+          "request_id": 6,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Position and heading acceptable, stationary, no motion.\"}"
+        }
+      ]
+    }
+  },
+  "forward": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.38455461604454494,
+      "heading_error_deg": 0.17377713133255457,
+      "final_speed_mps": 0.000753041522669737,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 155,
+      "max_tick_gap_s": 0.051239,
+      "timing_pass": true,
+      "simulated_seconds": 7.8405484,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.6154515662766196,
+      "max_heading_change_deg": 0.17377713133255457
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.51135475,
+        "maximum": 0.8213013
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.5323475,
+        "maximum": 0.8613468
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116963072062700,
+          "goal_version": 1,
+          "position": {
+            "x": 0.9930663499241091,
+            "y": 0.11755519830448552,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 0.11782764962384992,
+          "terminal": true,
+          "expires_ns": 117006706718400,
+          "source_seq": 35
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116961707521900,
+          "goal_version": 0,
+          "request_id": 11,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Move forward 1 meter\",\"target\":[1,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116963072062700,
+          "goal_version": 0,
+          "request_id": 12,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116967779077700,
+          "goal_version": 1,
+          "request_id": 15,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Position error within tolerance, stationary, mission complete\"}"
+        }
+      ]
+    }
+  },
+  "turn": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0021880966656997176,
+      "heading_error_deg": 4.636218218942945,
+      "final_speed_mps": 2.5108942281829394e-05,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 163,
+      "max_tick_gap_s": 0.0511778,
+      "timing_pass": true,
+      "simulated_seconds": 8.2460922,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0032704709729594974,
+      "max_heading_change_deg": 10.36378178105705
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.50231615,
+        "maximum": 0.7976872
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.53175315,
+        "maximum": 0.8102443
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116972552875800,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.3648623672987148,
+          "terminal": true,
+          "expires_ns": 117016034927800,
+          "source_seq": 48
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116971035999600,
+          "goal_version": 0,
+          "request_id": 20,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Turn right 15 degrees from the starting heading without changing position\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116972552875800,
+          "goal_version": 0,
+          "request_id": 21,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116976852625500,
+          "goal_version": 1,
+          "request_id": 24,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Heading error within tolerance, position stable, no motion.\"}"
+        }
+      ]
+    }
+  },
+  "move_then_turn": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": true,
+      "endpoint_error_m": 0.42069141315043,
+      "heading_error_deg": 15.235583576069034,
+      "final_speed_mps": 3.446352424425088e-11,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 1,
+        "direction": 4,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 5,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 291,
+      "max_tick_gap_s": 0.0522773,
+      "timing_pass": true,
+      "simulated_seconds": 14.7282138,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.5793196928083963,
+      "max_heading_change_deg": 0.23558357606905025,
+      "move_before_turn": false,
+      "intermediate_advanced": true,
+      "sequence_pass": false
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.19804105,
+        "maximum": 0.1987815
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.2028628,
+        "maximum": 0.202883
+      },
+      "actions_consumed": 5,
+      "all_consumed_fresh": true,
+      "failures": [
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116989110130900,
+          "goal_version": 3,
+          "error": "direction changed committed numeric step",
+          "count": 1
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116990728074300,
+          "goal_version": 4,
+          "error": "direction changed committed numeric step",
+          "count": 2
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116992400125500,
+          "goal_version": 5,
+          "error": "direction changed committed numeric step",
+          "count": 3
+        }
+      ],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116982426482300,
+          "goal_version": 1,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 117025958986000,
+          "source_seq": 65
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116980960600500,
+          "goal_version": 0,
+          "request_id": 29,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"move forward 1 meter\",\"target\":[1,0,0,0]},{\"objective\":\"turn right 15 degrees\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116982426482300,
+          "goal_version": 0,
+          "request_id": 30,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116987441748700,
+          "goal_version": 1,
+          "request_id": 33,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.47m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116989110130900,
+          "goal_version": 2,
+          "request_id": 34,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116990728074300,
+          "goal_version": 3,
+          "request_id": 35,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116992400125500,
+          "goal_version": 4,
+          "request_id": 36,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}"
+        }
+      ]
+    }
+  }
+}

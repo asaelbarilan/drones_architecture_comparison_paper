@@ -5,9 +5,10 @@ import math
 from uavlab.contracts import s_to_ns
 from uavlab.plugins.inference.action_buffer import ActionBuffer, action_record
 from uavlab.plugins.inference.qwen_worker import WorkItem
-from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor, parse_plan
+from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor
 
 from .goals import Goal, angle_error, interpret_goal
+from .mission_plan import accept_plan, validate_direction
 from .prompts import role_request
 
 
@@ -24,6 +25,7 @@ class GoalScheduler:
         self.best_distance = self.best_heading = math.inf
         self.stopped = self.failed = False
         self.motion_epoch = 0
+        self.steps, self.step_index, self.hold_until = [], 0, 0
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -45,6 +47,8 @@ class GoalScheduler:
         self.pause(reason, now)
         self.version += 1
         self.plan = self.goal = None
+        if self.steps:
+            self.plan = dict(self.steps[self.step_index])
         self.monitor_reason = None
         self.feedback = reason
         self.log("replan", now, reason=reason)
@@ -58,6 +62,8 @@ class GoalScheduler:
         for event in self.worker.poll(self.version, now):
             self.receive(event, obs, now)
         self.check_events(obs, now)
+        if now < self.hold_until:
+            return
         if self.stopped or self.failed or self.worker.current is not None:
             return
         role = self.next_role(obs, moving)
@@ -121,7 +127,7 @@ class GoalScheduler:
             if role in {"direction", "monitor"} and not self.pose_valid(source, obs):
                 raise ValueError("pose drift while interpreting cognitive image")
             if role == "planner":
-                self.plan = parse_plan(payload)
+                accept_plan(self, payload, now)
             elif role == "direction":
                 self.accept_goal(payload, source, work.observed_ns, now)
             elif role == "monitor":
@@ -135,6 +141,7 @@ class GoalScheduler:
                 <= self.settings["pose_drift_deg"])
 
     def accept_goal(self, payload, source, captured, now):
+        payload = validate_direction(self, payload)
         position, yaw, terminal = interpret_goal(payload, source, self.origin, self.settings)
         self.version += 1
         self.goal = Goal(self.version, position, yaw, terminal,
@@ -149,7 +156,15 @@ class GoalScheduler:
         self.monitor_reason = None
         status = monitor["status"]
         self.feedback = monitor["reason"]
-        if status in {"hold", "replan"}:
+        if status == "continue" and self.numeric_complete(obs):
+            self.log("numeric_completion_override", now, model_status=status,
+                     model_reason=self.feedback, remaining=self.goal.error(obs))
+            status = "stop"
+        if status == "hold":
+            self.pause("monitor hold: " + self.feedback, now)
+            self.monitor_reason = "recheck held step"
+            self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
+        elif status == "replan":
             self.replan(f"monitor {status}: {self.feedback}", now)
         elif status == "stop":
             settled = obs.velocity.norm() <= self.settings["stopped_mps"]
@@ -162,13 +177,18 @@ class GoalScheduler:
             else:
                 self.pause("monitor stop rejected: arrival/heading/speed", now)
                 self.log("stop_rejected", now, remaining=self.goal.error(obs))
-        elif self.goal.arrived(obs, self.settings) and not self.goal.terminal:
-            self.advance_mission(now)
         else:
             self.progress_at = now
 
+    def numeric_complete(self, obs):
+        return (bool(self.steps) and isinstance(self.plan["target"], list)
+                and self.goal.arrived(obs, self.settings)
+                and obs.velocity.norm() <= self.settings["stopped_mps"])
+
     def advance_mission(self, now):
         self.completed = [*self.completed, dict(plan=self.plan, result=self.feedback)][-16:]
+        if self.steps:
+            self.step_index += 1
         self.replan("intermediate goal reached; advance mission", now)
 
     def check_events(self, obs, now):

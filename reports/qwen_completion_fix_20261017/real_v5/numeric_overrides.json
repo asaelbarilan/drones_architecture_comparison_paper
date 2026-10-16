@@ -1,0 +1,16 @@
+[
+  {
+    "task": "move_then_turn",
+    "kind": "numeric_completion_override",
+    "wall_ns": 117107437305200,
+    "goal_version": 1,
+    "model_status": "continue",
+    "model_reason": "Position error 0.478m exceeds 0.5m tolerance.",
+    "remaining": [
+      0.4206049704672905,
+      0.0021099747753534903,
+      0.002295727896766131,
+      0.2356471366735877
+    ]
+  }
+]

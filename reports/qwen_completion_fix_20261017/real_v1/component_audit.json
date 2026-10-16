@@ -1,0 +1,420 @@
+{
+  "hold": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": true,
+      "endpoint_error_m": 0.0,
+      "heading_error_deg": 0.0,
+      "final_speed_mps": 0.0,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 3
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 0,
+      "control_ticks": 31,
+      "max_tick_gap_s": 0.0509253,
+      "timing_pass": true,
+      "simulated_seconds": 1.5677536,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "hold_pass": true
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "first_action_received_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "actions_consumed": 0,
+      "all_consumed_fresh": true,
+      "failures": [
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116502346714300,
+          "goal_version": 1,
+          "error": "planner requires 1..8 steps",
+          "count": 1
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116502851297600,
+          "goal_version": 2,
+          "error": "planner requires 1..8 steps",
+          "count": 2
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116503357151300,
+          "goal_version": 3,
+          "error": "planner requires 1..8 steps",
+          "count": 3
+        }
+      ],
+      "goals": [],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116502346714300,
+          "goal_version": 0,
+          "request_id": 4,
+          "role": "planner",
+          "payload": "{\"steps\":[]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116502851297600,
+          "goal_version": 1,
+          "request_id": 5,
+          "role": "planner",
+          "payload": "{\"steps\":[]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116503357151300,
+          "goal_version": 2,
+          "request_id": 6,
+          "role": "planner",
+          "payload": "{\"steps\":[]}"
+        }
+      ]
+    }
+  },
+  "forward": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.38621467981619445,
+      "heading_error_deg": 0.1736984652060257,
+      "final_speed_mps": 0.005609269406338768,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 218,
+      "max_tick_gap_s": 0.0512153,
+      "timing_pass": true,
+      "simulated_seconds": 11.0361164,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.6137914671297752,
+      "max_heading_change_deg": 0.1736984652060257
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.4975851,
+        "maximum": 0.7930451
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.50698365,
+        "maximum": 0.8113735
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116511221024800,
+          "goal_version": 1,
+          "position": {
+            "x": 0.9930663499241091,
+            "y": 0.11755519830448552,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 0.11782764962384992,
+          "terminal": true,
+          "expires_ns": 116553943768500,
+          "source_seq": 94
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116508944597400,
+          "goal_version": 0,
+          "request_id": 11,
+          "role": "planner",
+          "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Move forward 1 meter from the starting position, maintain altitude and heading\",\n      \"target\": [\n        1.0,\n        0.0,\n        0.0,\n        0.0\n      ]\n    }\n  ]\n}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116511221024800,
+          "goal_version": 0,
+          "request_id": 12,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116515221970100,
+          "goal_version": 1,
+          "request_id": 15,
+          "role": "monitor",
+          "payload": "{\"status\":\"stop\",\"reason\":\"short evidence\"}"
+        }
+      ]
+    }
+  },
+  "turn": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0044543297218701886,
+      "heading_error_deg": 4.939204451201038,
+      "final_speed_mps": 9.647306589836424e-05,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 2,
+        "monitor": 3,
+        "pilot": 2
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 2,
+      "control_ticks": 391,
+      "max_tick_gap_s": 0.0513764,
+      "timing_pass": true,
+      "simulated_seconds": 19.7940282,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.006437671372101782,
+      "max_heading_change_deg": 10.060795548798959
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.19627245,
+        "maximum": 0.1987789
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.20303939999999998,
+        "maximum": 0.2031759
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116524092479100,
+          "goal_version": 1,
+          "position": {
+            "x": 0.045086424803796425,
+            "y": -0.089259253292931,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.1030629794995654,
+          "terminal": false,
+          "expires_ns": 116567219038400,
+          "source_seq": 122
+        },
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116532450132300,
+          "goal_version": 3,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.3648623672987148,
+          "terminal": true,
+          "expires_ns": 116575681554300,
+          "source_seq": 289
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116522219643100,
+          "goal_version": 0,
+          "request_id": 20,
+          "role": "planner",
+          "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Move forward 0.1 meters with original heading\",\n      \"target\": [0.1, 0, 0, 0]\n    },\n    {\n      \"objective\": \"Turn right 15 degrees at current position\",\n      \"target\": [0, 0, 0, 15]\n    }\n  ]\n}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116524092479100,
+          "goal_version": 0,
+          "request_id": 21,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0.1,0,0,0],\"terminal\":false}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116527388166200,
+          "goal_version": 1,
+          "request_id": 22,
+          "role": "monitor",
+          "payload": "{\"status\":\"continue\",\"reason\":\"short evidence\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116530682277500,
+          "goal_version": 1,
+          "request_id": 23,
+          "role": "monitor",
+          "payload": "{\"status\":\"stop\",\"reason\":\"short evidence\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116532450132300,
+          "goal_version": 2,
+          "request_id": 24,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116535842127300,
+          "goal_version": 3,
+          "request_id": 27,
+          "role": "monitor",
+          "payload": "{\"status\":\"stop\",\"reason\":\"short evidence\"}"
+        }
+      ]
+    }
+  },
+  "move_then_turn": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": true,
+      "endpoint_error_m": 1.0,
+      "heading_error_deg": 15.000000000000009,
+      "final_speed_mps": 0.0,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 1,
+        "direction": 3
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 0,
+      "control_ticks": 289,
+      "max_tick_gap_s": 0.0511906,
+      "timing_pass": true,
+      "simulated_seconds": 14.6187665,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "move_before_turn": false,
+      "intermediate_advanced": false,
+      "sequence_pass": false
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "first_action_received_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "actions_consumed": 0,
+      "all_consumed_fresh": true,
+      "failures": [
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116546432299100,
+          "goal_version": 1,
+          "error": "direction cannot skip remaining mission steps",
+          "count": 1
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116548810711500,
+          "goal_version": 2,
+          "error": "direction cannot skip remaining mission steps",
+          "count": 2
+        },
+        {
+          "kind": "contract_failure",
+          "wall_ns": 116551289158200,
+          "goal_version": 3,
+          "error": "direction cannot skip remaining mission steps",
+          "count": 3
+        }
+      ],
+      "goals": [],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116544107043400,
+          "goal_version": 0,
+          "request_id": 32,
+          "role": "planner",
+          "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Move forward 1 meter from the starting position while maintaining heading.\",\n      \"target\": [1.0, 0.0, 0.0, 0.0]\n    },\n    {\n      \"objective\": \"Turn right 15 degrees from the starting heading without moving further.\",\n      \"target\": [0.0, 0.0, 0.0, 15.0]\n    }\n  ]\n}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116546432299100,
+          "goal_version": 0,
+          "request_id": 33,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116548810711500,
+          "goal_version": 1,
+          "request_id": 34,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116551289158200,
+          "goal_version": 2,
+          "request_id": 35,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+        }
+      ]
+    }
+  }
+}

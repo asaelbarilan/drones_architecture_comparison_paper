@@ -3452,3 +3452,29 @@ with hash manifest and visually audited plot. Heading wrap display repaired only
 in auditor. GPU unloaded12MiB. No AWS/training/default/prompt/policy changes.
 Next explicit ordered steps, immutable mission requirements, monitor numerical
 evidence and unambiguous hold/completion semantics, then same frozen suite.
+
+### D-145: ordered missions and deterministic numeric completion (2026-10-17)
+
+Status: final same-four-task local run4/4 passes, D144 was0/4. User authorized
+monitor completion repair, all prompt disclosure and persistent ordered goals.
+Model-authored step deltas accumulate into immutable episode-start targets;
+scheduler owns step index/final status, direction proposals must match active
+step. Direction sees only active target, not competing historical goals.
+Monitor receives scalar errors/tolerances; hold preserves mission; numeric
+completion uses measured position/heading/speed after scene-clear response,
+with explicit override log when VLM disagrees. Hold/replan retain veto power.
+Rationale: model still falsely says0.478m exceeds0.5m; prompt-only retries did
+not repair arithmetic. Do not claim model arithmetic improved. Final compound
+uses one numeric override, then final monitor stop. Original config exactly
+matches D144; no scoring-target inputs, AWS/training/weights/TTL changes.
+Final19 actions fresh, no failures/collisions/OOB, maxgap52.67ms. Hold stationary;
+compound explicit advancement and move-before-turn pass. Precision remains
+broad: forward~0.616m, turn~10.374deg; compound~0.883m/~10.004deg and translates
+~0.30m during turn stage. Strict no-translation compound turn not established.
+37 focused tests and code checks pass. GPU unloaded12MiB/0%. Earlier local
+iterations2/4,3/4,3/4,3/4 all retained, including initial plan/schema errors,
+monitor confusion/truncation and stale direction target. Development evidence,
+not generalization. Visual/AirSim/obstacle and arbitrary semantic capability
+remain unqualified. Evidence: reports/qwen_completion_fix_20261017/REPORT.md,
+MONITOR_RULES.md, real_v1..real_v5 archives/config/source hashes; final PROMPTS.md,
+ENCODED_PROMPTS.md plus exact token IDs, plots and independent audit.

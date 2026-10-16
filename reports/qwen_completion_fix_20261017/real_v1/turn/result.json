@@ -1,0 +1,25 @@
+{
+  "stopped": true,
+  "contract_failed": false,
+  "endpoint_error_m": 0.0044543297218701886,
+  "heading_error_deg": 4.939204451201038,
+  "final_speed_mps": 9.647306589836424e-05,
+  "task_pass": true,
+  "role_calls": {
+    "planner": 1,
+    "direction": 2,
+    "monitor": 3,
+    "pilot": 2
+  },
+  "actions_consumed": 4,
+  "fresh_actions": true,
+  "goal_authorizations": 2,
+  "control_ticks": 391,
+  "max_tick_gap_s": 0.0513764,
+  "timing_pass": true,
+  "simulated_seconds": 19.7940282,
+  "scope": "wall-paced rendered grid3d; not AirSim",
+  "inference_kind": "real shared Qwen; experimental D142 full graphs",
+  "collisions": 0,
+  "out_of_bounds": false
+}

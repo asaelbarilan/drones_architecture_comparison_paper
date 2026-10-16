@@ -1,5 +1,15 @@
 # TODO
 
+## D-145: four-case repair complete; qualification remains
+
+- Numeric completion and ordered-target preservation now pass the same four
+  cases; prior D143/D144 repair items below are superseded for this narrow scope.
+- Monitor numerical reasoning remains unreliable; preserve deterministic gates
+  and explicit disagreement logs. Do not conflate architecture pass with VLM pass.
+- Qualify initial mission interpretation, mixed visual/numeric localization,
+  obstacle/safety-veto behavior, and strict no-translation compound turns.
+- Preserve cold-shape latency evidence; no hard200ms whole-loop claim.
+
 ## D-144: component failures isolated by easier tasks
 
 - Numeric completion/hold semantics fail even with zero motion and zero error.

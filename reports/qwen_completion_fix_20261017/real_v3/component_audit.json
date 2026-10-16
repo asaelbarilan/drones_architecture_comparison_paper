@@ -1,0 +1,468 @@
+{
+  "hold": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.0,
+      "heading_error_deg": 0.0,
+      "final_speed_mps": 0.0,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "monitor": 1
+      },
+      "actions_consumed": 0,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 150,
+      "max_tick_gap_s": 0.0515789,
+      "timing_pass": true,
+      "simulated_seconds": 7.6040558,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0,
+      "max_heading_change_deg": 0.0,
+      "hold_pass": true
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "first_action_received_s": {
+        "count": 0,
+        "median": null,
+        "maximum": null
+      },
+      "actions_consumed": 0,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116814801008900,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.6250063395074628,
+          "terminal": true,
+          "expires_ns": 116858383309000,
+          "source_seq": 39
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116813383912500,
+          "goal_version": 0,
+          "request_id": 4,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Hold position and heading\",\"target\":[0,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116814801008900,
+          "goal_version": 0,
+          "request_id": 5,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116819015473500,
+          "goal_version": 1,
+          "request_id": 6,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Position and heading acceptable, stationary, no motion.\"}"
+        }
+      ]
+    }
+  },
+  "forward": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.3850453749220403,
+      "heading_error_deg": 0.17360083250479486,
+      "final_speed_mps": 0.00039570724141817036,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 174,
+      "max_tick_gap_s": 0.0513337,
+      "timing_pass": true,
+      "simulated_seconds": 8.8063838,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.6149607939972334,
+      "max_heading_change_deg": 0.17360083250479486
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.50881875,
+        "maximum": 0.8122544
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.55676465,
+        "maximum": 0.8607073
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116823686760300,
+          "goal_version": 1,
+          "position": {
+            "x": 0.9930663499241091,
+            "y": 0.11755519830448552,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 0.11782764962384992,
+          "terminal": true,
+          "expires_ns": 116867016275000,
+          "source_seq": 43
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116822018417200,
+          "goal_version": 0,
+          "request_id": 11,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Move forward 1 meter\",\"target\":[1,0,0,0]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116823686760300,
+          "goal_version": 0,
+          "request_id": 12,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116828648660600,
+          "goal_version": 1,
+          "request_id": 15,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Position error within tolerance, stationary, mission complete\"}"
+        }
+      ]
+    }
+  },
+  "turn": {
+    "passed": true,
+    "result": {
+      "stopped": true,
+      "contract_failed": false,
+      "endpoint_error_m": 0.002189965247147077,
+      "heading_error_deg": 4.629606187374389,
+      "final_speed_mps": 2.920736985148381e-05,
+      "task_pass": true,
+      "role_calls": {
+        "planner": 1,
+        "direction": 1,
+        "pilot": 2,
+        "monitor": 1
+      },
+      "actions_consumed": 4,
+      "fresh_actions": true,
+      "goal_authorizations": 1,
+      "control_ticks": 166,
+      "max_tick_gap_s": 0.0514856,
+      "timing_pass": true,
+      "simulated_seconds": 8.3981763,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.0031930503172474495,
+      "max_heading_change_deg": 10.370393812625606
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.49276655,
+        "maximum": 0.7833327
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.5059715,
+        "maximum": 0.8093951
+      },
+      "actions_consumed": 4,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116833668601100,
+          "goal_version": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": -1.3648623672987148,
+          "terminal": true,
+          "expires_ns": 116877150140400,
+          "source_seq": 53
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116832151171400,
+          "goal_version": 0,
+          "request_id": 20,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"Turn right 15 degrees from the starting heading without changing position\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116833668601100,
+          "goal_version": 0,
+          "request_id": 21,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116837867075900,
+          "goal_version": 1,
+          "request_id": 24,
+          "role": "monitor",
+          "payload": "{\"status\": \"stop\", \"reason\": \"Heading error within tolerance, stationary, position acceptable\"}"
+        }
+      ]
+    }
+  },
+  "move_then_turn": {
+    "passed": false,
+    "result": {
+      "stopped": false,
+      "contract_failed": false,
+      "endpoint_error_m": 0.4204368544429312,
+      "heading_error_deg": 15.235705571787168,
+      "final_speed_mps": 9.661773186969481e-72,
+      "task_pass": false,
+      "role_calls": {
+        "planner": 1,
+        "direction": 2,
+        "pilot": 2,
+        "monitor": 12
+      },
+      "actions_consumed": 5,
+      "fresh_actions": true,
+      "goal_authorizations": 2,
+      "control_ticks": 1184,
+      "max_tick_gap_s": 0.0590524,
+      "timing_pass": true,
+      "simulated_seconds": 60.0436396,
+      "scope": "wall-paced rendered grid3d; not AirSim",
+      "inference_kind": "real shared Qwen; experimental D142 full graphs",
+      "collisions": 0,
+      "out_of_bounds": false
+    },
+    "movement": {
+      "max_displacement_m": 0.5795742641645889,
+      "max_heading_change_deg": 0.23570557178718293,
+      "move_before_turn": false,
+      "intermediate_advanced": false,
+      "sequence_pass": false
+    },
+    "component": {
+      "first_action_produced_s": {
+        "count": 2,
+        "median": 0.19755784999999998,
+        "maximum": 0.1976954
+      },
+      "first_action_received_s": {
+        "count": 2,
+        "median": 0.2031228,
+        "maximum": 0.2032746
+      },
+      "actions_consumed": 5,
+      "all_consumed_fresh": true,
+      "failures": [],
+      "goals": [
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116843492239300,
+          "goal_version": 1,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 116887075910700,
+          "source_seq": 67
+        },
+        {
+          "kind": "goal_authorized",
+          "wall_ns": 116889997541400,
+          "goal_version": 3,
+          "position": {
+            "x": -0.9999997190116114,
+            "y": 0.0007496510509727792,
+            "z": 3.0,
+            "frame": "enu"
+          },
+          "yaw": 3.140843002468606,
+          "terminal": false,
+          "expires_ns": 116933426057800,
+          "source_seq": 981
+        }
+      ],
+      "results": [
+        {
+          "kind": "result",
+          "wall_ns": 116842076516100,
+          "goal_version": 0,
+          "request_id": 29,
+          "role": "planner",
+          "payload": "{\"steps\":[{\"objective\":\"move forward 1 meter\",\"target\":[1,0,0,0]},{\"objective\":\"turn right 15 degrees\",\"target\":[0,0,0,15]}]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116843492239300,
+          "goal_version": 0,
+          "request_id": 30,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116848454302200,
+          "goal_version": 1,
+          "request_id": 33,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.478m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116852958688400,
+          "goal_version": 1,
+          "request_id": 34,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116857371344300,
+          "goal_version": 1,
+          "request_id": 35,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116861734794900,
+          "goal_version": 1,
+          "request_id": 36,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116866049472900,
+          "goal_version": 1,
+          "request_id": 37,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116870418067100,
+          "goal_version": 1,
+          "request_id": 38,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116874990354900,
+          "goal_version": 1,
+          "request_id": 39,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116879402803800,
+          "goal_version": 1,
+          "request_id": 40,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116883870240800,
+          "goal_version": 1,
+          "request_id": 41,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116888426780300,
+          "goal_version": 1,
+          "request_id": 42,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116889997541400,
+          "goal_version": 2,
+          "request_id": 43,
+          "role": "direction",
+          "payload": "{\"kind\":\"relative\",\"target\":[1,0,0,0]}"
+        },
+        {
+          "kind": "result",
+          "wall_ns": 116894819216700,
+          "goal_version": 3,
+          "request_id": 44,
+          "role": "monitor",
+          "payload": "{\"status\": \"continue\", \"reason\": \"Position error 0.42m exceeds 0.5m tolerance.\"}"
+        }
+      ]
+    }
+  }
+}

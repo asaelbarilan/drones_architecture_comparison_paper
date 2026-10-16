@@ -11,6 +11,18 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-145 completion and ordered steps (2026-10-17)
+
+Read reports/qwen_completion_fix_20261017/REPORT.md and MONITOR_RULES.md. Final
+same four D144 cases4/4 pass; config/criteria unchanged. Ordered model steps
+are accumulated and preserved; direction sees only active goal. Numeric
+completion enforced by scheduler with monitor hold/replan veto. One false
+VLM arithmetic answer overridden transparently; do not claim model reasoning
+fixed.37 tests/code checks pass,19 fresh actions,no collisions/OOB. Full prompts
+and five development runs archived. GPU unloaded12MiB. No AWS/training. Broad
+precision only; compound translates during turn. Next qualify harder/visual
+missions and strict stage behavior, not declare general autonomy solved.
+
 ## Latest user work: D-144 easier-task component audit (2026-10-17)
 
 Read reports/qwen_easy_components_20261017/REPORT.md. Four approved numeric tasks

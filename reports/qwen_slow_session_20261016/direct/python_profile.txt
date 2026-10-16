@@ -49,5 +49,3 @@
       756    0.036    0.000    0.156    0.000 {built-in method torch._ops.bitsandbytes.}
      1112    0.091    0.000    0.143    0.000 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\backends\cuda\ops.py:269(_dequantize_blockwise_impl)
        24    0.003    0.000    0.133    0.006 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:182(forward)
-
-

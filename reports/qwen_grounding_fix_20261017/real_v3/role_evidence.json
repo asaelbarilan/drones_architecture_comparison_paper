@@ -1,0 +1,288 @@
+{
+  "waypoint_refreshes": 0,
+  "stop_checks": [
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118903214906900,
+      "goal_version": 2,
+      "range_m": 6.0241042511749425,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 319
+    },
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118911014658400,
+      "goal_version": 4,
+      "range_m": 5.278599171201813,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 474
+    },
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118919068799300,
+      "goal_version": 6,
+      "range_m": 4.455473405748658,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 632
+    },
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118926919879100,
+      "goal_version": 8,
+      "range_m": 3.6340875856129133,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 789
+    },
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118934718592800,
+      "goal_version": 10,
+      "range_m": 2.858196950627081,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 942
+    },
+    {
+      "kind": "visual_stop_verification",
+      "wall_ns": 118942375087300,
+      "goal_version": 12,
+      "range_m": 2.1607415083071206,
+      "limit_m": 1.5,
+      "accepted": false,
+      "source_seq": 1089
+    }
+  ],
+  "cognitive_responses": [
+    {
+      "kind": "result",
+      "wall_ns": 118888113241500,
+      "goal_version": 0,
+      "request_id": 4,
+      "role": "planner",
+      "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118890895524900,
+      "goal_version": 0,
+      "request_id": 5,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118900381660900,
+      "goal_version": 1,
+      "request_id": 11,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118903214906900,
+      "goal_version": 2,
+      "request_id": 12,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    0,\n    600,\n    380\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118908231577400,
+      "goal_version": 3,
+      "request_id": 15,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118911014658400,
+      "goal_version": 4,
+      "request_id": 16,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118916236659300,
+      "goal_version": 5,
+      "request_id": 19,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118919068799300,
+      "goal_version": 6,
+      "request_id": 20,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    450\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118924187329300,
+      "goal_version": 7,
+      "request_id": 23,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118926919879100,
+      "goal_version": 8,
+      "request_id": 24,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    540\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118931934936000,
+      "goal_version": 9,
+      "request_id": 27,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118934718592800,
+      "goal_version": 10,
+      "request_id": 28,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118939389278700,
+      "goal_version": 11,
+      "request_id": 31,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118942375087300,
+      "goal_version": 12,
+      "request_id": 32,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    280,\n    0,\n    720,\n    750\n  ]\n}"
+    }
+  ],
+  "first_pilot_request": "{\"instruction\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"box\": null, \"state\": [0.0, 0.0, 0.0, -0.0], \"remaining\": [1.0648875569308056, -0.1, 0.5966694990477901, -5.364720867281331]}",
+  "first_pilot_response": {
+    "steps_fru_m_yaw_rad": [
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ]
+    ],
+    "tokens": [
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485
+    ],
+    "remaining_supplied": [
+      1.0648875569308056,
+      -0.1,
+      0.5966694990477901,
+      -5.364720867281331
+    ]
+  },
+  "closest_evaluator_distance_m": 1.722154456893278,
+  "result": {
+    "task_pass": false,
+    "stopped": false,
+    "contract_failed": false,
+    "distance_to_object_m": 1.722154456893278,
+    "object_visible": true,
+    "final_speed_mps": 0.15738280312705086,
+    "collisions": 0,
+    "out_of_bounds": false,
+    "fresh_actions": true,
+    "actions_consumed": 44,
+    "max_tick_gap_s": 0.0601916,
+    "timing_pass": true,
+    "role_calls": {
+      "planner": 1,
+      "direction": 7,
+      "pilot": 17,
+      "monitor": 6
+    },
+    "scope": "visible red pillar in rendered grid3d, not AirSim/search/general cognition"
+  }
+}

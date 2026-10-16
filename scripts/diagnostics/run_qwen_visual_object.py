@@ -15,6 +15,7 @@ from uavlab.core.frame_store import global_store
 from uavlab.core.registry import REGISTRY
 from uavlab.live_qwen.control import LiveControl
 from uavlab.live_qwen.evidence import Evidence
+from uavlab.live_qwen.grounding import GROUNDING, VISUAL_PLANNER
 from uavlab.live_qwen.latency import diagnostic_request, qualify
 from uavlab.live_qwen.prompts import DIRECTION, MONITOR, PLANNER
 from uavlab.live_qwen.runner import flight_loop, mission_spec
@@ -72,7 +73,9 @@ def prepare(config, out):
     settings = json.loads(config.read_text())
     (out / "config.json").write_text(json.dumps(settings, indent=2))
     (out / "prompt_templates.json").write_text(json.dumps(
-        dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR), indent=2))
+        dict(planner=VISUAL_PLANNER if settings.get("goal_mode") == "visual" else PLANNER,
+             direction=GROUNDING if settings.get("goal_mode") == "visual"
+             else DIRECTION, monitor=MONITOR), indent=2))
     provenance(out)
     hashes = json.loads((out / "source_hashes.json").read_text())
     hashes[Path(__file__).name] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()

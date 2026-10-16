@@ -1,0 +1,23 @@
+{
+  "red_pillar": {
+    "task_pass": false,
+    "stopped": false,
+    "contract_failed": false,
+    "distance_to_object_m": 2.809550624642779,
+    "object_visible": true,
+    "final_speed_mps": 4.206690827537116e-17,
+    "collisions": 0,
+    "out_of_bounds": false,
+    "fresh_actions": true,
+    "actions_consumed": 38,
+    "max_tick_gap_s": 0.0640985,
+    "timing_pass": true,
+    "role_calls": {
+      "planner": 1,
+      "direction": 8,
+      "pilot": 14,
+      "monitor": 5
+    },
+    "scope": "visible red pillar in rendered grid3d, not AirSim/search/general cognition"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "src/uavlab/live_qwen/control.py": "2dbd1378431de6ba49c07544425d9d11764d31c100a043892478c2a426eb1da6",
+  "src/uavlab/live_qwen/evidence.py": "037fd0971dc094b21395809bea2d277b15e49b69f05e567adb3414007732325c",
+  "src/uavlab/live_qwen/goals.py": "a23bfa6a9c6c96d53a5b39f90dc7c6bba85b0e1dfa2f10d218beba57911e503a",
+  "src/uavlab/live_qwen/grounding.py": "aea28340eec00e9c60ad6d756a74d1c8c9fcf4624a824364f81d950f76cc3b30",
+  "src/uavlab/live_qwen/latency.py": "54b63926614db93074d08ad5cd49cbed74ca4ec53dc0e36dd83e915d4b88342e",
+  "src/uavlab/live_qwen/mission_plan.py": "3542121fb81f21a973fec5211358ea56a2945312c213f9a59e19181fce9a1062",
+  "src/uavlab/live_qwen/prompts.py": "42df94cd68d98c1c280425455a52458853c969e1dd9758ea0a76da06aad3cd53",
+  "src/uavlab/live_qwen/runner.py": "a8ccd29032c1e50b711d186ddf855adb6961c8d5b1c18edc620d578806cbbf59",
+  "src/uavlab/live_qwen/scheduler.py": "54f305b3bf548a4b8b99685e08ce795791f19922376b2bcee1ba6d402e635aca",
+  "src/uavlab/live_qwen/__init__.py": "11ce587e513ee9071b26f3ff05d15eb03e17c03cd40624a0964f599f5d678aed",
+  "scripts/diagnostics/probe_qwen_fast_worker.py": "f133248b528248a8669e12afb2759b94c05bb5491a4d9044a6dadaf987bfdf04",
+  "scripts/diagnostics/probe_qwen_decoder_graph.py": "fe70cfbf7acbb8e86b176422091fc3933527a5f46679ccb46ff13e79711b0c34",
+  "scripts/diagnostics/qwen_action_burst_probe.py": "1a9d08db4ef2f5a112bf5074a94c55818040779d179e5d34f4f0bb8745d1d9ae",
+  "scripts/diagnostics/qwen_vision_graph_probe.py": "54756c8b8b97f63c951d59a23bff46f27b924529c28ccbed4881d8638e6455f2",
+  "scripts/diagnostics/run_qwen_full_architecture.py": "d8d42cbe080762bdebffc0ef450db1ef4f0069e476e88f66cabf67f9cf4fe58c",
+  "run_qwen_visual_object.py": "c97466cb37290b4cd50a4128552857dbecab34b7d8684ed3cebfe9cacf880858"
+}

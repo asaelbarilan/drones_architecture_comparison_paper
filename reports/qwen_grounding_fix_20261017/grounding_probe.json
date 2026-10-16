@@ -1,0 +1,34 @@
+[
+  {
+    "image": "input_5_0.png",
+    "sha256": "7f9af190cb8d3c4c6956500bedb871b222a371e0f8ebb8bce244cc7c599576c6",
+    "variant": "original",
+    "prompt": "Authorize one persistent local goal. Return JSON only:\n{\"kind\":\"relative\",\"target\":[0,0,0,0]}\nfor explicit numeric motion. These offsets are relative to the EPISODE START,\nnot the current pose. Never add the same displacement again when replanning.\nCopy authorized_target exactly for numeric steps. Do NOT output\nterminal: the scheduler owns step order and mission completion.\nFor a visual objective use:\n{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\n\"target_visible\":false,\"box\":null}}.\nVisual u,v and box coordinates are normalized 0..1000. Travel is 0.25..3m.\nOnly give a box when the object is actually visible. Choose a camera point toward\nthe objective or visible free space. Use exactly kind,target; no explanation. Context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}",
+    "tokens": 36
+  },
+  {
+    "image": "input_5_0.png",
+    "sha256": "7f9af190cb8d3c4c6956500bedb871b222a371e0f8ebb8bce244cc7c599576c6",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [400, 0, 500, 300]\n}",
+    "tokens": 32
+  },
+  {
+    "image": "input_19_0.png",
+    "sha256": "74d76deb33b2390c3666138c10dfe9517c3dffc8520a366a3ddff9404354a710",
+    "variant": "original",
+    "prompt": "Authorize one persistent local goal. Return JSON only:\n{\"kind\":\"relative\",\"target\":[0,0,0,0]}\nfor explicit numeric motion. These offsets are relative to the EPISODE START,\nnot the current pose. Never add the same displacement again when replanning.\nCopy authorized_target exactly for numeric steps. Do NOT output\nterminal: the scheduler owns step order and mission completion.\nFor a visual objective use:\n{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\n\"target_visible\":false,\"box\":null}}.\nVisual u,v and box coordinates are normalized 0..1000. Travel is 0.25..3m.\nOnly give a box when the object is actually visible. Choose a camera point toward\nthe objective or visible free space. Use exactly kind,target; no explanation. Context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}",
+    "tokens": 36
+  },
+  {
+    "image": "input_19_0.png",
+    "sha256": "74d76deb33b2390c3666138c10dfe9517c3dffc8520a366a3ddff9404354a710",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [380, 0, 580, 300]\n}",
+    "tokens": 32
+  }
+]

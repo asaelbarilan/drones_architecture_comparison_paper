@@ -9,6 +9,8 @@ from uavlab.core.frame_store import global_store
 from uavlab.interfaces import InferenceRequest
 from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 
+from .grounding import GROUNDING, VISUAL_PLANNER
+
 PLANNER = '''Plan the ENTIRE original mission in execution order. JSON only:
 {"steps":[{"objective":"short instruction","target":[0,0,0,0]}]}.
 Return at least one step, including for holding still. Preserve EVERY requirement.
@@ -103,8 +105,12 @@ def role_request(state, role, obs):
                            authorized_target=state.plan["target"],
                            numeric_target=isinstance(state.plan["target"], list))
         prefix = {"planner": PLANNER, "direction": DIRECTION, "monitor": MONITOR}[role]
+        if role == "direction" and state.settings.get("goal_mode") == "visual":
+            prefix = GROUNDING
+        if role == "planner" and state.settings.get("goal_mode") == "visual":
+            prefix = VISUAL_PLANNER
         prompt = prefix + json.dumps(context)
     images = () if role == "planner" else (image_text(obs),)
     return InferenceRequest(model_id=state.settings["model_id"], role=role,
-                            prompt_hash=f"d145:{role}:v1", prompt=prompt,
+                            prompt_hash=f"d147:{role}:v1", prompt=prompt,
                             images=images, image_count=len(images), observation_seq=obs.seq)

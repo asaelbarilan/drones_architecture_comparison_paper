@@ -1,3 +1,14 @@
+## 2026-10-17: D-147 saved-frame grounding and continuation repairs
+
+Prompt ablation on identical images/weights isolates default-answer copying.
+Dedicated localization and visual planner, immediate same-goal continuation,
+fresh depth-verified visual stopping and request-depth retention implemented.
+Three bounded same-config repeats retained. Final seven points on red,
+44fresh actions,6.661->1.722m versus old5.621m; still fails60s/1.5m/stopped.
+Six premature monitor stops correctly rejected by sensor gate.55tests and
+code checks pass; GPU unloaded. No AWS/training. Full role evidence/prompts,
+failed iterations and plot in reports/qwen_grounding_fix_20261017/REPORT.md.
+
 ## 2026-10-17: D-146 real visual-object task fails
 
 Two bounded local attempts preserved. Generic plan invented a numeric target

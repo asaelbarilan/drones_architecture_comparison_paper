@@ -11,6 +11,7 @@ from audit_qwen_full_architecture import inspect
 from matplotlib.patches import Rectangle
 from PIL import Image
 
+from uavlab.live_qwen.grounding import grounded_direction
 from uavlab.plugins.reasoning.shared_qwen_pilot import parse_direction
 
 
@@ -25,6 +26,12 @@ def grounding(folder, rows):
                      response=row["payload"])
         try:
             data = json.loads(row["payload"])
+            if "target_visible" in data:
+                data = grounded_direction(data)
+            if data is None:
+                entry.update(visual_grounding=False, reported_visible=False)
+                answers.append(entry)
+                continue
             if data["kind"] == "visual":
                 entry.update(check_pixels(folder / entry["image"], data["target"]))
             else:

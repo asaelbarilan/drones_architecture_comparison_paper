@@ -1,11 +1,22 @@
 # TODO
 
-## D-146: visual grounding and continuation are blocking
+## D-147: grounding repaired on fixture; visual completion still blocking
+
+- Same60s red-pillar repeat reaches1.722m,not<=1.5m/stopped. Keep as failure.
+- Monitor still equates local waypoint arrival with task completion. Supply
+  separate fresh range evidence; reduce redundant cognition pauses, retain
+  safety veto and exact unchanged evaluator. No training indicated.
+- Positive live visual stop, cropped-object range/anchor differences, absent
+  targets with distractors, lookalikes and occlusion remain unqualified.
+- Target-box-to-pilot tracking remains open; current pilot uses fresh image
+  and persistent geometry,never an old box across new camera frames.
+
+## D-146: visual grounding and continuation (addressed by D-147 on fixture)
 
 - Replay saved camera frames to isolate template copying vs actual grounding;
   include absent target and less-cropped view controls before another flight.
-- Visual continue at a reached local waypoint must request fresh guidance
-  without dropping the object identity; currently waits for goal expiry.
+- D147 now refreshes reached visual waypoints without dropping identity;
+  D146's expiry-only continuation is superseded.
 - Validate object proximity and target-box-to-pilot handoff; local waypoint
   arrival is not object arrival. No training indicated by this experiment.
 - Keep visual-only contract and independent evaluator: generic numeric

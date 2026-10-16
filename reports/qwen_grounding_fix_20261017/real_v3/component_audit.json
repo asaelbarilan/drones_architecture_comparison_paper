@@ -1,0 +1,421 @@
+{
+  "first_action_produced_s": {
+    "count": 17,
+    "median": 0.2064399,
+    "maximum": 0.803764
+  },
+  "first_action_received_s": {
+    "count": 17,
+    "median": 0.2537904,
+    "maximum": 0.8095115
+  },
+  "actions_consumed": 44,
+  "all_consumed_fresh": true,
+  "failures": [],
+  "goals": [
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118890895524900,
+      "goal_version": 1,
+      "position": {
+        "x": -0.3448930271290061,
+        "y": 1.012439780304908,
+        "z": 3.59666949904779,
+        "frame": "enu"
+      },
+      "yaw": 1.8991221574194357,
+      "terminal": true,
+      "expires_ns": 118933111766500,
+      "source_seq": 77
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118903214906900,
+      "goal_version": 3,
+      "position": {
+        "x": -0.49112139377536473,
+        "y": 1.632291430172439,
+        "z": 4.268055642343999,
+        "frame": "enu"
+      },
+      "yaw": 1.8155398149461188,
+      "terminal": true,
+      "expires_ns": 118945379949400,
+      "source_seq": 319
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118911014658400,
+      "goal_version": 5,
+      "position": {
+        "x": -0.6552161080816363,
+        "y": 2.256855094832106,
+        "z": 4.721858753037323,
+        "frame": "enu"
+      },
+      "yaw": 1.8371829850863886,
+      "terminal": true,
+      "expires_ns": 118953230760800,
+      "source_seq": 474
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118919068799300,
+      "goal_version": 7,
+      "position": {
+        "x": -0.8087302127312739,
+        "y": 2.8952338090577143,
+        "z": 5.094817915175049,
+        "frame": "enu"
+      },
+      "yaw": 1.8281790157587798,
+      "terminal": true,
+      "expires_ns": 118961235325100,
+      "source_seq": 632
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118926919879100,
+      "goal_version": 9,
+      "position": {
+        "x": -0.9264018173210024,
+        "y": 3.526392285336319,
+        "z": 5.427298450795152,
+        "frame": "enu"
+      },
+      "yaw": 1.790936452299878,
+      "terminal": true,
+      "expires_ns": 118969186329000,
+      "source_seq": 789
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118934718592800,
+      "goal_version": 11,
+      "position": {
+        "x": -1.0791966539616413,
+        "y": 4.131398614582311,
+        "z": 5.741686226005784,
+        "frame": "enu"
+      },
+      "yaw": 1.8134282356178726,
+      "terminal": true,
+      "expires_ns": 118976934037700,
+      "source_seq": 942
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 118942375087300,
+      "goal_version": 13,
+      "position": {
+        "x": -1.2205508068140465,
+        "y": 4.738445089618014,
+        "z": 5.836849726168845,
+        "frame": "enu"
+      },
+      "yaw": 1.8081231653771397,
+      "terminal": true,
+      "expires_ns": 118984388020800,
+      "source_seq": 1089
+    }
+  ],
+  "results": [
+    {
+      "kind": "result",
+      "wall_ns": 118888113241500,
+      "goal_version": 0,
+      "request_id": 4,
+      "role": "planner",
+      "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118890895524900,
+      "goal_version": 0,
+      "request_id": 5,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118900381660900,
+      "goal_version": 1,
+      "request_id": 11,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118903214906900,
+      "goal_version": 2,
+      "request_id": 12,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    0,\n    600,\n    380\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118908231577400,
+      "goal_version": 3,
+      "request_id": 15,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118911014658400,
+      "goal_version": 4,
+      "request_id": 16,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118916236659300,
+      "goal_version": 5,
+      "request_id": 19,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118919068799300,
+      "goal_version": 6,
+      "request_id": 20,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    450\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118924187329300,
+      "goal_version": 7,
+      "request_id": 23,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118926919879100,
+      "goal_version": 8,
+      "request_id": 24,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    540\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118931934936000,
+      "goal_version": 9,
+      "request_id": 27,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118934718592800,
+      "goal_version": 10,
+      "request_id": 28,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118939389278700,
+      "goal_version": 11,
+      "request_id": 31,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"stop\",\n  \"reason\": \"Red pillar visible, position/heading acceptable, stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 118942375087300,
+      "goal_version": 12,
+      "request_id": 32,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    280,\n    0,\n    720,\n    750\n  ]\n}"
+    }
+  ],
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        95,
+        0,
+        129,
+        71
+      ],
+      "model_point": [
+        100,
+        33
+      ],
+      "model_box": [
+        400,
+        0,
+        500,
+        300
+      ],
+      "reported_visible": true,
+      "box_iou": 0.4113969634986027
+    },
+    {
+      "request_id": 12,
+      "image": "input_12_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    0,\n    600,\n    380\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        99,
+        0,
+        138,
+        86
+      ],
+      "model_point": [
+        115,
+        42
+      ],
+      "model_box": [
+        433,
+        0,
+        600,
+        380
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8548412955052473
+    },
+    {
+      "request_id": 16,
+      "image": "input_16_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        95,
+        0,
+        140,
+        95
+      ],
+      "model_point": [
+        112,
+        44
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        400
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7418278403980799
+    },
+    {
+      "request_id": 20,
+      "image": "input_20_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    450\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        91,
+        0,
+        143,
+        107
+      ],
+      "model_point": [
+        112,
+        50
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        450
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7668059567546345
+    },
+    {
+      "request_id": 24,
+      "image": "input_24_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    540\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        87,
+        0,
+        147,
+        122
+      ],
+      "model_point": [
+        115,
+        60
+      ],
+      "model_box": [
+        380,
+        0,
+        650,
+        540
+      ],
+      "reported_visible": true,
+      "box_iou": 0.9391646781685804
+    },
+    {
+      "request_id": 28,
+      "image": "input_28_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        79,
+        0,
+        153,
+        145
+      ],
+      "model_point": [
+        111,
+        74
+      ],
+      "model_box": [
+        333,
+        0,
+        666,
+        666
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8711976414453337
+    },
+    {
+      "request_id": 32,
+      "image": "input_32_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    280,\n    0,\n    720,\n    750\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        69,
+        0,
+        164,
+        167
+      ],
+      "model_point": [
+        112,
+        84
+      ],
+      "model_box": [
+        280,
+        0,
+        720,
+        750
+      ],
+      "reported_visible": true,
+      "box_iou": 0.9058588129073519
+    }
+  ],
+  "numeric_overrides": []
+}

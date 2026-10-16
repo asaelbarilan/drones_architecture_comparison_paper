@@ -11,6 +11,21 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-147 grounding and visual continuation (2026-10-17)
+
+Read reports/qwen_grounding_fix_20261017/REPORT.md. Saved-frame ablation
+reproduces copied centre/not-visible example; localization-only prompt finds
+pillar, blank absent control rejected. Dedicated visual planner preserves full
+goal and noun-phrase identity. Continue refreshes reached waypoint; visual stop
+requires fresh grounding plus matching retained depth snapshot, <=1.5m.
+Final same-config60s run seven grounding points on red,44fresh actions,
+distance6.661->1.722m versus D1465.621m: STILL FAILS,not stopped/within1.5m.
+Monitor falsely says stop six times; range gate rejects all.55tests/code checks
+pass,GPU unloaded12MiB. Three local runs preserved. No AWS/training/weights.
+Next distinguish visual mission completion from local waypoint arrival in
+monitor and reduce redundant pauses; don't increase horizon/claim full pass.
+Pilot uses fresh camera/remaining waypoint,box stillnull; tracking unqualified.
+
 ## Latest user work: D-146 visual-object probe (2026-10-17)
 
 Read reports/qwen_visual_object_20261017/REPORT.md. Local red-pillar approach

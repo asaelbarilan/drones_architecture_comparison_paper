@@ -3504,3 +3504,37 @@ waypoint refresh and measured proximity from validated grounding. Do not train
 or claim VLM recognition/arrival solved. Evidence: reports/qwen_visual_object_20261017/
 REPORT.md, scene_preview, real_v1/real_v2 exact prompts/token inputs, image
 frames, raw event archives, plots and independent evaluator/grounding audits.
+
+### D-147: separate grounding and preserve visual continuation (2026-10-17)
+
+Status: requested integration defects repaired on local fixture; full visual
+task still fails unchanged60s evaluation. User authorized saved-image diagnosis
+first, grounding/continuation fixes and same-task local repeat. Frozen shared
+Qwen with D207adapter; no AWS/training/model-weight changes.
+Rationale: old direction prompt copies centre/not-visible example on both D146
+saved images; localization-only prompt on identical inputs returns red boxes.
+Runtime prompt also rejects blank absent control and localizes closer image.
+Separate noun-phrase identity from action wording; final planner keeps full
+original instruction in one approach-and-stop objective. Validated box centre
+maps to bounded1m waypoint; absent grounding holds,neverblindapproach.
+Visual continue refreshes arrived waypoint without mission advancement or45s
+expiry wait. Visual stop now requires fresh grounding with matched camera depth
+range<=1.5m and stationary; source depth copied at submission because64-entry
+frame store otherwise evicts it during cognition. Pose/TTL bounds unchanged.
+Three same-config/seed1075 runs retained: v1 reaches2.810m but separate stop
+step loses grounding; v2 reaches1.540m but depth missing after frame eviction;
+v3 retained-depth repair reaches1.722m,visible,notstopped. D146 was5.621m.
+Final seven direction points land on red;44freshactions, no collisions/OOB/
+contract failures,maxgap60.19ms. Planner1,direction7,pilot17,monitor6 calls.
+All six monitor answers falsely claim stop; measured ranges6.024,5.279,4.455,
+3.634,2.858,2.161m reject completion. Do not claim monitor reasoning repaired.
+Pilotmedian206ms,max804ms; no hard200ms claim.55tests and code checks pass,
+GPU unloaded12MiB. Hidden object truth/red masks only offline. Pixel depth is
+not independent identity verification nor exact object-anchor distance; retain
+independent evaluator. Pilotboxnull remains: freshcamera+waypoint conditioning,
+not stale-box handoff. Next separate object completion from local arrival in
+monitor and reduce repeated pauses; no horizon/criteria relaxation or training.
+No AirSim/search/occlusion/general cognition claim. Evidence:
+reports/qwen_grounding_fix_20261017/REPORT.md, grounding_probe/controls.json,
+real_v1..real_v3 exact prompts/token and event archives, role_evidence.json,
+source/config hashes and before_after.png. D146 expiry-only behavior superseded.

@@ -1,0 +1,187 @@
+{
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        95,
+        0,
+        129,
+        71
+      ],
+      "model_point": [
+        100,
+        33
+      ],
+      "model_box": [
+        400,
+        0,
+        500,
+        300
+      ],
+      "reported_visible": true,
+      "box_iou": 0.4113969634986027
+    },
+    {
+      "request_id": 12,
+      "image": "input_12_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [433, 0, 600, 380]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        99,
+        0,
+        138,
+        85
+      ],
+      "model_point": [
+        115,
+        42
+      ],
+      "model_box": [
+        433,
+        0,
+        600,
+        380
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8621359121823146
+    },
+    {
+      "request_id": 16,
+      "image": "input_16_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        95,
+        0,
+        140,
+        95
+      ],
+      "model_point": [
+        112,
+        44
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        400
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7418278403980799
+    },
+    {
+      "request_id": 20,
+      "image": "input_20_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    450\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        92,
+        0,
+        143,
+        105
+      ],
+      "model_point": [
+        112,
+        50
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        450
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7636199909950473
+    },
+    {
+      "request_id": 24,
+      "image": "input_24_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    530\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        87,
+        0,
+        147,
+        121
+      ],
+      "model_point": [
+        115,
+        59
+      ],
+      "model_box": [
+        380,
+        0,
+        650,
+        530
+      ],
+      "reported_visible": true,
+      "box_iou": 0.9296822148233609
+    },
+    {
+      "request_id": 28,
+      "image": "input_28_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        79,
+        0,
+        153,
+        145
+      ],
+      "model_point": [
+        111,
+        74
+      ],
+      "model_box": [
+        333,
+        0,
+        666,
+        666
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8711976414453337
+    },
+    {
+      "request_id": 32,
+      "image": "input_32_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    280,\n    0,\n    720,\n    740\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        69,
+        0,
+        164,
+        166
+      ],
+      "model_point": [
+        112,
+        82
+      ],
+      "model_box": [
+        280,
+        0,
+        720,
+        740
+      ],
+      "reported_visible": true,
+      "box_iou": 0.9099017042011989
+    }
+  ],
+  "failures": []
+}

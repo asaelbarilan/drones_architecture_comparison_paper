@@ -1,0 +1,24 @@
+{
+  "runs": [
+    {
+      "run": "real_v1",
+      "archives_verified": true,
+      "config_sha256": "555d86256be0f2e27d0491bc635f4bd054b10b758b3fa38e621bc01734da6e69"
+    },
+    {
+      "run": "real_v2",
+      "archives_verified": true,
+      "config_sha256": "555d86256be0f2e27d0491bc635f4bd054b10b758b3fa38e621bc01734da6e69"
+    },
+    {
+      "run": "real_v3",
+      "archives_verified": true,
+      "config_sha256": "555d86256be0f2e27d0491bc635f4bd054b10b758b3fa38e621bc01734da6e69"
+    }
+  ],
+  "focused_tests_passed": 55,
+  "code_limits_and_ruff": "passed",
+  "gpu_after": "12 MiB, 0%",
+  "aws_used": false,
+  "training": false
+}

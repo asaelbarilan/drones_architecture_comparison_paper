@@ -1,0 +1,66 @@
+[
+  {
+    "image": "reports\\qwen_visual_object_20261017\\real_v2\\red_pillar\\input_5_0.png",
+    "sha256": "7f9af190cb8d3c4c6956500bedb871b222a371e0f8ebb8bce244cc7c599576c6",
+    "variant": "runtime_grounding",
+    "prompt": "Locate the requested object in this image, including partially cropped objects.\nReturn ONLY JSON with keys target_visible (boolean) and box\n([left,top,right,bottom] integers normalized to 0..1000, or null if absent).\nUse the visible object bounds. Do not return a navigation action or example values.\nRequested object context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}",
+    "tokens": 39
+  },
+  {
+    "image": "reports\\qwen_visual_object_20261017\\real_v2\\red_pillar\\input_5_0.png",
+    "sha256": "7f9af190cb8d3c4c6956500bedb871b222a371e0f8ebb8bce244cc7c599576c6",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [400, 0, 500, 300]\n}",
+    "tokens": 32
+  },
+  {
+    "image": "reports\\qwen_visual_object_20261017\\real_v2\\red_pillar\\input_19_0.png",
+    "sha256": "74d76deb33b2390c3666138c10dfe9517c3dffc8520a366a3ddff9404354a710",
+    "variant": "runtime_grounding",
+    "prompt": "Locate the requested object in this image, including partially cropped objects.\nReturn ONLY JSON with keys target_visible (boolean) and box\n([left,top,right,bottom] integers normalized to 0..1000, or null if absent).\nUse the visible object bounds. Do not return a navigation action or example values.\nRequested object context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    550,\n    300\n  ]\n}",
+    "tokens": 39
+  },
+  {
+    "image": "reports\\qwen_visual_object_20261017\\real_v2\\red_pillar\\input_19_0.png",
+    "sha256": "74d76deb33b2390c3666138c10dfe9517c3dffc8520a366a3ddff9404354a710",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [380, 0, 580, 300]\n}",
+    "tokens": 32
+  },
+  {
+    "image": "reports\\qwen_completion_fix_20261017\\real_v5\\hold\\input_5_0.png",
+    "sha256": "9eff26adb42ebe863341617b16593efb0b6e94f84d43d172ff7e531977ea5506",
+    "variant": "runtime_grounding",
+    "prompt": "Locate the requested object in this image, including partially cropped objects.\nReturn ONLY JSON with keys target_visible (boolean) and box\n([left,top,right,bottom] integers normalized to 0..1000, or null if absent).\nUse the visible object bounds. Do not return a navigation action or example values.\nRequested object context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}",
+    "tokens": 16
+  },
+  {
+    "image": "reports\\qwen_completion_fix_20261017\\real_v5\\hold\\input_5_0.png",
+    "sha256": "9eff26adb42ebe863341617b16593efb0b6e94f84d43d172ff7e531977ea5506",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}",
+    "tokens": 16
+  },
+  {
+    "image": "reports\\qwen_grounding_fix_20261017\\real_v1\\red_pillar\\final_camera.png",
+    "sha256": "eae22e5e7ed614dac20b935d77d19949e1a1aed810cc73be62df2d59e27cf495",
+    "variant": "runtime_grounding",
+    "prompt": "Locate the requested object in this image, including partially cropped objects.\nReturn ONLY JSON with keys target_visible (boolean) and box\n([left,top,right,bottom] integers normalized to 0..1000, or null if absent).\nUse the visible object bounds. Do not return a navigation action or example values.\nRequested object context: {\"active_objective\": \"Approach the red pillar\", \"authorized_target\": \"Approach the red pillar\", \"numeric_target\": false}",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}",
+    "tokens": 39
+  },
+  {
+    "image": "reports\\qwen_grounding_fix_20261017\\real_v1\\red_pillar\\final_camera.png",
+    "sha256": "eae22e5e7ed614dac20b935d77d19949e1a1aed810cc73be62df2d59e27cf495",
+    "variant": "box_only",
+    "prompt": "Locate the red pillar in this image, including partially cropped objects. Return ONLY JSON with keys target_visible (boolean) and box ([left,top,right,bottom] integers normalized to 0..1000, or null if absent). Use the visible object bounds. Do not return a navigation action or example values.",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [333, 0, 666, 666]\n}",
+    "tokens": 32
+  }
+]

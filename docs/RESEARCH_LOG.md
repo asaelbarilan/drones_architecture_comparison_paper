@@ -3313,3 +3313,23 @@ counters, brief base-role outputs/return pilot match.30 focused tests and code
 checks pass. GPU unloaded12MiB. Preserve1.5s expiry and no flights. Next isolate slow
 session before a separately qualified compiler/runtime experiment. Evidence:
 reports/qwen_kernels_20261016/REPORT.md, paired/, verification_local.json and telemetry.
+
+### D-139: CPU placement removes a reproduced latency penalty (2026-10-16)
+
+Status: local saved-input verification complete; 200ms remains unachieved.
+Reversible all/P/E/P/all placement on this hybrid Windows CPU, four contexts per
+block, repeated with 1 and 16 PyTorch threads. All-core medians 1.75-1.97s;
+performance-core medians 0.72-0.86s; return to all cores restores 1.78-1.84s.
+All 40 action outputs equal. Hidden launch and thread reduction alone did not
+resolve it. Causal evidence for a major current host-placement penalty, not proof
+of every historical slowdown or GPU-only timing. Rationale: control placement
+before evaluating kernels/compilers. Added opt-in Windows worker placement using
+live topology and inherited-mask intersection, ready audit and restore on exit.
+Generic default inherit; local experiment config opts in. Actual worker after
+base roles delivers warm first actions 0.750-0.982s; original gate passes
+0.924/0.822/0.763s. Cold gate warmup cancels at unchanged TTL as permitted.
+75 focused tests/code checks pass; GPU unloaded 12MiB. No full-chunk, camera,
+flight or 200ms claim. No AWS/training/flights/power-plan/model changes.
+Evidence: reports/qwen_slow_session_20261016/REPORT.md, verification_local.json,
+affinity*/calls.json and worker_*/. D138 unresolved current slowdown narrowed;
+historical claims remain historical.

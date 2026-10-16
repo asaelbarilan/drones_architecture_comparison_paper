@@ -1,0 +1,53 @@
+         216992 function calls (202409 primitive calls) in 2.435 seconds
+
+   Ordered by: cumulative time
+   List reduced from 741 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.492    2.492 C:\Users\Asael\PycharmProjects\drone_architectures_paper\uav_arch_lab\src\uavlab\plugins\inference\shared_qwen.py:168(stream_pilot)
+        1    0.000    0.000    2.491    2.491 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\autograd\grad_mode.py:273(__exit__)
+        1    0.000    0.000    2.491    2.491 C:\Users\Asael\PycharmProjects\drone_architectures_paper\uav_arch_lab\src\uavlab\plugins\inference\shared_qwen.py:141(_pilot)
+        1    0.000    0.000    2.469    2.469 C:\Users\Asael\PycharmProjects\drone_architectures_paper\uav_arch_lab\src\uavlab\plugins\inference\shared_qwen.py:184(_generate)
+        1    0.000    0.000    2.468    2.468 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\peft\peft_model.py:1962(generate)
+      5/1    0.000    0.000    2.468    2.468 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\utils\_contextlib.py:113(decorate_context)
+        1    0.000    0.000    2.468    2.468 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\generation\utils.py:2233(generate)
+        1    0.002    0.002    2.464    2.464 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\generation\utils.py:2686(_sample)
+   6901/4    0.024    0.000    2.441    0.610 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py:1735(_wrapped_call_impl)
+   6901/4    0.056    0.000    2.441    0.610 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py:1743(_call_impl)
+     12/4    0.000    0.000    2.441    0.610 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\utils\generic.py:961(wrapper)
+        4    0.000    0.000    2.441    0.610 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:1314(forward)
+        4    0.001    0.000    2.439    0.610 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:1106(forward)
+      168    0.002    0.000    2.391    0.014 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\modeling_layers.py:60(__call__)
+        4    0.003    0.001    2.178    0.544 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:782(forward)
+  290/145    0.004    0.000    2.158    0.015 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\utils\deprecation.py:120(wrapped_func)
+      144    0.022    0.000    2.155    0.015 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:487(forward)
+     1112    0.216    0.000    1.596    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\peft\tuners\lora\bnb.py:467(forward)
+      144    0.015    0.000    1.327    0.009 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:415(forward)
+     1112    0.013    0.000    0.769    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\nn\modules.py:514(forward)
+     1112    0.023    0.000    0.705    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\autograd\_functions.py:427(matmul_4bit)
+      144    0.010    0.000    0.629    0.004 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:471(forward)
+     2224    0.005    0.000    0.471    0.000 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\_ops.py:722(__call__)
+      756    0.062    0.000    0.390    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\functional.py:1510(gemv_4bit)
+     2224    0.005    0.000    0.373    0.000 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\_compile.py:22(inner)
+     2224    0.011    0.000    0.367    0.000 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\_dynamo\eval_frame.py:738(_fn)
+     2224    0.003    0.000    0.327    0.000 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\library.py:595(func_no_dynamo)
+     2584    0.327    0.000    0.327    0.000 {built-in method torch._C._nn.linear}
+      580    0.122    0.000    0.302    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:347(forward)
+      356    0.004    0.000    0.285    0.001 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\autograd\function.py:559(apply)
+     2228    0.004    0.000    0.284    0.000 C:\Users\Asael\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\linear.py:124(forward)
+      356    0.010    0.000    0.272    0.001 {built-in method apply}
+      356    0.011    0.000    0.261    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\autograd\_functions.py:356(forward)
+     1112    0.012    0.000    0.257    0.000 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\functional.py:641(dequantize_blockwise)
+        1    0.000    0.000    0.253    0.253 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:1050(get_image_features)
+        1    0.001    0.001    0.251    0.251 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:703(forward)
+     7268    0.246    0.000    0.246    0.000 {method 'to' of 'torch._C.TensorBase' objects}
+       24    0.006    0.000    0.229    0.010 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:259(forward)
+      356    0.029    0.000    0.195    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\functional.py:931(dequantize_4bit)
+      168    0.004    0.000    0.173    0.001 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\integrations\sdpa_attention.py:48(sdpa_attention_forward)
+     1112    0.005    0.000    0.170    0.000 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\backends\cuda\ops.py:248(_)
+      168    0.160    0.001    0.160    0.001 {built-in method torch._C._nn.scaled_dot_product_attention}
+      756    0.036    0.000    0.156    0.000 {built-in method torch._ops.bitsandbytes.}
+     1112    0.091    0.000    0.143    0.000 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\bitsandbytes\backends\cuda\ops.py:269(_dequantize_blockwise_impl)
+       24    0.003    0.000    0.133    0.006 D:\drone_vla_pilot\venv_qwen\Lib\site-packages\transformers\models\qwen3_vl\modeling_qwen3_vl.py:182(forward)
+
+

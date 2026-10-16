@@ -106,7 +106,8 @@ async def flight_loop(env, control, obs, evidence):
 
 async def run_suite(settings, out):
     worker = QwenWorker(dict(package_path=settings["package_path"],
-                             model_id=settings["model_id"], max_new_tokens=128))
+                             model_id=settings["model_id"], max_new_tokens=128,
+                             cpu_placement=settings.get("cpu_placement", "inherit")))
     worker.start()
     results = {}
     try:

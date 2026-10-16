@@ -1,0 +1,126 @@
+{
+  "affinity": {
+    "all_actions_equal": true,
+    "blocks": [
+      {
+        "block": 0,
+        "placement": "all",
+        "median_s": 1.97212835,
+        "max_s": 2.0034884,
+        "sampled_cpus": [
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "block": 1,
+        "placement": "performance",
+        "median_s": 0.7180316,
+        "max_s": 0.7764616,
+        "sampled_cpus": [
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      {
+        "block": 2,
+        "placement": "efficiency",
+        "median_s": 2.0816219,
+        "max_s": 2.1319055,
+        "sampled_cpus": [
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "block": 3,
+        "placement": "performance",
+        "median_s": 0.8581731,
+        "max_s": 0.9335363,
+        "sampled_cpus": [
+          2,
+          8,
+          10,
+          14
+        ]
+      },
+      {
+        "block": 4,
+        "placement": "all",
+        "median_s": 1.84330625,
+        "max_s": 1.9466469,
+        "sampled_cpus": [
+          21,
+          22,
+          23
+        ]
+      }
+    ]
+  },
+  "affinity16": {
+    "all_actions_equal": true,
+    "blocks": [
+      {
+        "block": 0,
+        "placement": "all",
+        "median_s": 1.7497015,
+        "max_s": 1.7564735,
+        "sampled_cpus": [
+          19,
+          20,
+          21
+        ]
+      },
+      {
+        "block": 1,
+        "placement": "performance",
+        "median_s": 0.8649347000000001,
+        "max_s": 0.913451,
+        "sampled_cpus": [
+          3,
+          4,
+          11
+        ]
+      },
+      {
+        "block": 2,
+        "placement": "efficiency",
+        "median_s": 1.7493862,
+        "max_s": 1.8265463,
+        "sampled_cpus": [
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "block": 3,
+        "placement": "performance",
+        "median_s": 0.7673167999999999,
+        "max_s": 0.8303827,
+        "sampled_cpus": [
+          6,
+          8,
+          11
+        ]
+      },
+      {
+        "block": 4,
+        "placement": "all",
+        "median_s": 1.7764742,
+        "max_s": 1.8631842,
+        "sampled_cpus": [
+          16,
+          21,
+          22
+        ]
+      }
+    ]
+  }
+}

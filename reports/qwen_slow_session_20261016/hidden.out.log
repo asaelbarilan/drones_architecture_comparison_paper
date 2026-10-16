@@ -1,0 +1,12 @@
+{"threads": 16, "calls": 4, "seconds": 1.8988795}
+{"threads": 16, "calls": 8, "seconds": 1.7739801}
+{"threads": 16, "calls": 12, "seconds": 1.8372492}
+{"threads": 16, "calls": 16, "seconds": 1.727196}
+{"threads": 1, "calls": 20, "seconds": 1.9123218}
+{"threads": 1, "calls": 24, "seconds": 1.8608988}
+{"threads": 1, "calls": 28, "seconds": 2.1268167}
+{"threads": 1, "calls": 32, "seconds": 2.1717574}
+{"threads": 16, "calls": 36, "seconds": 1.8386018}
+{"threads": 16, "calls": 40, "seconds": 1.9109956}
+{"threads": 16, "calls": 44, "seconds": 2.0808822}
+{"threads": 16, "calls": 48, "seconds": 1.8496779}

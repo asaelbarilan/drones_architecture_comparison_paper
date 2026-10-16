@@ -11,6 +11,17 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-139 CPU placement (2026-10-16)
+
+Read reports/qwen_slow_session_20261016/REPORT.md. Reversible P/E/all-core tests
+identify major current host-placement penalty: 1.75-1.97s to 0.72-0.86s,
+all40 actions equal. Opt-in Windows performance-core setting enabled in local
+experiment config; generic worker default inherit. Actual worker warm0.75-0.98s;
+original gate passes.75 tests/code checks pass; GPU unloaded12MiB.
+No flights/AWS/training/TTL changes.200ms remains open. Next profile with
+controlled placement; do not use E-core slowdown as optimization baseline or
+claim flight quality from saved-input latency.
+
 ## Latest user work: D-138 kernel/cache tests (2026-10-16)
 
 Read reports/qwen_kernels_20261016/REPORT.md.100 paired cases per option complete;

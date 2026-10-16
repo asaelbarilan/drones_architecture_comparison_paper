@@ -1,3 +1,10 @@
+## 2026-10-16: D-139 CPU placement diagnosis and worker fix
+
+Reversible performance-core placement reduces medians from 1.75-1.97s to
+0.72-0.86s with identical actions. Local experiment opts in; generic default
+unchanged. Real worker warm 0.75-0.98s; original gate and 75 tests pass. GPU
+unloaded. No flights/AWS/training/TTL change. 200ms remains open. See D139 report.
+
 ## 2026-10-16 — D-138: kernel/cache tests, target not reached
 
 100 paired saved-input cases per option; all sampled actions match. Fused efficient

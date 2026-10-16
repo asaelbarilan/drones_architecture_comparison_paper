@@ -1,0 +1,406 @@
+[
+  {
+    "case": "forward",
+    "role": "pilot",
+    "observed_ns": 106743390866000,
+    "expires_ns": 106744890866000,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151542,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.1385671529411765,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 106744808796100,
+          "first_token_ns": 106744269776700
+        },
+        "consumed_ns": 106744813658400
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106744977442400
+      }
+    ],
+    "first_action_s": 1.4227924
+  },
+  {
+    "case": "forward",
+    "role": "planner",
+    "observed_ns": 106744978325000,
+    "expires_ns": 106759978325000,
+    "events": [
+      {
+        "kind": "result",
+        "payload": [
+          "{\n  \"objective\": \"Move forward 2 meters from the starting position\",\n  \"target\": \"Starting position with forward direction indicated\"\n}",
+          30
+        ],
+        "consumed_ns": 106748254259900
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "complete",
+          "error": null
+        },
+        "consumed_ns": 106748254259900
+      }
+    ],
+    "first_action_s": null
+  },
+  {
+    "case": "forward",
+    "role": "direction",
+    "observed_ns": 106748255699000,
+    "expires_ns": 106763255699000,
+    "events": [
+      {
+        "kind": "result",
+        "payload": [
+          "{\"kind\":\"relative\",\"target\":[2.0,0.0,0.0,0.0],\"terminal\":true}",
+          28
+        ],
+        "consumed_ns": 106751453525000
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "complete",
+          "error": null
+        },
+        "consumed_ns": 106751453525000
+      }
+    ],
+    "first_action_s": null
+  },
+  {
+    "case": "forward",
+    "role": "pilot",
+    "observed_ns": 106751454848500,
+    "expires_ns": 106752954848500,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151542,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.1385671529411765,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 106752432671100,
+          "first_token_ns": 106751787067000
+        },
+        "consumed_ns": 106752436763300
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106752979327700
+      }
+    ],
+    "first_action_s": 0.9819148
+  },
+  {
+    "case": "turn",
+    "role": "pilot",
+    "observed_ns": 106752981469900,
+    "expires_ns": 106754481469900,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151562,
+            151515,
+            151539,
+            151465
+          ],
+          "step_fru_m_yaw_rad": [
+            0.0026998588235294108,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            0.053644264705882294
+          ],
+          "ready_ns": 106753831487400,
+          "first_token_ns": 106753317853600
+        },
+        "consumed_ns": 106753835730800
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106754563574900
+      }
+    ],
+    "first_action_s": 0.8542609
+  },
+  {
+    "case": "forward",
+    "role": "pilot",
+    "observed_ns": 106754575231200,
+    "expires_ns": 106756075231200,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151542,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.1385671529411765,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 106755442907900,
+          "first_token_ns": 106754875278200
+        },
+        "consumed_ns": 106755461430100
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106756080771300
+      }
+    ],
+    "first_action_s": 0.8861989
+  },
+  {
+    "case": "turn",
+    "role": "pilot",
+    "observed_ns": 106756082679500,
+    "expires_ns": 106757582679500,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151562,
+            151515,
+            151539,
+            151465
+          ],
+          "step_fru_m_yaw_rad": [
+            0.0026998588235294108,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            0.053644264705882294
+          ],
+          "ready_ns": 106756830437400,
+          "first_token_ns": 106756367789300
+        },
+        "consumed_ns": 106756849276600
+      },
+      {
+        "kind": "action",
+        "payload": {
+          "index": 1,
+          "tokens": [
+            151562,
+            151515,
+            151539,
+            151465
+          ],
+          "step_fru_m_yaw_rad": [
+            0.0026998588235294108,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            0.053644264705882294
+          ],
+          "ready_ns": 106757533722200,
+          "first_token_ns": 106756367789300
+        },
+        "consumed_ns": 106757551795100
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106757713870200
+      }
+    ],
+    "first_action_s": 0.7665971
+  },
+  {
+    "case": "turn",
+    "role": "monitor",
+    "observed_ns": 106757715670700,
+    "expires_ns": 106772715670700,
+    "events": [
+      {
+        "kind": "result",
+        "payload": [
+          "{\"status\": \"hold\", \"reason\": \"No progress made; no visual landmark or orientation cue detected to confirm 30-degree turn.\"}",
+          31
+        ],
+        "consumed_ns": 106760942340200
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "complete",
+          "error": null
+        },
+        "consumed_ns": 106760942340200
+      }
+    ],
+    "first_action_s": null
+  },
+  {
+    "case": "turn",
+    "role": "pilot",
+    "observed_ns": 106760944606700,
+    "expires_ns": 106762444606700,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151562,
+            151515,
+            151539,
+            151465
+          ],
+          "step_fru_m_yaw_rad": [
+            0.0026998588235294108,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            0.053644264705882294
+          ],
+          "ready_ns": 106761678485200,
+          "first_token_ns": 106761226618600
+        },
+        "consumed_ns": 106761694965600
+      },
+      {
+        "kind": "action",
+        "payload": {
+          "index": 1,
+          "tokens": [
+            151562,
+            151515,
+            151539,
+            151465
+          ],
+          "step_fru_m_yaw_rad": [
+            0.0026998588235294108,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            0.053644264705882294
+          ],
+          "ready_ns": 106762293150000,
+          "first_token_ns": 106761226618600
+        },
+        "consumed_ns": 106762296173700
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106762561757800
+      }
+    ],
+    "first_action_s": 0.7503589
+  },
+  {
+    "case": "forward",
+    "role": "pilot",
+    "observed_ns": 106762562513000,
+    "expires_ns": 106764062513000,
+    "events": [
+      {
+        "kind": "action",
+        "payload": {
+          "index": 0,
+          "tokens": [
+            151542,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.1385671529411765,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 106763364771800,
+          "first_token_ns": 106762878255300
+        },
+        "consumed_ns": 106763371060400
+      },
+      {
+        "kind": "action",
+        "payload": {
+          "index": 1,
+          "tokens": [
+            151542,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.1385671529411765,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 106764039894700,
+          "first_token_ns": 106762878255300
+        },
+        "consumed_ns": 106764049427700
+      },
+      {
+        "kind": "done",
+        "payload": {
+          "status": "cancelled",
+          "error": "request revoked or expired"
+        },
+        "consumed_ns": 106764212773000
+      }
+    ],
+    "first_action_s": 0.8085474
+  }
+]

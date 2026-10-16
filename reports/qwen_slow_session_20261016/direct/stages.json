@@ -1,0 +1,110 @@
+{
+  "result": {
+    "mode": "first_action",
+    "seconds": 2.2188204,
+    "tokens": [
+      151533,
+      151515,
+      151539,
+      151484
+    ],
+    "actions": [
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ]
+    ],
+    "stream": [
+      {
+        "index": 0,
+        "tokens": [
+          151533,
+          151515,
+          151539,
+          151484
+        ],
+        "step_fru_m_yaw_rad": [
+          0.19970743529411772,
+          0.0001335000000000086,
+          -0.0005490470588235263,
+          -0.0009852058823529575
+        ],
+        "ready_ns": 106160933151400,
+        "first_token_ns": 106159565770900
+      }
+    ],
+    "first_action_s": 2.217767,
+    "first_token_s": 0.8503865,
+    "process_cpu_s": 1.59375
+  },
+  "stages": [
+    {
+      "name": "base_model.model.model.visual",
+      "host_s": 0.21358599999803118,
+      "device_span_ms": 213.58285522460938
+    },
+    {
+      "name": "base_model.model.model.language_model",
+      "host_s": 0.6068495999934385,
+      "device_span_ms": 606.8489379882812
+    },
+    {
+      "name": "base_model.model.model",
+      "host_s": 0.8259719000052428,
+      "device_span_ms": 825.9819946289062
+    },
+    {
+      "name": "base_model.model.lm_head",
+      "host_s": 0.00020260000019334257,
+      "device_span_ms": 3.2440319061279297
+    },
+    {
+      "name": "base_model.model.model.language_model",
+      "host_s": 0.4546053999947617,
+      "device_span_ms": 454.60888671875
+    },
+    {
+      "name": "base_model.model.model",
+      "host_s": 0.4565757999953348,
+      "device_span_ms": 456.5816955566406
+    },
+    {
+      "name": "base_model.model.lm_head",
+      "host_s": 0.0001979000080609694,
+      "device_span_ms": 3.239936113357544
+    },
+    {
+      "name": "base_model.model.model.language_model",
+      "host_s": 0.4569432999996934,
+      "device_span_ms": 456.9456787109375
+    },
+    {
+      "name": "base_model.model.model",
+      "host_s": 0.458100400006515,
+      "device_span_ms": 458.1068115234375
+    },
+    {
+      "name": "base_model.model.lm_head",
+      "host_s": 0.00011589999485295266,
+      "device_span_ms": 3.1836159229278564
+    },
+    {
+      "name": "base_model.model.model.language_model",
+      "host_s": 0.43417769999359734,
+      "device_span_ms": 434.1800842285156
+    },
+    {
+      "name": "base_model.model.model",
+      "host_s": 0.4346342999924673,
+      "device_span_ms": 434.6348571777344
+    },
+    {
+      "name": "base_model.model.lm_head",
+      "host_s": 0.0001297999988310039,
+      "device_span_ms": 3.1979520320892334
+    }
+  ],
+  "note": "Nested spans; GPU event intervals include host submission gaps, not kernel busy sum."
+}

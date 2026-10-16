@@ -1,9 +1,16 @@
 # TODO
 
+## D-139: 200ms and flight qualification remain open
+
+- Keep performance-core placement and original startup gate in local profile.
+- Profile decode/launch overhead with controlled placement before runtime A/B.
+- Verify tail latency under simulator load before claiming robust flight readiness.
+- No new flight/AWS run performed here; saved-input worker qualification passed.
+
 ## D-138 —200ms target remains open
 
 - Kernel/cache A/B complete; see report. Do not repeat these as untested proposals.
-- First isolate recurring slow baseline with CPU/GPU stage and launch-context timing.
+- D139 isolates a major CPU-placement penalty; control it in future tests.
 - Then evaluate isolated fused/compiler runtime; no environment installed yet.
 - Preserve production baseline,1.5s expiry and no further flights/AWS.
 

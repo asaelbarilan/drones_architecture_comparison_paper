@@ -1,6 +1,7 @@
 {
   "package_path": "D:/drone_vla_pilot/release/hf_fresh_d257/model",
   "model_id": "qwen3-vl-4b-d207-shared",
+  "cpu_placement": "performance",
   "control_hz": 20,
   "pilot_ttl_s": 1.5,
   "cognition_ttl_s": 15,

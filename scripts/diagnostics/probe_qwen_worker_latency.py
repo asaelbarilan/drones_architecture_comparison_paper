@@ -76,9 +76,11 @@ def main():
     parser.add_argument("--package", required=True)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--gate-only", action="store_true")
+    parser.add_argument("--cpu-placement", choices=("inherit", "performance"), default="inherit")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
-    worker = QwenWorker(dict(package_path=args.package, max_new_tokens=128))
+    worker = QwenWorker(dict(package_path=args.package, max_new_tokens=128,
+                             cpu_placement=args.cpu_placement))
     worker.start()
     timer = threading.Timer(240, worker.process.terminate)
     timer.daemon = True

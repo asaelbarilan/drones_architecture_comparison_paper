@@ -15,6 +15,7 @@ from dataclasses import dataclass
 from uavlab.interfaces import InferenceRequest
 
 from .action_stream import GenerationCancelled, StreamOptions
+from .cpu_placement import placed_cpu
 from .qwen_actions import CHUNK_ACTIONS
 from .shared_qwen import SharedQwenInference
 
@@ -87,11 +88,21 @@ def _job(backend, item, outbox, cancel):
 
 
 def _worker_main(factory, settings, channels):
+    settings = dict(settings)
+    try:
+        with placed_cpu(settings.pop("cpu_placement", "inherit")) as placement:
+            _serve(factory, settings, channels, placement)
+    except Exception as exc:
+        channels[1].put(dict(kind="fatal", payload=f"{type(exc).__name__}: {exc}"))
+
+
+def _serve(factory, settings, channels, placement):
     inbox, outbox, cancel = channels
     backend = factory(**settings)
     try:
         backend._load()
-        outbox.put(dict(kind="ready", payload=dict(load_count=backend.load_count)))
+        outbox.put(dict(kind="ready", payload=dict(load_count=backend.load_count,
+                                                   cpu_placement=placement)))
         while True:
             item = inbox.get()
             if item is None:

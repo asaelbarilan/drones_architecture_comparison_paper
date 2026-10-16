@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "qualification": [
+    {
+      "first_action_s": null,
+      "status": "cancelled",
+      "request_id": 0
+    },
+    {
+      "first_action_s": 0.9243719,
+      "status": "complete",
+      "request_id": 1
+    },
+    {
+      "first_action_s": 0.8218193,
+      "status": "complete",
+      "request_id": 2
+    },
+    {
+      "first_action_s": 0.7633326,
+      "status": "complete",
+      "request_id": 3
+    }
+  ],
+  "scope": "non-executing saved-input replay",
+  "ready": [
+    {
+      "kind": "ready",
+      "payload": {
+        "load_count": 1,
+        "cpu_placement": {
+          "policy": "performance",
+          "original_mask": 16777215,
+          "selected_mask": 65535
+        }
+      },
+      "consumed_ns": 106805855704100
+    }
+  ]
+}

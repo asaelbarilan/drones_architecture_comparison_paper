@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "ready": [
+    {
+      "kind": "ready",
+      "payload": {
+        "load_count": 1,
+        "cpu_placement": {
+          "policy": "performance",
+          "original_mask": 16777215,
+          "selected_mask": 65535
+        }
+      },
+      "consumed_ns": 106743340418800
+    }
+  ]
+}

@@ -69,6 +69,9 @@ later portion of both missions even though no further useful movement occurs.
 
 - real_v1/config.json freezes unchanged mission/tolerance/freshness settings.
 - source_hashes.json identifies runner and experimental backend sources.
+- raw_events.zip preserves both original JSONL logs (excluded by the repository
+  log ignore rule); raw_events_manifest.json records their sizes/SHA256. Extract
+  into real_v1 to restore the auditor's forward/ and turn/ event paths.
 - startup_equality.json, result.json, per-task events/images and
   verification_local.json preserve the original experiment.
 - architecture_results.png shows actual episode-relative forward/altitude,

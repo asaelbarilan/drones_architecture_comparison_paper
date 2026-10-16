@@ -1,0 +1,90 @@
+{
+  "scope": "CPU-only HQQ weight reconstruction screen; not model quality or speed validation.",
+  "rows": [
+    {
+      "name": "model.language_model.layers.0.mlp.gate_proj.weight",
+      "shape": [
+        256,
+        2560
+      ],
+      "scores": [
+        {
+          "bits": 4,
+          "relative_rmse": 0.08913194388151169,
+          "packed_bytes": 327680,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 2,
+          "relative_rmse": 0.4411786198616028,
+          "packed_bytes": 163840,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 1,
+          "relative_rmse": 1.0436100959777832,
+          "packed_bytes": 81920,
+          "metadata_bytes": 81920
+        }
+      ]
+    },
+    {
+      "name": "model.language_model.layers.17.mlp.gate_proj.weight",
+      "shape": [
+        256,
+        2560
+      ],
+      "scores": [
+        {
+          "bits": 4,
+          "relative_rmse": 0.08950837701559067,
+          "packed_bytes": 327680,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 2,
+          "relative_rmse": 0.44198790192604065,
+          "packed_bytes": 163840,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 1,
+          "relative_rmse": 1.041325330734253,
+          "packed_bytes": 81920,
+          "metadata_bytes": 81920
+        }
+      ]
+    },
+    {
+      "name": "model.language_model.layers.35.mlp.gate_proj.weight",
+      "shape": [
+        256,
+        2560
+      ],
+      "scores": [
+        {
+          "bits": 4,
+          "relative_rmse": 0.08777860552072525,
+          "packed_bytes": 327680,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 2,
+          "relative_rmse": 0.43780452013015747,
+          "packed_bytes": 163840,
+          "metadata_bytes": 81920
+        },
+        {
+          "bits": 1,
+          "relative_rmse": 1.048965573310852,
+          "packed_bytes": 81920,
+          "metadata_bytes": 81920
+        }
+      ]
+    }
+  ],
+  "hqq_sha256": "8fa34c074df43b32acf10173abbc7dfdeff1ae529b673acfc2628a1c9c61fc8a",
+  "model_quality_tested": false,
+  "full_model_quantized": false,
+  "speed_tested": false
+}

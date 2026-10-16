@@ -108,7 +108,8 @@ async def run_suite(settings, out):
     worker = QwenWorker(dict(package_path=settings["package_path"],
                              model_id=settings["model_id"], max_new_tokens=128,
                              cpu_placement=settings.get("cpu_placement", "inherit"),
-                             cpu_qos=settings.get("cpu_qos", "inherit")))
+                             cpu_qos=settings.get("cpu_qos", "inherit"),
+                             pilot_cuda_graphs=settings.get("pilot_cuda_graphs", False)))
     worker.start()
     results = {}
     try:

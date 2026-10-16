@@ -3353,3 +3353,23 @@ common action prefixes and all base-role results match. Original gate passes
 0.559/0.558/0.559s after repeat.80 focused tests/code checks pass; GPU unloaded12MiB.
 No flight/AWS/training/model/TTL/environment changes;200ms still open. Evidence:
 reports/qwen_residual_20261016/REPORT.md, verification_local.json, qos/, worker*/.
+
+### D-141: optional pilot CUDA graphs and low-bit screen (2026-10-16)
+
+User authorized a local optimization goal without retraining. Status: bounded
+assessment complete; optional runtime implemented, default unchanged. Rationale:
+reduce CPU launch overhead while retaining current weights and role separation.
+100 paired saved-input actions equal. Warm eager/graph medians0.520/0.346s.
+Fresh prepared worker20warm median0.373s, p950.436s, cold0.932s after ready;
+30mixed-role calls match D140 common prefixes/base outputs; original gate passes.
+Initial lazy graph capture expired first call; fixed by discarded synthetic
+kernel preparation before worker ready, not extending freshness. Base roles and
+fresh prefill stay eager. No prefix cache combination. One frozen base, unchanged
+parameter versions;45 focused tests and changed-code checks pass. Default off.
+HQQ CPU screen on3 original weight slices shows increasing reconstruction error
+at2/1bit, not a model accuracy test. Neither low-bit quality nor speed qualified;
+HQQ downloaded isolated, no installed packages changed.200ms remains unproven.
+No AWS/flights/training/model-file writes. GPU unloaded12MiB. Evidence:
+reports/qwen_graph_20261016/REPORT.md, verification_local.json, projections/,
+prepared_worker/, lowbit.json. Next larger graph regions or isolated kernel
+compatibility and full output-quality tests; no low-bit deployment claim.

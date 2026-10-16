@@ -611,3 +611,11 @@ Component restores target view during detour but does not reach intermediategoal
 within20s. Design explicit stored-source lease, fresh-target supersession, expiry
 and LOSTyaw arbitration. Unit-test before one separately named model flight.
 Do not combine with return-to-view or call nativeOnFly; see goal_hold_component/REPORT.md.
+# D141 follow-up: runtime beyond partial graphs
+
+- Optional graphs qualify saved-input worker latency (~0.373s median), not200ms
+  or flight performance. Default remains unchanged; synthetic preparation adds
+  startup time. Explore larger graph regions with fresh KV and role isolation.
+- Selective2-bit requires isolated compatible kernel stack and full pilot/base-role
+  quality checks. Weight-slice RMSE is not task accuracy. Do not deploy1-bit.
+- No AWS or flights authorized by this runtime optimization task.

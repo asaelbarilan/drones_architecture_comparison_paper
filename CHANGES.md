@@ -3322,3 +3322,11 @@ exactly after pilot switching; model load count remains one. The stepped probe
 uses real role outputs but pauses simulation during inference. It is not a
 mission or real-time success claim. Grounding and scheduling limitations are
 documented in docs/SHARED_QWEN_VLA.md. No AWS, training or deletion occurred.
+# 2026-10-16 — D141 local CUDA graph candidate
+
+Added opt-in pilot-only decode graphs with preparation before worker ready.
+100 paired saved actions equal; warm0.520->0.346s; actual mixed-role worker
+median0.373s,20warm, unchanged freshness gate passed. Default unchanged.
+45 focused tests/code checks pass. Isolated HQQ weight-slice screen does not
+qualify2/1bit model quality or speed. No200ms claim, AWS, training or flights.
+See reports/qwen_graph_20261016/REPORT.md for failed lazy-capture run and limits.

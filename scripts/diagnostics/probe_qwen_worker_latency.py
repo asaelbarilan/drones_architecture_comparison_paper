@@ -78,12 +78,14 @@ def main():
     parser.add_argument("--gate-only", action="store_true")
     parser.add_argument("--repeats", type=int, choices=range(1, 4), default=1)
     parser.add_argument("--gate-after", action="store_true")
+    parser.add_argument("--pilot-cuda-graphs", action="store_true")
     parser.add_argument("--cpu-placement", choices=("inherit", "performance"), default="inherit")
     parser.add_argument("--cpu-qos", choices=("inherit", "latency"), default="inherit")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     worker = QwenWorker(dict(package_path=args.package, max_new_tokens=128,
-                             cpu_placement=args.cpu_placement, cpu_qos=args.cpu_qos))
+                             cpu_placement=args.cpu_placement, cpu_qos=args.cpu_qos,
+                             pilot_cuda_graphs=args.pilot_cuda_graphs))
     worker.start()
     timer = threading.Timer(240, worker.process.terminate)
     timer.daemon = True

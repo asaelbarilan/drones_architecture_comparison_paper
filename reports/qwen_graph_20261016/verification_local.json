@@ -1,0 +1,264 @@
+{
+  "pair_count": 100,
+  "all_pairs_equal": true,
+  "warm_reference": {
+    "count": 96,
+    "median_s": 0.5198954,
+    "minimum_s": 0.4945293,
+    "maximum_s": 0.6781911,
+    "empirical_p95_s": 0.6449689
+  },
+  "warm_graph": {
+    "count": 96,
+    "median_s": 0.3457637,
+    "minimum_s": 0.3240566,
+    "maximum_s": 0.4452095,
+    "empirical_p95_s": 0.4114777
+  },
+  "worker_cold_s": 0.9321331,
+  "worker_warm": {
+    "count": 20,
+    "median_s": 0.37346665,
+    "minimum_s": 0.339438,
+    "maximum_s": 0.4519393,
+    "empirical_p95_s": 0.4355784
+  },
+  "outputs": [
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "planner",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "direction",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "monitor",
+      "case": "turn",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "planner",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "direction",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "monitor",
+      "case": "turn",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "planner",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "direction",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "monitor",
+      "case": "turn",
+      "common": 1,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "turn",
+      "common": 2,
+      "equal": true
+    },
+    {
+      "role": "pilot",
+      "case": "forward",
+      "common": 1,
+      "equal": true
+    }
+  ],
+  "worker_gate": {
+    "passed": true,
+    "qualification": [
+      {
+        "first_action_s": 0.4086993,
+        "status": "complete",
+        "request_id": 30
+      },
+      {
+        "first_action_s": 0.4133895,
+        "status": "complete",
+        "request_id": 31
+      },
+      {
+        "first_action_s": 0.4066186,
+        "status": "complete",
+        "request_id": 32
+      },
+      {
+        "first_action_s": 0.4564955,
+        "status": "complete",
+        "request_id": 33
+      }
+    ],
+    "ready": [
+      {
+        "kind": "ready",
+        "payload": {
+          "load_count": 1,
+          "cpu_placement": {
+            "policy": "performance",
+            "original_mask": 16777215,
+            "selected_mask": 65535,
+            "execution_qos": {
+              "policy": "latency",
+              "original": {
+                "control": 0,
+                "state": 0
+              },
+              "selected": {
+                "control": 1,
+                "state": 0
+              }
+            }
+          }
+        },
+        "consumed_ns": 109746352662700
+      }
+    ]
+  },
+  "invariants": {
+    "loads": 1,
+    "frozen": true,
+    "unchanged": true,
+    "peak_bytes": 4470585344
+  }
+}

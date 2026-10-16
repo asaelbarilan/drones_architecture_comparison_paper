@@ -11,6 +11,19 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-141 optional CUDA graphs (2026-10-16)
+
+Read reports/qwen_graph_20261016/REPORT.md. 100 paired saved-input actions equal;
+warm median0.520->0.346s. Prepared actual worker20warm median0.373s, p950.436s,
+cold0.932s after ready; all common outputs match D140 and original gate passes.
+Optional pilot_cuda_graphs=true prepares kernels before readiness; default stays
+off. Lazy capture initially expired first request; preserve that failed evidence.
+One frozen base; base roles eager, fresh prefill, no TTL changes.45 tests pass.
+Low-bit original-weight slice screen only:2/1bit not qualified for model quality
+or speed, no installed environment change. No AWS/flights/training. GPU unloaded.
+200ms not reached. Next larger graph regions or isolated low-bit kernel stack;
+do not confuse weight reconstruction RMSE with flight accuracy.
+
 ## Latest user work: D-140 half-second latency recovered (2026-10-16)
 
 Read reports/qwen_residual_20261016/REPORT.md. The remaining D139 gap is resolved

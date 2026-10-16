@@ -49,6 +49,10 @@ class SharedQwenInference:
         self._services = None
         self._calls = []
         self.reuse = None
+        self.graphs = None
+        self.use_graphs = bool(options.get("pilot_cuda_graphs", False))
+        if self.use_graphs and (self.precision != "nf4" or options.get("cache_reuse", False)):
+            raise ValueError("Pilot graphs require NF4 and no optional cache reuse")
         if options.get("cache_reuse", False):
             from .qwen_cache import QwenReuse
 
@@ -123,6 +127,11 @@ class SharedQwenInference:
         self.model.gradient_checkpointing_disable()
         self.tokenizer = ActionTokenizer(self.processor.tokenizer, codec.official_stats())
         self.load_count += 1
+        if self.use_graphs:
+            from .qwen_graph import PilotGraphs
+
+            self.graphs = PilotGraphs(self)
+            self.graphs.prepare()
 
     def _chat_batch(self, request):
         from PIL import Image
@@ -183,6 +192,15 @@ class SharedQwenInference:
 
     def _generate(self, request, batch, **kwargs):
         batch = self.api.cuda(batch)
+        if self.use_graphs and request.role == "pilot":
+            from .qwen_graph import PilotGraphs
+
+            if self.reuse is not None:
+                raise ValueError("Pilot graphs with optional cache reuse are not validated")
+            if self.graphs is None:
+                self.graphs = PilotGraphs(self)
+            with self.graphs.active():
+                return self.model.generate(**batch, **kwargs)
         if self.reuse is None:
             return self.model.generate(**batch, **kwargs)
         return self.reuse.generate(
@@ -272,6 +290,7 @@ class SharedQwenInference:
 
     def close(self):
         self.clear_caches()
+        self.graphs = None
         self.model = None
         if hasattr(self, "torch"):
             import gc

@@ -1,3 +1,11 @@
+## 2026-10-16: D-140 restore earlier warm latency
+
+Worker-only Windows latency QoS closes remaining gap after P-core placement:
+actual worker median0.518s, fresh longer20warm median0.535s (0.515-0.638s).
+Reversible QoS A/B and saved historical outputs match.80 tests and original
+startup gate pass. Local config enabled; generic defaults unchanged. No model,
+TTL, AWS or flight changes. GPU unloaded. See D140 report;200ms remains open.
+
 ## 2026-10-16: D-139 CPU placement diagnosis and worker fix
 
 Reversible performance-core placement reduces medians from 1.75-1.97s to

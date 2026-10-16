@@ -11,6 +11,17 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-140 half-second latency recovered (2026-10-16)
+
+Read reports/qwen_residual_20261016/REPORT.md. The remaining D139 gap is resolved
+in saved-input checks by worker-only execution HighQoS, keeping P-core placement.
+Reversible on/off50call test; identical actions. Actual worker longer20warm median
+0.535s, range0.515-0.638s; original gate passes. Prior0.55s typical speed restored,
+not200ms or guaranteed tail latency. Config now cpu_qos=latency; generic default
+inherit.80 tests/code checks pass; GPU unloaded. No flights/AWS/training/TTL change.
+Next optimization must control both placement and QoS. Simulator-load timing still
+unqualified. Do not repeat D1390.78s as latest or equate zero QoS flags with HighQoS.
+
 ## Latest user work: D-139 CPU placement (2026-10-16)
 
 Read reports/qwen_slow_session_20261016/REPORT.md. Reversible P/E/all-core tests

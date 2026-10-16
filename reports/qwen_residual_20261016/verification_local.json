@@ -1,0 +1,250 @@
+{
+  "placement": {
+    "all_tokens_and_actions_equal": true,
+    "blocks": [
+      {
+        "block": "performance_original",
+        "count": 8,
+        "median_s": 0.80809415,
+        "minimum_s": 0.6836833,
+        "maximum_s": 1.0440524
+      },
+      {
+        "block": "performance_one_thread",
+        "count": 8,
+        "median_s": 0.78475545,
+        "minimum_s": 0.7012774,
+        "maximum_s": 0.8513643
+      },
+      {
+        "block": "one_sibling_per_core",
+        "count": 8,
+        "median_s": 0.68848585,
+        "minimum_s": 0.6702197,
+        "maximum_s": 0.7516407
+      },
+      {
+        "block": "single_core_0",
+        "count": 8,
+        "median_s": 1.1932048,
+        "minimum_s": 1.1322175,
+        "maximum_s": 1.2882584
+      },
+      {
+        "block": "single_core_1",
+        "count": 8,
+        "median_s": 0.72864095,
+        "minimum_s": 0.6955737,
+        "maximum_s": 0.8037934
+      },
+      {
+        "block": "performance_restored",
+        "count": 8,
+        "median_s": 0.7119632,
+        "minimum_s": 0.6869725,
+        "maximum_s": 0.8993081
+      }
+    ]
+  },
+  "qos": {
+    "all_tokens_and_actions_equal": true,
+    "blocks": [
+      {
+        "block": 0,
+        "count": 10,
+        "median_s": 0.8507787,
+        "minimum_s": 0.7142256,
+        "maximum_s": 1.0081199
+      },
+      {
+        "block": 1,
+        "count": 10,
+        "median_s": 0.5049549499999999,
+        "minimum_s": 0.4947021,
+        "maximum_s": 0.5342739
+      },
+      {
+        "block": 2,
+        "count": 10,
+        "median_s": 0.82567115,
+        "minimum_s": 0.633269,
+        "maximum_s": 1.0315028
+      },
+      {
+        "block": 3,
+        "count": 10,
+        "median_s": 0.5670613499999999,
+        "minimum_s": 0.4986385,
+        "maximum_s": 0.6967967
+      },
+      {
+        "block": 4,
+        "count": 10,
+        "median_s": 0.75630045,
+        "minimum_s": 0.625392,
+        "maximum_s": 0.8451343
+      }
+    ]
+  },
+  "historical_worker_output_comparison": [
+    {
+      "case": "forward",
+      "role": "pilot",
+      "common_actions": 1,
+      "equal": true
+    },
+    {
+      "case": "forward",
+      "role": "planner",
+      "equal": true
+    },
+    {
+      "case": "forward",
+      "role": "direction",
+      "equal": true
+    },
+    {
+      "case": "forward",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    },
+    {
+      "case": "turn",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    },
+    {
+      "case": "forward",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    },
+    {
+      "case": "turn",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    },
+    {
+      "case": "turn",
+      "role": "monitor",
+      "equal": true
+    },
+    {
+      "case": "turn",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    },
+    {
+      "case": "forward",
+      "role": "pilot",
+      "common_actions": 3,
+      "equal": true
+    }
+  ],
+  "backend_sha256": "a4ada32b291de6b50b3302cab733efdd56333f5fe2495fd41fbe78ea8975552e",
+  "workers": {
+    "worker": {
+      "total_pilot": 7,
+      "cold_s": 1.0251552,
+      "warm_count": 6,
+      "warm_median_s": 0.5176038000000001,
+      "warm_p95_nearest_rank_s": 0.5618702,
+      "warm_min_s": 0.510228,
+      "warm_max_s": 0.5618702,
+      "all_common_actions_and_base_role_outputs_match_history": true,
+      "result": {
+        "passed": true,
+        "ready": [
+          {
+            "kind": "ready",
+            "payload": {
+              "load_count": 1,
+              "cpu_placement": {
+                "policy": "performance",
+                "original_mask": 16777215,
+                "selected_mask": 65535,
+                "execution_qos": {
+                  "policy": "latency",
+                  "original": {
+                    "control": 0,
+                    "state": 0
+                  },
+                  "selected": {
+                    "control": 1,
+                    "state": 0
+                  }
+                }
+              }
+            },
+            "consumed_ns": 107404784657400
+          }
+        ]
+      }
+    },
+    "worker_repeat": {
+      "total_pilot": 21,
+      "cold_s": 1.0872383,
+      "warm_count": 20,
+      "warm_median_s": 0.53499545,
+      "warm_p95_nearest_rank_s": 0.6141202,
+      "warm_min_s": 0.5148639,
+      "warm_max_s": 0.6384176,
+      "all_common_actions_and_base_role_outputs_match_history": true,
+      "result": {
+        "passed": true,
+        "qualification": [
+          {
+            "first_action_s": 0.5637672,
+            "status": "complete",
+            "request_id": 30
+          },
+          {
+            "first_action_s": 0.5590172,
+            "status": "complete",
+            "request_id": 31
+          },
+          {
+            "first_action_s": 0.5581309,
+            "status": "complete",
+            "request_id": 32
+          },
+          {
+            "first_action_s": 0.558613,
+            "status": "complete",
+            "request_id": 33
+          }
+        ],
+        "ready": [
+          {
+            "kind": "ready",
+            "payload": {
+              "load_count": 1,
+              "cpu_placement": {
+                "policy": "performance",
+                "original_mask": 16777215,
+                "selected_mask": 65535,
+                "execution_qos": {
+                  "policy": "latency",
+                  "original": {
+                    "control": 0,
+                    "state": 0
+                  },
+                  "selected": {
+                    "control": 1,
+                    "state": 0
+                  }
+                }
+              }
+            },
+            "consumed_ns": 107476017750800
+          }
+        ]
+      }
+    }
+  },
+  "gpu_after": "12 MiB, 0% (independent nvidia-smi check)"
+}

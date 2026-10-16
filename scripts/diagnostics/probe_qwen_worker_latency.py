@@ -51,12 +51,12 @@ def pump(worker, ready=False):
     raise TimeoutError("worker latency probe deadline")
 
 
-def replay(worker, inputs, out):
+def replay(worker, inputs, out, repeats=1):
     rows = []
     order = [("forward", "pilot"), ("forward", "planner"), ("forward", "direction")]
     order += [(case, "pilot") for case in ("forward", "turn", "forward", "turn")]
     order += [("turn", "monitor"), ("turn", "pilot"), ("forward", "pilot")]
-    for index, key in enumerate(order):
+    for index, key in enumerate(order * repeats):
         now = time.perf_counter_ns()
         ttl = PILOT_TTL_S if key[1] == "pilot" else 15
         worker.submit(WorkItem(index, 1, now, now+int(ttl*NS), inputs[key], 8))
@@ -76,11 +76,14 @@ def main():
     parser.add_argument("--package", required=True)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--gate-only", action="store_true")
+    parser.add_argument("--repeats", type=int, choices=range(1, 4), default=1)
+    parser.add_argument("--gate-after", action="store_true")
     parser.add_argument("--cpu-placement", choices=("inherit", "performance"), default="inherit")
+    parser.add_argument("--cpu-qos", choices=("inherit", "latency"), default="inherit")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     worker = QwenWorker(dict(package_path=args.package, max_new_tokens=128,
-                             cpu_placement=args.cpu_placement))
+                             cpu_placement=args.cpu_placement, cpu_qos=args.cpu_qos))
     worker.start()
     timer = threading.Timer(240, worker.process.terminate)
     timer.daemon = True
@@ -101,11 +104,16 @@ def run_checks(worker, inputs, args):
         settings = dict(pilot_ttl_s=PILOT_TTL_S, control_hz=20)
         rows = asyncio.run(qualify(worker, inputs["forward", "pilot"], settings, lambda row: None))
         return dict(passed=True, qualification=rows, scope="non-executing saved-input replay")
-    rows = replay(worker, inputs, args.out)
+    rows = replay(worker, inputs, args.out, args.repeats)
     pilot = [r for r in rows if r["role"] == "pilot"]
     passed = all(r["first_action_s"] is not None and
                  r["first_action_s"] < PILOT_TTL_S for r in pilot)
-    return dict(passed=passed)
+    result = dict(passed=passed)
+    if args.gate_after:
+        settings = dict(pilot_ttl_s=PILOT_TTL_S, control_hz=20)
+        result["qualification"] = asyncio.run(
+            qualify(worker, inputs["forward", "pilot"], settings, lambda row: None))
+    return result
 
 
 if __name__ == "__main__":

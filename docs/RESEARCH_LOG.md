@@ -3333,3 +3333,23 @@ flight or 200ms claim. No AWS/training/flights/power-plan/model changes.
 Evidence: reports/qwen_slow_session_20261016/REPORT.md, verification_local.json,
 affinity*/calls.json and worker_*/. D138 unresolved current slowdown narrowed;
 historical claims remain historical.
+
+### D-140: restore half-second latency with worker execution QoS (2026-10-16)
+
+User requested solving remaining0.55->0.78s regression. Status: local saved-input
+recovery implemented/verified. Keeping model/P-core mask/16threads fixed, switching
+Windows execution-speed HighQoS on/off yields medians0.851/0.505/0.826/0.567/0.756s
+in five alternating10-call blocks; all50 action outputs equal. Inherited zero
+ControlMask is system-managed, not an explicit high-performance request. This
+narrows the current cause; no retrospective claim about every historical session.
+Core subsetting/thread reductions separately tested48calls, not promoted.
+Rationale: declare worker execution latency-sensitive without global power-plan
+or priority changes. Opt-in cpu_qos=latency, current worker only; preserves unrelated
+flags, verifies state, restores on exit/error. Generic default inherit. Local
+experiment config enables it with existing performance placement. Same backend
+hash as D136; real worker6 warm calls median0.518s; fresh longer20warm median0.535s,
+range0.515-0.638s, empiricalp95=0.614s. Cold1.025/1.087s remains separate. Historical
+common action prefixes and all base-role results match. Original gate passes
+0.559/0.558/0.559s after repeat.80 focused tests/code checks pass; GPU unloaded12MiB.
+No flight/AWS/training/model/TTL/environment changes;200ms still open. Evidence:
+reports/qwen_residual_20261016/REPORT.md, verification_local.json, qos/, worker*/.

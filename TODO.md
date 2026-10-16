@@ -1,5 +1,12 @@
 # TODO
 
+## D-140: half-second recovery complete; further optimization separate
+
+- Keep performance placement AND latency QoS controlled in future benchmarks.
+- Current longer warm median0.535s, empiricalp95=0.614s;200ms remains open.
+- Verify simulator-load tail latency before making flight readiness claims.
+- No AWS/flight performed. Original freshness and startup gate remain unchanged.
+
 ## D-139: 200ms and flight qualification remain open
 
 - Keep performance-core placement and original startup gate in local profile.

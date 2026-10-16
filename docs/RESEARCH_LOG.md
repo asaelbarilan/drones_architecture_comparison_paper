@@ -3151,3 +3151,35 @@ completion. Warm sequential loops take about10s, beyond inherited1.5s staleness.
 Direction invents a questionable target box for a numeric instruction. Status:
 shared runtime/wiring verified; mission readiness not established. Rejected
 alternative: claiming successful flight from valid JSON or bypassing staleness.
+
+### D-133 — bounded, role-isolated Qwen cache reuse (2026-10-16)
+
+User requests implementation of shared visual features and separate role KV
+caches. Rationale: avoid redundant visual encoding and prompt prefill while
+retaining one local base and exact D207 adapter semantics. Add the separate
+shared_qwen_vla_cached_dev profile; D132/historical profiles remain unchanged.
+Persistent tensor budgets are256MiB KV/64MiB vision, with1024input tokens per
+retained role and LRU eviction. Cache identity uses actual token/position/pixel
+content and adapter mode, not caller hashes or placeholder tokens. Reset,
+failure and close clear caches; no generated-answer KV is kept.
+
+Initial partial-prefix implementation passed tiny float32 Qwen but failed NF4:
+2/15paired cases changed text; maximum first-step logit difference0.4765625,
+above fixed0.25limit. Preserve real_v1 evidence. Changed prefill matrix shapes
+and bitsandbytes arithmetic paths are a plausible numerical cause, not an
+isolated-kernel diagnosis. Reject partial-prefix reuse without relaxing limits.
+
+Final implementation reuses only complete identical prompt prefills plus their
+last hidden state; changed input gets fresh prefill. Base roles share exact
+ordered image-batch features; pilot features remain isolated. This is narrower
+than OnFly changing-context prefix reuse. Source: arxiv.org/html/2603.10682v1,
+sectionsIV-A3/IV-D (shared ViT features, separate KV caches).
+
+Evidence: reports/shared_qwen_cache_20261016/REPORT.md, real_exact/result.json,
+tiny_final/result.json. All15final GPU pairs match generated tokens, decoded
+outputs/actions and first-step logits exactly.39focused CPU tests and lint pass.
+Sample repeated-input monitor0.248->0.124s; pilot3.679->3.438s, one measurement
+each, not a flight/throughput benchmark.32-token action chunk still blocks.
+End retained tensors~68.7MiB; peak PyTorch allocation4,470,585,344bytes. GPU exits
+to12MiB used. No AWS, training, flights, promotion or resource deletion. Streaming,
+wall-clock independent control and semantic mission validation remain open.

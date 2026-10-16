@@ -4,6 +4,14 @@ Development integration requested on 2026-10-16. The existing Ollama architectur
 profiles are unchanged. This profile uses the complete private D207 step8000
 package already downloaded locally, not the experimental PPO adapter.
 
+D-133 adds a separate `shared_qwen_vla_cached_dev` profile. It reuses exact prompt
+prefills per role and exact visual batches per adapter mode, with 256 MiB KV and
+64 MiB visual limits. Changed prompts get fresh decoder prefill: partial-prefix
+reuse changed outputs in the NF4 test and is disabled. All 15 final full-model
+comparisons match fresh generated tokens and first-step logits exactly. See
+[cache report](../reports/shared_qwen_cache_20261016/REPORT.md) for timings and limits.
+The D-132 behavior below still describes the original uncached profile.
+
 | Role | Weights used | Output |
 |---|---|---|
 | Planner | Qwen3-VL-4B base, LoRA disabled | Objective and visual target description |

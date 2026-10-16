@@ -1,0 +1,138 @@
+{
+  "passed": false,
+  "mode": "tiny",
+  "scope": "offline cache test; no flights/training/AWS",
+  "cases": [
+    {
+      "case": "cold",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 19,
+        "kv_bytes": 18432,
+        "vision_bytes": 3072
+      }
+    },
+    {
+      "case": "repeat",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 18,
+        "vision_hit": true,
+        "input_tokens": 19,
+        "kv_bytes": 18432,
+        "vision_bytes": 3072
+      }
+    },
+    {
+      "case": "changed_text",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 17,
+        "vision_hit": true,
+        "input_tokens": 19,
+        "kv_bytes": 18432,
+        "vision_bytes": 3072
+      }
+    },
+    {
+      "case": "other_role",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": true,
+        "input_tokens": 19,
+        "kv_bytes": 36864,
+        "vision_bytes": 3072
+      }
+    },
+    {
+      "case": "other_mode",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "pilot",
+        "mode": "pilot",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 19,
+        "kv_bytes": 55296,
+        "vision_bytes": 6144
+      }
+    },
+    {
+      "case": "base_after_pilot",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 18,
+        "vision_hit": true,
+        "input_tokens": 19,
+        "kv_bytes": 55296,
+        "vision_bytes": 6144
+      }
+    },
+    {
+      "case": "changed_pixels",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 9,
+        "vision_hit": false,
+        "input_tokens": 19,
+        "kv_bytes": 55296,
+        "vision_bytes": 9216
+      }
+    },
+    {
+      "case": "two_images",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 14,
+        "vision_hit": false,
+        "input_tokens": 25,
+        "kv_bytes": 61440,
+        "vision_bytes": 15360
+      }
+    },
+    {
+      "case": "keyframe_then_new_latest",
+      "tokens_equal": true,
+      "max_logit_error": NaN,
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 15,
+        "vision_hit": false,
+        "input_tokens": 25,
+        "kv_bytes": 61440,
+        "vision_bytes": 15360
+      }
+    }
+  ],
+  "exception_cleanup": {
+    "restored": true,
+    "cleared": true,
+    "hooks_removed": true
+  }
+}

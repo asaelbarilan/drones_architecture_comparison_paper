@@ -31,6 +31,10 @@ class SharedQwenInference:
         max_new_tokens=192,
         model_id="qwen3-vl-4b-d207-shared",
         audit_path=None,
+        cache_reuse=False,
+        kv_cache_mib=256,
+        vision_cache_mib=64,
+        cache_max_tokens=1024,
         **_,
     ):
         self.package = Path(package_path)
@@ -43,6 +47,15 @@ class SharedQwenInference:
         self.load_count = 0
         self._services = None
         self._calls = []
+        self.reuse = None
+        if cache_reuse:
+            from .qwen_cache import QwenReuse
+
+            self.reuse = QwenReuse(
+                kv_bytes=int(kv_cache_mib * 1024**2),
+                vision_bytes=int(vision_cache_mib * 1024**2),
+                max_tokens=cache_max_tokens,
+            )
 
     @property
     def name(self):
@@ -53,6 +66,11 @@ class SharedQwenInference:
 
     def reset(self, mission, seed):
         self._calls.clear()
+        self.clear_caches()
+
+    def clear_caches(self):
+        if self.reuse is not None:
+            self.reuse.clear()
 
     def available(self):
         return all(
@@ -149,8 +167,9 @@ class SharedQwenInference:
                 masked[:, low:high] = scores[:, low:high]
                 return masked
 
-        output = self.model.generate(
-            **self.api.cuda(batch),
+        output = self._generate(
+            request,
+            batch,
             do_sample=False,
             min_new_tokens=32,
             max_new_tokens=32,
@@ -168,6 +187,18 @@ class SharedQwenInference:
             "remaining_supplied": data["remaining"],
         }, len(ids)
 
+    def _generate(self, request, batch, **kwargs):
+        batch = self.api.cuda(batch)
+        if self.reuse is None:
+            return self.model.generate(**batch, **kwargs)
+        return self.reuse.generate(
+            self.model,
+            batch,
+            request.role,
+            "pilot" if request.role == "pilot" else "base",
+            **kwargs,
+        )
+
     def _run(self, request):
         self._load()
         mode = nullcontext() if request.role == "pilot" else self.model.disable_adapter()
@@ -176,8 +207,9 @@ class SharedQwenInference:
             if request.role == "pilot":
                 return self._pilot(request)
             batch = self._chat_batch(request)
-            output = self.model.generate(
-                **self.api.cuda(batch),
+            output = self._generate(
+                request,
+                batch,
                 do_sample=False,
                 max_new_tokens=self.max_new_tokens,
                 use_cache=True,
@@ -194,7 +226,11 @@ class SharedQwenInference:
             # SimClock roles may park only on SimClock; an external thread await
             # would starve its pump. Match the existing synchronous Ollama backend,
             # then charge measured time. Use a process watchdog for wall-time caps.
-            payload, tokens = self._run(request)
+            try:
+                payload, tokens = self._run(request)
+            except BaseException:
+                self.clear_caches()
+                raise
             elapsed = time.perf_counter_ns() - started
             record = dict(
                 role=request.role,
@@ -205,6 +241,7 @@ class SharedQwenInference:
                 prompt=request.prompt,
                 response=payload,
                 wall_latency_ns=elapsed,
+                cache=dict(self.reuse.last) if self.reuse is not None else {"enabled": False},
             )
             self._calls.append(record)
             if self.audit_path:
@@ -221,9 +258,13 @@ class SharedQwenInference:
             "inference_calls_total": float(len(self._calls)),
             "shared_base_load_count": float(self.load_count),
             "inference_latency_s_total": sum(r["wall_latency_ns"] for r in self._calls) / 1e9,
+            "cache_reused_tokens_total": float(
+                sum(r.get("cache", {}).get("reused_tokens", 0) for r in self._calls)
+            ),
         }
 
     def close(self):
+        self.clear_caches()
         self.model = None
         if hasattr(self, "torch"):
             import gc

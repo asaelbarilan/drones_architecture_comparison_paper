@@ -11,6 +11,17 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-133 bounded Qwen caches (2026-10-16)
+
+Read reports/shared_qwen_cache_20261016/REPORT.md. New cached development profile:
+shared_qwen_vla_cached_dev; uncached D132 profile remains selectable. One base,
+four separate exact-prompt KV entries, base-shared exact image batches and isolated
+pilot features. Partial-prefix reuse failed the real NF4 equivalence check and is
+disabled; changed inputs run fresh prefill. Final15 paired full-model cases have
+identical tokens/decoded actions and first-step logits. No flight or training.
+Cache limits256MiB KV/64MiB vision; supported Transformers4.57.3. GPU unloaded.
+Streaming/async control and mission grounding are still open, not proven by caching.
+
 ## Latest user work: D-132 shared Qwen roles (2026-10-16)
 
 Read docs/SHARED_QWEN_VLA.md and reports/shared_qwen_vla_20261016/REPORT.md.

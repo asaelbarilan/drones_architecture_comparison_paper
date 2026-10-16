@@ -1,0 +1,643 @@
+{
+  "passed": false,
+  "mode": "real",
+  "scope": "offline cache test; no flights/training/AWS",
+  "cases": [
+    {
+      "case": "planner_cold",
+      "role": "planner",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.5986976999993203,
+      "cached_seconds": 0.21224539999093395,
+      "fresh_tokens": [
+        2307,
+        151645
+      ],
+      "cached_tokens": [
+        2307,
+        151645
+      ],
+      "cache": {
+        "role": "planner",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 16,
+        "kv_bytes": 2211840,
+        "vision_bytes": 0
+      },
+      "passed": true
+    },
+    {
+      "case": "planner_repeat",
+      "role": "planner",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.3203125,
+      "max_first_probability_error": 8.344650268554688e-07,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.21788379999634344,
+      "cached_seconds": 0.20643369999015704,
+      "fresh_tokens": [
+        2307,
+        151645
+      ],
+      "cached_tokens": [
+        2307,
+        151645
+      ],
+      "cache": {
+        "role": "planner",
+        "mode": "base",
+        "reused_tokens": 15,
+        "vision_hit": false,
+        "input_tokens": 16,
+        "kv_bytes": 2211840,
+        "vision_bytes": 0
+      },
+      "passed": false
+    },
+    {
+      "case": "direction_cold",
+      "role": "direction",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.7342286000057356,
+      "cached_seconds": 0.6129713999980595,
+      "fresh_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 81,
+        "kv_bytes": 14008320,
+        "vision_bytes": 1310720
+      },
+      "passed": true
+    },
+    {
+      "case": "direction_repeat",
+      "role": "direction",
+      "tokens_equal": false,
+      "payload_equal": false,
+      "max_first_logit_error": 0.4375,
+      "max_first_probability_error": 0.026746481657028198,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.6574201000039466,
+      "cached_seconds": 0.631936499994481,
+      "fresh_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        4910,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 80,
+        "vision_hit": true,
+        "input_tokens": 81,
+        "kv_bytes": 14008320,
+        "vision_bytes": 1310720
+      },
+      "passed": false
+    },
+    {
+      "case": "monitor_shared_image",
+      "role": "monitor",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.2931557999982033,
+      "cached_seconds": 0.24783449999813456,
+      "fresh_tokens": [
+        2152,
+        151645
+      ],
+      "cached_tokens": [
+        2152,
+        151645
+      ],
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": true,
+        "input_tokens": 85,
+        "kv_bytes": 26394624,
+        "vision_bytes": 1310720
+      },
+      "passed": true
+    },
+    {
+      "case": "monitor_repeat",
+      "role": "monitor",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.375,
+      "max_first_probability_error": 3.7125358343104153e-11,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.28272230000584386,
+      "cached_seconds": 0.2083076999988407,
+      "fresh_tokens": [
+        2152,
+        151645
+      ],
+      "cached_tokens": [
+        2152,
+        151645
+      ],
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 84,
+        "vision_hit": true,
+        "input_tokens": 85,
+        "kv_bytes": 26394624,
+        "vision_bytes": 1310720
+      },
+      "passed": false
+    },
+    {
+      "case": "pilot_cold",
+      "role": "pilot",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 3.7717236000025878,
+      "cached_seconds": 4.327896300004795,
+      "fresh_tokens": [
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "cached_tokens": [
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "cache": {
+        "role": "pilot",
+        "mode": "pilot",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 137,
+        "kv_bytes": 46448640,
+        "vision_bytes": 2621440
+      },
+      "passed": true
+    },
+    {
+      "case": "pilot_repeat",
+      "role": "pilot",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.25,
+      "max_first_probability_error": 0.0020247697830200195,
+      "same_finite_mask": true,
+      "fresh_seconds": 3.729718300004606,
+      "cached_seconds": 3.566154000000097,
+      "fresh_tokens": [
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "cached_tokens": [
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484,
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "cache": {
+        "role": "pilot",
+        "mode": "pilot",
+        "reused_tokens": 136,
+        "vision_hit": true,
+        "input_tokens": 137,
+        "kv_bytes": 46448640,
+        "vision_bytes": 2621440
+      },
+      "passed": true
+    },
+    {
+      "case": "planner_after_pilot",
+      "role": "planner",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.3203125,
+      "max_first_probability_error": 8.344650268554688e-07,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.2058647999947425,
+      "cached_seconds": 0.1756739000120433,
+      "fresh_tokens": [
+        2307,
+        151645
+      ],
+      "cached_tokens": [
+        2307,
+        151645
+      ],
+      "cache": {
+        "role": "planner",
+        "mode": "base",
+        "reused_tokens": 15,
+        "vision_hit": false,
+        "input_tokens": 16,
+        "kv_bytes": 46448640,
+        "vision_bytes": 2621440
+      },
+      "passed": false
+    },
+    {
+      "case": "direction_after_pilot",
+      "role": "direction",
+      "tokens_equal": false,
+      "payload_equal": false,
+      "max_first_logit_error": 0.4375,
+      "max_first_probability_error": 0.026746481657028198,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.6382452999969246,
+      "cached_seconds": 0.5633989000052679,
+      "fresh_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        28174,
+        10010,
+        389,
+        6176,
+        4910,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 80,
+        "vision_hit": true,
+        "input_tokens": 81,
+        "kv_bytes": 46448640,
+        "vision_bytes": 2621440
+      },
+      "passed": false
+    },
+    {
+      "case": "direction_changed_text",
+      "role": "direction",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.375,
+      "max_first_probability_error": 0.0010013116989284754,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.4319913999934215,
+      "cached_seconds": 0.3347580999979982,
+      "fresh_tokens": [
+        45860,
+        45662,
+        6109,
+        151645
+      ],
+      "cached_tokens": [
+        45860,
+        45662,
+        6109,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 73,
+        "vision_hit": true,
+        "input_tokens": 81,
+        "kv_bytes": 46448640,
+        "vision_bytes": 2621440
+      },
+      "passed": false
+    },
+    {
+      "case": "direction_changed_pixels",
+      "role": "direction",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.515020300008473,
+      "cached_seconds": 0.5095094999996945,
+      "fresh_tokens": [
+        45860,
+        14389,
+        304,
+        2070,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        45860,
+        14389,
+        304,
+        2070,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 81,
+        "kv_bytes": 46448640,
+        "vision_bytes": 3932160
+      },
+      "passed": true
+    },
+    {
+      "case": "direction_changed_grid",
+      "role": "direction",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.0,
+      "max_first_probability_error": 0.0,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.5714067999942927,
+      "cached_seconds": 0.5966317999991588,
+      "fresh_tokens": [
+        28174,
+        13702,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        28174,
+        13702,
+        389,
+        6176,
+        2070,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "direction",
+        "mode": "base",
+        "reused_tokens": 0,
+        "vision_hit": false,
+        "input_tokens": 97,
+        "kv_bytes": 48807936,
+        "vision_bytes": 5570560
+      },
+      "passed": true
+    },
+    {
+      "case": "monitor_two_images",
+      "role": "monitor",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.4375,
+      "max_first_probability_error": 5.692243576049805e-05,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.4881496000016341,
+      "cached_seconds": 0.4711423999979161,
+      "fresh_tokens": [
+        2753,
+        11799,
+        1730,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        2753,
+        11799,
+        1730,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 69,
+        "vision_hit": false,
+        "input_tokens": 147,
+        "kv_bytes": 57950208,
+        "vision_bytes": 8192000
+      },
+      "passed": false
+    },
+    {
+      "case": "monitor_new_latest",
+      "role": "monitor",
+      "tokens_equal": true,
+      "payload_equal": true,
+      "max_first_logit_error": 0.4765625,
+      "max_first_probability_error": 0.009337440133094788,
+      "same_finite_mask": true,
+      "fresh_seconds": 0.6217522000079043,
+      "cached_seconds": 0.5915344999957597,
+      "fresh_tokens": [
+        2753,
+        41545,
+        1238,
+        11799,
+        13,
+        151645
+      ],
+      "cached_tokens": [
+        2753,
+        41545,
+        1238,
+        11799,
+        13,
+        151645
+      ],
+      "cache": {
+        "role": "monitor",
+        "mode": "base",
+        "reused_tokens": 70,
+        "vision_hit": false,
+        "input_tokens": 163,
+        "kv_bytes": 60309504,
+        "vision_bytes": 11141120
+      },
+      "passed": false
+    }
+  ],
+  "contracts": {
+    "repeat_hits": true,
+    "cross_role_vision": true,
+    "pilot_vision_isolated": true,
+    "changed_pixels_miss": true,
+    "changed_grid_miss": true,
+    "bounded": true,
+    "one_load": true
+  },
+  "peak_allocated_bytes": 4470585344,
+  "peak_reserved_bytes": 5098176512,
+  "kv_bytes": 60309504,
+  "vision_bytes": 11141120,
+  "kv_evictions": 0,
+  "transformers_version": "4.57.3"
+}

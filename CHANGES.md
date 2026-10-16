@@ -1,3 +1,13 @@
+## 2026-10-16 — D-133: bounded per-role Qwen caches
+
+Add an opt-in cached development profile on the existing shared NF4 model.
+Independent exact-prompt KV caches, adapter-isolated visual features, byte/entry
+limits and cleanup are implemented. Partial-prefix reuse failed a real-model
+equivalence check and was replaced by exact-prefill reuse plus fresh prefill on
+changed input, without relaxing criteria. All15 final real-model pairs match
+tokens and first-step logits. No AWS, training, flights or simulator changes.
+Evidence: reports/shared_qwen_cache_20261016/REPORT.md. Streaming remains open.
+
 ## 2026-09-12 — D-103: dynamic debugger and eight scenario demonstrations
 
 Extended the existing debugger to render time-varying obstacle/target state and

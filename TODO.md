@@ -1,5 +1,14 @@
 # TODO
 
+## D-133 — next shared-Qwen efficiency boundary
+
+- Stream complete four-token actions and measure first-action latency; retain
+  freshness, interruptibility and independent hover/control. Current caching is
+  not streaming or asynchronous GPU scheduling.
+- Partial-prefix KV reuse is disabled after a measured NF4 output mismatch.
+  Exact prompt reuse and exact visual-batch sharing are verified locally; do not
+  claim OnFly-style reuse across changed latest frames or a flight speedup.
+
 ## D-132 — shared-base development integration
 
 - Validate direction points/boxes on genuine visible-target camera scenes; a

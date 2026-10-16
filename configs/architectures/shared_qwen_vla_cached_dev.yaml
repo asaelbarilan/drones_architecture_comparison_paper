@@ -1,0 +1,11 @@
+# D-133: bounded cache reuse only. Scheduling/streaming are unchanged.
+_base_: [shared_qwen_vla_dev.yaml]
+id: shared_qwen_vla_cached_dev
+name: Shared Qwen with isolated bounded caches
+description: Per-role exact prompt KV and adapter-aware exact image feature reuse.
+inference:
+  params:
+    cache_reuse: true
+    kv_cache_mib: 256
+    vision_cache_mib: 64
+    cache_max_tokens: 1024

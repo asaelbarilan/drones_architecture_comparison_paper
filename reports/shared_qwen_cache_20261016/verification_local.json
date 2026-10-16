@@ -1,0 +1,82 @@
+{
+  "verified_cases": [
+    {
+      "case": "planner_cold",
+      "logits_exact": true,
+      "sha256": "c7f06bd29033df635659aa2e76be5185863f937ae7381f200b471cb0783b6a9d"
+    },
+    {
+      "case": "planner_repeat",
+      "logits_exact": true,
+      "sha256": "c7f06bd29033df635659aa2e76be5185863f937ae7381f200b471cb0783b6a9d"
+    },
+    {
+      "case": "direction_cold",
+      "logits_exact": true,
+      "sha256": "afb0165922837b16dabf9abbe80039709fbeea9b930056d2e9e4868681c27b3f"
+    },
+    {
+      "case": "direction_repeat",
+      "logits_exact": true,
+      "sha256": "afb0165922837b16dabf9abbe80039709fbeea9b930056d2e9e4868681c27b3f"
+    },
+    {
+      "case": "monitor_shared_image",
+      "logits_exact": true,
+      "sha256": "0ee029ee1f967627b2c1835326a7fa3591fb65adda7a9ec993df6066ae435b11"
+    },
+    {
+      "case": "monitor_repeat",
+      "logits_exact": true,
+      "sha256": "0ee029ee1f967627b2c1835326a7fa3591fb65adda7a9ec993df6066ae435b11"
+    },
+    {
+      "case": "pilot_cold",
+      "logits_exact": true,
+      "sha256": "fd2d96826a07c35891f95e68bbaec3c450020ff27e0c611f49030b7c8e5ad88d"
+    },
+    {
+      "case": "pilot_repeat",
+      "logits_exact": true,
+      "sha256": "fd2d96826a07c35891f95e68bbaec3c450020ff27e0c611f49030b7c8e5ad88d"
+    },
+    {
+      "case": "planner_after_pilot",
+      "logits_exact": true,
+      "sha256": "c7f06bd29033df635659aa2e76be5185863f937ae7381f200b471cb0783b6a9d"
+    },
+    {
+      "case": "direction_after_pilot",
+      "logits_exact": true,
+      "sha256": "afb0165922837b16dabf9abbe80039709fbeea9b930056d2e9e4868681c27b3f"
+    },
+    {
+      "case": "direction_changed_text",
+      "logits_exact": true,
+      "sha256": "20f58fb2b3b829019737a91bf119a21aaaeedb8f89dc749806840ec464164e5d"
+    },
+    {
+      "case": "direction_changed_pixels",
+      "logits_exact": true,
+      "sha256": "0705052b89ba55e18d8e437b7ff9aa83d4c8ebbe5529f193bee0a4222efd743b"
+    },
+    {
+      "case": "direction_changed_grid",
+      "logits_exact": true,
+      "sha256": "7e2bbb7537fa029bf529dbb87a4aeab2d3cc233ec6539b2ea6d1b5f2d34524b7"
+    },
+    {
+      "case": "monitor_two_images",
+      "logits_exact": true,
+      "sha256": "1ea339d2b6d4fc8d4c80f5752e32da99affca93dd98fb5a9516d4076b251bb11"
+    },
+    {
+      "case": "monitor_new_latest",
+      "logits_exact": true,
+      "sha256": "177c9fe2c075e159b587cdc812b5f52977cf54955544c90bba597743369db84c"
+    }
+  ],
+  "all_passed": true,
+  "scope": "independent saved-artifact check, not additional inference",
+  "gpu_after_exit_used_MiB": 12
+}

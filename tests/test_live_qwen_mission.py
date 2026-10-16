@@ -131,3 +131,15 @@ def test_direction_gets_only_current_target_not_old_step_history(state):
     assert '"authorized_target": [2, 0, 0, 15]' in prompt
     assert '"ordered_steps"' not in prompt and '"completed"' not in prompt
     assert scheduler.mission.instruction and scheduler.steps[1]["target"] == [2, 0, 0, 15]
+
+
+def test_visual_contract_rejects_numeric_substitution(state):
+    scheduler, _ = state
+    scheduler.settings["goal_mode"] = "visual"
+    with pytest.raises(ValueError, match="visual mission requires"):
+        accept_plan(scheduler, dict(steps=[dict(objective="Find pillar", target=[1, 0, 0, 0])]),
+                    ORIGIN_NS)
+    accept_plan(scheduler, dict(steps=[dict(objective="Approach", target="red pillar")]), ORIGIN_NS)
+    with pytest.raises(ValueError, match="camera grounding"):
+        validate_direction(scheduler, dict(kind="relative", target=[1, 0, 0, 0]))
+    assert not scheduler.numeric_complete(observation(2))

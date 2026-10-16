@@ -15,7 +15,7 @@ from uavlab.live_qwen.runner import await_worker, fly
 from uavlab.plugins.inference.qwen_worker import QwenWorker
 
 
-async def experiment(settings, out):
+async def experiment(settings, out, flight=fly):
     worker = QwenWorker(dict(
         package_path=settings["package_path"], model_id=settings["model_id"],
         max_new_tokens=128, warmup_path=str(out / "startup_equality.json"),
@@ -27,7 +27,7 @@ async def experiment(settings, out):
     try:
         await await_worker(worker, settings, ready=True)
         for case in settings["missions"]:
-            results[case["id"]] = await fly(worker, case, settings, out / case["id"])
+            results[case["id"]] = await flight(worker, case, settings, out / case["id"])
             (out / "result.json").write_text(json.dumps(results, indent=2))
             print(json.dumps(results[case["id"]]), flush=True)
             await await_worker(worker, settings)

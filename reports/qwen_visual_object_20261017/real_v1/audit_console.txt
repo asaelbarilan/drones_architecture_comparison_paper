@@ -1,0 +1,17 @@
+{
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}",
+      "visual_grounding": false
+    },
+    {
+      "request_id": 10,
+      "image": "input_10_0.png",
+      "response": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}",
+      "visual_grounding": false
+    }
+  ],
+  "failures": []
+}

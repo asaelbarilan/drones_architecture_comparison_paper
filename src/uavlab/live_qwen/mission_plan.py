@@ -47,6 +47,9 @@ def validate_target(target):
 
 def accept_plan(state, payload, now):
     steps = parse_steps(payload)
+    if state.settings.get("goal_mode") == "visual" and any(
+            not isinstance(step["target"], str) for step in steps):
+        raise ValueError("visual mission requires visual descriptions, not invented numeric goals")
     if state.steps and steps != state.steps:
         raise ValueError("replanning cannot replace committed mission steps")
     state.steps = steps
@@ -66,6 +69,9 @@ def validate_direction(state, payload):
             raise ValueError("direction changed committed numeric step")
         if data.get("terminal", expected_terminal) != expected_terminal:
             raise ValueError("direction cannot skip remaining mission steps")
-    elif data.get("terminal", False) and not expected_terminal:
-        raise ValueError("visual direction cannot skip remaining mission steps")
+    else:
+        if data["kind"] != "visual":
+            raise ValueError("visual objective requires camera grounding")
+        if data.get("terminal", False) and not expected_terminal:
+            raise ValueError("visual direction cannot skip remaining mission steps")
     return dict(data, terminal=data.get("terminal", expected_terminal))

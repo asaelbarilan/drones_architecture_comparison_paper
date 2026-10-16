@@ -1,3 +1,12 @@
+## 2026-10-17: D-146 real visual-object task fails
+
+Two bounded local attempts preserved. Generic plan invented a numeric target
+and falsely completed; explicit visual contract now rejects that substitution.
+Corrected run still fails grounding: centre/background point, no target box.
+Monitor says continue but local-goal refresh waits for expiry.12fresh actions,
+6.661->5.621m; no collision or completion.43tests/code checks pass,GPU unloaded.
+See reports/qwen_visual_object_20261017/REPORT.md. No training/AWS.
+
 ## 2026-10-17: D-145 ordered goals and numeric completion
 
 Same four local cases now4/4 versus0/4, unchanged criteria. Planner step contract,

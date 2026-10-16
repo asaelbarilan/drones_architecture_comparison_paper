@@ -1,5 +1,16 @@
 # TODO
 
+## D-146: visual grounding and continuation are blocking
+
+- Replay saved camera frames to isolate template copying vs actual grounding;
+  include absent target and less-cropped view controls before another flight.
+- Visual continue at a reached local waypoint must request fresh guidance
+  without dropping the object identity; currently waits for goal expiry.
+- Validate object proximity and target-box-to-pilot handoff; local waypoint
+  arrival is not object arrival. No training indicated by this experiment.
+- Keep visual-only contract and independent evaluator: generic numeric
+  substitution previously produced a false success6.14m from target.
+
 ## D-145: four-case repair complete; qualification remains
 
 - Numeric completion and ordered-target preservation now pass the same four

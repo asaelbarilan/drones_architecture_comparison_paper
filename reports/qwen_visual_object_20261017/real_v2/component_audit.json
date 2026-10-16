@@ -1,0 +1,206 @@
+{
+  "first_action_produced_s": {
+    "count": 5,
+    "median": 0.2036436,
+    "maximum": 0.8141439
+  },
+  "first_action_received_s": {
+    "count": 5,
+    "median": 0.2124703,
+    "maximum": 0.8608389
+  },
+  "actions_consumed": 12,
+  "all_consumed_fresh": true,
+  "failures": [],
+  "goals": [
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 117877462156300,
+      "goal_version": 1,
+      "position": {
+        "x": -0.23138342179809962,
+        "y": 0.9677267181583981,
+        "z": 2.900166583353172,
+        "frame": "enu"
+      },
+      "yaw": 1.8054901148349307,
+      "terminal": false,
+      "expires_ns": 117919726981400,
+      "source_seq": 98
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 117925020903700,
+      "goal_version": 3,
+      "position": {
+        "x": -0.3646073090112477,
+        "y": 1.5468726373675739,
+        "z": 2.897006916328857,
+        "frame": "enu"
+      },
+      "yaw": 1.8056525022108754,
+      "terminal": false,
+      "expires_ns": 117966932950200,
+      "source_seq": 1029
+    }
+  ],
+  "results": [
+    {
+      "kind": "result",
+      "wall_ns": 117874727893500,
+      "goal_version": 0,
+      "request_id": 4,
+      "role": "planner",
+      "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the red pillar\",\n      \"target\": \"Approach the red pillar\"\n    },\n    {\n      \"objective\": \"Stop nearby while keeping the red pillar visible\",\n      \"target\": \"Stop nearby while keeping the red pillar visible\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117877462156300,
+      "goal_version": 0,
+      "request_id": 5,
+      "role": "direction",
+      "payload": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117883938559300,
+      "goal_version": 1,
+      "request_id": 9,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"Red pillar visible; approach ongoing; not yet stationary.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117888043492700,
+      "goal_version": 1,
+      "request_id": 10,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; motion needed to approach within tolerance.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117891998913900,
+      "goal_version": 1,
+      "request_id": 11,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; approach needed despite acceptable error.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117896207711900,
+      "goal_version": 1,
+      "request_id": 12,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"Red pillar visible; motion needed to approach within tolerance.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117900470469900,
+      "goal_version": 1,
+      "request_id": 13,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"Red pillar visible; motion needed to approach within tolerance.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117904834864000,
+      "goal_version": 1,
+      "request_id": 14,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; motion needed to approach it.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117909149021900,
+      "goal_version": 1,
+      "request_id": 15,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; motion needed to approach it.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117913358587000,
+      "goal_version": 1,
+      "request_id": 16,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Speed too low; motion needed to approach red pillar.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117917569685600,
+      "goal_version": 1,
+      "request_id": 17,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; motion needed to approach it.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117921933887400,
+      "goal_version": 1,
+      "request_id": 18,
+      "role": "monitor",
+      "payload": "{\"status\": \"continue\", \"reason\": \"Red pillar visible; approach ongoing, not yet stopped.\"}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117925020903700,
+      "goal_version": 2,
+      "request_id": 19,
+      "role": "direction",
+      "payload": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117929693188400,
+      "goal_version": 3,
+      "request_id": 22,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"Red pillar visible; approach ongoing; not yet stationary.\"\n}"
+    }
+  ],
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": false,
+      "red_pixel_bbox": [
+        95,
+        0,
+        129,
+        71
+      ],
+      "model_point": [
+        112,
+        112
+      ],
+      "model_box": null,
+      "reported_visible": false,
+      "box_iou": null
+    },
+    {
+      "request_id": 19,
+      "image": "input_19_0.png",
+      "response": "{\"kind\":\"visual\",\"target\":{\"u\":500,\"v\":500,\"travel_m\":1.0,\"target_visible\":false,\"box\":null}}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": false,
+      "red_pixel_bbox": [
+        92,
+        0,
+        132,
+        69
+      ],
+      "model_point": [
+        112,
+        112
+      ],
+      "model_box": null,
+      "reported_visible": false,
+      "box_iou": null
+    }
+  ],
+  "numeric_overrides": []
+}

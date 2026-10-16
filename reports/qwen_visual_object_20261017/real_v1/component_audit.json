@@ -1,0 +1,118 @@
+{
+  "first_action_produced_s": {
+    "count": 3,
+    "median": 0.202425,
+    "maximum": 0.8054587
+  },
+  "first_action_received_s": {
+    "count": 3,
+    "median": 0.203175,
+    "maximum": 0.808674
+  },
+  "actions_consumed": 7,
+  "all_consumed_fresh": true,
+  "failures": [],
+  "goals": [
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 117740933561600,
+      "goal_version": 1,
+      "position": {
+        "x": -0.23254517907816602,
+        "y": 0.9725855950442118,
+        "z": 3.0,
+        "frame": "enu"
+      },
+      "yaw": 1.8054901148349307,
+      "terminal": false,
+      "expires_ns": 117784364699300,
+      "source_seq": 76
+    },
+    {
+      "kind": "goal_authorized",
+      "wall_ns": 117748978896500,
+      "goal_version": 3,
+      "position": {
+        "x": -0.23254517907816602,
+        "y": 0.9725855950442118,
+        "z": 3.0,
+        "frame": "enu"
+      },
+      "yaw": 1.8054901148349307,
+      "terminal": true,
+      "expires_ns": 117792411192700,
+      "source_seq": 235
+    }
+  ],
+  "results": [
+    {
+      "kind": "result",
+      "wall_ns": 117739365556500,
+      "goal_version": 0,
+      "request_id": 4,
+      "role": "planner",
+      "payload": "{\"steps\":[{\"objective\":\"Find the red pillar in the camera view and approach it.\",\"target\":[1,0,0,0]},{\"objective\":\"Stop nearby while keeping the red pillar visible.\",\"target\":[0,0,0,0]}]}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117740933561600,
+      "goal_version": 0,
+      "request_id": 5,
+      "role": "direction",
+      "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117747412548200,
+      "goal_version": 1,
+      "request_id": 9,
+      "role": "monitor",
+      "payload": "{\n  \"status\": \"continue\",\n  \"reason\": \"Red pillar visible; approach ongoing; not yet stopped.\"\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117748978896500,
+      "goal_version": 2,
+      "request_id": 10,
+      "role": "direction",
+      "payload": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 117753034885300,
+      "goal_version": 3,
+      "request_id": 11,
+      "role": "monitor",
+      "payload": "{\"status\": \"stop\", \"reason\": \"Red pillar visible, position/heading acceptable, stationary\"}"
+    }
+  ],
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}",
+      "visual_grounding": false
+    },
+    {
+      "request_id": 10,
+      "image": "input_10_0.png",
+      "response": "{\"kind\":\"relative\",\"target\":[1, 0, 0, 0]}",
+      "visual_grounding": false
+    }
+  ],
+  "numeric_overrides": [
+    {
+      "kind": "numeric_completion_override",
+      "wall_ns": 117747412548200,
+      "goal_version": 1,
+      "model_status": "continue",
+      "model_reason": "Red pillar visible; approach ongoing; not yet stopped.",
+      "remaining": [
+        0.41290716997701943,
+        -0.0029107347754141616,
+        0.0031602033552924347,
+        0.3243349077440387
+      ]
+    }
+  ]
+}

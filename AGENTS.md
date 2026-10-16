@@ -11,6 +11,18 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-146 visual-object probe (2026-10-17)
+
+Read reports/qwen_visual_object_20261017/REPORT.md. Local red-pillar approach
+failed. First generic planner invented numeric goal and falsely completed;
+added visual-only task contract rejecting numeric substitution. One repeat
+preserved visual plan but direction says not-visible and points at background.
+Monitor sees red and says continue; scheduler holds reached local waypoint
+until expiry.12fresh actions,distance6.661->5.621m,not within1.5m. No numeric
+overrides in repeat,no collisions/OOB.43tests/code checks pass,GPU unloaded.
+Next saved-frame grounding and visual-continue waypoint refresh, then validated
+proximity/box handoff. No AWS/training or general visual/AirSim success claim.
+
 ## Latest user work: D-145 completion and ordered steps (2026-10-17)
 
 Read reports/qwen_completion_fix_20261017/REPORT.md and MONITOR_RULES.md. Final

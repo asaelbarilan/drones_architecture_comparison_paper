@@ -3478,3 +3478,29 @@ not generalization. Visual/AirSim/obstacle and arbitrary semantic capability
 remain unqualified. Evidence: reports/qwen_completion_fix_20261017/REPORT.md,
 MONITOR_RULES.md, real_v1..real_v5 archives/config/source hashes; final PROMPTS.md,
 ENCODED_PROMPTS.md plus exact token IDs, plots and independent audit.
+
+### D-146: visual-object task exposes grounding and continuation failures (2026-10-17)
+
+User requested local find-object-and-approach test with component evidence.
+Status: failed, not general visual-navigation success. Rendered grid3d red
+pillar and green distractor, seed1075,60s; partially cropped but visible target.
+Frozen evaluator:distance<=1.5m,visible,stationary,stopped,fresh and safe.
+real_v1 generic planner invented1m numeric mission and stop step; numeric gate
+advanced, monitor falsely stopped6.139m away. Independent evaluator rejected.
+Rationale/minimal repair: explicit visual goal type must reject numeric target
+substitution; visual direction must be camera grounded. Added opt-in visual
+contract and tests, repeated once with same fixture/horizon/criteria.
+real_v2 preserves visual descriptions but direction twice copies centre/1m/
+not-visible/no-box example. Neither point on red pixels; monitor recognises
+red pillar and keeps returning continue. Pilot executes12fresh actions;
+distance6.661->5.621m, never completes. At reached local waypoint, visual
+continue does not request fresh guidance until45s expiry; integration gap.
+No numeric overrides in corrected run, no collisions/OOB/contract failures;
+maxgap59.65ms. Pilot producedmedian204ms,max814ms; not hard200ms. Box=null in
+current pilot conditioning. Hidden scene truth/redmask strictly offline.
+43 tests/code checks pass; GPU unloaded12MiB/0%. No AWS/training/weights edits.
+Next saved-frame grounding/absent controls, then identity-preserving visual
+waypoint refresh and measured proximity from validated grounding. Do not train
+or claim VLM recognition/arrival solved. Evidence: reports/qwen_visual_object_20261017/
+REPORT.md, scene_preview, real_v1/real_v2 exact prompts/token inputs, image
+frames, raw event archives, plots and independent evaluator/grounding audits.

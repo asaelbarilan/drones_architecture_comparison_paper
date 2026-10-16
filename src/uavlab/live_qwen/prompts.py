@@ -91,6 +91,11 @@ def role_request(state, role, obs):
     else:
         if role == "planner":
             context = dict(original_mission=state.mission.instruction, feedback=state.feedback)
+            if state.settings.get("goal_mode") == "visual":
+                context["task_contract"] = (
+                    "VISUAL object task. Each target MUST be a visual-description string. "
+                    "Never invent numeric movements or coordinates. Approach and stop nearby "
+                    "are one visual objective, not a numeric step plus a separate stop step.")
         elif role == "monitor":
             context = monitor_context(state, obs)
         else:

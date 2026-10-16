@@ -3373,3 +3373,30 @@ No AWS/flights/training/model-file writes. GPU unloaded12MiB. Evidence:
 reports/qwen_graph_20261016/REPORT.md, verification_local.json, projections/,
 prepared_worker/, lowbit.json. Next larger graph regions or isolated kernel
 compatibility and full output-quality tests; no low-bit deployment claim.
+
+### D-142: larger graph regions reach typical200ms locally (2026-10-16–17)
+
+Status: isolated diagnostic qualified on saved contexts; production integration
+pending. User requested continued progress toward200ms without retraining.
+Rationale: eliminate remaining launch overhead and unnecessary vocabulary/cache
+work before reducing model precision. Fresh vision/prefill/decode CUDA graphs,
+original256 action-head rows, greedy three/four-token bursts and256-token KV
+reduce same-session D141 warm backend median348.66->193.57ms across96 warm pairs.
+All100 paired first actions and four full32-token chunks equal. One frozen base,
+unchanged parameter versions, no cached old observation. Actual worker with
+original20ms polling median205.82ms; explicit2ms diagnostic polling median198.06ms,
+range195.19–202.91ms, empiricalp95=200.07ms. Worker-generated action median195.88ms.
+This is typical latency, not a guaranteed200ms deadline or camera-to-actuator
+timing. Startup capture/equality checks occur before readiness; cold loading
+excluded. Existing1.5s freshness and controller20Hz unchanged; separate startup
+gate still passes at202–208ms delivery. All mixed-role common outputs matchD141.
+33 focused tests and changed-code checks pass. TF32/norm precision/thread-count
+screens did not justify final changes; initial failed burst evidence retained.
+No AWS/flights/training/model-file writes/packages installed. GPU unloaded12MiB.
+Prototype only: single unpadded greedy image request, bounded prompt capacity,
+prepared shapes and serialized access. Next optional runtime integration with
+bounded shape handling/readiness and simulator-load qualification; don't infer
+flight quality from token equality or deploy2ms polling as a controller change.
+Evidence: reports/qwen_decoder_graph_20261016/REPORT.md, verification_local.json,
+final_256/, worker_256/, worker_256_poll2/, profile/ and preserved intermediate
+trials. Production defaults remain unchanged.

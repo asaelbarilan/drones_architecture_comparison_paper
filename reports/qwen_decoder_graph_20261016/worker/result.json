@@ -1,0 +1,49 @@
+{
+  "ready": [
+    {
+      "kind": "ready",
+      "payload": {
+        "load_count": 1,
+        "cpu_placement": {
+          "policy": "performance",
+          "original_mask": 16777215,
+          "selected_mask": 65535,
+          "execution_qos": {
+            "policy": "latency",
+            "original": {
+              "control": 0,
+              "state": 0
+            },
+            "selected": {
+              "control": 1,
+              "state": 0
+            }
+          }
+        }
+      },
+      "consumed_ns": 111128620295200
+    }
+  ],
+  "gate": [
+    {
+      "first_action_s": 0.2071889,
+      "status": "complete",
+      "request_id": 30
+    },
+    {
+      "first_action_s": 0.2044498,
+      "status": "complete",
+      "request_id": 31
+    },
+    {
+      "first_action_s": 0.2535744,
+      "status": "complete",
+      "request_id": 32
+    },
+    {
+      "first_action_s": 0.2532205,
+      "status": "complete",
+      "request_id": 33
+    }
+  ]
+}

@@ -1,3 +1,13 @@
+## 2026-10-16–17: D-142 experimental first action near200ms
+
+Fresh vision/prefill/decode graphs, action-only output head, greedy GPU bursts
+and256-token KV cut same-session D141 warm backend median0.349->0.194s.
+100 paired actions/four full chunks match. Worker20ms poll median0.206s;
+2ms diagnostic poll median0.198s, range0.195–0.203s, not a hard deadline.
+One frozen base, common mixed-role outputs unchanged,33 focused tests pass.
+No production integration, AWS, flights, training or TTL change. Failed and
+nonbeneficial probes retained. See reports/qwen_decoder_graph_20261016/REPORT.md.
+
 ## 2026-10-16: D-140 restore earlier warm latency
 
 Worker-only Windows latency QoS closes remaining gap after P-core placement:

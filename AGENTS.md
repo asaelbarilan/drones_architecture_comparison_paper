@@ -11,6 +11,19 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-142 ~200ms experimental first action (2026-10-16–17)
+
+Read reports/qwen_decoder_graph_20261016/REPORT.md. Larger fresh CUDA graphs,
+restricted action head, greedy bursts and256-token static KV:100 paired actions
+and four full chunks match D141; warm backend median0.349->0.194s. Actual worker
+with original20ms consumer polling median0.206s; explicit2ms diagnostic polling
+median0.198s, p950.20007s, max0.203s. Typical target reached, not hard deadline.
+33 focused tests/code checks pass. All mixed-role common outputs match; one
+frozen base, no training/AWS/flights/TTL changes, GPU unloaded12MiB. Prototype
+only under scripts/diagnostics, not enabled in architecture. Next integrate
+optional bounded shape/fallback/readiness handling and event consumption, then
+qualify under simulator load; don't claim current production controller is200ms.
+
 ## Latest user work: D-141 optional CUDA graphs (2026-10-16)
 
 Read reports/qwen_graph_20261016/REPORT.md. 100 paired saved-input actions equal;

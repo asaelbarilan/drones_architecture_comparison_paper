@@ -1,5 +1,16 @@
 # TODO
 
+## D-142: experimental ~200ms path needs bounded runtime integration
+
+- Saved-input target reached typically, not a hard200ms deadline: worker median
+  198ms with2ms consumer polling; unchanged20ms polling median206ms.
+- Integrate larger graphs optionally, with explicit supported shape/capacity
+  checks, bounded graph memory, safe fallback and preparation before readiness.
+- Preserve one base, fresh request inputs, cancellation/expiry and role isolation.
+- Separate event delivery from20Hz controller ticks; don't hide waiting in metrics.
+- Qualify under simulator load before flight-readiness claims. No flights/AWS
+  authorized by the diagnostic result itself. Keep D141 path available.
+
 ## D-140: half-second recovery complete; further optimization separate
 
 - Keep performance placement AND latency QoS controlled in future benchmarks.

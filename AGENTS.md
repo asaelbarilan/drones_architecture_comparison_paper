@@ -11,6 +11,16 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-138 kernel/cache tests (2026-10-16)
+
+Read reports/qwen_kernels_20261016/REPORT.md.100 paired cases per option complete;
+fused efficient attention via KV-head expansion ~6% gain, static cache ~3%, all
+sampled actions equal.200ms NOT reached. Baseline slowdown recurred (~2.17s versus
+D136~0.55s); cause unresolved. Installed build lacks FlashAttention; tiny compile
+probe stalled and Triton absent. No environment install or production change.
+30 focused tests/code checks pass. Weights frozen, one base, GPU unloaded12MiB.
+No flights/AWS/training/TTL change. Next isolate slow session before new runtime A/B.
+
 ## Latest user work: D-137 research toward200ms (2026-10-16)
 
 Read docs/research/20261016_200ms/REPORT.md. Research only; no runtime edits,

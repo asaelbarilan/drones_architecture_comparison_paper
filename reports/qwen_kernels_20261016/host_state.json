@@ -1,0 +1,12 @@
+{
+  "observed_during_paired_run": true,
+  "cpu": "Intel Core i7-14650HX",
+  "power_scheme": "Balanced",
+  "battery_status": 2,
+  "battery_percent": 78,
+  "benchmark_process_priority": "Normal",
+  "processor_affinity": 16777215,
+  "gpu_process_memory_mib": 4988,
+  "gpu_note": "See telemetry.json; snapshots do not establish slowdown cause.",
+  "no_power_or_priority_changes": true
+}

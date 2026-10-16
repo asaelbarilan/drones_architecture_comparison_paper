@@ -1,0 +1,16 @@
+{
+  "names": [
+    "baseline",
+    "expanded",
+    "static"
+  ],
+  "loads": 1,
+  "versions_unchanged": true,
+  "frozen": true,
+  "devices": {
+    "cuda:0": 1425
+  },
+  "peak_bytes": 4470585344,
+  "torch": "2.6.0+cu124",
+  "transformers": "4.57.3"
+}

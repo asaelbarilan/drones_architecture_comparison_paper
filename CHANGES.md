@@ -1,3 +1,10 @@
+## 2026-10-16 — D-138: kernel/cache tests, target not reached
+
+100 paired saved-input cases per option; all sampled actions match. Fused efficient
+attention ~6% gain; static cache ~3%. Reproduced slow baseline~2.17s; no200ms claim.
+FlashAttention absent from build, compiler probe stalled/Triton absent. No production
+change, flights, AWS or training.30 focused tests pass; GPU unloaded. See D138 report.
+
 ## 2026-10-16 — D-137: research200ms first complete action
 
 Updated latency review with34 sources and explicit inherited provenance. Saved

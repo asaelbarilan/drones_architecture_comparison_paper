@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "error": "Installed environment has no Triton; no stack changes authorized.",
+  "prior_attempt": "Tiny torch.compile probe stalled and was interrupted."
+}

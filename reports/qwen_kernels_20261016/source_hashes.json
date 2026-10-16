@@ -1,0 +1,5 @@
+{
+  "scripts/diagnostics/probe_qwen_kernels.py": "194f94db77e8106c02fe9ec5c61dcb178dfe8606cbd820c1a7be1db966e8f47e",
+  "scripts/diagnostics/summarize_qwen_kernels.py": "8d2faa009bb9a3c81bd521d64be13fceeb7f58fc33254b5fb82f31f3677615b3",
+  "src/uavlab/plugins/inference/shared_qwen.py": "a4ada32b291de6b50b3302cab733efdd56333f5fe2495fd41fbe78ea8975552e"
+}

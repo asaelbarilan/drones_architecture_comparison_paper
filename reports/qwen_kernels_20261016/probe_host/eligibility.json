@@ -1,0 +1,112 @@
+{
+  "baseline": {
+    "ok": true,
+    "result": {
+      "mode": "first_action",
+      "seconds": 2.0962611,
+      "tokens": [
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "actions": [
+        [
+          0.19970743529411772,
+          0.0001335000000000086,
+          -0.0005490470588235263,
+          -0.0009852058823529575
+        ]
+      ],
+      "stream": [
+        {
+          "index": 0,
+          "tokens": [
+            151533,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.19970743529411772,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 102597331054300,
+          "first_token_ns": 102595989026300
+        }
+      ],
+      "first_action_s": 2.0949223,
+      "first_token_s": 0.7528943
+    },
+    "warnings": []
+  },
+  "flash": {
+    "ok": false,
+    "error": "RuntimeError('No available kernel. Aborting execution.')",
+    "warnings": [
+      "Memory efficient kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:776.)",
+      "Memory Efficient attention has been runtime disabled. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen/native/transformers/sdp_utils_cpp.h:551.)",
+      "Flash attention kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:778.)",
+      "Torch was not compiled with flash attention. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:598.)",
+      "CuDNN attention kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:780.)",
+      "CuDNN attention has been runtime disabled. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:528.)"
+    ]
+  },
+  "efficient": {
+    "ok": false,
+    "error": "RuntimeError('No available kernel. Aborting execution.')",
+    "warnings": [
+      "Memory efficient kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:776.)",
+      "For dense input, both fused kernels require query, key and value to have the same num_heads. Query.sizes(): [1, 32, 137, 128], Key sizes(): [1, 8, 137, 128], Value sizes(): [1, 8, 137, 128] instead. To broadcast dense inputs, try using unsqueeze and expand_to before passing them into the kernel. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen/native/transformers/sdp_utils_cpp.h:426.)",
+      "Flash attention kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:778.)",
+      "Torch was not compiled with flash attention. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:598.)",
+      "CuDNN attention kernel not used because: (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:780.)",
+      "CuDNN attention has been runtime disabled. (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\pytorch\\aten\\src\\ATen\\native\\transformers\\cuda\\sdp_utils.cpp:528.)"
+    ]
+  },
+  "static": {
+    "ok": true,
+    "result": {
+      "mode": "first_action",
+      "seconds": 1.9342289,
+      "tokens": [
+        151533,
+        151515,
+        151539,
+        151484
+      ],
+      "actions": [
+        [
+          0.19970743529411772,
+          0.0001335000000000086,
+          -0.0005490470588235263,
+          -0.0009852058823529575
+        ]
+      ],
+      "stream": [
+        {
+          "index": 0,
+          "tokens": [
+            151533,
+            151515,
+            151539,
+            151484
+          ],
+          "step_fru_m_yaw_rad": [
+            0.19970743529411772,
+            0.0001335000000000086,
+            -0.0005490470588235263,
+            -0.0009852058823529575
+          ],
+          "ready_ns": 102599525993300,
+          "first_token_ns": 102598220397400
+        }
+      ],
+      "first_action_s": 1.9329503,
+      "first_token_s": 0.6273544
+    },
+    "warnings": []
+  }
+}

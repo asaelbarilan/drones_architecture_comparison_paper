@@ -3294,3 +3294,22 @@ No inspected source proves200ms on our stack. Preserve one base, trained adapter
 role separation, original TTL, existing cache counterevidence and baseline.
 Evidence: docs/research/20261016_200ms/REPORT.md, evidence.json, local_analysis.json,
 SEARCH_LOG.md, RESOURCES.md and validation.json. No runtime changes or flight claim.
+
+### D-138 — bounded local attention/cache benchmark (2026-10-16)
+
+User approved D137's local saved-input A/B, no flights/AWS. Status: complete;
+200ms not achieved, no production optimization promoted.100 paired requests per
+supported option across4 saved contexts, alternating order. Baseline median2167.8ms,
+efficient attention with expanded KV heads2036.7ms, static cache2100.4ms; all100
+sampled token/decoded-action pairs match. Empirical p95s2310.6/2201.4/2237.1ms.
+These are backend repeated-input metrics, not fresh camera/IPC end-to-end tails.
+Rationale: baseline slowdown recurred before changes; no comparison to historical
+D136~0.55s should imply candidate regression or causal recovery. BF16 SDPA inputs
+observed. Installed PyTorch lacks FlashAttention; efficient SDPA requires explicit
+GQA expansion. Tiny torch.compile probe stalled/interrupted; installed Triton
+absent. Static cache alone is not compiled decoding; manual CUDA graphs untested.
+No stack/precision/weight changes. One base, frozen parameters and unchanged version
+counters, brief base-role outputs/return pilot match.30 focused tests and code
+checks pass. GPU unloaded12MiB. Preserve1.5s expiry and no flights. Next isolate slow
+session before a separately qualified compiler/runtime experiment. Evidence:
+reports/qwen_kernels_20261016/REPORT.md, paired/, verification_local.json and telemetry.

@@ -1,0 +1,4 @@
+{
+  "status": "interrupted_before_pairs",
+  "reason": "Tiny compiler probe stalled; no compiled speed result. Eligibility/audit retained. GPU unloaded before next probe."
+}

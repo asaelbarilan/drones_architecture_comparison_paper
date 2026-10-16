@@ -1,0 +1,16 @@
+{
+  "focused_tests": 30,
+  "focused_tests_passed": true,
+  "test_command": "python -m pytest tests/test_shared_qwen.py tests/test_qwen_cache.py tests/test_qwen_latency_gate.py -q",
+  "code_limits_passed": true,
+  "ruff_passed": true,
+  "production_runtime_changed": false,
+  "aws_calls": 0,
+  "flights": 0,
+  "training_updates": 0,
+  "freshness_limit_changed": false,
+  "role_return_pilot_tokens_equal": true,
+  "gpu_unloaded_mib": 12,
+  "new_packages_installed": 0,
+  "manual_cuda_graph_model_capture_tested": false
+}

@@ -1,6 +1,13 @@
 # TODO
 
-## D-137 — measure runtime acceleration before new flights
+## D-138 —200ms target remains open
+
+- Kernel/cache A/B complete; see report. Do not repeat these as untested proposals.
+- First isolate recurring slow baseline with CPU/GPU stage and launch-context timing.
+- Then evaluate isolated fused/compiler runtime; no environment installed yet.
+- Preserve production baseline,1.5s expiry and no further flights/AWS.
+
+## D-137 — initial measurements completed in D-138; broader runtime work open
 
 - Proposed next: audit actual SDPA eligibility, per-layer dtypes and conversion cost.
 - Test fixed-shape decode separately; keep baseline and one shared base.

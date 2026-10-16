@@ -1,0 +1,508 @@
+{
+  "forward": {
+    "first_action_produced_s": {
+      "count": 12,
+      "median": 0.2008201,
+      "maximum": 0.7672099
+    },
+    "first_action_received_s": {
+      "count": 12,
+      "median": 0.20595839999999999,
+      "maximum": 0.8140841
+    },
+    "actions_consumed": 32,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114593969454900,
+        "goal_version": 1,
+        "position": {
+          "x": 1.4956627383011998,
+          "y": 1.3277774562242561,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114636911222500,
+        "source_seq": 41
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114606639636700,
+        "goal_version": 3,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114650113749000,
+        "source_seq": 299
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114622408190800,
+        "goal_version": 5,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114665830040500,
+        "source_seq": 607
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114630203108300,
+        "goal_version": 7,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114673627790000,
+        "source_seq": 760
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114637904752300,
+        "goal_version": 9,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114681324096700,
+        "source_seq": 910
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114645615777700,
+        "goal_version": 11,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.7260068433926703,
+        "terminal": true,
+        "expires_ns": 114689078931500,
+        "source_seq": 1062
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 114591913235100,
+        "goal_version": 0,
+        "request_id": 4,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 2 meters from the starting position\",\n  \"target\": \"Starting position with forward direction indicated\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114593969454900,
+        "goal_version": 0,
+        "request_id": 5,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[2.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114602980012900,
+        "goal_version": 1,
+        "request_id": 11,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114605115829600,
+        "goal_version": 2,
+        "request_id": 12,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Increase forward speed to initiate movement\",\n  \"target\": \"No forward movement detected; vehicle stationary at starting position\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114606639636700,
+        "goal_version": 2,
+        "request_id": 13,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114618647309300,
+        "goal_version": 3,
+        "request_id": 21,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"Vehicle is stationary; no forward progress despite speed indication.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114620831857400,
+        "goal_version": 4,
+        "request_id": 22,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Increase forward speed to initiate movement\",\n  \"target\": \"Vehicle stationary with no forward progress despite low speed indication\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114622408190800,
+        "goal_version": 4,
+        "request_id": 23,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114626343022100,
+        "goal_version": 5,
+        "request_id": 24,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"Vehicle is stationary with no forward progress despite speed indication.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114628628893700,
+        "goal_version": 6,
+        "request_id": 25,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Increase forward speed to initiate movement\",\n  \"target\": \"Vehicle stationary, no forward progress despite near-zero speed indication\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114630203108300,
+        "goal_version": 6,
+        "request_id": 26,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114634122812700,
+        "goal_version": 7,
+        "request_id": 27,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"Vehicle is stationary with no forward progress despite speed indication.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114636325906300,
+        "goal_version": 8,
+        "request_id": 28,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Increase forward speed to initiate movement\",\n  \"target\": \"Vehicle stationary, no forward progress despite near-zero speed indication\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114637904752300,
+        "goal_version": 8,
+        "request_id": 29,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114641845252800,
+        "goal_version": 9,
+        "request_id": 30,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"Vehicle is stationary with no forward progress despite speed indication.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114644081364700,
+        "goal_version": 10,
+        "request_id": 31,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Increase forward speed to initiate movement\",\n  \"target\": \"Vehicle stationary, no forward progress despite near-zero speed reading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114645615777700,
+        "goal_version": 10,
+        "request_id": 32,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114649531299400,
+        "goal_version": 11,
+        "request_id": 33,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"Vehicle is stationary with no forward progress despite speed indication.\"}"
+      }
+    ]
+  },
+  "turn": {
+    "first_action_produced_s": {
+      "count": 4,
+      "median": 0.20736434999999998,
+      "maximum": 0.7962513
+    },
+    "first_action_received_s": {
+      "count": 4,
+      "median": 0.25352169999999996,
+      "maximum": 0.8291007
+    },
+    "actions_consumed": 10,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114657195189400,
+        "goal_version": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114700516734900,
+        "source_seq": 57
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114669625086800,
+        "goal_version": 3,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114712739334500,
+        "source_seq": 296
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114679072968200,
+        "goal_version": 5,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114722314165100,
+        "source_seq": 484
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114688645243700,
+        "goal_version": 7,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114731707960800,
+        "source_seq": 667
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114697062064400,
+        "goal_version": 9,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114740474190400,
+        "source_seq": 839
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 114705444371200,
+        "goal_version": 11,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.43908303894398804,
+        "terminal": true,
+        "expires_ns": 114748811578100,
+        "source_seq": 1002
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 114655517566500,
+        "goal_version": 0,
+        "request_id": 39,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading\",\n  \"target\": \"A visual landmark or orientation cue indicating a 30-degree right turn from current heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114657195189400,
+        "goal_version": 0,
+        "request_id": 40,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114665033993800,
+        "goal_version": 1,
+        "request_id": 45,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114667739953200,
+        "goal_version": 2,
+        "request_id": 46,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading without moving\",\n  \"target\": \"No visual landmark or orientation cue detected; system unable to confirm turn completion.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114669625086800,
+        "goal_version": 2,
+        "request_id": 47,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114674157404000,
+        "goal_version": 3,
+        "request_id": 48,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114677315978000,
+        "goal_version": 4,
+        "request_id": 49,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading without moving\",\n  \"target\": \"No visual landmark or orientation cue detected; system unable to confirm turn completion.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114679072968200,
+        "goal_version": 4,
+        "request_id": 50,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114683311535200,
+        "goal_version": 5,
+        "request_id": 51,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114686709468000,
+        "goal_version": 6,
+        "request_id": 52,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading without moving\",\n  \"target\": \"No visual landmark or orientation cue detected; system unable to confirm turn completion.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114688645243700,
+        "goal_version": 6,
+        "request_id": 53,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114692723287500,
+        "goal_version": 7,
+        "request_id": 54,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114695474980300,
+        "goal_version": 8,
+        "request_id": 55,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading without moving\",\n  \"target\": \"No visual landmark or orientation cue detected; system unable to confirm turn completion.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114697062064400,
+        "goal_version": 8,
+        "request_id": 56,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114701068178100,
+        "goal_version": 9,
+        "request_id": 57,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114703814069600,
+        "goal_version": 10,
+        "request_id": 58,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 30 degrees from current heading without moving\",\n  \"target\": \"No visual landmark or orientation cue detected; system unable to confirm turn completion.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114705444371200,
+        "goal_version": 10,
+        "request_id": 59,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,30],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 114709498169400,
+        "goal_version": 11,
+        "request_id": 60,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual landmark or orientation cue detected; mission not visibly accomplished.\"}"
+      }
+    ]
+  }
+}

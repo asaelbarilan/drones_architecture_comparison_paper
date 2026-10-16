@@ -3400,3 +3400,29 @@ flight quality from token equality or deploy2ms polling as a controller change.
 Evidence: reports/qwen_decoder_graph_20261016/REPORT.md, verification_local.json,
 final_256/, worker_256/, worker_256_poll2/, profile/ and preserved intermediate
 trials. Production defaults remain unchanged.
+
+### D-143: whole-architecture numeric missions fail monitor coordination (2026-10-17)
+
+Status: experiment complete;0/2 end-to-end completion passes. User explicitly
+requested a full local architecture test after D142. Existing asynchronous
+planner/direction/persistent-goal/monitor/streaming-pilot/controller/shield loop
+ran with real shared Qwen and the experimental D142 backend. Two60s open rendered
+grid3d missions, original seeds/settings/tolerances; no AirSim or scripted replies.
+Forward2m reached~1.57m within0.5m tolerance, then monitor falsely reported no
+progress; replanning changed the terminal target to episode start. It returned
+to~0.47m and failed. Turn30deg reached25.024deg within5deg tolerance but monitor
+demanded a visual landmark and never approved completion. Almost featureless
+camera frames cannot confirm numeric displacement visually. Existing monitor
+prompt always requires visible accomplishment and omits explicit tolerances/
+temporal progress; goal acceptance permits mission-target drift across replans.
+Rationale for next work: repair these contracts before more speed/weight work.
+42 actions all fresh, zero collisions/OOB, max control gaps95.5/60.6ms pass.
+Actual produced first-action medians201/207ms, max767/796ms; delivery206/254ms
+medians with original20Hz loop. Do not claim200ms hard deadline or flight success.
+Two startup full-chunk equalities and per-task preflight passed.18 existing
+runtime tests/new-code checks pass. Evidence: reports/qwen_full_architecture_20261017/
+REPORT.md and real_v1/{config,source_hashes,startup_equality,result,verification_local}.json,
+per-task events/images, architecture_results.png. Visual audit confirms rise then
+return on forward and persistent~25degree turn. No training/AWS/default changes;
+GPU unloaded12MiB. Next preserve numeric mission invariants, provide explicit
+pose/tolerance/progress evidence and separate numeric from visual completion.

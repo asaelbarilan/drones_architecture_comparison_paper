@@ -1,3 +1,13 @@
+## 2026-10-17: D-143 full architecture experiment exposes coordination failure
+
+Two60s real shared-Qwen grid3d missions run through existing asynchronous loop
+with experimental D142 pilot.0/2 completion passes despite reaching numerical
+arrival tolerance. Monitor requires visual proof; forward replan replaces2m
+goal with start, turn remains within5deg but never accepted.42 fresh actions,
+no collisions/OOB, responsive control. Produced median201/207ms, worst767/796ms;
+not a hard200ms loop.18 runtime tests/code checks pass. Evidence/plots preserved;
+GPU unloaded. No architecture default change, AWS or training.
+
 ## 2026-10-16–17: D-142 experimental first action near200ms
 
 Fresh vision/prefill/decode graphs, action-only output head, greedy GPU bursts

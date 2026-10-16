@@ -11,6 +11,19 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-143 full architecture experiment (2026-10-17)
+
+Read reports/qwen_full_architecture_20261017/REPORT.md. User authorized simulator
+experiment. Real shared planner/direction/monitor/VLA with D142 factory ran two
+60s grid3d missions;0/2 completion passes. Both reached configured arrival
+tolerances but monitor demanded visible proof; forward replanning changed2m
+target to episode start. Turn remained within5deg but monitor never accepted.
+42 fresh actions, no collisions/OOB, timing passed. Produced medians201/207ms,
+first-call maxima767/796ms; not a guaranteed200ms full-loop result.18 tests pass.
+GPU unloaded; no AWS/training. Next preserve numeric mission goals and supply
+monitor tolerance/progress evidence; separate visual confirmation from numeric
+completion. No AirSim/general cognition validation. Production defaults unchanged.
+
 ## Latest user work: D-142 ~200ms experimental first action (2026-10-16–17)
 
 Read reports/qwen_decoder_graph_20261016/REPORT.md. Larger fresh CUDA graphs,

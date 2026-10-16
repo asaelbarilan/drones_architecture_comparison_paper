@@ -1,0 +1,81 @@
+{
+  "package_path": "D:/drone_vla_pilot/release/hf_fresh_d257/model",
+  "model_id": "qwen3-vl-4b-d207-shared",
+  "cpu_placement": "performance",
+  "cpu_qos": "latency",
+  "control_hz": 20,
+  "pilot_ttl_s": 1.5,
+  "cognition_ttl_s": 15,
+  "goal_ttl_s": 45,
+  "monitor_interval_s": 12,
+  "monitor_retry_s": 2,
+  "stall_s": 10,
+  "progress_m": 0.08,
+  "progress_deg": 1,
+  "position_m": 0.5,
+  "heading_deg": 5,
+  "stopped_mps": 0.2,
+  "pose_drift_m": 0.2,
+  "pose_drift_deg": 5,
+  "max_goal_m": 10,
+  "max_goal_yaw_deg": 180,
+  "max_altitude_m": 10,
+  "min_altitude_m": 0.5,
+  "geofence_radius_m": 40,
+  "camera_pitch_rad": -0.1,
+  "max_failures": 3,
+  "stream_actions": 8,
+  "action_duration_s": 0.5,
+  "max_speed_mps": 2,
+  "max_yaw_rate_rps": 1,
+  "worker_ready_timeout_s": 120,
+  "max_tick_gap_s": 0.15,
+  "flight_seconds": 60,
+  "watchdog_s": 360,
+  "environment": {
+    "name": "grid3d",
+    "params": {
+      "render": true,
+      "render_depth": true,
+      "scene": "open",
+      "n_obstacles": 0,
+      "camera_pitch_rad": -0.1
+    }
+  },
+  "controller": {
+    "name": "mock_velocity",
+    "params": {}
+  },
+  "shield": {
+    "name": "simple_collision",
+    "params": {
+      "allow_deflection": false
+    }
+  },
+  "missions": [
+    {
+      "id": "forward",
+      "instruction": "Move forward 2 meters from the starting position, maintain altitude and heading, then stop.",
+      "seed": 1061,
+      "expected_delta": [
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "turn",
+      "instruction": "Turn right 30 degrees from the starting heading without changing position, then stop.",
+      "seed": 1062,
+      "expected_delta": [
+        0,
+        0,
+        0,
+        30
+      ]
+    }
+  ],
+  "inference_kind": "real shared Qwen; experimental D142 full graphs",
+  "experimental_burst_capacity": 256
+}

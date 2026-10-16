@@ -1,5 +1,15 @@
 # TODO
 
+## D-143: full architecture numeric-completion contract fails
+
+- Both tasks reached arrival tolerance, but neither completed through monitor.
+- Preserve numeric mission target across replans; reject contradictory new goals.
+- Give monitor explicit tolerances, measured arrival and temporal progress;
+  distinguish pose-based completion from tasks requiring visual identification.
+- Test contracts before repeating the same two missions. No need to retrain VLA
+  based on this result. AirSim/semantic/cognitive task qualification remains open.
+- Review new-shape latency spikes separately from warm~200ms pilot computation.
+
 ## D-142: experimental ~200ms path needs bounded runtime integration
 
 - Saved-input target reached typically, not a hard200ms deadline: worker median

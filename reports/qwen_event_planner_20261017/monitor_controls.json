@@ -1,0 +1,32 @@
+[
+  {
+    "case": "near",
+    "prompt": "Evaluate the active VISUAL objective, not the short waypoint.\nReturn ONLY JSON with status and reason, reason at most 15 words.\nA waypoint is a short movement checkpoint. waypoint_reached NEVER proves\nthe object was reached. Ignore it when deciding mission completion.\nstop ONLY if object_evidence_fresh AND object_near AND stationary are true\nAND the requested object remains visible in the current camera.\nIf the object is visible but far or its range is unknown, return continue.\nIf identity is lost or the scene changed, return replan. If unsafe, return hold.\nNever infer object range from waypoint position error or apparent size alone.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"active_objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target_identity\": \"red pillar\", \"active_step\": 0, \"waypoint_reached\": true, \"object_evidence_fresh\": true, \"object_range_m\": 1.3630176224024337, \"object_near\": true, \"required_object_range_m\": 1.5, \"stationary\": true, \"trigger\": \"fresh object proximity; verify visual accomplishment\"}",
+    "image": "input_34_0.png",
+    "response": "{\"status\": \"stop\", \"reason\": \"Red pillar visible, stationary, near target range\"}",
+    "expected": "stop",
+    "passed": true,
+    "tokens": 21,
+    "scope": "saved-camera controlled context, not a new flight"
+  },
+  {
+    "case": "far_waypoint_reached",
+    "prompt": "Evaluate the active VISUAL objective, not the short waypoint.\nReturn ONLY JSON with status and reason, reason at most 15 words.\nA waypoint is a short movement checkpoint. waypoint_reached NEVER proves\nthe object was reached. Ignore it when deciding mission completion.\nstop ONLY if object_evidence_fresh AND object_near AND stationary are true\nAND the requested object remains visible in the current camera.\nIf the object is visible but far or its range is unknown, return continue.\nIf identity is lost or the scene changed, return replan. If unsafe, return hold.\nNever infer object range from waypoint position error or apparent size alone.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"active_objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target_identity\": \"red pillar\", \"active_step\": 0, \"waypoint_reached\": true, \"object_evidence_fresh\": true, \"object_range_m\": 6.978854496803687, \"object_near\": false, \"required_object_range_m\": 1.5, \"stationary\": true, \"trigger\": \"fresh object proximity; verify visual accomplishment\"}",
+    "image": "input_5_0.png",
+    "response": "{\"status\": \"continue\", \"reason\": \"Object too far; range exceeds required 1.5m.\"}",
+    "expected": "continue",
+    "passed": true,
+    "tokens": 25,
+    "scope": "saved-camera controlled context, not a new flight"
+  },
+  {
+    "case": "unknown_waypoint_reached",
+    "prompt": "Evaluate the active VISUAL objective, not the short waypoint.\nReturn ONLY JSON with status and reason, reason at most 15 words.\nA waypoint is a short movement checkpoint. waypoint_reached NEVER proves\nthe object was reached. Ignore it when deciding mission completion.\nstop ONLY if object_evidence_fresh AND object_near AND stationary are true\nAND the requested object remains visible in the current camera.\nIf the object is visible but far or its range is unknown, return continue.\nIf identity is lost or the scene changed, return replan. If unsafe, return hold.\nNever infer object range from waypoint position error or apparent size alone.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"active_objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target_identity\": \"red pillar\", \"active_step\": 0, \"waypoint_reached\": true, \"object_evidence_fresh\": false, \"object_range_m\": null, \"object_near\": false, \"required_object_range_m\": 1.5, \"stationary\": true, \"trigger\": \"fresh object proximity; verify visual accomplishment\"}",
+    "image": "input_5_0.png",
+    "response": "{\"status\": \"replan\", \"reason\": \"Object evidence not fresh; scene unchanged but no confirmation.\"}",
+    "expected": "continue",
+    "passed": false,
+    "tokens": 24,
+    "scope": "saved-camera controlled context, not a new flight"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "all": {
+    "samples": 443,
+    "memory_peak_mib": 5074.0,
+    "gpu_mean_percent": 39.1783295711061,
+    "gpu_max_percent": 100.0,
+    "gpu_median_percent": 34.0
+  },
+  "flight": {
+    "samples": 288,
+    "memory_peak_mib": 4338.0,
+    "gpu_mean_percent": 45.822916666666664,
+    "gpu_max_percent": 100.0,
+    "gpu_median_percent": 35.0
+  },
+  "planner": {
+    "samples": 20,
+    "memory_peak_mib": 4148.0,
+    "gpu_mean_percent": 45.4,
+    "gpu_max_percent": 99.0,
+    "gpu_median_percent": 36.5
+  },
+  "direction": {
+    "samples": 131,
+    "memory_peak_mib": 4304.0,
+    "gpu_mean_percent": 38.412213740458014,
+    "gpu_max_percent": 99.0,
+    "gpu_median_percent": 35.0
+  },
+  "pilot": {
+    "samples": 74,
+    "memory_peak_mib": 4304.0,
+    "gpu_mean_percent": 58.04054054054054,
+    "gpu_max_percent": 100.0,
+    "gpu_median_percent": 77.0
+  },
+  "monitor": {
+    "samples": 9,
+    "memory_peak_mib": 4338.0,
+    "gpu_mean_percent": 54.111111111111114,
+    "gpu_max_percent": 99.0,
+    "gpu_median_percent": 34.0
+  },
+  "metric_note": "NVML time busy, not SM occupancy; role windows include CPU work."
+}

@@ -10,6 +10,8 @@ from uavlab.interfaces import InferenceRequest
 from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 
 from .grounding import GROUNDING, VISUAL_PLANNER
+from .planner_memory import RECOVERY, planner_context
+from .visual_progress import VISUAL_MONITOR, visual_context
 
 PLANNER = '''Plan the ENTIRE original mission in execution order. JSON only:
 {"steps":[{"objective":"short instruction","target":[0,0,0,0]}]}.
@@ -69,6 +71,8 @@ def image_text(obs):
 
 
 def monitor_context(state, obs):
+    if state.settings.get("goal_mode") == "visual":
+        return visual_context(state, obs)
     return dict(original_mission=state.mission.instruction,
                 active_objective=state.plan["objective"], active_step=state.step_index,
                 is_last_step=state.step_index == len(state.steps)-1,
@@ -109,8 +113,12 @@ def role_request(state, role, obs):
             prefix = GROUNDING
         if role == "planner" and state.settings.get("goal_mode") == "visual":
             prefix = VISUAL_PLANNER
+        if role == "planner" and state.planner_event:
+            prefix, context = RECOVERY, planner_context(state)
+        if role == "monitor" and state.settings.get("goal_mode") == "visual":
+            prefix = VISUAL_MONITOR
         prompt = prefix + json.dumps(context)
     images = () if role == "planner" else (image_text(obs),)
     return InferenceRequest(model_id=state.settings["model_id"], role=role,
-                            prompt_hash=f"d147:{role}:v1", prompt=prompt,
+                            prompt_hash=f"d148:{role}:v1", prompt=prompt,
                             images=images, image_count=len(images), observation_seq=obs.seq)

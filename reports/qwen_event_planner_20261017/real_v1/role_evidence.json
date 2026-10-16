@@ -1,0 +1,187 @@
+{
+  "waypoint_refreshes": 8,
+  "stop_checks": [],
+  "cognitive_responses": [
+    {
+      "kind": "result",
+      "wall_ns": 119714219471000,
+      "goal_version": 0,
+      "request_id": 4,
+      "role": "planner",
+      "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119717104580700,
+      "goal_version": 0,
+      "request_id": 5,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119728466370100,
+      "goal_version": 2,
+      "request_id": 12,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    0,\n    600,\n    380\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119734291805500,
+      "goal_version": 4,
+      "request_id": 15,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119739864068300,
+      "goal_version": 6,
+      "request_id": 18,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    500\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119745536798600,
+      "goal_version": 8,
+      "request_id": 21,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    530\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119751206559800,
+      "goal_version": 10,
+      "request_id": 24,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    600\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119756369778600,
+      "goal_version": 12,
+      "request_id": 27,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119761544673400,
+      "goal_version": 14,
+      "request_id": 30,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    275,\n    0,\n    775,\n    800\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119766915317200,
+      "goal_version": 16,
+      "request_id": 33,
+      "role": "direction",
+      "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    175,\n    0,\n    825,\n    980\n  ]\n}"
+    },
+    {
+      "kind": "result",
+      "wall_ns": 119768786883000,
+      "goal_version": 16,
+      "request_id": 34,
+      "role": "monitor",
+      "payload": "{\"status\": \"stop\", \"reason\": \"Red pillar visible, stationary, near target range\"}"
+    }
+  ],
+  "first_pilot_request": "{\"instruction\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"box\": null, \"state\": [0.0, 0.0, 0.0, -0.0], \"remaining\": [1.0648875569308056, -0.1, 0.5966694990477901, -5.364720867281331]}",
+  "first_pilot_response": {
+    "steps_fru_m_yaw_rad": [
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ],
+      [
+        0.016286588235294053,
+        -0.0033342294117646998,
+        0.1924040823529412,
+        -0.003860441176470608
+      ]
+    ],
+    "tokens": [
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485,
+      151560,
+      151516,
+      151387,
+      151485
+    ],
+    "remaining_supplied": [
+      1.0648875569308056,
+      -0.1,
+      0.5966694990477901,
+      -5.364720867281331
+    ]
+  }
+}

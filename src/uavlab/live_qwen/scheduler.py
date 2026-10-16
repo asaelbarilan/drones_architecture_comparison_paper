@@ -10,7 +10,9 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import NEAR_OBJECT_M, capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
+from .planner_memory import accept_recovery, remember
 from .prompts import role_request
+from .visual_progress import fresh_evidence, record_grounding
 
 
 class GoalScheduler:
@@ -29,6 +31,9 @@ class GoalScheduler:
         self.steps, self.step_index, self.hold_until = [], 0, 0
         self.visual_stop_pending = False
         self.pending_depth = None
+        self.memory, self.planner_event = [], None
+        self.visual_evidence = self.visual_source = None
+        self.target_missing = False
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -74,6 +79,8 @@ class GoalScheduler:
             self.submit(role, obs, captured_ns)
 
     def next_role(self, obs, moving):
+        if self.planner_event:
+            return "planner" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.monitor_reason:
             return "monitor" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.plan is None:
@@ -132,7 +139,11 @@ class GoalScheduler:
             if role in {"direction", "monitor"} and not self.pose_valid(source, obs):
                 raise ValueError("pose drift while interpreting cognitive image")
             if role == "planner":
-                accept_plan(self, payload, now)
+                if self.planner_event:
+                    accept_recovery(self, payload, now)
+                else:
+                    accept_plan(self, payload, now)
+                    remember(self, "plan_committed", now, steps=self.steps)
             elif role == "direction":
                 self.accept_goal(payload, source, work.observed_ns, now)
             elif role == "monitor":
@@ -147,14 +158,8 @@ class GoalScheduler:
 
     def accept_goal(self, payload, source, captured, now):
         if self.settings.get("goal_mode") == "visual":
-            payload = grounded_direction(payload)
+            payload = self.prepare_visual_goal(payload, source, captured, now)
             if payload is None:
-                self.pause("requested object not visible; no blind approach", now)
-                self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
-                self.log("grounding_absent", now, source_seq=source.seq)
-                return
-            self.log("grounding_validated", now, payload=payload, source_seq=source.seq)
-            if self.verify_visual_stop(payload, source, now):
                 return
         payload = validate_direction(self, payload)
         position, yaw, terminal = interpret_goal(payload, source, self.origin, self.settings)
@@ -165,6 +170,36 @@ class GoalScheduler:
         self.progress_at = self.last_monitor = now
         self.log("goal_authorized", now, position=position.model_dump(), yaw=yaw,
                  terminal=terminal, expires_ns=self.goal.expires_ns, source_seq=source.seq)
+
+    def prepare_visual_goal(self, payload, source, captured, now):
+        proposal = grounded_direction(payload)
+        if proposal is None:
+            self.visual_evidence = None
+            if not self.target_missing:
+                self.target_missing = True
+                self.request_planner("target_lost", now)
+            self.pause("requested object not visible; no blind approach", now)
+            self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
+            self.log("grounding_absent", now, source_seq=source.seq)
+            return None
+        self.log("grounding_validated", now, payload=proposal, source_seq=source.seq)
+        near = record_grounding(self, proposal, source, captured, now)
+        if self.verify_visual_stop(proposal, source, now):
+            return None
+        if near:
+            self.goal = Goal(self.version, source.position, source.yaw_rad, False,
+                             captured+s_to_ns(self.settings["goal_ttl_s"]), source.seq)
+            self.request_monitor("fresh object proximity; verify visual accomplishment", now)
+            return None
+        return proposal
+
+    def request_planner(self, trigger, now):
+        self.visual_stop_pending = False
+        remember(self, trigger, now, objective=self.plan, evidence=self.visual_evidence)
+        self.replan(trigger, now)
+        if self.steps:
+            self.planner_event = trigger
+            self.log("planner_wakeup", now, trigger=trigger, step_index=self.step_index)
 
     def accept_monitor(self, monitor, obs, now):
         self.last_monitor = now
@@ -180,7 +215,7 @@ class GoalScheduler:
             self.monitor_reason = "recheck held step"
             self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
         elif status == "replan":
-            self.replan(f"monitor {status}: {self.feedback}", now)
+            self.request_planner("monitor_replan: " + self.feedback, now)
         elif status == "stop":
             self.accept_stop(obs, now)
         else:
@@ -192,12 +227,18 @@ class GoalScheduler:
             self.pause("monitor stop rejected: arrival/heading/speed", now)
             self.log("stop_rejected", now, remaining=self.goal.error(obs))
         elif self.settings.get("goal_mode") == "visual":
+            if fresh_evidence(self, obs, now):
+                distance = self.visual_evidence["range_m"]
+                if distance is not None and distance <= NEAR_OBJECT_M:
+                    self.finish_step(now)
+                    return
             self.visual_stop_pending = True
             self.replan("verify visual stop with fresh grounding and depth", now)
         else:
             self.finish_step(now)
 
     def finish_step(self, now):
+        remember(self, "subgoal_completed", now, objective=self.plan)
         terminal = self.step_index == len(self.steps)-1 if self.steps else self.goal.terminal
         if terminal:
             self.stopped = True
@@ -254,9 +295,12 @@ class GoalScheduler:
         elapsed = now-self.last_monitor
         retry_due = elapsed >= s_to_ns(self.settings["monitor_retry_s"])
         if self.goal.arrived(obs, self.settings) and retry_due:
-            self.request_monitor("arrival", now)
+            if self.settings.get("goal_mode") == "visual":
+                self.continue_mission(obs, now)
+            else:
+                self.request_monitor("arrival", now)
         elif now-self.progress_at >= s_to_ns(self.settings["stall_s"]):
-            self.request_monitor("stalled progress", now)
+            self.request_planner("stalled_progress", now)
         elif elapsed >= s_to_ns(self.settings["monitor_interval_s"]):
             self.request_monitor("periodic scene check", now)
 

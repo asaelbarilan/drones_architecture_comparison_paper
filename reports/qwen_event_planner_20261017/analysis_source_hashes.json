@@ -1,0 +1,7 @@
+{
+  "scripts/diagnostics/gpu_trace.py": "755494b521abfbc397e62a5b8ca7879d4a0d7b7b48de9d47bd91408f9daf2070",
+  "scripts/diagnostics/audit_qwen_events.py": "8c2f3c274b3e30a1de3712292e995999bfba6df405596446af495cabeabcd5b2",
+  "scripts/diagnostics/probe_qwen_planner_events.py": "f8bc79e5a7d28160880189d6ffcdc5eb24a92d757de48474914f0923938177c5",
+  "scripts/diagnostics/probe_qwen_visual_monitor.py": "46412df2342e695880361cc22fb2ba66e4ca8f5c1efc913eae4be4ca81f542b4",
+  "tests/test_live_qwen_events.py": "650df020858ba21d351065d1da28932e39e56674855ce788c7acf40cffc671bc"
+}

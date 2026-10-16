@@ -1,0 +1,11 @@
+{
+  "raw_events.zip": "bytes and SHA256 match manifest",
+  "encoded_prompts.zip": "bytes and SHA256 match manifest",
+  "gpu_samples.zip": "bytes and SHA256 match manifest",
+  "config_unchanged": true,
+  "focused_tests_passed": 66,
+  "python_files_checked": 10,
+  "planner_injected_cases_correct": 3,
+  "monitor_exact_statuses": "2/3; stale case replans conservatively",
+  "monitor_false_completions": 0
+}

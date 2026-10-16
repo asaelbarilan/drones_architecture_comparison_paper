@@ -1,0 +1,239 @@
+{
+  "grounding": [
+    {
+      "request_id": 5,
+      "image": "input_5_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    500,\n    300\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        95,
+        0,
+        129,
+        71
+      ],
+      "model_point": [
+        100,
+        33
+      ],
+      "model_box": [
+        400,
+        0,
+        500,
+        300
+      ],
+      "reported_visible": true,
+      "box_iou": 0.4113969634986027
+    },
+    {
+      "request_id": 12,
+      "image": "input_12_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    0,\n    600,\n    380\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        100,
+        0,
+        139,
+        86
+      ],
+      "model_point": [
+        115,
+        42
+      ],
+      "model_box": [
+        433,
+        0,
+        600,
+        380
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8111065864471522
+    },
+    {
+      "request_id": 15,
+      "image": "input_15_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    400\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        96,
+        0,
+        140,
+        95
+      ],
+      "model_point": [
+        112,
+        44
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        400
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7238210643239421
+    },
+    {
+      "request_id": 18,
+      "image": "input_18_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    400,\n    0,\n    600,\n    500\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        93,
+        0,
+        143,
+        109
+      ],
+      "model_point": [
+        112,
+        56
+      ],
+      "model_box": [
+        400,
+        0,
+        600,
+        500
+      ],
+      "reported_visible": true,
+      "box_iou": 0.7577833753148613
+    },
+    {
+      "request_id": 21,
+      "image": "input_21_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    380,\n    0,\n    650,\n    530\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        90,
+        0,
+        147,
+        121
+      ],
+      "model_point": [
+        115,
+        59
+      ],
+      "model_box": [
+        380,
+        0,
+        650,
+        530
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8828945704226724
+    },
+    {
+      "request_id": 24,
+      "image": "input_24_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    600\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        82,
+        0,
+        150,
+        134
+      ],
+      "model_point": [
+        111,
+        67
+      ],
+      "model_box": [
+        333,
+        0,
+        666,
+        600
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8883169552331929
+    },
+    {
+      "request_id": 27,
+      "image": "input_27_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    0,\n    666,\n    666\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        76,
+        0,
+        158,
+        152
+      ],
+      "model_point": [
+        111,
+        74
+      ],
+      "model_box": [
+        333,
+        0,
+        666,
+        666
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8614358419400883
+    },
+    {
+      "request_id": 30,
+      "image": "input_30_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    275,\n    0,\n    775,\n    800\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        66,
+        0,
+        171,
+        179
+      ],
+      "model_point": [
+        117,
+        89
+      ],
+      "model_box": [
+        275,
+        0,
+        775,
+        800
+      ],
+      "reported_visible": true,
+      "box_iou": 0.9364536830357145
+    },
+    {
+      "request_id": 33,
+      "image": "input_33_0.png",
+      "response": "{\n  \"target_visible\": true,\n  \"box\": [\n    175,\n    0,\n    825,\n    980\n  ]\n}",
+      "valid_grounding_response": true,
+      "visual_grounding": true,
+      "point_on_red": true,
+      "red_pixel_bbox": [
+        46,
+        0,
+        192,
+        217
+      ],
+      "model_point": [
+        112,
+        109
+      ],
+      "model_box": [
+        175,
+        0,
+        825,
+        980
+      ],
+      "reported_visible": true,
+      "box_iou": 0.8984351509725182
+    }
+  ],
+  "failures": []
+}

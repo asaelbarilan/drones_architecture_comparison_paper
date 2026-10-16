@@ -11,6 +11,22 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-148 event planner and visual completion (2026-10-17)
+
+Read reports/qwen_event_planner_20261017/REPORT.md. Bounded event memory retains
+original mission and ordered steps; lost target/stall/monitor replan wakes a
+constrained recovery planner. Waypoint arrival refreshes grounding directly;
+monitor receives separate fresh object proximity and stationary evidence.
+Same config/seed/60s pillar flight PASSES at1.332m, visible and stopped,
+47fresh actions, no collisions/OOB. Planner1,direction9,pilot20,monitor1.
+Three injected planner events choose expected recovery; not live recovery tests.
+Monitor controls far/near correct; stale evidence conservatively replans rather
+than expected continue (2/3 exact statuses, no false completion).66tests and
+10-file code checks pass. GPU flight mean45.8%,peak100%, full-run memory peak
+5074MiB/8188MiB; all roles share one serialized model owner. GPU unloaded.
+No AWS/training/weights changes. D147 fixture completion blocker superseded;
+search, occlusion, live recovery, AirSim and general autonomy remain unqualified.
+
 ## Latest user work: D-147 grounding and visual continuation (2026-10-17)
 
 Read reports/qwen_grounding_fix_20261017/REPORT.md. Saved-frame ablation

@@ -1,0 +1,515 @@
+[
+  {
+    "context": {
+      "original_mission": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+      "committed_steps": [
+        {
+          "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+          "target": "red pillar"
+        }
+      ],
+      "active_step": 0,
+      "completed_steps": [],
+      "trigger": "target_lost",
+      "observations": [
+        {
+          "event": "plan_committed",
+          "wall_ns": 119714219471000,
+          "step_index": 0,
+          "steps": [
+            {
+              "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+              "target": "red pillar"
+            }
+          ]
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119717104580700,
+          "step_index": 0,
+          "range_m": 6.978854496803687,
+          "box": [
+            400,
+            0,
+            500,
+            300
+          ],
+          "source_seq": 80,
+          "expires_ns": 119729218627300
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119728466370100,
+          "step_index": 0,
+          "range_m": 6.073755452258593,
+          "box": [
+            433,
+            0,
+            600,
+            380
+          ],
+          "source_seq": 305,
+          "expires_ns": 119740630517800
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119734291805500,
+          "step_index": 0,
+          "range_m": 5.378238841099795,
+          "box": [
+            400,
+            0,
+            600,
+            400
+          ],
+          "source_seq": 419,
+          "expires_ns": 119746405349600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119739864068300,
+          "step_index": 0,
+          "range_m": 4.538383064195302,
+          "box": [
+            400,
+            0,
+            600,
+            500
+          ],
+          "source_seq": 531,
+          "expires_ns": 119752082254200
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119745536798600,
+          "step_index": 0,
+          "range_m": 3.8967193796227537,
+          "box": [
+            380,
+            0,
+            650,
+            530
+          ],
+          "source_seq": 640,
+          "expires_ns": 119757602061900
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119751206559800,
+          "step_index": 0,
+          "range_m": 3.209278467110198,
+          "box": [
+            333,
+            0,
+            666,
+            600
+          ],
+          "source_seq": 751,
+          "expires_ns": 119763220550600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119756369778600,
+          "step_index": 0,
+          "range_m": 2.565608089932687,
+          "box": [
+            333,
+            0,
+            666,
+            666
+          ],
+          "source_seq": 856,
+          "expires_ns": 119768535522600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119761544673400,
+          "step_index": 0,
+          "range_m": 1.9429356454391014,
+          "box": [
+            275,
+            0,
+            775,
+            800
+          ],
+          "source_seq": 958,
+          "expires_ns": 119773699883400
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119766915317200,
+          "step_index": 0,
+          "range_m": 1.3630176224024337,
+          "box": [
+            175,
+            0,
+            825,
+            980
+          ],
+          "source_seq": 1060,
+          "expires_ns": 119778876559900
+        },
+        {
+          "event": "subgoal_completed",
+          "wall_ns": 119768786883000,
+          "step_index": 0,
+          "objective": {
+            "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+            "target": "red pillar"
+          }
+        },
+        {
+          "event": "target_lost",
+          "evidence": "The requested target is no longer visible"
+        }
+      ],
+      "feedback": "The requested target is no longer visible",
+      "diagnostic": "injected replay, not observed flight event"
+    },
+    "prompt": "You are the event-driven mission planner. Preserve the original mission,\nordered committed steps and completed steps. A local waypoint is not a subgoal.\nReview the trigger and observation memory. Choose exactly one action:\nretry_current (retry the same objective), refresh_view (request fresh visual\ngrounding for that same objective), hold (temporary stationary safety pause).\nDo not invent motion, skip steps, change target identity or claim completion.\nReturn JSON with exactly action and reason. Reason at most 15 words.\nUse refresh_view for a lost target or stale perception, retry_current for\nrecoverable stalled progress, hold for unsafe or unresolved conflicting evidence.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"committed_steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}], \"active_step\": 0, \"completed_steps\": [], \"trigger\": \"target_lost\", \"observations\": [{\"event\": \"plan_committed\", \"wall_ns\": 119714219471000, \"step_index\": 0, \"steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}]}, {\"event\": \"target_observed\", \"wall_ns\": 119717104580700, \"step_index\": 0, \"range_m\": 6.978854496803687, \"box\": [400, 0, 500, 300], \"source_seq\": 80, \"expires_ns\": 119729218627300}, {\"event\": \"target_observed\", \"wall_ns\": 119728466370100, \"step_index\": 0, \"range_m\": 6.073755452258593, \"box\": [433, 0, 600, 380], \"source_seq\": 305, \"expires_ns\": 119740630517800}, {\"event\": \"target_observed\", \"wall_ns\": 119734291805500, \"step_index\": 0, \"range_m\": 5.378238841099795, \"box\": [400, 0, 600, 400], \"source_seq\": 419, \"expires_ns\": 119746405349600}, {\"event\": \"target_observed\", \"wall_ns\": 119739864068300, \"step_index\": 0, \"range_m\": 4.538383064195302, \"box\": [400, 0, 600, 500], \"source_seq\": 531, \"expires_ns\": 119752082254200}, {\"event\": \"target_observed\", \"wall_ns\": 119745536798600, \"step_index\": 0, \"range_m\": 3.8967193796227537, \"box\": [380, 0, 650, 530], \"source_seq\": 640, \"expires_ns\": 119757602061900}, {\"event\": \"target_observed\", \"wall_ns\": 119751206559800, \"step_index\": 0, \"range_m\": 3.209278467110198, \"box\": [333, 0, 666, 600], \"source_seq\": 751, \"expires_ns\": 119763220550600}, {\"event\": \"target_observed\", \"wall_ns\": 119756369778600, \"step_index\": 0, \"range_m\": 2.565608089932687, \"box\": [333, 0, 666, 666], \"source_seq\": 856, \"expires_ns\": 119768535522600}, {\"event\": \"target_observed\", \"wall_ns\": 119761544673400, \"step_index\": 0, \"range_m\": 1.9429356454391014, \"box\": [275, 0, 775, 800], \"source_seq\": 958, \"expires_ns\": 119773699883400}, {\"event\": \"target_observed\", \"wall_ns\": 119766915317200, \"step_index\": 0, \"range_m\": 1.3630176224024337, \"box\": [175, 0, 825, 980], \"source_seq\": 1060, \"expires_ns\": 119778876559900}, {\"event\": \"subgoal_completed\", \"wall_ns\": 119768786883000, \"step_index\": 0, \"objective\": {\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}}, {\"event\": \"target_lost\", \"evidence\": \"The requested target is no longer visible\"}], \"feedback\": \"The requested target is no longer visible\", \"diagnostic\": \"injected replay, not observed flight event\"}",
+    "response": "{\"action\": \"refresh_view\", \"reason\": \"Target lost; request fresh visual grounding\"}",
+    "tokens": 20
+  },
+  {
+    "context": {
+      "original_mission": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+      "committed_steps": [
+        {
+          "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+          "target": "red pillar"
+        }
+      ],
+      "active_step": 0,
+      "completed_steps": [],
+      "trigger": "stalled_progress",
+      "observations": [
+        {
+          "event": "plan_committed",
+          "wall_ns": 119714219471000,
+          "step_index": 0,
+          "steps": [
+            {
+              "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+              "target": "red pillar"
+            }
+          ]
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119717104580700,
+          "step_index": 0,
+          "range_m": 6.978854496803687,
+          "box": [
+            400,
+            0,
+            500,
+            300
+          ],
+          "source_seq": 80,
+          "expires_ns": 119729218627300
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119728466370100,
+          "step_index": 0,
+          "range_m": 6.073755452258593,
+          "box": [
+            433,
+            0,
+            600,
+            380
+          ],
+          "source_seq": 305,
+          "expires_ns": 119740630517800
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119734291805500,
+          "step_index": 0,
+          "range_m": 5.378238841099795,
+          "box": [
+            400,
+            0,
+            600,
+            400
+          ],
+          "source_seq": 419,
+          "expires_ns": 119746405349600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119739864068300,
+          "step_index": 0,
+          "range_m": 4.538383064195302,
+          "box": [
+            400,
+            0,
+            600,
+            500
+          ],
+          "source_seq": 531,
+          "expires_ns": 119752082254200
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119745536798600,
+          "step_index": 0,
+          "range_m": 3.8967193796227537,
+          "box": [
+            380,
+            0,
+            650,
+            530
+          ],
+          "source_seq": 640,
+          "expires_ns": 119757602061900
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119751206559800,
+          "step_index": 0,
+          "range_m": 3.209278467110198,
+          "box": [
+            333,
+            0,
+            666,
+            600
+          ],
+          "source_seq": 751,
+          "expires_ns": 119763220550600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119756369778600,
+          "step_index": 0,
+          "range_m": 2.565608089932687,
+          "box": [
+            333,
+            0,
+            666,
+            666
+          ],
+          "source_seq": 856,
+          "expires_ns": 119768535522600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119761544673400,
+          "step_index": 0,
+          "range_m": 1.9429356454391014,
+          "box": [
+            275,
+            0,
+            775,
+            800
+          ],
+          "source_seq": 958,
+          "expires_ns": 119773699883400
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119766915317200,
+          "step_index": 0,
+          "range_m": 1.3630176224024337,
+          "box": [
+            175,
+            0,
+            825,
+            980
+          ],
+          "source_seq": 1060,
+          "expires_ns": 119778876559900
+        },
+        {
+          "event": "subgoal_completed",
+          "wall_ns": 119768786883000,
+          "step_index": 0,
+          "objective": {
+            "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+            "target": "red pillar"
+          }
+        },
+        {
+          "event": "stalled_progress",
+          "evidence": "Repeated movement made no progress"
+        }
+      ],
+      "feedback": "Repeated movement made no progress",
+      "diagnostic": "injected replay, not observed flight event"
+    },
+    "prompt": "You are the event-driven mission planner. Preserve the original mission,\nordered committed steps and completed steps. A local waypoint is not a subgoal.\nReview the trigger and observation memory. Choose exactly one action:\nretry_current (retry the same objective), refresh_view (request fresh visual\ngrounding for that same objective), hold (temporary stationary safety pause).\nDo not invent motion, skip steps, change target identity or claim completion.\nReturn JSON with exactly action and reason. Reason at most 15 words.\nUse refresh_view for a lost target or stale perception, retry_current for\nrecoverable stalled progress, hold for unsafe or unresolved conflicting evidence.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"committed_steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}], \"active_step\": 0, \"completed_steps\": [], \"trigger\": \"stalled_progress\", \"observations\": [{\"event\": \"plan_committed\", \"wall_ns\": 119714219471000, \"step_index\": 0, \"steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}]}, {\"event\": \"target_observed\", \"wall_ns\": 119717104580700, \"step_index\": 0, \"range_m\": 6.978854496803687, \"box\": [400, 0, 500, 300], \"source_seq\": 80, \"expires_ns\": 119729218627300}, {\"event\": \"target_observed\", \"wall_ns\": 119728466370100, \"step_index\": 0, \"range_m\": 6.073755452258593, \"box\": [433, 0, 600, 380], \"source_seq\": 305, \"expires_ns\": 119740630517800}, {\"event\": \"target_observed\", \"wall_ns\": 119734291805500, \"step_index\": 0, \"range_m\": 5.378238841099795, \"box\": [400, 0, 600, 400], \"source_seq\": 419, \"expires_ns\": 119746405349600}, {\"event\": \"target_observed\", \"wall_ns\": 119739864068300, \"step_index\": 0, \"range_m\": 4.538383064195302, \"box\": [400, 0, 600, 500], \"source_seq\": 531, \"expires_ns\": 119752082254200}, {\"event\": \"target_observed\", \"wall_ns\": 119745536798600, \"step_index\": 0, \"range_m\": 3.8967193796227537, \"box\": [380, 0, 650, 530], \"source_seq\": 640, \"expires_ns\": 119757602061900}, {\"event\": \"target_observed\", \"wall_ns\": 119751206559800, \"step_index\": 0, \"range_m\": 3.209278467110198, \"box\": [333, 0, 666, 600], \"source_seq\": 751, \"expires_ns\": 119763220550600}, {\"event\": \"target_observed\", \"wall_ns\": 119756369778600, \"step_index\": 0, \"range_m\": 2.565608089932687, \"box\": [333, 0, 666, 666], \"source_seq\": 856, \"expires_ns\": 119768535522600}, {\"event\": \"target_observed\", \"wall_ns\": 119761544673400, \"step_index\": 0, \"range_m\": 1.9429356454391014, \"box\": [275, 0, 775, 800], \"source_seq\": 958, \"expires_ns\": 119773699883400}, {\"event\": \"target_observed\", \"wall_ns\": 119766915317200, \"step_index\": 0, \"range_m\": 1.3630176224024337, \"box\": [175, 0, 825, 980], \"source_seq\": 1060, \"expires_ns\": 119778876559900}, {\"event\": \"subgoal_completed\", \"wall_ns\": 119768786883000, \"step_index\": 0, \"objective\": {\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}}, {\"event\": \"stalled_progress\", \"evidence\": \"Repeated movement made no progress\"}], \"feedback\": \"Repeated movement made no progress\", \"diagnostic\": \"injected replay, not observed flight event\"}",
+    "response": "{\"action\": \"retry_current\", \"reason\": \"Stalled progress; retry same objective\"}",
+    "tokens": 20
+  },
+  {
+    "context": {
+      "original_mission": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+      "committed_steps": [
+        {
+          "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+          "target": "red pillar"
+        }
+      ],
+      "active_step": 0,
+      "completed_steps": [],
+      "trigger": "monitor_replan: unsafe",
+      "observations": [
+        {
+          "event": "plan_committed",
+          "wall_ns": 119714219471000,
+          "step_index": 0,
+          "steps": [
+            {
+              "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+              "target": "red pillar"
+            }
+          ]
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119717104580700,
+          "step_index": 0,
+          "range_m": 6.978854496803687,
+          "box": [
+            400,
+            0,
+            500,
+            300
+          ],
+          "source_seq": 80,
+          "expires_ns": 119729218627300
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119728466370100,
+          "step_index": 0,
+          "range_m": 6.073755452258593,
+          "box": [
+            433,
+            0,
+            600,
+            380
+          ],
+          "source_seq": 305,
+          "expires_ns": 119740630517800
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119734291805500,
+          "step_index": 0,
+          "range_m": 5.378238841099795,
+          "box": [
+            400,
+            0,
+            600,
+            400
+          ],
+          "source_seq": 419,
+          "expires_ns": 119746405349600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119739864068300,
+          "step_index": 0,
+          "range_m": 4.538383064195302,
+          "box": [
+            400,
+            0,
+            600,
+            500
+          ],
+          "source_seq": 531,
+          "expires_ns": 119752082254200
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119745536798600,
+          "step_index": 0,
+          "range_m": 3.8967193796227537,
+          "box": [
+            380,
+            0,
+            650,
+            530
+          ],
+          "source_seq": 640,
+          "expires_ns": 119757602061900
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119751206559800,
+          "step_index": 0,
+          "range_m": 3.209278467110198,
+          "box": [
+            333,
+            0,
+            666,
+            600
+          ],
+          "source_seq": 751,
+          "expires_ns": 119763220550600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119756369778600,
+          "step_index": 0,
+          "range_m": 2.565608089932687,
+          "box": [
+            333,
+            0,
+            666,
+            666
+          ],
+          "source_seq": 856,
+          "expires_ns": 119768535522600
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119761544673400,
+          "step_index": 0,
+          "range_m": 1.9429356454391014,
+          "box": [
+            275,
+            0,
+            775,
+            800
+          ],
+          "source_seq": 958,
+          "expires_ns": 119773699883400
+        },
+        {
+          "event": "target_observed",
+          "wall_ns": 119766915317200,
+          "step_index": 0,
+          "range_m": 1.3630176224024337,
+          "box": [
+            175,
+            0,
+            825,
+            980
+          ],
+          "source_seq": 1060,
+          "expires_ns": 119778876559900
+        },
+        {
+          "event": "subgoal_completed",
+          "wall_ns": 119768786883000,
+          "step_index": 0,
+          "objective": {
+            "objective": "Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.",
+            "target": "red pillar"
+          }
+        },
+        {
+          "event": "monitor_replan: unsafe",
+          "evidence": "The route is blocked; motion is unsafe"
+        }
+      ],
+      "feedback": "The route is blocked; motion is unsafe",
+      "diagnostic": "injected replay, not observed flight event"
+    },
+    "prompt": "You are the event-driven mission planner. Preserve the original mission,\nordered committed steps and completed steps. A local waypoint is not a subgoal.\nReview the trigger and observation memory. Choose exactly one action:\nretry_current (retry the same objective), refresh_view (request fresh visual\ngrounding for that same objective), hold (temporary stationary safety pause).\nDo not invent motion, skip steps, change target identity or claim completion.\nReturn JSON with exactly action and reason. Reason at most 15 words.\nUse refresh_view for a lost target or stale perception, retry_current for\nrecoverable stalled progress, hold for unsafe or unresolved conflicting evidence.\nContext: {\"original_mission\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"committed_steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}], \"active_step\": 0, \"completed_steps\": [], \"trigger\": \"monitor_replan: unsafe\", \"observations\": [{\"event\": \"plan_committed\", \"wall_ns\": 119714219471000, \"step_index\": 0, \"steps\": [{\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}]}, {\"event\": \"target_observed\", \"wall_ns\": 119717104580700, \"step_index\": 0, \"range_m\": 6.978854496803687, \"box\": [400, 0, 500, 300], \"source_seq\": 80, \"expires_ns\": 119729218627300}, {\"event\": \"target_observed\", \"wall_ns\": 119728466370100, \"step_index\": 0, \"range_m\": 6.073755452258593, \"box\": [433, 0, 600, 380], \"source_seq\": 305, \"expires_ns\": 119740630517800}, {\"event\": \"target_observed\", \"wall_ns\": 119734291805500, \"step_index\": 0, \"range_m\": 5.378238841099795, \"box\": [400, 0, 600, 400], \"source_seq\": 419, \"expires_ns\": 119746405349600}, {\"event\": \"target_observed\", \"wall_ns\": 119739864068300, \"step_index\": 0, \"range_m\": 4.538383064195302, \"box\": [400, 0, 600, 500], \"source_seq\": 531, \"expires_ns\": 119752082254200}, {\"event\": \"target_observed\", \"wall_ns\": 119745536798600, \"step_index\": 0, \"range_m\": 3.8967193796227537, \"box\": [380, 0, 650, 530], \"source_seq\": 640, \"expires_ns\": 119757602061900}, {\"event\": \"target_observed\", \"wall_ns\": 119751206559800, \"step_index\": 0, \"range_m\": 3.209278467110198, \"box\": [333, 0, 666, 600], \"source_seq\": 751, \"expires_ns\": 119763220550600}, {\"event\": \"target_observed\", \"wall_ns\": 119756369778600, \"step_index\": 0, \"range_m\": 2.565608089932687, \"box\": [333, 0, 666, 666], \"source_seq\": 856, \"expires_ns\": 119768535522600}, {\"event\": \"target_observed\", \"wall_ns\": 119761544673400, \"step_index\": 0, \"range_m\": 1.9429356454391014, \"box\": [275, 0, 775, 800], \"source_seq\": 958, \"expires_ns\": 119773699883400}, {\"event\": \"target_observed\", \"wall_ns\": 119766915317200, \"step_index\": 0, \"range_m\": 1.3630176224024337, \"box\": [175, 0, 825, 980], \"source_seq\": 1060, \"expires_ns\": 119778876559900}, {\"event\": \"subgoal_completed\", \"wall_ns\": 119768786883000, \"step_index\": 0, \"objective\": {\"objective\": \"Find the red pillar in the camera view and approach it. Stop nearby while keeping the red pillar visible. Do not approach other colored objects.\", \"target\": \"red pillar\"}}, {\"event\": \"monitor_replan: unsafe\", \"evidence\": \"The route is blocked; motion is unsafe\"}], \"feedback\": \"The route is blocked; motion is unsafe\", \"diagnostic\": \"injected replay, not observed flight event\"}",
+    "response": "{\"action\": \"hold\", \"reason\": \"Route blocked; unsafe motion detected\"}",
+    "tokens": 18
+  }
+]

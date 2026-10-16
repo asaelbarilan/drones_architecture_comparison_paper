@@ -1,5 +1,13 @@
 # TODO
 
+## D-148: pillar fixture passes; qualify event recovery
+
+- D147 completion blocker resolved on unchanged fixture: visible, stopped at1.332m.
+- Exercise actual target-loss/stall recovery; current model recovery checks inject memory.
+- Stale monitor control replans conservatively instead of continue; retain discrepancy.
+- Search, occlusion, lookalikes, AirSim and cross-mission memory remain unqualified.
+- Shared model calls remain serialized; second-model concurrency was not tested.
+
 ## D-147: grounding repaired on fixture; visual completion still blocking
 
 - Same60s red-pillar repeat reaches1.722m,not<=1.5m/stopped. Keep as failure.

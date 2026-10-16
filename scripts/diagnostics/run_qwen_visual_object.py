@@ -8,6 +8,7 @@ import threading
 from collections import Counter
 from pathlib import Path
 
+from gpu_trace import GpuTrace
 from run_qwen_async import deadline_exit
 from run_qwen_full_architecture import experiment, provenance
 
@@ -17,9 +18,11 @@ from uavlab.live_qwen.control import LiveControl
 from uavlab.live_qwen.evidence import Evidence
 from uavlab.live_qwen.grounding import GROUNDING, VISUAL_PLANNER
 from uavlab.live_qwen.latency import diagnostic_request, qualify
+from uavlab.live_qwen.planner_memory import RECOVERY
 from uavlab.live_qwen.prompts import DIRECTION, MONITOR, PLANNER
 from uavlab.live_qwen.runner import flight_loop, mission_spec
 from uavlab.live_qwen.scheduler import GoalScheduler
+from uavlab.live_qwen.visual_progress import VISUAL_MONITOR
 
 
 def score(state, obs, evidence, gaps, status):
@@ -75,7 +78,8 @@ def prepare(config, out):
     (out / "prompt_templates.json").write_text(json.dumps(
         dict(planner=VISUAL_PLANNER if settings.get("goal_mode") == "visual" else PLANNER,
              direction=GROUNDING if settings.get("goal_mode") == "visual"
-             else DIRECTION, monitor=MONITOR), indent=2))
+             else DIRECTION, monitor=VISUAL_MONITOR if settings.get("goal_mode") == "visual"
+             else MONITOR, planner_recovery=RECOVERY), indent=2))
     provenance(out)
     hashes = json.loads((out / "source_hashes.json").read_text())
     hashes[Path(__file__).name] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
@@ -93,7 +97,8 @@ def main():
     timer.daemon = True
     timer.start()
     try:
-        asyncio.run(experiment(settings, args.out, visual_flight))
+        with GpuTrace(args.out):
+            asyncio.run(experiment(settings, args.out, visual_flight))
     finally:
         timer.cancel()
 

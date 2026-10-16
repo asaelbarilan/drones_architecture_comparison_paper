@@ -1,0 +1,212 @@
+{
+  "scope": "four-role contract probe; no flight or efficacy claim",
+  "seed": 1061,
+  "planner": {
+    "objective": "Proceed toward the red tower",
+    "target": "Red tower in the distance"
+  },
+  "direction": {
+    "u": 500,
+    "v": 400,
+    "travel_m": 1.5,
+    "target_visible": false,
+    "box": null
+  },
+  "monitor": {
+    "status": "replan",
+    "reason": "No red tower visible; need to locate target before proceeding."
+  },
+  "pilot": {
+    "steps_fru_m_yaw_rad": [
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ],
+      [
+        0.19970743529411772,
+        0.0001335000000000086,
+        -0.0005490470588235263,
+        -0.0009852058823529575
+      ]
+    ],
+    "tokens": [
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484,
+      151533,
+      151515,
+      151539,
+      151484
+    ],
+    "remaining_supplied": [
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  "base_logits_exact_after_pilot": true,
+  "base_text_exact_after_pilot": true,
+  "one_base_load": true,
+  "peak_vram_bytes": 4470585344,
+  "wall_seconds": 27.109000000011292,
+  "passed": true,
+  "stepped_simulator": {
+    "mode": "paused during inference; no shield/router test",
+    "steps": [
+      {
+        "before": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "decision": {
+          "decision_id": "3e4526432c27",
+          "kind": "kinematic_action",
+          "payload": {
+            "kind": "kinematic_action",
+            "velocity": {
+              "x": 0.20742698569700715,
+              "y": 0.18378667087290956,
+              "z": -0.0010980941176470527,
+              "frame": "enu"
+            },
+            "yaw_rate_rps": 0.001970411764705915,
+            "duration_s": 0.5
+          },
+          "source_observation_seq": 0,
+          "source_t_sim_ns": 0,
+          "produced_t_wall_ns": 88559666068300,
+          "produced_t_sim_ns": 0,
+          "valid_until_t_sim_ns": 2000000000,
+          "confidence": 0.5,
+          "producer": "shared_qwen_pilot",
+          "provenance": {
+            "model_id": "qwen3-vl-4b-d207-shared",
+            "note": "VLA first step; seven suffix steps discarded for feedback",
+            "remaining": "[1.9900083305560514, -0.20000000000000007, -0.19966683329365642, -5.739074633499995]",
+            "local_goal": "{\"x\":1.355412908838406,\"y\":1.4707103733355165,\"z\":2.8003331667063436,\"frame\":\"enu\"}"
+          }
+        },
+        "after": {
+          "x": 0.054805838489968804,
+          "y": 0.048559653733690006,
+          "z": 2.9997098643233118,
+          "frame": "enu"
+        }
+      },
+      {
+        "before": {
+          "x": 0.054805838489968804,
+          "y": 0.048559653733690006,
+          "z": 2.9997098643233118,
+          "frame": "enu"
+        },
+        "decision": {
+          "decision_id": "64dad0c1ab2b",
+          "kind": "kinematic_action",
+          "payload": {
+            "kind": "kinematic_action",
+            "velocity": {
+              "x": 0.20724581734957181,
+              "y": 0.18399093993183877,
+              "z": -0.0010980941176470527,
+              "frame": "enu"
+            },
+            "yaw_rate_rps": 0.001970411764705915,
+            "duration_s": 0.5
+          },
+          "source_observation_seq": 1,
+          "source_t_sim_ns": 500000000,
+          "produced_t_wall_ns": 88569164585200,
+          "produced_t_sim_ns": 500000000,
+          "valid_until_t_sim_ns": 2500000000,
+          "confidence": 0.5,
+          "producer": "shared_qwen_pilot",
+          "provenance": {
+            "model_id": "qwen3-vl-4b-d207-shared",
+            "note": "VLA first step; seven suffix steps discarded for feedback",
+            "remaining": "[1.916980778967968, -0.19818202181757016, -0.1993766976169682, -5.682626494489676]",
+            "local_goal": "{\"x\":1.355412908838406,\"y\":1.4707103733355165,\"z\":2.8003331667063436,\"frame\":\"enu\"}"
+          }
+        },
+        "after": {
+          "x": 0.14800237337959873,
+          "y": 0.13123102571503875,
+          "z": 2.9992162393988377,
+          "frame": "enu"
+        }
+      }
+    ],
+    "success_claim": false
+  },
+  "stats": {
+    "inference_calls_total": 12.0,
+    "shared_base_load_count": 1.0,
+    "inference_latency_s_total": 47.1386741
+  }
+}

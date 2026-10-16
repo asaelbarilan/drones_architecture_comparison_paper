@@ -3126,3 +3126,28 @@ remaining validation can run without the external memory release. Mark goal bloc
 not complete. Preserve full scope and resume the frozen replacement pair after
 resources permit. Evidence: reports/spf_arrival_retry_20260917/BLOCKED_AUDIT.json.
 No training/shared-server changes, no model calls, no new flight.
+### D-132 — shared Qwen base with four roles (2026-10-16, development)
+
+User authorizes repo-1 integration of planner, visual direction, visual monitor,
+and D207 step8000 VLA on one local GPU. Add a separate development profile;
+historical comparison profiles remain frozen. One unmerged HF Qwen base is
+resident, with PEFT disabled for language/vision roles and enabled for pilot.
+Fresh generation caches and serialized calls prevent cross-role state leakage.
+Explicit local goals replace the pilot's self-generated remaining-goal prefix.
+This is a new architecture, not a replication of the training evaluation.
+No AWS, training, held-out benchmark, or resource deletion is authorized here.
+
+Admission: CPU contracts/frame/stopping tests, then bounded local GPU four-role
+and base→pilot→base equality check. Flight evaluation is conditional on those
+passing. Record actual latency and memory; sharing weights does not imply
+parallel execution or real-time performance. Grid simulator evidence is not
+an AirSim dynamics validation.
+
+Evidence: reports/shared_qwen_vla_20261016/REPORT.md and final/result.json.
+44 CPU/regression checks pass. Four real roles share one base load; base text
+and next-token logits repeat exactly after pilot use. Peak PyTorch allocation
+4,470,585,344 bytes. Two paused-simulator steps move about0.23m, not mission
+completion. Warm sequential loops take about10s, beyond inherited1.5s staleness.
+Direction invents a questionable target box for a numeric instruction. Status:
+shared runtime/wiring verified; mission readiness not established. Rejected
+alternative: claiming successful flight from valid JSON or bypassing staleness.

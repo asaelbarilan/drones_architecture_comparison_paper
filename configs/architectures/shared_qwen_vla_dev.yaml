@@ -1,0 +1,23 @@
+# D-132: local development only, not a frozen comparison architecture.
+_base_: [c8_shielded_vla.yaml]
+id: shared_qwen_vla_dev
+name: Shared Qwen planner-direction-monitor-pilot
+description: One HF base with serialized base-model roles and D207 VLA adapter.
+tags: [development, shared_base, four_roles]
+ablation_of: null
+policy:
+  name: shared_qwen_pilot
+  params:
+    model_id: qwen3-vl-4b-d207-shared
+    camera_pitch_rad: -0.10
+inference:
+  name: shared_qwen_vla
+  params:
+    package_path: D:/drone_vla_pilot/release/hf_fresh_d257/model
+    precision: nf4
+    model_id: qwen3-vl-4b-d207-shared
+    max_new_tokens: 192
+scheduler:
+  kind: periodic
+  control_hz: 20.0
+  decision_hz: 1.0

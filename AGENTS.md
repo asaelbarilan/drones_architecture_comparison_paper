@@ -11,6 +11,17 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-132 shared Qwen roles (2026-10-16)
+
+Read docs/SHARED_QWEN_VLA.md and reports/shared_qwen_vla_20261016/REPORT.md.
+User explicitly requests local Qwen planner/direction/monitor plus D207 VLA,
+sharing one base. New development profile only; historical profiles remain frozen.
+No AWS/training/deletion. Four-role GPU and paused simulator wiring tested;
+real-time scheduling and semantic grounding are not mission-ready. The old D-131
+blocked goal below is historical and is not authorization to launch its flights.
+
+## Testbed overview
+
 A modular testbed for searching single-UAV foundation-model autonomy
 architectures. Architectures are composed from configuration (`configs/`), run
 against a deterministic simulator, and charged model latency on a simulated

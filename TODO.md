@@ -1,5 +1,14 @@
 # TODO
 
+## D-132 — shared-base development integration
+
+- Validate direction points/boxes on genuine visible-target camera scenes; a
+  syntactically valid box can be hallucinated, especially for numeric motion.
+- Define/test hover and fresh-frame scheduling for measured multi-second role
+  latency before full missions. Keep real-time and paused-simulator results separate.
+- Run bounded mission evaluation only after these integration limits are addressed;
+  no AWS, retraining, or claimed navigation improvement from the wiring probe.
+
 Open work, ordered by what it blocks. Every item names the decision it comes
 from (`D-nn` in [`docs/RESEARCH_LOG.md`](docs/RESEARCH_LOG.md)) and the first
 concrete step, so nothing here needs re-deriving before it can be picked up.

@@ -29,6 +29,8 @@ CATEGORIES: tuple[str, ...] = (
 T = TypeVar("T")
 
 OPTIONAL_PLUGINS: dict[tuple[str, str], str] = {
+    ("inference", "shared_qwen_vla"): "uavlab.plugins.inference.shared_qwen",
+    ("policy", "shared_qwen_pilot"): "uavlab.plugins.reasoning.shared_qwen_pilot",
     ("policy", "vlm_observed_view_return"): "uavlab.plugins.reasoning.observed_view",
     ("verifier", "observed_view_return"): "uavlab.plugins.reasoning.observed_view",
     ("monitor", "onfly_hover_monitor"): "uavlab.plugins.reasoning.onfly_hover",

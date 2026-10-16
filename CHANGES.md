@@ -3236,3 +3236,12 @@ remaining validation can run without the external memory release. Mark goal bloc
 not complete. Preserve full scope and resume the frozen replacement pair after
 resources permit. Evidence: reports/spf_arrival_retry_20260917/BLOCKED_AUDIT.json.
 No training/shared-server changes, no model calls, no new flight.
+## 2026-10-16 — D-132 shared Qwen four-role local integration
+
+Added lazy HF backend with one base and switchable D207 VLA adapter, a four-role
+policy, a separate development profile and bounded GPU/stepped-simulator probe.
+44 focused CPU/regression checks pass. Base text and next-token logits repeat
+exactly after pilot switching; model load count remains one. The stepped probe
+uses real role outputs but pauses simulation during inference. It is not a
+mission or real-time success claim. Grounding and scheduling limitations are
+documented in docs/SHARED_QWEN_VLA.md. No AWS, training or deletion occurred.

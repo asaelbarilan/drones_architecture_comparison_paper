@@ -1,0 +1,1131 @@
+{
+  "hold": {
+    "first_action_produced_s": {
+      "count": 0,
+      "median": null,
+      "maximum": null
+    },
+    "first_action_received_s": {
+      "count": 0,
+      "median": null,
+      "maximum": null
+    },
+    "actions_consumed": 0,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115564398707900,
+        "goal_version": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115607874461400,
+        "source_seq": 38
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115571675283700,
+        "goal_version": 3,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115615102087200,
+        "source_seq": 179
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115579100050300,
+        "goal_version": 5,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115622534574500,
+        "source_seq": 325
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115586450270000,
+        "goal_version": 7,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115629923356000,
+        "source_seq": 469
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115594682409400,
+        "goal_version": 9,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115637707486800,
+        "source_seq": 622
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115603324951600,
+        "goal_version": 11,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115646395676800,
+        "source_seq": 793
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115610780647000,
+        "goal_version": 13,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115654149333400,
+        "source_seq": 945
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115619043212800,
+        "goal_version": 15,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.6250063395074628,
+        "terminal": true,
+        "expires_ns": 115662063949000,
+        "source_seq": 1100
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 115562875136300,
+        "goal_version": 0,
+        "request_id": 4,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationary position\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115564398707900,
+        "goal_version": 0,
+        "request_id": 5,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115568227283700,
+        "goal_version": 1,
+        "request_id": 6,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115570104192000,
+        "goal_version": 2,
+        "request_id": 7,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115571675283700,
+        "goal_version": 2,
+        "request_id": 8,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115575649905400,
+        "goal_version": 3,
+        "request_id": 9,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115577536647400,
+        "goal_version": 4,
+        "request_id": 10,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115579100050300,
+        "goal_version": 4,
+        "request_id": 11,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115583046284200,
+        "goal_version": 5,
+        "request_id": 12,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115584924278900,
+        "goal_version": 6,
+        "request_id": 13,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115586450270000,
+        "goal_version": 6,
+        "request_id": 14,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115590380323700,
+        "goal_version": 7,
+        "request_id": 15,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115592708196400,
+        "goal_version": 8,
+        "request_id": 16,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115594682409400,
+        "goal_version": 8,
+        "request_id": 17,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115599117923400,
+        "goal_version": 9,
+        "request_id": 18,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115601396276900,
+        "goal_version": 10,
+        "request_id": 19,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115603324951600,
+        "goal_version": 10,
+        "request_id": 20,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115607220457600,
+        "goal_version": 11,
+        "request_id": 21,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115609150548200,
+        "goal_version": 12,
+        "request_id": 22,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115610780647000,
+        "goal_version": 12,
+        "request_id": 23,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115614825944800,
+        "goal_version": 13,
+        "request_id": 24,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No movement detected, holding current position and heading as required.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115617065610600,
+        "goal_version": 14,
+        "request_id": 25,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Confirm stationarity\",\n  \"target\": \"No movement detected, holding current position and heading\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115619043212800,
+        "goal_version": 14,
+        "request_id": 26,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,0],\"terminal\":true}"
+      }
+    ]
+  },
+  "forward": {
+    "first_action_produced_s": {
+      "count": 2,
+      "median": 0.2017277,
+      "maximum": 0.2065439
+    },
+    "first_action_received_s": {
+      "count": 2,
+      "median": 0.22884795000000002,
+      "maximum": 0.2539371
+    },
+    "actions_consumed": 4,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115626255627900,
+        "goal_version": 1,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115669167956100,
+        "source_seq": 41
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115634262298200,
+        "goal_version": 3,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115677582265700,
+        "source_seq": 206
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115642672667400,
+        "goal_version": 5,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115685536787200,
+        "source_seq": 362
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115651086580300,
+        "goal_version": 7,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115693938069000,
+        "source_seq": 526
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115659431503100,
+        "goal_version": 9,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115702347681800,
+        "source_seq": 691
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115667389194900,
+        "goal_version": 11,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115710710307900,
+        "source_seq": 855
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115676297026100,
+        "goal_version": 13,
+        "position": {
+          "x": 0.9930663499241091,
+          "y": 0.11755519830448552,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 0.11782764962384992,
+        "terminal": true,
+        "expires_ns": 115719151525400,
+        "source_seq": 1020
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 115624168686200,
+        "goal_version": 0,
+        "request_id": 31,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"Starting position with forward direction indicated\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115626255627900,
+        "goal_version": 0,
+        "request_id": 32,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115630200113900,
+        "goal_version": 1,
+        "request_id": 35,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115632582979100,
+        "goal_version": 2,
+        "request_id": 36,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115634262298200,
+        "goal_version": 2,
+        "request_id": 37,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115638144854400,
+        "goal_version": 3,
+        "request_id": 38,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115640538485200,
+        "goal_version": 4,
+        "request_id": 39,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115642672667400,
+        "goal_version": 4,
+        "request_id": 40,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115646580626800,
+        "goal_version": 5,
+        "request_id": 41,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115648941469700,
+        "goal_version": 6,
+        "request_id": 42,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115651086580300,
+        "goal_version": 6,
+        "request_id": 43,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115655015784200,
+        "goal_version": 7,
+        "request_id": 44,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115657349019200,
+        "goal_version": 8,
+        "request_id": 45,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115659431503100,
+        "goal_version": 8,
+        "request_id": 46,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115663375075900,
+        "goal_version": 9,
+        "request_id": 47,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115665711012600,
+        "goal_version": 10,
+        "request_id": 48,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115667389194900,
+        "goal_version": 10,
+        "request_id": 49,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0,0,0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115671242958400,
+        "goal_version": 11,
+        "request_id": 50,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115674154779900,
+        "goal_version": 12,
+        "request_id": 51,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from the starting position, maintain altitude and heading, then stop.\",\n  \"target\": \"No forward movement detected; mission not progressing as expected.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115676297026100,
+        "goal_version": 12,
+        "request_id": 52,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115680189828400,
+        "goal_version": 13,
+        "request_id": 53,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No forward movement detected; mission not progressing as expected.\"}"
+      }
+    ]
+  },
+  "turn": {
+    "first_action_produced_s": {
+      "count": 2,
+      "median": 0.205469,
+      "maximum": 0.2065796
+    },
+    "first_action_received_s": {
+      "count": 2,
+      "median": 0.23102045,
+      "maximum": 0.2550445
+    },
+    "actions_consumed": 4,
+    "all_consumed_fresh": true,
+    "failures": [],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115687829599900,
+        "goal_version": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115731190187800,
+        "source_seq": 53
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115696118156500,
+        "goal_version": 3,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115739495613000,
+        "source_seq": 216
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115704224582800,
+        "goal_version": 5,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115747592851600,
+        "source_seq": 375
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115712575246100,
+        "goal_version": 7,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115755697195700,
+        "source_seq": 534
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115721696097400,
+        "goal_version": 9,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115764745863300,
+        "source_seq": 712
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115730730543300,
+        "goal_version": 11,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115773701759000,
+        "source_seq": 887
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115739850482100,
+        "goal_version": 13,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": -1.3648623672987148,
+        "terminal": true,
+        "expires_ns": 115782969536700,
+        "source_seq": 1069
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 115686190773100,
+        "goal_version": 0,
+        "request_id": 59,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading\",\n  \"target\": \"A visual cue indicating a 15-degree right turn from the current orientation\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115687829599900,
+        "goal_version": 0,
+        "request_id": 60,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115691858489600,
+        "goal_version": 1,
+        "request_id": 63,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115694497074900,
+        "goal_version": 2,
+        "request_id": 64,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115696118156500,
+        "goal_version": 2,
+        "request_id": 65,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115699991835100,
+        "goal_version": 3,
+        "request_id": 66,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115702593520000,
+        "goal_version": 4,
+        "request_id": 67,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115704224582800,
+        "goal_version": 4,
+        "request_id": 68,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115708060761000,
+        "goal_version": 5,
+        "request_id": 69,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115710697768600,
+        "goal_version": 6,
+        "request_id": 70,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115712575246100,
+        "goal_version": 6,
+        "request_id": 71,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115716655451500,
+        "goal_version": 7,
+        "request_id": 72,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115719746566200,
+        "goal_version": 8,
+        "request_id": 73,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115721696097400,
+        "goal_version": 8,
+        "request_id": 74,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115725733312000,
+        "goal_version": 9,
+        "request_id": 75,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115728703390100,
+        "goal_version": 10,
+        "request_id": 76,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115730730543300,
+        "goal_version": 10,
+        "request_id": 77,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115734815222000,
+        "goal_version": 11,
+        "request_id": 78,
+        "role": "monitor",
+        "payload": "{\"status\": \"hold\", \"reason\": \"No visual cue detected; mission not visibly accomplished.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115737970698500,
+        "goal_version": 12,
+        "request_id": 79,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Turn right 15 degrees from current heading without moving\",\n  \"target\": \"No visual cue detected; vehicle must execute turn without changing position.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115739850482100,
+        "goal_version": 12,
+        "request_id": 80,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[0,0,0,15],\"terminal\":true}"
+      }
+    ]
+  },
+  "move_then_turn": {
+    "first_action_produced_s": {
+      "count": 5,
+      "median": 0.2080399,
+      "maximum": 0.8172746
+    },
+    "first_action_received_s": {
+      "count": 5,
+      "median": 0.2541455,
+      "maximum": 0.8670457
+    },
+    "actions_consumed": 12,
+    "all_consumed_fresh": true,
+    "failures": [
+      {
+        "kind": "contract_failure",
+        "wall_ns": 115750416572700,
+        "goal_version": 1,
+        "error": "Expecting value: line 1 column 30 (char 29)",
+        "count": 1
+      }
+    ],
+    "goals": [
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115757520593500,
+        "goal_version": 2,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 2.8790436146694565,
+        "terminal": true,
+        "expires_ns": 115799835219500,
+        "source_seq": 200
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115771871126700,
+        "goal_version": 4,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 3.140843002468606,
+        "terminal": true,
+        "expires_ns": 115814733100000,
+        "source_seq": 492
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115781575337000,
+        "goal_version": 6,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 3.140843002468606,
+        "terminal": true,
+        "expires_ns": 115824459481600,
+        "source_seq": 683
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115791430510700,
+        "goal_version": 8,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 3.140843002468606,
+        "terminal": true,
+        "expires_ns": 115834296338900,
+        "source_seq": 875
+      },
+      {
+        "kind": "goal_authorized",
+        "wall_ns": 115801315273900,
+        "goal_version": 10,
+        "position": {
+          "x": -0.9999997190116114,
+          "y": 0.0007496510509727792,
+          "z": 3.0,
+          "frame": "enu"
+        },
+        "yaw": 3.140843002468606,
+        "terminal": true,
+        "expires_ns": 115844138649000,
+        "source_seq": 1068
+      }
+    ],
+    "results": [
+      {
+        "kind": "result",
+        "wall_ns": 115747865562400,
+        "goal_version": 0,
+        "request_id": 86,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter while keeping heading, then turn right 15 degrees without moving.\",\n  \"target\": \"A straight path ahead with no movement after turning.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115750416572700,
+        "goal_version": 0,
+        "request_id": 87,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[forward_m:1,right_m:0,up_m:0,clockwise_degrees:15],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115754836335500,
+        "goal_version": 1,
+        "request_id": 88,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter while keeping heading, then turn right 15 degrees without moving.\",\n  \"target\": \"Robot at 1 meter forward from start, heading right 15 degrees from original direction, stationary.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115757520593500,
+        "goal_version": 1,
+        "request_id": 89,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,15.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115766478600700,
+        "goal_version": 2,
+        "request_id": 94,
+        "role": "monitor",
+        "payload": "{\"status\": \"replan\", \"reason\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115769734402600,
+        "goal_version": 3,
+        "request_id": 95,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from starting position while maintaining heading.\",\n  \"target\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115771871126700,
+        "goal_version": 3,
+        "request_id": 96,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115776348347500,
+        "goal_version": 4,
+        "request_id": 98,
+        "role": "monitor",
+        "payload": "{\"status\": \"replan\", \"reason\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115779460985700,
+        "goal_version": 5,
+        "request_id": 99,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from starting position while maintaining heading.\",\n  \"target\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115781575337000,
+        "goal_version": 5,
+        "request_id": 100,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115786187755300,
+        "goal_version": 6,
+        "request_id": 101,
+        "role": "monitor",
+        "payload": "{\"status\": \"replan\", \"reason\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115789297762500,
+        "goal_version": 7,
+        "request_id": 102,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from starting position while maintaining heading.\",\n  \"target\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115791430510700,
+        "goal_version": 7,
+        "request_id": 103,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115796029441900,
+        "goal_version": 8,
+        "request_id": 104,
+        "role": "monitor",
+        "payload": "{\"status\": \"replan\", \"reason\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115799140216100,
+        "goal_version": 9,
+        "request_id": 105,
+        "role": "planner",
+        "payload": "{\n  \"objective\": \"Move forward 1 meter from starting position while maintaining heading.\",\n  \"target\": \"No visual confirmation of 1m forward or 15\u00b0 turn; coordinates suggest incomplete movement.\"\n}"
+      },
+      {
+        "kind": "result",
+        "wall_ns": 115801315273900,
+        "goal_version": 9,
+        "request_id": 106,
+        "role": "direction",
+        "payload": "{\"kind\":\"relative\",\"target\":[1.0,0.0,0.0,0.0],\"terminal\":true}"
+      }
+    ]
+  }
+}

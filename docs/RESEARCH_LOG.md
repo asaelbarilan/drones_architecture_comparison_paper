@@ -3426,3 +3426,29 @@ per-task events/images, architecture_results.png. Visual audit confirms rise the
 return on forward and persistent~25degree turn. No training/AWS/default changes;
 GPU unloaded12MiB. Next preserve numeric mission invariants, provide explicit
 pose/tolerance/progress evidence and separate numeric from visual completion.
+
+### D-144: easier tasks isolate monitor and sequencing failures (2026-10-17)
+
+User approved four easier tasks with separate component review. Status: audit
+complete, no runtime repair. Frozen60s/seeds1071–1074, existing0.5m/5deg tolerance
+and1.5s freshness; hold additionally<=0.1m/1deg/no actions, compound requires
+move-before-turn plus explicit intermediate advancement. Real shared Qwen/D142
+pilot in rendered open grid3d, no scripted answers or scoring truth in prompts.
+Hold stays exactly still with no pilot calls; forward ends0.414m from1m target;
+turn ends4.698deg from15deg target. Physical behaviors pass their tolerances,
+but0/4 full mission completions because monitor holds/replans. Compound physically
+moves before significant rotation but has no intermediate advancement; first
+direction response invalid JSON (rejected), retry merges stages as terminal,
+later replan drops turn. Final position error0.053m, heading error10.093deg.
+Rationale: repair role/status/mission contracts, not retrain based on these failures.
+Simple initial planner/direction interpretations correct; multi-step preservation
+and monitor completion not reliable. Shield obstacle/visual cognition untested.
+20 fresh actions, no collisions/OOB, max control gaps60–97ms pass150ms criterion.
+Pilot median produced202/205/208ms, compound max817ms; no hard200ms claim.
+Two startup chunk equalities and all task preflights pass;4 auditor tests and
+changed-code checks pass. Evidence: reports/qwen_easy_components_20261017/REPORT.md,
+real_v1 config/results/component_audit/verification, saved images, raw_events.zip
+with hash manifest and visually audited plot. Heading wrap display repaired only
+in auditor. GPU unloaded12MiB. No AWS/training/default/prompt/policy changes.
+Next explicit ordered steps, immutable mission requirements, monitor numerical
+evidence and unambiguous hold/completion semantics, then same frozen suite.

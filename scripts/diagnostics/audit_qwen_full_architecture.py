@@ -51,7 +51,8 @@ def draw_case(axes, rows, case):
     x = [(p["x"]-positions[0]["x"])*math.cos(angle)
          + (p["y"]-positions[0]["y"])*math.sin(angle) for p in positions]
     z = [p["z"]-positions[0]["z"] for p in positions]
-    yaw = [-math.degrees(r["yaw"]-ticks[0]["yaw"]) for r in ticks]
+    yaw = [-math.degrees(math.atan2(math.sin(r["yaw"]-angle), math.cos(r["yaw"]-angle)))
+           for r in ticks]
     axes[0].plot(seconds, x, label="forward displacement")
     axes[0].plot(seconds, z, label="altitude change")
     axes[0].axhline(case["expected_delta"][0], ls="--", color="black", label="forward target")
@@ -79,13 +80,14 @@ def main():
     parser.add_argument("--root", type=Path, required=True)
     args = parser.parse_args()
     settings = json.loads((args.root / "config.json").read_text())
-    figure, axes = plt.subplots(len(settings["missions"]), 3, figsize=(14, 7),
+    figure, axes = plt.subplots(len(settings["missions"]), 3,
+                                figsize=(14, 3.5*len(settings["missions"])),
                                 layout="constrained", squeeze=False)
     audits = {}
     for index, case in enumerate(settings["missions"]):
         rows, audits[case["id"]] = inspect(args.root / case["id"])
         draw_case(axes[index], rows, case)
-    figure.suptitle("D143 real shared-Qwen architecture — rendered grid3d, not AirSim")
+    figure.suptitle("Real shared-Qwen architecture — rendered grid3d, not AirSim")
     figure.savefig(args.root / "architecture_results.png", dpi=140)
     plt.close(figure)
     (args.root / "verification_local.json").write_text(json.dumps(audits, indent=2))

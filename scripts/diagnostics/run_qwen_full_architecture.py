@@ -47,9 +47,11 @@ def provenance(out):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--config", type=Path,
+                        default=Path("configs/experiments/qwen_async_local.json"))
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
-    settings = json.loads(Path("configs/experiments/qwen_async_local.json").read_text())
+    settings = json.loads(args.config.read_text())
     settings["inference_kind"] = "real shared Qwen; experimental D142 full graphs"
     settings["experimental_burst_capacity"] = 256
     (args.out / "config.json").write_text(json.dumps(settings, indent=2))

@@ -11,6 +11,19 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-144 easier-task component audit (2026-10-17)
+
+Read reports/qwen_easy_components_20261017/REPORT.md. Four approved numeric tasks
+ran unchanged real architecture in grid3d. Physical hold and simple movements
+meet fixed tolerances;0/4 full completion. Monitor returns hold/replan instead
+of completion. Compound direction malformed once then combined stages; later
+planner/direction dropped turn. Physical move-before-turn occurred but no
+intermediate goal advancement.20 fresh actions, no collisions/OOB, timing passes.
+4 auditor tests/code checks pass; plots/raw archives preserved. GPU unloaded.
+Next repair monitor status semantics/numeric evidence, explicit ordered steps
+and mission invariants, then repeat fixed suite. No training/AWS, no runtime
+repair implemented this turn. AirSim/obstacle/semantic capability unqualified.
+
 ## Latest user work: D-143 full architecture experiment (2026-10-17)
 
 Read reports/qwen_full_architecture_20261017/REPORT.md. User authorized simulator

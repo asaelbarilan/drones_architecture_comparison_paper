@@ -1,5 +1,14 @@
 # TODO
 
+## D-144: component failures isolated by easier tasks
+
+- Numeric completion/hold semantics fail even with zero motion and zero error.
+- Add explicit ordered steps and immutable mission requirements; compound
+  schema-valid targets currently erase stage order and later drop the turn.
+- Validate direction against the authorized step, not JSON syntax alone.
+- Reuse frozen four-task criteria for the next repaired suite; no new training
+  indicated by this audit. Obstacle/visual/cognitive/AirSim capability still open.
+
 ## D-143: full architecture numeric-completion contract fails
 
 - Both tasks reached arrival tolerance, but neither completed through monitor.

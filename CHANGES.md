@@ -1,3 +1,12 @@
+## 2026-10-17: D-144 four easier tasks isolate component failures
+
+Real shared-Qwen hold/1m forward/15deg turn/ordered move-turn suite completed.
+Physical hold/simple movement passes fixed tolerance,0/4 mission completions.
+Monitor status semantics fail; compound stages collapsed and turn later dropped.
+20 fresh actions, no collisions/OOB; control timing passes. Four independent
+auditor tests and code checks pass. Frozen config, raw event archive, decisions
+and plots preserved. No runtime/model/prompt repair, AWS or training; GPU unloaded.
+
 ## 2026-10-17: D-143 full architecture experiment exposes coordination failure
 
 Two60s real shared-Qwen grid3d missions run through existing asynchronous loop

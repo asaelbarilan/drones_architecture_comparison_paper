@@ -69,6 +69,21 @@ Stopping requires a monitor stop AND local position <=0.5m, heading <=5 degrees,
 speed <=0.2m/s. This is not independent proof that the semantic mission succeeded.
 Malformed role output produces a hold. There is no simulator-label fallback.
 
+## D135 asynchronous runtime
+
+The separate `uavlab.live_qwen` runtime connects persistent direction-approved
+goals to streamed pilot actions and the existing controller/shield. Planning runs
+at startup/replan; monitoring runs on arrival/stall/shield/periodic events. Control
+does not wait on model calls. One GPU process serializes all roles; cognitive calls
+hold motion while physics continues. Intermediate goals advance planning; a
+monitor STOP alone cannot bypass position, heading, speed or terminal-goal checks.
+
+See `reports/qwen_async_20261016/REPORT.md` and
+`configs/experiments/qwen_async_local.json`. Scripted integration passes, but both
+real-model grid3d tasks fail because actions miss the1.5s deadline. It is not yet
+flight-qualified. No AirSim, grounding or general cognitive-task success claimed.
+The D132 descriptions below remain historical behavior of the original profile.
+
 ## What is verified
 
 See `reports/shared_qwen_vla_20261016/final/result.json` and `calls.jsonl`.

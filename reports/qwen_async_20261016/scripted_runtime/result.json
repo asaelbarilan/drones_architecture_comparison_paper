@@ -1,0 +1,25 @@
+{
+  "stopped": true,
+  "contract_failed": false,
+  "endpoint_error_m": 0.44113453314629514,
+  "heading_error_deg": 0.0,
+  "final_speed_mps": 0.13996686544890444,
+  "task_pass": true,
+  "role_calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 4,
+    "monitor": 1
+  },
+  "actions_consumed": 3,
+  "fresh_actions": true,
+  "goal_authorizations": 1,
+  "control_ticks": 47,
+  "max_tick_gap_s": 0.0533511,
+  "timing_pass": true,
+  "simulated_seconds": 2.3986509,
+  "scope": "wall-paced rendered grid3d; not AirSim",
+  "inference_kind": "scripted test double",
+  "collisions": 0,
+  "out_of_bounds": false
+}

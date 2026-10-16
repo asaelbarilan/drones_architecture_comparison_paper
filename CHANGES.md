@@ -1,3 +1,13 @@
+## 2026-10-16 — D-135: asynchronous runtime, failed real-model qualification
+
+Implemented persistent goals, event-driven roles, streaming action consumption,
+revocation, shield checks and expiry-aware wall-clock physics.63 focused tests,
+Ruff and short-function/file checks pass. Delayed scripted whole-runtime test
+moves/stops; both real Qwen60s grid3d tests execute zero actions because inference
+misses1.5s freshness. Preserve all failures and exact inputs. Thread probes do not
+solve latency. Timer change improves scripted cadence only; no successful real
+flight or AirSim validation claimed. No AWS/training. See D135 report.
+
 ## 2026-10-16 — D-134b: streamed actions and JSON buffering
 
 Implemented complete-action streaming and a bounded JSON queue in an isolated

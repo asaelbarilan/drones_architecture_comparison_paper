@@ -11,6 +11,20 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-135 asynchronous integration (2026-10-16)
+
+Read reports/qwen_async_20261016/REPORT.md. Persistent goals and event-driven
+planner/direction/pilot/monitor now connect through the streaming worker to the
+controller and shield in a separate wall-clock runner.63 focused tests and code
+limits pass. Scripted delayed whole-runtime test moves and stops correctly;
+two real Qwen grid3d tests both hover/fail because first actions miss1.5s expiry.
+Warm saved-input first actions1.82–2.21s; lowering CPU threads did not fix it.
+Do not claim successful flight or reuse D134 latency as current performance.
+Real_v1 ran about15.9Hz; timer fix measured only with scripted runtime (~19.6Hz).
+Next profile saved-input inference stages, not more failed flights or TTL extension.
+AirSim and general visual/cognitive mission qualification remain open. No AWS,
+training or active model process. D134 mission wiring below is now historical.
+
 ## Latest user work: D-134 streamed JSON actions (2026-10-16)
 
 Read reports/qwen_stream_20261016/REPORT.md and

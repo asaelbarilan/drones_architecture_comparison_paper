@@ -1,0 +1,164 @@
+{
+  "forward": {
+    "calls": [
+      {
+        "role": "planner",
+        "start": 0.0003692,
+        "duration": 9.1177614,
+        "status": "complete"
+      },
+      {
+        "role": "direction",
+        "start": 9.1163028,
+        "duration": 9.5238165,
+        "status": "complete"
+      },
+      {
+        "role": "pilot",
+        "start": 18.6382627,
+        "duration": 1.7981346,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 20.4345445,
+        "duration": 1.8223802,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 22.2553817,
+        "duration": 1.7627242,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 24.0148701,
+        "duration": 1.8904005,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 25.9025626,
+        "duration": 1.8306353,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 27.7296794,
+        "duration": 1.2614084,
+        "status": "cancelled"
+      },
+      {
+        "role": "monitor",
+        "start": 28.9888929,
+        "duration": 7.3083468,
+        "status": "complete"
+      },
+      {
+        "role": "planner",
+        "start": 36.2951586,
+        "duration": 9.7914181,
+        "status": "complete"
+      },
+      {
+        "role": "direction",
+        "start": 46.0847612,
+        "duration": 9.3665086,
+        "status": "complete"
+      },
+      {
+        "role": "pilot",
+        "start": 55.4499309,
+        "duration": 1.7682609,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 57.216587,
+        "duration": 1.6420727,
+        "status": "cancelled"
+      }
+    ],
+    "unique_positions": 1,
+    "ticks": 954,
+    "actions": 0,
+    "image": "input_1_0.png",
+    "all_commands_hold": true
+  },
+  "turn": {
+    "calls": [
+      {
+        "role": "planner",
+        "start": 0.0002095,
+        "duration": 12.9103382,
+        "status": "complete"
+      },
+      {
+        "role": "direction",
+        "start": 12.9082566,
+        "duration": 7.2358726,
+        "status": "complete"
+      },
+      {
+        "role": "pilot",
+        "start": 20.1421398,
+        "duration": 1.7679803,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 21.9066829,
+        "duration": 1.577102,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 23.4819482,
+        "duration": 1.8374446,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 25.3174782,
+        "duration": 1.8368726,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 27.1527147,
+        "duration": 2.0184221,
+        "status": "cancelled"
+      },
+      {
+        "role": "pilot",
+        "start": 29.1695311,
+        "duration": 1.4541401,
+        "status": "cancelled"
+      },
+      {
+        "role": "monitor",
+        "start": 30.6213666,
+        "duration": 10.0366892,
+        "status": "complete"
+      },
+      {
+        "role": "planner",
+        "start": 40.6543861,
+        "duration": 11.5622568,
+        "status": "complete"
+      },
+      {
+        "role": "direction",
+        "start": 52.2142987,
+        "duration": 6.833889,
+        "status": "complete"
+      }
+    ],
+    "unique_positions": 1,
+    "ticks": 954,
+    "actions": 0,
+    "image": "input_15_0.png",
+    "all_commands_hold": true
+  }
+}

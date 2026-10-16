@@ -3221,3 +3221,30 @@ shield and fresh camera/state inputs; validate mission grounding separately. Rej
 pretending a responsive test tick is a flight, executing a stale remainder, or
 claiming a6.5x mission speedup. Profile action projection/decode before kernel or
 requantization changes; no extra model or retraining chosen by the research review.
+
+### D-135 — persistent goals and wall-clock integration (2026-10-16)
+
+User authorizes completing local asynchronous planner/monitor/pilot integration
+and simulator tests, with D134 code limits. Rationale: a responsive inference
+worker alone does not remove the per-action VLM cycle. Add a separate wall-clock
+runner over the existing environment/controller/shield contracts; retain all
+historical SimClock profiles. Planner runs on startup/replan, direction authorizes
+an anchored persistent goal, pilot refreshes action chunks from new observations,
+monitor runs on arrival/stall/shield/periodic events. Cognitive calls suspend
+motion, not physics. One GPU owner serializes model calls; control never awaits it.
+Numeric direction offsets remain relative to episode origin across replans.
+Visual goal geometry uses the source camera pose; stale boxes are not copied into
+new pilot frames. No oracle task state enters any prompt. No AWS or training.
+Status: integration implemented and tested; real-model qualification FAILED.
+63 focused tests pass, including delayed scripted whole-runtime movement/stop;
+Ruff and changed-file code limits pass. Two real Qwen60s grid3d runs authorize
+goals and detect stalls but execute zero actions: first action misses unchanged
+1.5s camera expiry. Saved-input warm first-action probes1.82–2.21s, CPU thread
+reduction ineffective, token sequences identical. Current performance must not
+be inferred from D134's earlier0.552s. Cause remains unresolved; profile saved
+prefill/decode/projection before another flight, never relax freshness to pass.
+Real_v1 averaged15.9Hz; subsequent high-resolution sleep change measured~19.6Hz
+only in the scripted runtime. Numeric empty scenes do not validate grounding.
+Grid3d is the rendered adapter; Project AirSim remains unimplemented. Evidence:
+reports/qwen_async_20261016/REPORT.md, raw events/images, independent audit and
+visually inspected simulator_audit.png. Models unloaded; no cloud/training.

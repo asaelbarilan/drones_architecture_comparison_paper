@@ -1,11 +1,23 @@
 # TODO
 
+## D-135 — real-model latency blocks motion after integration
+
+- Persistent-goal/worker/controller/shield integration is implemented and the
+  delayed scripted whole-runtime test passes. Two actual Qwen grid3d tasks fail:
+  zero fresh actions, safe hover. Preserve these failures, do not raise the TTL.
+- Profile saved-input prefill, NF4 decoding and output projection. Thread-count
+  probes did not fix warm first-action1.82–2.21s versus1.5s expiry.
+- Requalify live cadence after the Windows timer fix; currently measured only
+  with scripted replies. Real_v1 averaged15.9Hz, not the configured20Hz.
+- Validate visual grounding and cognitive multi-step tasks separately, then the
+  actual AirSim adapter (currently a placeholder). No general mission-ready claim.
+- Check the legacy first-action profile's eight-step consumer compatibility;
+  the new streamed runtime bypasses that historical consumer.
+
 ## D-134 — connect measured streaming to the mission runtime
 
-- Streaming quartets, a bounded JSON action buffer and a separate GPU owner are
-  implemented. Connect them to persistent VLM-approved goals, event priorities,
-  the shield and actual wall-clock controller. Keep the existing deterministic
-  SimClock profiles separate; a test control tick is not a flight validation.
+- D135 completes the streaming/goal/controller wiring. Existing deterministic
+  SimClock profiles remain separate; a test control tick is not flight validation.
 - Use a fresh camera/state observation for replacement chunks. Later actions may
   be appended while earlier actions execute, but cannot renew the source-image
   lifetime. Revoke the buffer on hold/replan and recheck current motion constraints.

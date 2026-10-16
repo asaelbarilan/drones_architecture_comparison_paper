@@ -1,3 +1,10 @@
+## 2026-10-16 — D-134a: Qwen structure before streaming
+
+Split pilot validation/encoding/decoding from model ownership and shorten backend
+loading/audit functions. Existing 39 focused tests pass before and after. Add an
+explicit code-limit checker: 40 lines/function, five arguments, complexity10,
+12branches, 1,000 lines/file. This commit changes structure, not generation.
+
 ## 2026-10-16 — D-133: bounded per-role Qwen caches
 
 Add an opt-in cached development profile on the existing shared NF4 model.

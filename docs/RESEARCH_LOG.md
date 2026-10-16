@@ -3183,3 +3183,16 @@ each, not a flight/throughput benchmark.32-token action chunk still blocks.
 End retained tensors~68.7MiB; peak PyTorch allocation4,470,585,344bytes. GPU exits
 to12MiB used. No AWS, training, flights, promotion or resource deletion. Streaming,
 wall-clock independent control and semantic mission validation remain open.
+
+### D-134 — Frozen-model streaming and latency optimization (2026-10-16)
+
+Status: implementation in progress. User authorizes local implementation and
+no-retraining latency research, with strict short-function/module rules.
+Rationale: current consumer uses one of eight generated actions, and synchronous
+generation blocks the control process. First refactor separates codec and model
+ownership without changing generation, then measure streaming in a separate worker.
+Evidence: 39 focused tests before/after structure change; code-limit checker passes.
+Research: docs/research/20261016_latency/PROTOCOL.md, evidence.json, DECISION.md.
+30 candidates,26 substantive inspections,18 primary sources; coverage validator
+passes. Direct approximate/pruned VLA methods and requantization are alternatives,
+not automatic deployments. Full asynchronous mission architecture remains open.

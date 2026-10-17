@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145962111064300,
+    "goal_version": 0,
+    "request_id": 178,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the red pillar and stop nearby\",\n      \"target\": \"red pillar\"\n    },\n    {\n      \"objective\": \"Approach the blue pillar and stop nearby\",\n      \"target\": \"blue pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145962111064300,
+    "goal_version": 0,
+    "mission": "Visit the red pillar first, staying within 2 metres for at least half a second, then visit the blue pillar and stop within 2 metres.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the red pillar and stop nearby\",\n      \"target\": \"red pillar\"\n    },\n    {\n      \"objective\": \"Approach the blue pillar and stop nearby\",\n      \"target\": \"blue pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Approach the red pillar and stop nearby",
+        "target": "red pillar"
+      },
+      {
+        "objective": "Approach the blue pillar and stop nearby",
+        "target": "blue pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145965096775400,
+    "goal_version": 0,
+    "request_id": 179,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    140,\n    200,\n    280,\n    540\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145978900581500,
+    "goal_version": 1,
+    "request_id": 188,
+    "role": "monitor",
+    "payload": "{\"status\": \"replan\", \"reason\": \"No fresh evidence of red pillar's presence.\"}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145978900581500,
+    "goal_version": 2,
+    "trigger": "monitor_replan: No fresh evidence of red pillar's presence.",
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145980927240200,
+    "goal_version": 2,
+    "request_id": 189,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Stale perception of red pillar; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145984471973100,
+    "goal_version": 3,
+    "request_id": 190,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    225,\n    225,\n    375,\n    550\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145998467050200,
+    "goal_version": 4,
+    "request_id": 199,
+    "role": "monitor",
+    "payload": "{\"status\": \"replan\", \"reason\": \"No fresh evidence of red pillar's presence.\"}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145998467050200,
+    "goal_version": 5,
+    "trigger": "monitor_replan: No fresh evidence of red pillar's presence.",
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146000896225600,
+    "goal_version": 5,
+    "request_id": 200,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Stale perception; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146004387018800,
+    "goal_version": 6,
+    "request_id": 201,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    289,\n    217,\n    413,\n    533\n  ]\n}"
+  }
+]

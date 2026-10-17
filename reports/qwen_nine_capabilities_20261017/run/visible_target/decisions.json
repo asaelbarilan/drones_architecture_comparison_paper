@@ -1,0 +1,88 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145650603619300,
+    "goal_version": 0,
+    "request_id": 11,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Fly to the red pillar and stop within 2 metres.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145650603619300,
+    "goal_version": 0,
+    "mission": "Fly to the red pillar and stop within 2 metres.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Fly to the red pillar and stop within 2 metres.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Fly to the red pillar and stop within 2 metres.",
+        "target": "red pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145653593271000,
+    "goal_version": 0,
+    "request_id": 12,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    290,\n    560,\n    490\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145661245690000,
+    "goal_version": 2,
+    "request_id": 16,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    280,\n    550,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145668038335900,
+    "goal_version": 4,
+    "request_id": 20,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    280,\n    560,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145674771443900,
+    "goal_version": 6,
+    "request_id": 24,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    270,\n    560,\n    490\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145681504147400,
+    "goal_version": 8,
+    "request_id": 28,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    267,\n    567,\n    500\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145688255665200,
+    "goal_version": 10,
+    "request_id": 32,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    217,\n    567,\n    533\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145695304022700,
+    "goal_version": 12,
+    "request_id": 36,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    233,\n    567,\n    500\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145702045597500,
+    "goal_version": 14,
+    "request_id": 40,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    425,\n    210,\n    575,\n    530\n  ]\n}"
+  }
+]

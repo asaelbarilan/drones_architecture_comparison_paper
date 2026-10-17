@@ -11,6 +11,20 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-150 existing nine-task screen (2026-10-17)
+
+Read reports/qwen_nine_capabilities_20261017/REPORT.md. All nine existing
+capability tasks tried once, seed1061, original criteria/60s caps, frozen D148
+runtime. Zero passes: seven timeouts; known-goal planner returns3coordinates
+instead of4; final following task hits eight-entry decoder graph cache limit
+in the persistent suite (not KV token capacity). No task-specific fixes/retries.
+299fresh actions, zero collisions/OOB; all control timing checks pass. Search
+and closing passage never move; refresh-view recovery cannot implement search.
+91CPUtests pass; source hashes unchanged; model unloaded12MiB. Local only,
+no AWS/training/push. Actual paths/prompts/raw archives retained. D148 narrow
+demo remains valid but not general autonomy; no matched classical comparison.
+Nine tasks include D108 approach-hover; docs previously listed only eight.
+
 ## Latest user work: D-149 LinkedIn demo review package (2026-10-17)
 
 Prepared reports/linkedin_demo_20261017: saved D148 flight replay video, PNG/SVG

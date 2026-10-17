@@ -32,5 +32,6 @@ meets the old claim elsewhere needs to be able to find out that it was withdrawn
 ## Current research framing and task suite
 
 See [CAPABILITY_SCENARIOS.md](CAPABILITY_SCENARIOS.md) for the eight capability
-regimes and latest external ASP-UAV design reference (nine architecture conditions).
+regimes, nine runnable tasks (including D-108 approach-hover), and latest external
+ASP-UAV design reference (nine architecture conditions).
 The original concise design PDF in this folder is an earlier navigation-centric draft.

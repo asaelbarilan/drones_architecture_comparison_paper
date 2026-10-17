@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145838332616400,
+    "goal_version": 0,
+    "request_id": 105,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the overturned vehicle among the two vehicles.\",\n      \"target\": \"the overturned vehicle among the two vehicles\"\n    },\n    {\n      \"objective\": \"Hover above it at 3.2 metres altitude and stop within 2 metres of that hover point.\",\n      \"target\": \"the overturned vehicle among the two vehicles\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145838332616400,
+    "goal_version": 0,
+    "mission": "Find the overturned vehicle among the two vehicles. Hover above it at 3.2 metres altitude and stop within 2 metres of that hover point.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the overturned vehicle among the two vehicles.\",\n      \"target\": \"the overturned vehicle among the two vehicles\"\n    },\n    {\n      \"objective\": \"Hover above it at 3.2 metres altitude and stop within 2 metres of that hover point.\",\n      \"target\": \"the overturned vehicle among the two vehicles\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Find the overturned vehicle among the two vehicles.",
+        "target": "the overturned vehicle among the two vehicles"
+      },
+      {
+        "objective": "Hover above it at 3.2 metres altitude and stop within 2 metres of that hover point.",
+        "target": "the overturned vehicle among the two vehicles"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145841519428600,
+    "goal_version": 0,
+    "request_id": 106,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    250,\n    500,\n    400,\n    550\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145855449205800,
+    "goal_version": 1,
+    "request_id": 115,
+    "role": "monitor",
+    "payload": "{\"status\": \"replan\", \"reason\": \"Object too far, scene unchanged but not near target.\"}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145855449205800,
+    "goal_version": 2,
+    "trigger": "monitor_replan: Object too far, scene unchanged but not near target.",
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145857325775000,
+    "goal_version": 2,
+    "request_id": 116,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Target lost; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145860355760400,
+    "goal_version": 3,
+    "request_id": 117,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    283,\n    500,\n    400,\n    575\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145874281836900,
+    "goal_version": 4,
+    "request_id": 126,
+    "role": "monitor",
+    "payload": "{\"status\": \"replan\", \"reason\": \"Object evidence not fresh; scene unchanged but identity lost.\"}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145874281836900,
+    "goal_version": 5,
+    "trigger": "monitor_replan: Object evidence not fresh; scene unchanged but identity lost.",
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145876509610600,
+    "goal_version": 5,
+    "request_id": 127,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Target identity lost; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145879595281100,
+    "goal_version": 6,
+    "request_id": 128,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    333,\n    480,\n    466,\n    540\n  ]\n}"
+  }
+]

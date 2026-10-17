@@ -3569,3 +3569,36 @@ remote before this draft. HF model independently verified private; legacy
 GitHub drone-vla-training redirects to not-to-use. Existing HF card licensing
 review remains unresolved. Do not claim public model availability or PPO gains.
 See demo README/link_verification/media_manifest for scope and publication steps.
+
+### D-150: unchanged shared-Qwen screen on nine existing tasks (2026-10-17)
+
+Status: completed negative development screen; no runtime repair or publication.
+Rationale: user requested trying the existing nine tasks, rather than designing
+another suite. SCENARIOS contains nine including D108 approach-hover; earlier
+overview listed eight. Existing instructions/geometry/criteria/60s limits kept,
+one development seed1061 each. Same D148 shared model/runtime, one persistent
+GPU owner, reset mission state, no hidden evaluator truth supplied to models.
+
+0/9 task passes: seven timeouts; coordinate planner emits three coordinates
+instead of the four-channel runtime pose; tracking aborts on the decoder's
+eight-entry graph-shape cache cap. The latter is session-dependent evidence,
+not a KV token-limit error or a qualified isolated tracking result. Visible
+approach ends7.574m away, hover7.478m, vehicle11.478m, conditional12.817m,
+ordered16.541m from final goal with0requiredvisits. Search and closure recovery
+never move; absent-grounding refresh does not search. Planner fixed steps do
+not implement conditional branch or recovery authority. No threshold/horizon
+relaxation or per-task retry. These failures do not justify training or establish
+whether VLA beats classical control. A matched controller comparison remains open.
+
+299 consumed action packets fresh, no collisions/OOB, tick gaps<=63.01ms.
+Two startup exact-action cases pass; source hashes unchanged;91CPUtests and
+three Python-file code checks pass. Sandbox startup stalled before any flight;
+actual complete suite launched once with local process permissions,1200s cap.
+GPU unloaded12MiB after completion. D148 short demo success is retained, but
+cannot support broad task/general-autonomy claims. No AWS/training/remote push.
+
+Evidence: reports/qwen_nine_capabilities_20261017/REPORT.md,paths.png,initial_views.png,
+run/result.json, per-task decisions/frames/evaluator snapshots, exact prompt/token
+and event archive withSHA256manifest,verification.json,validation.json. Recorded
+rendered capability_grid3d, not AirSim; wall-paced screen not matched against
+historical simulator-clock architecture results.

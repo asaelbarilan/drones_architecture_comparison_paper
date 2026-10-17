@@ -1,0 +1,263 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145774614732600,
+    "goal_version": 0,
+    "request_id": 83,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the red pillar, which may be outside the current view. Fly to it and stop within 2 metres.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145774614732600,
+    "goal_version": 0,
+    "mission": "Find the red pillar, which may be outside the current view. Fly to it and stop within 2 metres.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Find the red pillar, which may be outside the current view. Fly to it and stop within 2 metres.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Find the red pillar, which may be outside the current view. Fly to it and stop within 2 metres.",
+        "target": "red pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145775981219300,
+    "goal_version": 0,
+    "request_id": 84,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145775981219300,
+    "goal_version": 1,
+    "trigger": "target_lost",
+    "step_index": 0
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145775981219300,
+    "goal_version": 1,
+    "source_seq": 73
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145779836541300,
+    "goal_version": 1,
+    "request_id": 85,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Target lost; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145781154729200,
+    "goal_version": 2,
+    "request_id": 86,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145781154729200,
+    "goal_version": 2,
+    "source_seq": 176
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145784655165800,
+    "goal_version": 2,
+    "request_id": 87,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145784655165800,
+    "goal_version": 2,
+    "source_seq": 242
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145788154847500,
+    "goal_version": 2,
+    "request_id": 88,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145788154847500,
+    "goal_version": 2,
+    "source_seq": 311
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145791596928000,
+    "goal_version": 2,
+    "request_id": 89,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145791596928000,
+    "goal_version": 2,
+    "source_seq": 380
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145795049175800,
+    "goal_version": 2,
+    "request_id": 90,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145795049175800,
+    "goal_version": 2,
+    "source_seq": 448
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145798547031500,
+    "goal_version": 2,
+    "request_id": 91,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145798547031500,
+    "goal_version": 2,
+    "source_seq": 516
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145801994584600,
+    "goal_version": 2,
+    "request_id": 92,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145801994584600,
+    "goal_version": 2,
+    "source_seq": 585
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145805449138000,
+    "goal_version": 2,
+    "request_id": 93,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145805449138000,
+    "goal_version": 2,
+    "source_seq": 653
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145808952099200,
+    "goal_version": 2,
+    "request_id": 94,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145808952099200,
+    "goal_version": 2,
+    "source_seq": 721
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145812403635300,
+    "goal_version": 2,
+    "request_id": 95,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145812403635300,
+    "goal_version": 2,
+    "source_seq": 790
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145815908142600,
+    "goal_version": 2,
+    "request_id": 96,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145815908142600,
+    "goal_version": 2,
+    "source_seq": 858
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145819364718700,
+    "goal_version": 2,
+    "request_id": 97,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145819364718700,
+    "goal_version": 2,
+    "source_seq": 927
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145822813056700,
+    "goal_version": 2,
+    "request_id": 98,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145822813056700,
+    "goal_version": 2,
+    "source_seq": 995
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145826259750300,
+    "goal_version": 2,
+    "request_id": 99,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145826259750300,
+    "goal_version": 2,
+    "source_seq": 1063
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145829759815800,
+    "goal_version": 2,
+    "request_id": 100,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 145829759815800,
+    "goal_version": 2,
+    "source_seq": 1131
+  }
+]

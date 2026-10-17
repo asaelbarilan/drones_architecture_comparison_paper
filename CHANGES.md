@@ -1,3 +1,13 @@
+## 2026-10-17: D-150 existing nine-task local screen
+
+Ran frozen shared-Qwen runtime on all nine existing capability tasks, seed1061,
+original criteria/60s limits. 0/9: seven timeouts, numeric planner schema failure,
+and persistent decoder graph cache exhaustion on following. No repairs between
+tasks, no training/AWS. 299fresh action packets, zero collisions/OOB, all tick
+checks pass. 91CPUtests pass. Saved actual plans, paths, images, source hashes
+and raw archives under reports/qwen_nine_capabilities_20261017. GPU unloaded.
+Corrected task inventory to include D108 approach-hover. No push/publication.
+
 ## 2026-10-17: D-149 LinkedIn demo review package (2026-10-17)
 
 Prepared reports/linkedin_demo_20261017: saved D148 flight replay video, PNG/SVG

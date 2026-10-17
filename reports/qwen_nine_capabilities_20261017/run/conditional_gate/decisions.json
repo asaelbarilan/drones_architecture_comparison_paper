@@ -1,0 +1,103 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145901864937000,
+    "goal_version": 0,
+    "request_id": 142,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the wall ahead and stop nearby if the left opening is clear\",\n      \"target\": \"the wall ahead\"\n    },\n    {\n      \"objective\": \"If the left opening is blocked, approach the right opening and stop nearby\",\n      \"target\": \"the right opening\"\n    },\n    {\n      \"objective\": \"Fly to the red pillar and stop within 2 metres\",\n      \"target\": \"the red pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145901864937000,
+    "goal_version": 0,
+    "mission": "At the wall ahead, use the left opening if it is clear; if the left opening is blocked, use the right opening. Stay below 7 metres. Then fly to the red pillar and stop within 2 metres.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the wall ahead and stop nearby if the left opening is clear\",\n      \"target\": \"the wall ahead\"\n    },\n    {\n      \"objective\": \"If the left opening is blocked, approach the right opening and stop nearby\",\n      \"target\": \"the right opening\"\n    },\n    {\n      \"objective\": \"Fly to the red pillar and stop within 2 metres\",\n      \"target\": \"the red pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Approach the wall ahead and stop nearby if the left opening is clear",
+        "target": "the wall ahead"
+      },
+      {
+        "objective": "If the left opening is blocked, approach the right opening and stop nearby",
+        "target": "the right opening"
+      },
+      {
+        "objective": "Fly to the red pillar and stop within 2 metres",
+        "target": "the red pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145904593794500,
+    "goal_version": 0,
+    "request_id": 143,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    625,\n    666\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145918435433800,
+    "goal_version": 1,
+    "request_id": 152,
+    "role": "monitor",
+    "payload": "{\"status\": \"replan\", \"reason\": \"No fresh evidence of wall ahead.\"}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 145918435433800,
+    "goal_version": 2,
+    "trigger": "monitor_replan: No fresh evidence of wall ahead.",
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145920562617900,
+    "goal_version": 2,
+    "request_id": 153,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Stale perception of wall ahead; request fresh view.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145923346354700,
+    "goal_version": 3,
+    "request_id": 154,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    700,\n    700\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145935248429500,
+    "goal_version": 5,
+    "request_id": 161,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    1000,\n    1000\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145941223964400,
+    "goal_version": 7,
+    "request_id": 164,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    1000,\n    1000\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145946437467500,
+    "goal_version": 9,
+    "request_id": 167,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    1000,\n    1000\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145951706375800,
+    "goal_version": 11,
+    "request_id": 170,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    0,\n    0,\n    1000,\n    1000\n  ]\n}"
+  }
+]

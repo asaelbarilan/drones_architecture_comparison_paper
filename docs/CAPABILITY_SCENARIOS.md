@@ -1,8 +1,9 @@
-# Eight local capability scenarios — D-103
+# Nine local capability scenarios — D-103 / D-108
 
 One first scenario per category agreed with the user. These are development
-fixtures in the existing simulator, not final paper benchmarks or results for
-any model. All use `capability_grid3d`, shared grid dynamics and corrected
+fixtures in the existing simulator, not final paper benchmarks. D-108 added
+approach-and-hover as a ninth runnable task within these eight capability
+regimes. All use `capability_grid3d`, shared grid dynamics and corrected
 `box_ray_v2` depth. No new policy or VLA training is included.
 
 The current research design is **ASP-UAV_Final_Research_Design.pdf**, in
@@ -17,6 +18,7 @@ regimes. The older concise PDF under docs is not the latest research framing.
 |---|---|---|---|
 | Known-goal navigation | `capability_known_goal` | Open-world ENU target (12,0,3) m, supplied in instruction | Within 2 m and explicit stop |
 | Semantic goal navigation | `capability_visible_target` | One visible red pillar | Within 2 m of the red pillar and explicit stop |
+| Precision approach and hover (D-108) | `capability_approach_hover` | Approach the red pillar and hold before it | 0.75–1.25 m from its reference point on the approach side, <=0.35 m lateral error, <=0.2 m/s, visible and contact-free for 2 continuous seconds, then explicit stop |
 | Semantic search | `capability_turn_search` | Red pillar outside initial forward view; turn reveals it | Target observed during physical steps, approach within 2 m, explicit stop |
 | State reasoning | `capability_overturned_vehicle` | Two neutral-colored box vehicles; one wheels-up | Stop within 2 m of hover point 3.2 m above the ground over the inverted vehicle |
 | Conditional task | `capability_conditional_gate` | Left opening preferred; use right if left blocked | Cross the instructed opening below 7 m, then reach red pillar and stop; a wrong first crossing fails |
@@ -71,7 +73,7 @@ python -m uavlab.cli debugger runs/YOUR_NEW_RUN --out reports/debugger/YOUR_RUN.
 This adds tasks, not unsupported skills to policies. AerialClaw's historical
 acceptance used labeled detections, which these RGB-D scenarios intentionally
 withhold. Existing policy performance/compatibility must be measured explicitly;
-no architecture is claimed to solve the eight tasks.
+no architecture is claimed to solve all nine tasks.
 
 ## No-model validation and visual review
 

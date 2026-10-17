@@ -1,0 +1,96 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 145714616446000,
+    "goal_version": 0,
+    "request_id": 49,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the red pillar and hover about 1 metre before it on your approach side, keeping it in view, without touching it. Hold for 2 continuous seconds, then finish.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 145714616446000,
+    "goal_version": 0,
+    "mission": "Approach the red pillar and hover about 1 metre before it on your approach side, keeping it in view, without touching it. Hold for 2 continuous seconds, then finish. Acceptance: 0.75 to 1.25 metres from its reference point, within 0.35 metres of the approach line, speed at most 0.2 m/s.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Approach the red pillar and hover about 1 metre before it on your approach side, keeping it in view, without touching it. Hold for 2 continuous seconds, then finish.\",\n      \"target\": \"red pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Approach the red pillar and hover about 1 metre before it on your approach side, keeping it in view, without touching it. Hold for 2 continuous seconds, then finish.",
+        "target": "red pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145717701401700,
+    "goal_version": 0,
+    "request_id": 50,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    290,\n    520,\n    490\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145725447971900,
+    "goal_version": 2,
+    "request_id": 54,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    280,\n    550,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145732797208900,
+    "goal_version": 4,
+    "request_id": 58,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    280,\n    520,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145739182188600,
+    "goal_version": 6,
+    "request_id": 61,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    280,\n    550,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145746020458600,
+    "goal_version": 8,
+    "request_id": 65,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    220,\n    550,\n    520\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145752052680500,
+    "goal_version": 10,
+    "request_id": 68,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    220,\n    560,\n    540\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145757926434800,
+    "goal_version": 12,
+    "request_id": 71,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    220,\n    550,\n    580\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145763596740200,
+    "goal_version": 14,
+    "request_id": 74,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    440,\n    220,\n    560,\n    580\n  ]\n}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 145769266785000,
+    "goal_version": 16,
+    "request_id": 77,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    433,\n    200,\n    567,\n    580\n  ]\n}"
+  }
+]

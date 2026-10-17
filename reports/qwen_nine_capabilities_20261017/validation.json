@@ -1,0 +1,10 @@
+{
+  "scoring_and_runtime_tests": 91,
+  "pytest_result": "passed",
+  "command": "python -m pytest tests/test_live_qwen.py tests/test_live_qwen_runtime.py tests/test_live_qwen_mission.py tests/test_live_qwen_grounding.py tests/test_live_qwen_events.py tests/test_qwen_capability_screen.py tests/unit/test_capability_scenarios.py -q",
+  "scope": "CPU regression checks; real task performance scored separately",
+  "initial_launch": "sandbox process startup stalled before model loading or flights; stopped exact processes; actual run in run/",
+  "policy_changes_during_suite": false,
+  "aws": false,
+  "training": false
+}

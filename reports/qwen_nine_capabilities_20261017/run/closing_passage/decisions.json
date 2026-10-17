@@ -1,0 +1,257 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 146025748198000,
+    "goal_version": 0,
+    "request_id": 215,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Fly toward the red pillar through the open passage.\",\n      \"target\": \"red pillar\"\n    },\n    {\n      \"objective\": \"If the passage closes, find another route around the wall.\",\n      \"target\": \"wall\"\n    },\n    {\n      \"objective\": \"Stay below 7 metres and stop within 2 metres of the pillar.\",\n      \"target\": \"pillar\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 146025748198000,
+    "goal_version": 0,
+    "mission": "Fly toward the red pillar through the open passage. If the passage closes, find another route around the wall. Stay below 7 metres and stop within 2 metres of the pillar.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Fly toward the red pillar through the open passage.\",\n      \"target\": \"red pillar\"\n    },\n    {\n      \"objective\": \"If the passage closes, find another route around the wall.\",\n      \"target\": \"wall\"\n    },\n    {\n      \"objective\": \"Stay below 7 metres and stop within 2 metres of the pillar.\",\n      \"target\": \"pillar\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Fly toward the red pillar through the open passage.",
+        "target": "red pillar"
+      },
+      {
+        "objective": "If the passage closes, find another route around the wall.",
+        "target": "wall"
+      },
+      {
+        "objective": "Stay below 7 metres and stop within 2 metres of the pillar.",
+        "target": "pillar"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146026961481600,
+    "goal_version": 0,
+    "request_id": 216,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "planner_wakeup",
+    "wall_ns": 146026961481600,
+    "goal_version": 1,
+    "trigger": "target_lost",
+    "step_index": 0
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146026961481600,
+    "goal_version": 1,
+    "source_seq": 135
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146030882072800,
+    "goal_version": 1,
+    "request_id": 217,
+    "role": "planner",
+    "payload": "{\"action\": \"refresh_view\", \"reason\": \"Lost target; request fresh visual grounding.\"}"
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146032193327600,
+    "goal_version": 2,
+    "request_id": 218,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146032193327600,
+    "goal_version": 2,
+    "source_seq": 236
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146035703427600,
+    "goal_version": 2,
+    "request_id": 219,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146035703427600,
+    "goal_version": 2,
+    "source_seq": 302
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146039158282100,
+    "goal_version": 2,
+    "request_id": 220,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146039158282100,
+    "goal_version": 2,
+    "source_seq": 371
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146042611294100,
+    "goal_version": 2,
+    "request_id": 221,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146042611294100,
+    "goal_version": 2,
+    "source_seq": 439
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146046105144800,
+    "goal_version": 2,
+    "request_id": 222,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146046105144800,
+    "goal_version": 2,
+    "source_seq": 507
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146049658483700,
+    "goal_version": 2,
+    "request_id": 223,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146049658483700,
+    "goal_version": 2,
+    "source_seq": 576
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146053368179500,
+    "goal_version": 2,
+    "request_id": 224,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146053368179500,
+    "goal_version": 2,
+    "source_seq": 646
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146057080301400,
+    "goal_version": 2,
+    "request_id": 225,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146057080301400,
+    "goal_version": 2,
+    "source_seq": 719
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146060686625700,
+    "goal_version": 2,
+    "request_id": 226,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146060686625700,
+    "goal_version": 2,
+    "source_seq": 792
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146064191787300,
+    "goal_version": 2,
+    "request_id": 227,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146064191787300,
+    "goal_version": 2,
+    "source_seq": 863
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146067748967100,
+    "goal_version": 2,
+    "request_id": 228,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146067748967100,
+    "goal_version": 2,
+    "source_seq": 932
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146071252152700,
+    "goal_version": 2,
+    "request_id": 229,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146071252152700,
+    "goal_version": 2,
+    "source_seq": 1002
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146074707704700,
+    "goal_version": 2,
+    "request_id": 230,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146074707704700,
+    "goal_version": 2,
+    "source_seq": 1071
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146078160672600,
+    "goal_version": 2,
+    "request_id": 231,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": false,\n  \"box\": null\n}"
+  },
+  {
+    "kind": "grounding_absent",
+    "wall_ns": 146078160672600,
+    "goal_version": 2,
+    "source_seq": 1139
+  }
+]

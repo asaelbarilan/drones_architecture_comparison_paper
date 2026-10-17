@@ -1,0 +1,73 @@
+[
+  {
+    "kind": "result",
+    "wall_ns": 146086355261600,
+    "goal_version": 0,
+    "request_id": 236,
+    "role": "planner",
+    "payload": "{\n  \"steps\": [\n    {\n      \"objective\": \"Follow the red moving marker, staying 4 to 6 metres away and keeping it within 20 degrees of the camera centre.\",\n      \"target\": \"red moving marker\"\n    },\n    {\n      \"objective\": \"Acquire it in 5 seconds, then track until 20 seconds elapsed.\",\n      \"target\": \"red moving marker\"\n    }\n  ]\n}"
+  },
+  {
+    "kind": "mission_plan_committed",
+    "wall_ns": 146086355261600,
+    "goal_version": 0,
+    "mission": "Follow the red moving marker, staying 4 to 6 metres away and keeping it within 20 degrees of the camera centre. Acquire it in 5 seconds, then track until 20 seconds elapsed. Do not stop early.",
+    "authored": "{\n  \"steps\": [\n    {\n      \"objective\": \"Follow the red moving marker, staying 4 to 6 metres away and keeping it within 20 degrees of the camera centre.\",\n      \"target\": \"red moving marker\"\n    },\n    {\n      \"objective\": \"Acquire it in 5 seconds, then track until 20 seconds elapsed.\",\n      \"target\": \"red moving marker\"\n    }\n  ]\n}",
+    "steps": [
+      {
+        "objective": "Follow the red moving marker, staying 4 to 6 metres away and keeping it within 20 degrees of the camera centre.",
+        "target": "red moving marker"
+      },
+      {
+        "objective": "Acquire it in 5 seconds, then track until 20 seconds elapsed.",
+        "target": "red moving marker"
+      }
+    ],
+    "step_index": 0
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146089440773900,
+    "goal_version": 0,
+    "request_id": 237,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    300,\n    550,\n    480\n  ]\n}"
+  },
+  {
+    "kind": "contract_failure",
+    "wall_ns": 146089490611800,
+    "goal_version": 2,
+    "error": "RuntimeError: Bounded graph cache exhausted",
+    "count": 1
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146092430062100,
+    "goal_version": 2,
+    "request_id": 239,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    450,\n    280,\n    550,\n    520\n  ]\n}"
+  },
+  {
+    "kind": "contract_failure",
+    "wall_ns": 146092479532000,
+    "goal_version": 4,
+    "error": "RuntimeError: Bounded graph cache exhausted",
+    "count": 2
+  },
+  {
+    "kind": "result",
+    "wall_ns": 146095462634300,
+    "goal_version": 4,
+    "request_id": 241,
+    "role": "direction",
+    "payload": "{\n  \"target_visible\": true,\n  \"box\": [\n    475,\n    300,\n    525,\n    500\n  ]\n}"
+  },
+  {
+    "kind": "contract_failure",
+    "wall_ns": 146095511705600,
+    "goal_version": 6,
+    "error": "RuntimeError: Bounded graph cache exhausted",
+    "count": 3
+  }
+]

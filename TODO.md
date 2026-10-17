@@ -1,5 +1,17 @@
 # TODO
 
+## D-150: nine-task screen exposes integration and capability gaps
+
+- Completed unchanged nine-task local screen: 0/9; see report and all saved paths.
+- Before another qualification, repair numeric world-pose contract and bounded
+  graph-shape cache lifetime/fallback. Tracking was blocked by runtime, not qualified.
+- Search needs actual bounded view-changing actions; refresh-only recovery is insufficient.
+- Preserve conditional, temporal hover/follow and ordered mission semantics in executable plans.
+- Attribute slow progress across pilot actions, waypoint sizes and cognition holds.
+- Keep original task criteria for any future repeat; no automatic retries/training authorized.
+- A matched classical-controller comparison is still needed to assess VLA benefit.
+- Keep LinkedIn/paper claims limited to the recorded narrow demo and disclose this screen.
+
 ## D-149: publication awaits review
 
 - Review the local video, diagram, post and training-repo cross-link patch.

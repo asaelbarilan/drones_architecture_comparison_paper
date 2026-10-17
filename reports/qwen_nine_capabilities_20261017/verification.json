@@ -1,0 +1,22 @@
+{
+  "finished_tasks": 9,
+  "passed": 0,
+  "actions_consumed": 299,
+  "collisions": 0,
+  "oob": false,
+  "all_actions_fresh": true,
+  "all_tick_timing_pass": true,
+  "source_hash_mismatches": [],
+  "startup_equivalence": [
+    [
+      "forward",
+      true
+    ],
+    [
+      "turn",
+      true
+    ]
+  ],
+  "gpu_after_mib": 12,
+  "scope": "one dev seed 1061 per task; wall-paced capability_grid3d; no comparator"
+}

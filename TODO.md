@@ -1,5 +1,13 @@
 # TODO
 
+## D-149: publication awaits review
+
+- Review the local video, diagram, post and training-repo cross-link patch.
+- Do not push/publish/change HF visibility until user approves the concrete package.
+- Review the full unpublished architecture range before a normal push.
+- HF remains private; resolve recorded derivative/data licensing and stale card before a public model release.
+- Keep architecture source canonical in its own repo; training README links the full-system guide.
+
 ## D-148: pillar fixture passes; qualify event recovery
 
 - D147 completion blocker resolved on unchanged fixture: visible, stopped at1.332m.

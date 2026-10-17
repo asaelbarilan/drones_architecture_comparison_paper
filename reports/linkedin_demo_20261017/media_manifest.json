@@ -1,0 +1,16 @@
+{
+  "source": "D148 saved evidence; no new flight",
+  "flight_seconds": 58.5654485,
+  "fps": 20,
+  "playback_speed": 1,
+  "camera": "saved model-input keyframes, held",
+  "inference_commit": "9c90c57",
+  "segments_seconds": [
+    6,
+    58.5654485,
+    2,
+    9,
+    9
+  ],
+  "video_sha256": "8f0f1f62a08fba2d1beb0b511fd2b275332618d8c31bbcbc017aaf774f9af13d"
+}

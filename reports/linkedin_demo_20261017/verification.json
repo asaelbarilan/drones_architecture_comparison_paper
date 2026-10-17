@@ -1,0 +1,31 @@
+{
+  "video_decode": "complete without errors",
+  "duration_seconds": 84.65,
+  "width": 1600,
+  "height": 900,
+  "fps": "20/1",
+  "codec": "h264",
+  "silent": true,
+  "source_event_hash_verified": true,
+  "training_patch": "git apply --check passed; not applied",
+  "published": false,
+  "model_visibility_changed": false,
+  "gpu_inference_started": false,
+  "sha256": {
+    "linkedin_demo.mp4": "8f0f1f62a08fba2d1beb0b511fd2b275332618d8c31bbcbc017aaf774f9af13d",
+    "architecture.png": "b57b9b662746f2e5dc453873054d905aa2dc4a859cf4c8f95b2f1cb39014289e",
+    "architecture.svg": "89fcf4dd630f5d9138e792677ad80da83390ba6956a1e9510ea68e012ead2288",
+    "POST_DRAFT.md": "a11d39931847acf06d5036507a3afa45c00838801458d15c14e41752a5969e28",
+    "training_repo_crosslinks.patch": "bfc40e63ab412085e7a59186edae4dd25bfc1b12bb2e7eed84f4612b678c017a"
+  },
+  "visual_review": "Encoded contact sheet inspected: title, intermediate flight, final stop, diagram, outcome; no clipping observed.",
+  "code_checks": "Five new Python files: Ruff and repository code rules pass.",
+  "package_secret_pattern_scan": "pass",
+  "generator_sha256": {
+    "scripts\\diagnostics\\demo_canvas.py": "8cc2830d3cf5862677ea8a9b15265ab1a8cb66e402ff27590b9a6d9bd47a7b71",
+    "scripts\\diagnostics\\demo_flight_frame.py": "b2a0641a9719c3f5f7f3f83d88e1ede03deaab2a85e3912a0b8907fe477a9c44",
+    "scripts\\diagnostics\\demo_slides.py": "3515e6fa8236c145710815b096e62bbacd2d9bc452576e9dd30b6a362de05e24",
+    "scripts\\diagnostics\\demo_trace.py": "bbceb9e5bb2ac2d9c8937cc97f17c6c769fe37b9db7ca2e4406d0a13bbf16401",
+    "scripts\\diagnostics\\build_linkedin_demo.py": "b705c3b7db053a365727549bb776d721c93b55b73be310e16876fc1e9282accd"
+  }
+}

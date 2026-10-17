@@ -1,3 +1,18 @@
+## 2026-10-17: D-149 LinkedIn demo review package (2026-10-17)
+
+Prepared reports/linkedin_demo_20261017: saved D148 flight replay video, PNG/SVG
+architecture, cover, post draft, local HTML review page and training-repo
+cross-link patch. No new inference/flight/training/AWS. Camera keyframes and
+telemetry are from the recorded run; no fabricated intermediate images.
+Architecture README now links docs/FULL_DRONE_SYSTEM.md locally. Training
+repository stays separate: proposed README + guide patch applies cleanly but
+is not applied. Nothing pushed/published or made public; user review required.
+Both GitHub repos public, latest architecture 20 commits ahead of verified
+remote before this draft. HF model independently verified private; legacy
+GitHub drone-vla-training redirects to not-to-use. Existing HF card licensing
+review remains unresolved. Do not claim public model availability or PPO gains.
+See demo README/link_verification/media_manifest for scope and publication steps.
+
 ## 2026-10-17: D-148 event planner and visual completion (2026-10-17)
 
 Read reports/qwen_event_planner_20261017/REPORT.md. Bounded event memory retains

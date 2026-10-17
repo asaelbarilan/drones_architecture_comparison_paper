@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#0b1220"/>
+<text x="56" y="52" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">SYSTEM ARCHITECTURE</text>
+<text x="56" y="114" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="46" font-weight="700">Asynchronous control. One shared model owner.</text>
+<rect x="56" y="145" width="1488" height="90" rx="18" fill="#142033"/>
+<text x="80" y="187" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">MISSION + MEMORY</text>
+<text x="400" y="190" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="26" font-weight="400">Original goal / ordered steps / completed steps / recent events</text>
+<polyline points="270,235 270,275" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="263,265 270,275 277,265" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<rect x="56" y="275" width="1488" height="240" rx="18" fill="#142033"/>
+<text x="80" y="316" fill="#79afff" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">ONE RESIDENT QWEN3-VL-4B BASE   |   GPU calls serialized, roles invoked on demand</text>
+<rect x="80" y="345" width="342" height="142" rx="18" fill="#203049"/>
+<text x="96" y="388" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">LLM planner</text>
+<text x="96" y="431" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Initial plan + event recovery</text>
+<text x="96" y="467" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Preserves the original mission</text>
+<rect x="445" y="345" width="342" height="142" rx="18" fill="#203049"/>
+<text x="461" y="388" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">VLM grounding</text>
+<text x="461" y="431" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Camera -&gt; target box</text>
+<text x="461" y="467" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Depth -&gt; short waypoint</text>
+<rect x="810" y="345" width="342" height="142" rx="18" fill="#203049"/>
+<text x="826" y="388" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">VLA pilot + adapter</text>
+<text x="826" y="431" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Camera + waypoint -&gt; actions</text>
+<text x="826" y="467" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Stream complete action quartets</text>
+<rect x="1175" y="345" width="342" height="142" rx="18" fill="#203049"/>
+<text x="1191" y="388" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">VLM monitor</text>
+<text x="1191" y="431" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Current view + fresh range</text>
+<text x="1191" y="467" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Continue / hold / replan / stop</text>
+<polyline points="270,515 270,600" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="263,590 270,600 277,590" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="100,600 100,515" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="93,525 100,515 107,525" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<text x="118" y="565" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">wake</text>
+<polyline points="810,515 810,600" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="803,590 810,600 817,590" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<text x="290" y="565" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">plans / grounding / verdicts</text>
+<text x="830" y="565" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">streamed actions</text>
+<rect x="56" y="600" width="440" height="155" rx="18" fill="#142033"/>
+<text x="76" y="647" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="27" font-weight="700">Event scheduler</text>
+<text x="76" y="691" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Waypoint reached -&gt; re-ground</text>
+<text x="76" y="731" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Lost / stalled / replan -&gt; planner</text>
+<rect x="580" y="600" width="440" height="155" rx="18" fill="#142033"/>
+<text x="600" y="647" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="27" font-weight="700">Action queue + control</text>
+<text x="600" y="691" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Goal-version + freshness checks</text>
+<text x="600" y="731" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">20Hz control + safety shield</text>
+<rect x="1104" y="600" width="440" height="155" rx="18" fill="#142033"/>
+<text x="1124" y="647" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="27" font-weight="700">Local simulator</text>
+<text x="1124" y="691" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Execute accepted commands</text>
+<text x="1124" y="731" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Camera / pose / aligned depth</text>
+<polyline points="496,677 580,677" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="570,670 580,677 570,684" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="1020,677 1104,677" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="1094,670 1104,677 1094,684" fill="none" stroke="#51e4c4" stroke-width="3"/>
+<polyline points="1324,755 1324,814 276,814 276,777" fill="none" stroke="#79afff" stroke-width="3"/>
+<text x="420" y="802" fill="#79afff" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Feedback updates state; control never waits for model generation</text>
+<text x="56" y="878" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Frozen D207 step8000 adapter / bounded memory / no shared cross-role conversational KV cache</text></svg>

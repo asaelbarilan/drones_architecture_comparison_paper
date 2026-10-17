@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#0b1220"/>
+<text x="56" y="52" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">LOCAL DRONE VLA / ENGINEERING DEMO</text>
+<text x="56" y="114" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="46" font-weight="700">One GPU. Four roles. A drone pilot.</text>
+<text x="56" y="194" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="32" font-weight="400">A shared Qwen3-VL-4B base + a trained action adapter</text>
+<rect x="56" y="250" width="1488" height="220" rx="18" fill="#142033"/>
+<text x="88" y="305" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="23" font-weight="700">THE MISSION</text>
+<text x="88" y="372" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="40" font-weight="700">Find the red pillar. Approach it. Stop nearby.</text>
+<text x="88" y="430" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="28" font-weight="400">Keep it visible. Ignore the other colored objects.</text>
+<text x="56" y="570" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">Next: the recorded 58.6-second flight at 1x speed</text>
+<text x="56" y="629" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="27" font-weight="400">Actual model-input images + logged trajectory + recorded role events</text>
+<text x="56" y="689" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="27" font-weight="400">No new inference, synthetic success, or altered flight limits</text>
+<text x="56" y="878" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Rendered grid3d simulation / saved-run replay / not real-drone or AirSim footage</text></svg>

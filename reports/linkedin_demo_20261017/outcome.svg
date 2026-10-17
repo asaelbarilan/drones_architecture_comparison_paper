@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#0b1220"/>
+<text x="56" y="52" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">RECORDED RESULT / ONE DEVELOPMENT FIXTURE</text>
+<text x="56" y="114" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="46" font-weight="700">Approached. Verified. Stopped.</text>
+<rect x="56" y="190" width="480" height="225" rx="18" fill="#142033"/>
+<text x="80" y="270" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="55" font-weight="700">1.33 m</text>
+<text x="80" y="327" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">Final object distance</text>
+<text x="80" y="375" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">Requirement: &lt;= 1.5m</text>
+<rect x="560" y="190" width="480" height="225" rx="18" fill="#142033"/>
+<text x="584" y="270" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="55" font-weight="700">47</text>
+<text x="584" y="327" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">Fresh executed actions</text>
+<text x="584" y="375" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">0 collisions / visible / stationary</text>
+<rect x="1064" y="190" width="480" height="225" rx="18" fill="#142033"/>
+<text x="1088" y="270" fill="#51e4c4" font-family="Segoe UI, sans-serif" font-size="55" font-weight="700">254 ms</text>
+<text x="1088" y="327" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">Median first action received</text>
+<text x="1088" y="375" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">206ms produced / 825ms max received</text>
+<text x="56" y="500" fill="#f2f6fc" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700">RTX 4060 Laptop 8GB / one shared base + trained adapter</text>
+<text x="56" y="556" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="26" font-weight="400">Four simple numeric development tasks also passed in a separate suite.</text>
+<text x="56" y="627" fill="#ffd17a" font-family="Segoe UI, sans-serif" font-size="27" font-weight="400">A prototype result, not a benchmark or general-autonomy claim.</text>
+<text x="56" y="686" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="26" font-weight="400">Code links in post / model link currently private / review draft</text>
+<text x="56" y="878" fill="#a5b5cd" font-family="Segoe UI, sans-serif" font-size="20" font-weight="400">First-action timing is not full-mission latency. No new training or AWS used for this demo.</text></svg>

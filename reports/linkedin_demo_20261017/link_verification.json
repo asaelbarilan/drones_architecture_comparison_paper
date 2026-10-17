@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://api.github.com/repos/asaelbarilan/drone_small_vla_training",
+    "status": 200,
+    "private": false,
+    "default_branch": "main",
+    "sha": null,
+    "html_url": "https://github.com/asaelbarilan/drone_small_vla_training"
+  },
+  {
+    "url": "https://api.github.com/repos/asaelbarilan/drones_architecture_comparison_paper",
+    "status": 200,
+    "private": false,
+    "default_branch": "main",
+    "sha": null,
+    "html_url": "https://github.com/asaelbarilan/drones_architecture_comparison_paper"
+  },
+  {
+    "url": "https://api.github.com/repos/asaelbarilan/drone-vla-training",
+    "status": 200,
+    "private": false,
+    "default_branch": "codex/vla-aws-pilot-20260916",
+    "sha": null,
+    "html_url": "https://github.com/asaelbarilan/drone-vla-training-not-to-use"
+  },
+  {
+    "url": "https://huggingface.co/api/models/asaelbarilan/drone-vla-qwen3vl-4b-step8000",
+    "status": 401,
+    "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "authenticated_hf": "asaelbarilan/drone-vla-qwen3vl-4b-step8000",
+    "private": true,
+    "sha": "b12eb346cf0be6436529d3cf882d01f570024824"
+  },
+  {
+    "repo": "drone_small_vla_training",
+    "path": "commits/main",
+    "status": 200,
+    "sha": "3bb5c20e0c88c17d411c0701237c91b1c4a48647",
+    "html_url": "https://github.com/asaelbarilan/drone_small_vla_training/commit/3bb5c20e0c88c17d411c0701237c91b1c4a48647"
+  },
+  {
+    "repo": "drone_small_vla_training",
+    "path": "contents/README.md",
+    "status": 200,
+    "sha": "a78be21daa6d9ff7748864227d5ee5cefde4071f",
+    "html_url": "https://github.com/asaelbarilan/drone_small_vla_training/blob/main/README.md"
+  },
+  {
+    "repo": "drone_small_vla_training",
+    "path": "contents/src/uavlab/live_qwen/planner_memory.py",
+    "status": 404
+  },
+  {
+    "repo": "drones_architecture_comparison_paper",
+    "path": "commits/main",
+    "status": 200,
+    "sha": "d5f01c5730fd9176cf462c8bcd8dfb397cb98a7b",
+    "html_url": "https://github.com/asaelbarilan/drones_architecture_comparison_paper/commit/d5f01c5730fd9176cf462c8bcd8dfb397cb98a7b"
+  },
+  {
+    "repo": "drones_architecture_comparison_paper",
+    "path": "contents/README.md",
+    "status": 200,
+    "sha": "a182313246a969d7b2736d5b14cd6ecabdf33ac6",
+    "html_url": "https://github.com/asaelbarilan/drones_architecture_comparison_paper/blob/main/README.md"
+  },
+  {
+    "repo": "drones_architecture_comparison_paper",
+    "path": "contents/src/uavlab/live_qwen/planner_memory.py",
+    "status": 404
+  }
+]

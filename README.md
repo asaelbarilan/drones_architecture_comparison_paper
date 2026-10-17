@@ -1,5 +1,12 @@
 # uav_arch_lab
 
+## Shared Qwen VLA development demo (2026-10-17)
+
+The latest local development path integrates one shared Qwen3-VL-4B base, the trained D207 step8000 VLA adapter, event-driven planner memory, visual grounding and completion monitoring. One fixed pillar approach passes in rendered grid3d; this is not a general-autonomy or AirSim result.
+
+Start with [Full drone system](docs/FULL_DRONE_SYSTEM.md) for the training repository, private model package and reproduction instructions. The [LinkedIn demo package](reports/linkedin_demo_20261017/README.md) is a local review draft, not a published release. Older architecture-family status below remains historical; see [D148 evidence](reports/qwen_event_planner_20261017/REPORT.md) for this specific integration.
+
+
 > ## Status: the harness, SUPER, and AerialClaw work locally.
 >
 > **C1 is now a real AerialClaw-style local LLM skill agent** using

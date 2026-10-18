@@ -1,3 +1,11 @@
+## 2026-10-18: D-156 obstacle tasks, VLA vs classical
+
+Three obstacle variants of visible_target (post, slalom, low-wall control),
+harness-checked. Both pilots stall in front of posts; the VLA never steers
+(<=0.20m sideways) and ignores a 2m climb in its goal. Classical clears the
+wall control, missing only by 0.14m from the known aim-point climb. Still no
+case where the VLA pilot wins. See reports/qwen_obstacle_pilots_20261018.
+
 ## 2026-10-17: D-155 matched VLA vs classical pilot
 
 Added pilot_mode "classical" (classical_pilot.py + classical_pilot_backend.py):

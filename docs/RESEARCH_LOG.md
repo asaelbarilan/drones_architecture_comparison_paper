@@ -3691,3 +3691,16 @@ benefit; a VLA case needs tasks where the pilot itself must use vision.
 Two startup failures came from a wrapper bug (nested _load), fixed; no flights
 ran in them. Evidence: reports/qwen_classical_comparison_20261017/REPORT.md,
 comparison.json, classical/, long_waypoints_v2.
+
+### D-156: obstacle tasks, VLA vs classical pilot (2026-10-18)
+
+Status: completed matched development screen. Added OBSTACLE_SCENARIOS to
+capability_grid3d: post, slalom, low wall in front of the 12 m pillar; same
+criteria, 60s, seed1061. Harness check confirms grounding depth reads the
+pillar and the issued leg hits a post (post, slalom); low wall does not block
+(aim clears it by 0.72m), kept as control. Results: both pilots stall at the
+post (VLA 8.24m, classical 8.15m) and slalom (9.47m / 9.54m); VLA moved at
+most 0.20m sideways. Control: VLA held z 3.0 despite a z 5.0 goal and stalled
+at the wall (8.35m); classical flew over and stopped 2.14m (aim-point climb,
+D-152). No collisions. No task yet where the learned pilot beats the
+straight-line controller. Evidence: reports/qwen_obstacle_pilots_20261018/.

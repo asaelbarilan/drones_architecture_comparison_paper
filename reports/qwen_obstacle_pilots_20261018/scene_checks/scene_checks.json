@@ -1,0 +1,62 @@
+[
+ {
+  "scene": "obstacle_post",
+  "pillar_pixel": [
+   112,
+   90
+  ],
+  "depth_at_pillar_pixel_m": 11.94,
+  "grounding_range_m": 12.189,
+  "pillar_forward_m": 12.0,
+  "grounding_sees_pillar": true,
+  "straight_leg_min_clearance_m": 0.4,
+  "drone_radius_m": 0.4,
+  "straight_leg_collides": true,
+  "straight_leg_blocked": true,
+  "leg_end": [
+   10.15,
+   0.0,
+   3.97
+  ]
+ },
+ {
+  "scene": "obstacle_slalom",
+  "pillar_pixel": [
+   111,
+   90
+  ],
+  "depth_at_pillar_pixel_m": 11.94,
+  "grounding_range_m": 12.191,
+  "pillar_forward_m": 12.0,
+  "grounding_sees_pillar": true,
+  "straight_leg_min_clearance_m": 0.313,
+  "drone_radius_m": 0.4,
+  "straight_leg_collides": true,
+  "straight_leg_blocked": true,
+  "leg_end": [
+   10.15,
+   0.1,
+   3.97
+  ]
+ },
+ {
+  "scene": "obstacle_low_wall",
+  "pillar_pixel": [
+   111,
+   80
+  ],
+  "depth_at_pillar_pixel_m": 11.94,
+  "grounding_range_m": 12.449,
+  "pillar_forward_m": 12.0,
+  "grounding_sees_pillar": true,
+  "straight_leg_min_clearance_m": 0.717,
+  "drone_radius_m": 0.4,
+  "straight_leg_collides": false,
+  "straight_leg_blocked": true,
+  "leg_end": [
+   10.24,
+   0.1,
+   4.85
+  ]
+ }
+]

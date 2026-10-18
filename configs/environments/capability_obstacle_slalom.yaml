@@ -1,0 +1,7 @@
+# D-156: pilot-avoidance probe; same target, criteria and limit as visible_target.
+_base_: capability_known_goal.yaml
+id: capability_obstacle_slalom
+task_family: semantic_goal_nav
+instruction: Fly to the red pillar and stop within 2 metres, avoiding the obstacles on the way.
+params:
+  scenario: obstacle_slalom

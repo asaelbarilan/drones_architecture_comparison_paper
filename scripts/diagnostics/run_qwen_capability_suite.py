@@ -13,7 +13,7 @@ from gpu_trace import GpuTrace
 from run_qwen_async import deadline_exit
 from run_qwen_full_architecture import experiment, provenance
 
-from uavlab.adapters.gym.capability_env import SCENARIOS, CapabilityEnv
+from uavlab.adapters.gym.capability_env import OBSTACLE_SCENARIOS, SCENARIOS, CapabilityEnv
 from uavlab.contracts import MissionSpec
 from uavlab.core.compose import load_environment
 from uavlab.core.frame_store import global_store
@@ -128,7 +128,8 @@ def main():
     parser.add_argument("--seed", type=int, default=1061)
     parser.add_argument("--config", type=Path,
                         default=Path("configs/experiments/qwen_visual_object.json"))
-    parser.add_argument("--tasks", nargs="+", choices=SCENARIOS, default=list(SCENARIOS))
+    parser.add_argument("--tasks", nargs="+", choices=SCENARIOS + OBSTACLE_SCENARIOS,
+                        default=list(SCENARIOS))
     args = parser.parse_args()
     settings = prepare(args.out, args.seed, args.config, args.tasks)
     timer = threading.Timer(settings["watchdog_s"], deadline_exit)

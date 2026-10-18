@@ -11,6 +11,12 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-156 obstacle tasks (2026-10-18)
+
+Read reports/qwen_obstacle_pilots_20261018/REPORT.md. Post/slalom/low-wall
+variants of visible_target (OBSTACLE_SCENARIOS). VLA shows no avoidance and
+ignores vertical goal; ties classical on posts, loses the wall control.
+
 ## Latest user work: D-155 VLA vs classical pilot (2026-10-17)
 
 Read reports/qwen_classical_comparison_20261017/REPORT.md. Same planner,

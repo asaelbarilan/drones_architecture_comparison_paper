@@ -27,6 +27,15 @@ SCENARIOS = (
     "closing_passage",
     "follow_target",
 )
+# D-156 pilot-avoidance probes: visible_target with obstacles that block the
+# straight flight path but leave the camera's line of sight to the pillar
+# centre clear, so grounding is unaffected and only the pilot must avoid.
+OBSTACLE_SCENARIOS = (
+    "obstacle_post",
+    "obstacle_slalom",
+    "obstacle_low_wall",
+)
+POST_HALF = (0.3, 0.3, 2.5)  # 5 m tall: going over is not an option
 RED = (206, 44, 44)
 BLUE = (40, 85, 220)
 
@@ -41,7 +50,7 @@ class CapabilityEnv(DeterministicEnv):
 
     def __init__(self, **params: Any) -> None:
         self.scenario = str(params.get("scenario", "known_goal"))
-        if self.scenario not in SCENARIOS:
+        if self.scenario not in SCENARIOS + OBSTACLE_SCENARIOS:
             raise ValueError(f"Unknown capability scenario: {self.scenario}")
         if params.get("failures") or params.get("coarse_goal_direction"):
             raise ValueError("Capability fixtures define their own events and hide goal hints")
@@ -133,6 +142,8 @@ class CapabilityEnv(DeterministicEnv):
                 self._box(point(14, side * 8, 4), point(0.6, 3, 4))
         elif self.scenario == "follow_target":
             self.goal = point(8)
+        elif self.scenario in OBSTACLE_SCENARIOS:
+            self._obstacle_scene()
         if not self.landmarks and self.scenario != "overturned_vehicle":
             self.landmarks = [
                 Landmark(self.goal.copy(), self.target_label, is_target=True, color=RED)
@@ -143,6 +154,7 @@ class CapabilityEnv(DeterministicEnv):
             "conditional_gate",
             "closing_passage",
             "follow_target",
+            *OBSTACLE_SCENARIOS,
         }:
             self._shortest = 0.0  # no certified shortest path for these objectives
         self._rebuild_obstacle_arrays()
@@ -150,6 +162,17 @@ class CapabilityEnv(DeterministicEnv):
         self._fan_cache_seq = -1
         self._seq = 0
         return await self.observe()
+
+    def _obstacle_scene(self) -> None:
+        if self.scenario == "obstacle_post":
+            self._box(point(6, 0.7, 2.5), point(*POST_HALF))
+        elif self.scenario == "obstacle_slalom":
+            self._box(point(4.5, -0.7, 2.5), point(*POST_HALF))
+            self._box(point(8.5, 0.7, 2.5), point(*POST_HALF))
+        else:
+            # Top at 3.3 m, below the camera's sight line to the visible pillar,
+            # so the issued leg clears it: a control, not an avoidance test (D-156).
+            self._box(point(6, 0, 1.65), point(0.3, 4, 1.65))
 
     def _box(self, center: np.ndarray, half: np.ndarray, color=None) -> None:
         self.obstacles.append(Obstacle(center, half, color=color))

@@ -68,6 +68,10 @@ def visual_goal(data, obs, settings):
         cx=intr.cx, cy=intr.cy, camera_pitch_rad=settings["camera_pitch_rad"],
         distance_m=d["travel_m"], min_altitude_m=settings["min_altitude_m"],
     )
+    if settings.get("visual_altitude", "ray") == "hold":
+        # The box centre of a tall object sits above its body, so following the
+        # ray climbs (D-152: +1.1 m on approach_hover). Keep bearing, hold height.
+        position = Vec3(x=position.x, y=position.y, z=obs.position.z)
     yaw = math.atan2(position.y-obs.position.y, position.x-obs.position.x)
     return position, yaw
 

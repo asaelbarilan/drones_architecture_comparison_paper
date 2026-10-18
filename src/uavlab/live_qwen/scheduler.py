@@ -8,15 +8,16 @@ from uavlab.plugins.inference.qwen_worker import WorkItem
 from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor
 
 from .goals import Goal, angle_error, interpret_goal
-from .grounding import NEAR_OBJECT_M, capture_depth, grounded_direction, observed_range
+from .grounding import capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
 from .search import search_allowed, start_search, update_search
+from .stop_rules import (aim_standoff, hold_required_ns, near_limit, object_below,
+                         remember_object, start_hold)
 from .visual_progress import fresh_evidence, record_grounding
 from .world_contract import world_target
 
-NEAR_MARGIN_M = 0.25
 MIN_LEG_MARGIN_M = 0.1
 
 
@@ -41,6 +42,7 @@ class GoalScheduler:
         self.target_missing = False
         self.search_goal, self.search_deadline, self.search_turns = None, 0, 0
         self.search_authorized = False
+        self.object_memory = self.hold_started = None
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -61,7 +63,7 @@ class GoalScheduler:
     def replan(self, reason, now):
         self.pause(reason, now)
         self.version += 1
-        self.plan = self.goal = None
+        self.plan = self.goal = self.hold_started = None
         if self.steps:
             self.plan = dict(self.steps[self.step_index])
         self.monitor_reason = None
@@ -76,6 +78,9 @@ class GoalScheduler:
         self.last_yaw = obs.yaw_rad
         for event in self.worker.poll(self.version, now):
             self.receive(event, obs, now)
+        if self.hold_started is not None:
+            self.check_hold(obs, now)
+            return
         if update_search(self, obs, now):
             return
         self.check_events(obs, now)
@@ -183,25 +188,16 @@ class GoalScheduler:
     def prepare_visual_goal(self, payload, source, captured, now):
         proposal = grounded_direction(payload)
         if proposal is None:
-            self.visual_evidence = None
-            if not self.target_missing:
-                self.target_missing = True
-                if self.search_authorized and search_allowed(self):
-                    start_search(self, now)
-                    self.log("grounding_absent", now, source_seq=source.seq)
-                    return None
-                self.request_planner("target_lost", now)
-            self.pause("requested object not visible; no blind approach", now)
-            self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
-            self.log("grounding_absent", now, source_seq=source.seq)
+            self.target_absent(source, captured, now)
             return None
         self.log("grounding_validated", now, payload=proposal, source_seq=source.seq)
         near = record_grounding(self, proposal, source, captured, now)
         distance = self.visual_evidence["range_m"]
+        remember_object(self, proposal, source, distance, now)
         if distance is not None:
             # Aim just inside the near range so the object stays in view, and keep
             # each leg longer than the arrival tolerance so it is never reached on issue.
-            standoff = NEAR_OBJECT_M - NEAR_MARGIN_M
+            standoff = aim_standoff(self)
             min_travel = self.settings["position_m"] + MIN_LEG_MARGIN_M
             proposal["target"]["travel_m"] = min(self.settings["max_goal_m"],
                                                  max(min_travel, distance-standoff))
@@ -213,6 +209,26 @@ class GoalScheduler:
             self.request_monitor("fresh object proximity; verify visual accomplishment", now)
             return None
         return proposal
+
+    def target_absent(self, source, captured, now):
+        self.visual_evidence = None
+        if object_below(self, source, now):
+            self.log("object_below_completion", now, source_seq=source.seq,
+                     memory=self.object_memory["position"].model_dump())
+            self.goal = Goal(self.version, source.position, source.yaw_rad, False,
+                             captured+s_to_ns(self.settings["goal_ttl_s"]), source.seq)
+            self.complete_visual(now)
+            return
+        if not self.target_missing:
+            self.target_missing = True
+            if self.search_authorized and search_allowed(self):
+                start_search(self, now)
+                self.log("grounding_absent", now, source_seq=source.seq)
+                return
+            self.request_planner("target_lost", now)
+        self.pause("requested object not visible; no blind approach", now)
+        self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
+        self.log("grounding_absent", now, source_seq=source.seq)
 
     def request_planner(self, trigger, now):
         self.visual_stop_pending = False
@@ -231,6 +247,8 @@ class GoalScheduler:
             self.log("numeric_completion_override", now, model_status=status,
                      model_reason=self.feedback, remaining=self.goal.error(obs))
             status = "stop"
+        if status == "hold" and self.near_and_settled(obs, now):
+            status = "stop"  # fresh near evidence: the model's "hold" means stay here, not a hazard
         if status == "hold":
             self.pause("monitor hold: " + self.feedback, now)
             self.monitor_reason = "recheck held step"
@@ -250,8 +268,8 @@ class GoalScheduler:
         elif self.settings.get("goal_mode") == "visual":
             if fresh_evidence(self, obs, now):
                 distance = self.visual_evidence["range_m"]
-                if distance is not None and distance <= NEAR_OBJECT_M:
-                    self.finish_step(now)
+                if distance is not None and distance <= near_limit(self):
+                    self.complete_visual(now)
                     return
             self.visual_stop_pending = True
             self.replan("verify visual stop with fresh grounding and depth", now)
@@ -271,15 +289,44 @@ class GoalScheduler:
         if not self.visual_stop_pending:
             return False
         distance = observed_range(proposal, obs, self.pending_depth)
-        near = distance is not None and distance <= NEAR_OBJECT_M
+        near = distance is not None and distance <= near_limit(self)
         settled = obs.velocity.norm() <= self.settings["stopped_mps"]
         self.log("visual_stop_verification", now, range_m=distance,
-                 limit_m=NEAR_OBJECT_M, accepted=near and settled, source_seq=obs.seq)
+                 limit_m=near_limit(self), accepted=near and settled, source_seq=obs.seq)
         self.visual_stop_pending = False
         if near and settled:
-            self.finish_step(now)
+            self.complete_visual(now)
             return True
         return False
+
+    def complete_visual(self, now):
+        if hold_required_ns(self) and self.hold_started is None:
+            start_hold(self, now)
+        else:
+            self.finish_step(now)
+
+    def near_and_settled(self, obs, now):
+        if not (self.steps and isinstance(self.plan["target"], str)) or self.goal is None:
+            return False
+        evidence = self.visual_evidence or {}
+        distance = evidence.get("range_m") if fresh_evidence(self, obs, now) else None
+        return (distance is not None and distance <= near_limit(self)
+                and obs.velocity.norm() <= self.settings["stopped_mps"])
+
+    def check_hold(self, obs, now):
+        if now < self.hold_until:
+            return
+        settled = obs.velocity.norm() <= self.settings["stopped_mps"]
+        evidence = self.visual_evidence or {}
+        distance = evidence.get("range_m") if fresh_evidence(self, obs, now) else None
+        near = distance is not None and distance <= near_limit(self)
+        self.log("hold_check", now, range_m=distance, settled=settled,
+                 object_below=object_below(self, obs, now))
+        if settled and (near or object_below(self, obs, now)):
+            self.hold_started = None
+            self.finish_step(now)
+        else:
+            self.replan("hold interrupted: object no longer confirmed near", now)
 
     def continue_mission(self, obs, now):
         self.progress_at = now

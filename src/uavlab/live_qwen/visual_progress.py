@@ -2,8 +2,9 @@
 
 from uavlab.contracts import s_to_ns
 
-from .grounding import NEAR_OBJECT_M, observed_range
+from .grounding import observed_range
 from .planner_memory import remember
+from .stop_rules import near_limit
 
 VISUAL_MONITOR = '''Evaluate the active VISUAL objective, not the short waypoint.
 Return ONLY JSON with status and reason, reason at most 15 words.
@@ -33,8 +34,8 @@ def visual_context(state, obs):
                 active_step=state.step_index,
                 waypoint_reached=state.goal.arrived(obs, state.settings),
                 object_evidence_fresh=fresh, object_range_m=distance,
-                object_near=distance is not None and distance <= NEAR_OBJECT_M,
-                required_object_range_m=NEAR_OBJECT_M,
+                object_near=distance is not None and distance <= near_limit(state),
+                required_object_range_m=near_limit(state),
                 stationary=obs.velocity.norm() <= state.settings["stopped_mps"],
                 trigger=state.monitor_reason)
 
@@ -50,4 +51,4 @@ def record_grounding(state, proposal, source, captured, now):
     remember(state, "target_observed", now, **state.visual_evidence)
     state.target_missing = False
     state.search_authorized = False
-    return distance is not None and distance <= NEAR_OBJECT_M
+    return distance is not None and distance <= near_limit(state)

@@ -5,7 +5,7 @@ from tests.test_live_qwen import ORIGIN_NS, observation
 from tests.test_live_qwen import state as scheduler_fixture
 from uavlab.contracts import CameraIntrinsics, SensorRef, Vec3, s_to_ns
 from uavlab.core.frame_store import global_store
-from uavlab.live_qwen.goals import Goal
+from uavlab.live_qwen.goals import Goal, visual_goal
 from uavlab.live_qwen.grounding import (NEAR_OBJECT_M, capture_depth, grounded_direction,
                                         observed_range)
 from uavlab.live_qwen.mission_plan import accept_plan
@@ -143,3 +143,19 @@ def test_no_periodic_monitor_mid_visual_leg(state):
     scheduler.check_events(observation(x=5), now)
     assert scheduler.monitor_reason is None
     assert not any(r["kind"] == "motion_revoked" for r in rows)
+
+
+@pytest.mark.parametrize("mode", ["ray", "hold"])
+def test_visual_goal_altitude_mode(mode):
+    obs = observation().model_copy(update=dict(
+        intrinsics=CameraIntrinsics(width=16, height=16, fx=8, fy=8, cx=8, cy=8)))
+    settings = dict(max_goal_m=10, camera_pitch_rad=-0.1, min_altitude_m=0.5,
+                    visual_altitude=mode)
+    # Box centre high in the frame, as for a tall pillar seen from its mid-height.
+    position, _ = visual_goal(dict(u=500, v=200, travel_m=8.0, target_visible=True,
+                                   box=[450, 100, 550, 300]), obs, settings)
+    if mode == "hold":
+        assert position.z == pytest.approx(obs.position.z)
+    else:
+        assert position.z > obs.position.z + 1.0
+    assert position.x > obs.position.x + 7.0

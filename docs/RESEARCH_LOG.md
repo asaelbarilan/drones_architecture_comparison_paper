@@ -3704,3 +3704,29 @@ most 0.20m sideways. Control: VLA held z 3.0 despite a z 5.0 goal and stalled
 at the wall (8.35m); classical flew over and stopped 2.14m (aim-point climb,
 D-152). No collisions. No task yet where the learned pilot beats the
 straight-line controller. Evidence: reports/qwen_obstacle_pilots_20261018/.
+
+### D-157: VLM-side fix 1, hold altitude on visual legs (2026-10-18)
+
+Status: completed development screen; classical pilot to isolate VLM side.
+visual_goal keeps the camera ray's horizontal aim but holds altitude
+(visual_altitude "hold", opt-in; set in capability configs). Nine tasks,
+seed1061: 3/9 as in D-155 but closer: visible_target 23.2s (was 28.6s),
+overturned_vehicle 0.48m from hover point (was 3.64m), approach_hover level at
+1.49m. Zero collisions. Next blockers are stop decisions: hover ends outside
+the 0.75-1.25m hover window and the monitor answers hold; vehicle drops below
+the forward camera at the hover point, so the stop cannot be verified.
+Evidence: reports/qwen_vlm_fixes_20261018/REPORT.md, aim_height_classical/.
+
+### D-158: VLM-side fix 2, visual step completion (2026-10-18)
+
+Status: completed development screen; classical pilot, seed1061. Added
+stop_rules: object memory (world estimate per grounding; object leaving the
+forward camera while drone is over a recent same-target estimate completes the
+step), stated standoff/hold per step, and monitor "hold" counted as "stop"
+with fresh near depth and stationary drone. Planner prompt fields were ignored
+by the 4B planner (4/9 run), so standoff_m/hold_s are read from step text, as
+world_contract reads coordinates. Result 5/9 (D-157: 3/9): approach_hover PASS
+1.19m, hover streak 12.7s; overturned_vehicle PASS 0.60m, correct car. Zero
+collisions. Remaining: conditional_gate, ordered_visit, closing_passage,
+follow_target. Evidence: reports/qwen_vlm_fixes_20261018/REPORT.md (D-158),
+stop_rules_classical/, stop_rules_v2_classical/.

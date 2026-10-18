@@ -72,5 +72,6 @@
     "scope": "visible object approach, not out-of-view search"
   },
   "goal_mode": "visual",
-  "inference_kind": "D151 local integration repair; frozen shared Qwen"
+  "inference_kind": "D151 local integration repair; frozen shared Qwen",
+  "visual_altitude": "hold"
 }

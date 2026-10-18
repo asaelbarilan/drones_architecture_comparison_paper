@@ -11,6 +11,18 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-158 VLM fix 2, step completion (2026-10-18)
+
+Read reports/qwen_vlm_fixes_20261018/REPORT.md. stop_rules.py: object memory,
+stated standoff/hold from step text, hold-as-stop near. Classical pilot 5/9.
+Remaining: conditional_gate, ordered_visit, closing_passage, follow_target.
+
+## Latest user work: D-157 VLM fix 1, hold altitude (2026-10-18)
+
+Read reports/qwen_vlm_fixes_20261018/REPORT.md. User chose to fix the VLM side
+and leave the VLA alone; measure with the classical pilot. Altitude hold: 3/9,
+closer endings. Next: stop decisions (hover window, vehicle below camera).
+
 ## Latest user work: D-156 obstacle tasks (2026-10-18)
 
 Read reports/qwen_obstacle_pilots_20261018/REPORT.md. Post/slalom/low-wall

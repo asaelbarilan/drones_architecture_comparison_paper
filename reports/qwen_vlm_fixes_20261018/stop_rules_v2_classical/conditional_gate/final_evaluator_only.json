@@ -1,0 +1,123 @@
+{
+  "obstacles": [
+    {
+      "center": [
+        8.0,
+        -12.0,
+        4.0
+      ],
+      "half": [
+        0.6,
+        4.0,
+        4.0
+      ],
+      "color": null
+    },
+    {
+      "center": [
+        8.0,
+        0.0,
+        4.0
+      ],
+      "half": [
+        0.6,
+        2.0,
+        4.0
+      ],
+      "color": null
+    },
+    {
+      "center": [
+        8.0,
+        12.0,
+        4.0
+      ],
+      "half": [
+        0.6,
+        4.0,
+        4.0
+      ],
+      "color": null
+    },
+    {
+      "center": [
+        8.0,
+        5.0,
+        4.0
+      ],
+      "half": [
+        0.6,
+        3.0,
+        4.0
+      ],
+      "color": null
+    }
+  ],
+  "landmarks": [
+    {
+      "position": [
+        16.0,
+        0.0,
+        3.0
+      ],
+      "label": "red pillar",
+      "target": true,
+      "color": [
+        206,
+        44,
+        44
+      ]
+    }
+  ],
+  "goal": [
+    16.0,
+    0.0,
+    3.0
+  ],
+  "scenario": "conditional_gate",
+  "vehicles": [],
+  "task_events": [],
+  "task_status": {
+    "t_sim_ns": 59997477900,
+    "position": {
+      "x": 5.546561474083804,
+      "y": 2.1525078265590074,
+      "z": 3.0,
+      "frame": "enu"
+    },
+    "distance_to_goal_m": 10.672753485324524,
+    "goal_visible": false,
+    "subgoals_completed": 0,
+    "subgoals_total": 0,
+    "task_complete": false,
+    "collided": false,
+    "collision_count": 0,
+    "min_obstacle_distance_m": 1.853438525916196,
+    "out_of_bounds": false,
+    "constraint_violations": 0,
+    "path_length_m": 5.991300110568612,
+    "shortest_path_m": 0.0,
+    "speed_mps": 8.489962947309135e-62,
+    "terminated": false,
+    "termination_reason": null,
+    "extras": {
+      "goal_radius_m": 2.0,
+      "lure_dwell_s": 0.0,
+      "landmarks": 1.0,
+      "obstacles": 4.0,
+      "skipped_injections": 0.0,
+      "min_injected_block_clearance_m": -1.0,
+      "hover_streak_s": 0.0,
+      "target_contact": 0.0,
+      "task_complete": 0.0,
+      "target_ever_visible": 1.0,
+      "branch_correct": 0.0,
+      "wrong_branch": 0.0,
+      "passage_closed": 0.0,
+      "tracking_good_s": 0.0,
+      "tracking_total_s": 0.0,
+      "tracking_fraction": 0.0,
+      "shortest_path_valid": 0.0
+    }
+  }
+}

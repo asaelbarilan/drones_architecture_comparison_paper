@@ -1,3 +1,17 @@
+## 2026-10-18: D-158 visual step completion
+
+Object memory (object under the drone counts as arrival), stated standoff and
+hold read from step text, and monitor "hold" counted as "stop" when fresh depth
+says near. Classical pilot: 5/9 (was 3/9); hover and vehicle pass for the first
+time. See reports/qwen_vlm_fixes_20261018/REPORT.md.
+
+## 2026-10-18: D-157 hold altitude on visual legs
+
+visual_goal can hold altitude instead of following the ray to a tall object's
+box centre (visual_altitude "hold"). Classical pilot, nine tasks: still 3/9,
+but level flight and closer endings (vehicle 0.48m from hover point). Next:
+the stop decision on hover and vehicle tasks. See reports/qwen_vlm_fixes_20261018.
+
 ## 2026-10-18: D-156 obstacle tasks, VLA vs classical
 
 Three obstacle variants of visible_target (post, slalom, low-wall control),

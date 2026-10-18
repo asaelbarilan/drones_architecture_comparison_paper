@@ -23,6 +23,10 @@ Each objective preserves the requested action, object identity and stop conditio
 Approach an object and stop nearby is ONE step, not approach followed by stop.
 Use multiple steps only for distinct explicitly requested destinations/actions.
 Do not invent coordinates or numeric moves. Preserve the entire original goal.
+Optional numbers, ONLY when the instruction states them for that step:
+standoff_m = the distance to hover at from the object (e.g. "about 1 metre before
+it" gives 1); never from "within N metres". hold_s = seconds to hold (e.g.
+"hold for 2 seconds" gives 2). Omit both otherwise.
 Context: '''
 
 

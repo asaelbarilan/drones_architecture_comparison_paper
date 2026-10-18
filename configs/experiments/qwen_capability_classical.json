@@ -73,5 +73,6 @@
   },
   "goal_mode": "visual",
   "inference_kind": "D151 local integration repair; frozen shared Qwen",
-  "pilot_mode": "classical"
+  "pilot_mode": "classical",
+  "visual_altitude": "hold"
 }

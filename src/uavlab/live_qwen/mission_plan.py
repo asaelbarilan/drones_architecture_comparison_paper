@@ -2,12 +2,23 @@
 
 import json
 import math
+import re
 
 from .world_contract import normalize_world, world_target
 
 MAX_STEPS = 8
 MAX_TEXT = 400
 POSE_CHANNELS = 4
+# Planner-extracted stop parameters (D-158): stated hover distance and hold time.
+OPTIONAL = {"standoff_m": (0.5, 3.0), "hold_s": (0.0, 30.0)}
+# The 4B planner omits these fields (D-158 first run), so explicit numbers in the
+# step's own public text are read directly, as world_contract does for coordinates.
+STATED = {
+    "standoff_m": re.compile(r"\babout\s+(\d+(?:\.\d+)?)\s*(?:m|metres?|meters?)\s+"
+                             r"(?:before|from|in front of|away from)\b", re.IGNORECASE),
+    "hold_s": re.compile(r"\bhold\w*\s+(?:position\s+)?for\s+(\d+(?:\.\d+)?)\s+"
+                         r"(?:continuous\s+)?seconds?\b", re.IGNORECASE),
+}
 
 
 def parse_steps(payload):
@@ -17,12 +28,27 @@ def parse_steps(payload):
     if not 1 <= len(data["steps"]) <= MAX_STEPS:
         raise ValueError("planner requires 1..8 steps")
     for step in data["steps"]:
-        if set(step) != {"objective", "target"}:
+        if not {"objective", "target"} <= set(step) <= {"objective", "target", *OPTIONAL}:
             raise ValueError("step requires objective and target")
+        for key, (low, high) in OPTIONAL.items():
+            value = step.get(key)
+            if value is not None and (type(value) not in (int, float) or not low <= value <= high):
+                raise ValueError(f"invalid step {key}")
         if not isinstance(step["objective"], str) or not 1 <= len(step["objective"]) <= MAX_TEXT:
             raise ValueError("invalid step objective")
         validate_target(step["target"])
-    return accumulate_steps(json.loads(json.dumps(data["steps"])))
+    steps = json.loads(json.dumps(data["steps"]))
+    for step in steps:
+        add_stated_fields(step)
+    return accumulate_steps(steps)
+
+
+def add_stated_fields(step):
+    for key, pattern in STATED.items():
+        match = pattern.search(step["objective"])
+        low, high = OPTIONAL[key]
+        if step.get(key) is None and match and low <= float(match.group(1)) <= high:
+            step[key] = float(match.group(1))
 
 
 def accumulate_steps(steps):

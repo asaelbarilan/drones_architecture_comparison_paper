@@ -1,3 +1,40 @@
+## 2026-10-17: D-155 matched VLA vs classical pilot
+
+Added pilot_mode "classical" (classical_pilot.py + classical_pilot_backend.py):
+straight-line waypoint controller with the VLA pilot's exact input/output
+contract; everything else identical. Nine tasks, seed1061: classical 3/9, VLA
+2/9; classical faster everywhere, passes turn_search, follows the moving
+target 44m vs VLA 2.7m. Remaining failures are planner/perception gaps shared
+by both. See reports/qwen_classical_comparison_20261017/REPORT.md.
+
+## 2026-10-17: D-153 long waypoints, D-154 pilot brittleness probe
+
+Long visual legs (up to max_goal_m 10m) plus 1.25m standoff and no periodic
+monitor mid visual leg: 2/9 (3m legs: 3/9). visible_target fastest yet 33.6s.
+turn_search lost to pilot creep. Offline probe: the frozen VLA pilot hovers
+instead of flying when instruction text or heading/goal numbers move off a
+narrow pattern; image is not the cause. Not fixable by integration tweaks.
+See REPORT.md D-153/D-154.
+
+## 2026-10-17: D-152 remaining six tasks with D-151 repairs
+
+0/6, no collisions; four ended closer than D-150, follow_target now moves.
+Measured shared bottleneck: drone stationary 55-76% of each flight, ~3s
+grounding wait at every visual waypoint. Other causes: altitude climb, monitor
+never stops hover task, conditional flattened to fixed steps, no passage route,
+no above-object goal, no tracking. See REPORT.md D-152 section.
+
+## 2026-10-17: D-151 integration repairs pass first three tasks
+
+Frozen VLA, seed1061, original criteria/60s. Codex repairs (world-coordinate
+contract, bounded search turns, LRU decoder graph cache, 0.1s actions,
+depth-bounded waypoints) gave 2/3; turn_search reached 1.78m but never stopped.
+Near-object waypoint deadlock: 0.25m waypoints inside the 0.5m arrival
+tolerance were reached on issue, so range stalled above NEAR_OBJECT_M=1.5.
+scheduler.py now aims at a 0.75m standoff; regression test added, 88 tests pass.
+Rerun third_three 3/3, no collisions. One seed; other six tasks not rerun.
+See reports/qwen_integration_repairs_20261017/REPORT.md.
+
 ## 2026-10-17: D-150 existing nine-task local screen
 
 Ran frozen shared-Qwen runtime on all nine existing capability tasks, seed1061,

@@ -54,11 +54,11 @@ def parse_plan(payload):
     return p
 
 
-def parse_direction(payload):
+def parse_direction(payload, max_travel_m=3):
     p = strict_object(payload, ("u", "v", "travel_m", "target_visible", "box"))
     if any(type(p[k]) is not int or not 0 <= p[k] <= 1000 for k in ("u", "v")):
         raise ValueError("Invalid camera point")
-    if type(p["travel_m"]) not in (int, float) or not 0.25 <= p["travel_m"] <= 3:
+    if type(p["travel_m"]) not in (int, float) or not 0.25 <= p["travel_m"] <= max_travel_m:
         raise ValueError("Invalid travel distance")
     if type(p["target_visible"]) is not bool:
         raise ValueError("Invalid visibility")

@@ -12,6 +12,7 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 from .grounding import GROUNDING, VISUAL_PLANNER
 from .planner_memory import RECOVERY, planner_context
 from .visual_progress import VISUAL_MONITOR, visual_context
+from .world_contract import world_target
 
 PLANNER = '''Plan the ENTIRE original mission in execution order. JSON only:
 {"steps":[{"objective":"short instruction","target":[0,0,0,0]}]}.
@@ -19,6 +20,8 @@ Return at least one step, including for holding still. Preserve EVERY requiremen
 Include ONLY movements requested by the mission, never an invented movement.
 For numeric steps target is the CHANGE during THAT STEP:
 [forward_m,right_m,up_m,clockwise_degrees], with position axes of episode start.
+Exception: an explicit world ENU coordinate uses target={"world_enu":[x,y,z]}.
+Copy its three absolute coordinates exactly; retain initial heading unless requested otherwise.
 The scheduler accumulates these changes into persistent absolute targets.
 For turn steps position changes are zero; do NOT repeat earlier displacement.
 Separate sequential movements ONLY IF the mission explicitly requests them.
@@ -51,6 +54,7 @@ for explicit numeric motion. These offsets are relative to the EPISODE START,
 not the current pose. Never add the same displacement again when replanning.
 Copy authorized_target exactly for numeric steps. Do NOT output
 terminal: the scheduler owns step order and mission completion.
+For authorized_target={"world_enu":[x,y,z]} use kind="world", copy target exactly.
 For a visual objective use:
 {"kind":"visual","target":{"u":500,"v":500,"travel_m":1.0,
 "target_visible":false,"box":null}}.
@@ -76,7 +80,8 @@ def monitor_context(state, obs):
     return dict(original_mission=state.mission.instruction,
                 active_objective=state.plan["objective"], active_step=state.step_index,
                 is_last_step=state.step_index == len(state.steps)-1,
-                numeric_target=isinstance(state.plan["target"], list),
+                numeric_target=isinstance(state.plan["target"], list)
+                or world_target(state.plan["target"]),
                 position_error_m=obs.position.distance_to(state.goal.position),
                 heading_error_deg=abs(state.goal.error(obs)[-1]),
                 speed_mps=obs.velocity.norm(),
@@ -107,7 +112,8 @@ def role_request(state, role, obs):
         else:
             context = dict(active_objective=state.plan["objective"],
                            authorized_target=state.plan["target"],
-                           numeric_target=isinstance(state.plan["target"], list))
+                           numeric_target=isinstance(state.plan["target"], list)
+                           or world_target(state.plan["target"]))
         prefix = {"planner": PLANNER, "direction": DIRECTION, "monitor": MONITOR}[role]
         if role == "direction" and state.settings.get("goal_mode") == "visual":
             prefix = GROUNDING

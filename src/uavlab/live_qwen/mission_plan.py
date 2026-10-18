@@ -3,6 +3,8 @@
 import json
 import math
 
+from .world_contract import normalize_world, world_target
+
 MAX_STEPS = 8
 MAX_TEXT = 400
 POSE_CHANNELS = 4
@@ -37,6 +39,8 @@ def accumulate_steps(steps):
 
 
 def validate_target(target):
+    if world_target(target):
+        return
     if isinstance(target, str) and 1 <= len(target) <= MAX_TEXT:
         return  # A visual description, not a numeric pose claim.
     if not isinstance(target, list) or len(target) != POSE_CHANNELS:
@@ -46,7 +50,7 @@ def validate_target(target):
 
 
 def accept_plan(state, payload, now):
-    steps = parse_steps(payload)
+    steps = parse_steps(normalize_world(payload, state.mission.instruction))
     if state.settings.get("goal_mode") == "visual" and any(
             not isinstance(step["target"], str) for step in steps):
         raise ValueError("visual mission requires visual descriptions, not invented numeric goals")
@@ -64,8 +68,12 @@ def validate_direction(state, payload):
         return data  # Manually constructed scheduler fixtures have no committed plan.
     expected_terminal = state.step_index == len(state.steps)-1
     target = state.steps[state.step_index]["target"]
-    if isinstance(target, list):
-        if data["kind"] != "relative" or data["target"] != target:
+    if isinstance(target, list) or world_target(target):
+        expected_kind = "world" if world_target(target) else "relative"
+        if (world_target(target) and data["kind"] == "world"
+                and data["target"] == target["world_enu"]):
+            data = dict(data, target=target)
+        if data["kind"] != expected_kind or data["target"] != target:
             raise ValueError("direction changed committed numeric step")
         if data.get("terminal", expected_terminal) != expected_terminal:
             raise ValueError("direction cannot skip remaining mission steps")

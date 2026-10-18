@@ -3,9 +3,11 @@ import pytest
 
 from tests.test_live_qwen import ORIGIN_NS, observation
 from tests.test_live_qwen import state as scheduler_fixture
-from uavlab.contracts import CameraIntrinsics, SensorRef
+from uavlab.contracts import CameraIntrinsics, SensorRef, Vec3, s_to_ns
 from uavlab.core.frame_store import global_store
-from uavlab.live_qwen.grounding import capture_depth, grounded_direction, observed_range
+from uavlab.live_qwen.goals import Goal
+from uavlab.live_qwen.grounding import (NEAR_OBJECT_M, capture_depth, grounded_direction,
+                                        observed_range)
 from uavlab.live_qwen.mission_plan import accept_plan
 
 state = scheduler_fixture
@@ -85,3 +87,59 @@ def test_request_depth_snapshot_survives_frame_eviction():
     proposal = grounded_direction(dict(target_visible=True, box=[400, 400, 600, 600]))
     assert observed_range(proposal, obs) is None
     assert observed_range(proposal, obs, snapshot) == 1.0
+
+
+@pytest.mark.parametrize("depth,travel", [(12.0, 10.0), (6.0, 4.75), (2.5, 1.25),
+                                          (float("inf"), 1.0)])
+def test_visual_waypoint_uses_depth_up_to_local_goal_bound(state, depth, travel):
+    scheduler, _ = state
+    scheduler.pending_depth = np.full((16, 16), depth)
+    obs = observation().model_copy(update=dict(
+        intrinsics=CameraIntrinsics(width=16, height=16, fx=8, fy=8, cx=8, cy=8),
+        depth=SensorRef(kind="depth", uri="retained-depth", digest="test")))
+    proposal = scheduler.prepare_visual_goal(dict(target_visible=True, box=[400, 400, 600, 600]),
+                                             obs, ORIGIN_NS, ORIGIN_NS)
+    assert proposal["target"]["travel_m"] == pytest.approx(travel)
+    assert not scheduler.stopped
+
+
+def test_visual_waypoint_just_outside_near_range_is_not_reached_on_issue(state):
+    # D150 search repeat: range 1.57 m gave a 0.25 m waypoint, inside the 0.5 m
+    # arrival tolerance, so it was "reached" at once and the drone never closed in.
+    scheduler, _ = state
+    scheduler.pending_depth = np.full((16, 16), 1.57)
+    obs = observation().model_copy(update=dict(
+        intrinsics=CameraIntrinsics(width=16, height=16, fx=8, fy=8, cx=8, cy=8),
+        depth=SensorRef(kind="depth", uri="retained-depth", digest="test")))
+    proposal = scheduler.prepare_visual_goal(dict(target_visible=True, box=[400, 400, 600, 600]),
+                                             obs, ORIGIN_NS, ORIGIN_NS)
+    travel = proposal["target"]["travel_m"]
+    assert travel > scheduler.settings["position_m"]
+    assert 1.57 - travel + scheduler.settings["position_m"] < NEAR_OBJECT_M
+
+
+def test_visual_waypoint_from_two_metres_stops_short_of_losing_view(state):
+    # D153 long-waypoint run: from 2.11 m the old 0.75 m aim flew close enough
+    # that the pillar left the camera and the drone froze on target_lost.
+    scheduler, _ = state
+    scheduler.pending_depth = np.full((16, 16), 2.11)
+    obs = observation().model_copy(update=dict(
+        intrinsics=CameraIntrinsics(width=16, height=16, fx=8, fy=8, cx=8, cy=8),
+        depth=SensorRef(kind="depth", uri="retained-depth", digest="test")))
+    proposal = scheduler.prepare_visual_goal(dict(target_visible=True, box=[400, 400, 600, 600]),
+                                             obs, ORIGIN_NS, ORIGIN_NS)
+    end_range = 2.11 - proposal["target"]["travel_m"]
+    assert 1.0 <= end_range <= NEAR_OBJECT_M
+
+
+def test_no_periodic_monitor_mid_visual_leg(state):
+    scheduler, rows = state
+    accept_plan(scheduler, dict(steps=[dict(objective="Fly to the red pillar.",
+                                            target="red pillar")]), ORIGIN_NS)
+    scheduler.goal = Goal(scheduler.version, Vec3(x=10, y=0, z=3), 0, True,
+                          ORIGIN_NS+s_to_ns(45), 1)
+    now = ORIGIN_NS+s_to_ns(scheduler.settings["monitor_interval_s"])
+    scheduler.progress_at = now
+    scheduler.check_events(observation(x=5), now)
+    assert scheduler.monitor_reason is None
+    assert not any(r["kind"] == "motion_revoked" for r in rows)

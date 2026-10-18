@@ -1,0 +1,23 @@
+{
+  "mission_id": "ordered_visit",
+  "instruction": "Visit the red pillar first, staying within 2 metres for at least half a second, then visit the blue pillar and stop within 2 metres.",
+  "task_family": "multi_stage",
+  "success": {
+    "goal_radius_m": 2.0,
+    "require_terminal_stop": true,
+    "max_flight_time_s": 60.0,
+    "required_subgoals": 1
+  },
+  "constraints": {
+    "max_speed_mps": 2.0,
+    "max_accel_mps2": 4.0,
+    "min_altitude_m": 0.5,
+    "max_altitude_m": 7.0,
+    "geofence_radius_m": 45.0,
+    "min_obstacle_clearance_m": 0.6
+  },
+  "start_pose": null,
+  "goal_hint": null,
+  "allowed_skills": [],
+  "metadata": {}
+}

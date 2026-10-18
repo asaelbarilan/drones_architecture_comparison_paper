@@ -1,0 +1,277 @@
+{
+  "obstacles": [
+    {
+      "center": [
+        12.0,
+        -4.0,
+        0.9
+      ],
+      "half": [
+        1.6,
+        0.85,
+        0.3
+      ],
+      "color": [
+        180,
+        160,
+        60
+      ]
+    },
+    {
+      "center": [
+        12.0,
+        -4.0,
+        1.45
+      ],
+      "half": [
+        0.8,
+        0.65,
+        0.3
+      ],
+      "color": [
+        80,
+        120,
+        160
+      ]
+    },
+    {
+      "center": [
+        10.95,
+        -4.95,
+        0.3
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        10.95,
+        -3.05,
+        0.3
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        13.05,
+        -4.95,
+        0.3
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        13.05,
+        -3.05,
+        0.3
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        12.0,
+        4.0,
+        0.9
+      ],
+      "half": [
+        1.6,
+        0.85,
+        0.3
+      ],
+      "color": [
+        180,
+        160,
+        60
+      ]
+    },
+    {
+      "center": [
+        12.0,
+        4.0,
+        0.35
+      ],
+      "half": [
+        0.8,
+        0.65,
+        0.3
+      ],
+      "color": [
+        80,
+        120,
+        160
+      ]
+    },
+    {
+      "center": [
+        10.95,
+        3.05,
+        1.4
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        10.95,
+        4.95,
+        1.4
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        13.05,
+        3.05,
+        1.4
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    },
+    {
+      "center": [
+        13.05,
+        4.95,
+        1.4
+      ],
+      "half": [
+        0.32,
+        0.22,
+        0.28
+      ],
+      "color": [
+        25,
+        25,
+        28
+      ]
+    }
+  ],
+  "landmarks": [],
+  "goal": [
+    12.0,
+    4.0,
+    3.2
+  ],
+  "scenario": "overturned_vehicle",
+  "vehicles": [
+    {
+      "position": [
+        12,
+        -4,
+        0.9
+      ],
+      "inverted": false
+    },
+    {
+      "position": [
+        12,
+        4,
+        0.9
+      ],
+      "inverted": true
+    }
+  ],
+  "task_events": [],
+  "task_status": {
+    "t_sim_ns": 60000513500,
+    "position": {
+      "x": 4.660877411909093,
+      "y": 0.8897182552795689,
+      "z": 2.3935686355090247,
+      "frame": "enu"
+    },
+    "distance_to_goal_m": 8.011673011313063,
+    "goal_visible": true,
+    "subgoals_completed": 0,
+    "subgoals_total": 0,
+    "task_complete": false,
+    "collided": false,
+    "collision_count": 0,
+    "min_obstacle_distance_m": 5.79155894787527,
+    "out_of_bounds": false,
+    "constraint_violations": 0,
+    "path_length_m": 14.184408959120276,
+    "shortest_path_m": 12.650691680694775,
+    "speed_mps": 0.027369705976488103,
+    "terminated": false,
+    "termination_reason": null,
+    "extras": {
+      "goal_radius_m": 2.0,
+      "lure_dwell_s": 0.0,
+      "landmarks": 0.0,
+      "obstacles": 12.0,
+      "skipped_injections": 0.0,
+      "min_injected_block_clearance_m": -1.0,
+      "hover_streak_s": 0.0,
+      "target_contact": 0.0,
+      "task_complete": 0.0,
+      "target_ever_visible": 1.0,
+      "branch_correct": 0.0,
+      "wrong_branch": 0.0,
+      "passage_closed": 0.0,
+      "tracking_good_s": 0.0,
+      "tracking_total_s": 0.0,
+      "tracking_fraction": 0.0,
+      "shortest_path_valid": 1.0
+    }
+  }
+}

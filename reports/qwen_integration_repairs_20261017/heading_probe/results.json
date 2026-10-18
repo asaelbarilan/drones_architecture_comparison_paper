@@ -1,0 +1,194 @@
+[
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 95,
+  "yaw_recorded": 210.5269654699457,
+  "remaining": [
+   10.199625194397331,
+   1.9999999999999996,
+   1.4891762467267826,
+   11.094120559486136
+  ],
+  "forward_sum_m": {
+   "recorded": 0.022,
+   "wrapped": -0.033,
+   "zero": 0.022
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 96,
+  "yaw_recorded": 223.25448815466325,
+  "remaining": [
+   10.375367770512216,
+   -0.2948869211497023,
+   1.4853045765153783,
+   -1.6334021252314064
+  ],
+  "forward_sum_m": {
+   "recorded": -0.033,
+   "wrapped": -0.033,
+   "zero": 0.022
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 97,
+  "yaw_recorded": 221.48499226290093,
+  "remaining": [
+   10.393081032469361,
+   0.08047479623532361,
+   0.46434002150719245,
+   0.13609376653091734
+  ],
+  "forward_sum_m": {
+   "recorded": 0.13,
+   "wrapped": 0.13,
+   "zero": -0.033
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 98,
+  "yaw_recorded": 221.03340715081862,
+  "remaining": [
+   10.31125972550579,
+   0.1882126775057742,
+   -0.21344834188455675,
+   0.5876788786132114
+  ],
+  "forward_sum_m": {
+   "recorded": 0.13,
+   "wrapped": 0.13,
+   "zero": 1.333
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 99,
+  "yaw_recorded": 221.89973281841634,
+  "remaining": [
+   10.188578253828993,
+   0.015230113239257825,
+   0.39446937764688794,
+   -0.27864678898449824
+  ],
+  "forward_sum_m": {
+   "recorded": 0.13,
+   "wrapped": 0.13,
+   "zero": -0.033
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\turn_search",
+  "request_id": 100,
+  "yaw_recorded": 221.44814770633403,
+  "remaining": [
+   10.058023656431956,
+   0.06654227217663689,
+   0.5490609991956878,
+   0.17293832309779594
+  ],
+  "forward_sum_m": {
+   "recorded": 0.13,
+   "wrapped": 0.13,
+   "zero": 0.13
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 39,
+  "yaw_recorded": -0.0,
+  "remaining": [
+   10.16967516940328,
+   0.0,
+   1.1906749971433754,
+   -0.0
+  ],
+  "forward_sum_m": {
+   "recorded": 2.277,
+   "wrapped": 1.944,
+   "zero": 1.944
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 40,
+  "yaw_recorded": -0.2533642437303248,
+  "remaining": [
+   9.555343858233336,
+   0.042959542492089685,
+   1.1924116330526089,
+   0.2533642437303248
+  ],
+  "forward_sum_m": {
+   "recorded": 1.489,
+   "wrapped": 1.489,
+   "zero": 1.944
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 41,
+  "yaw_recorded": 0.6129614238673594,
+  "remaining": [
+   8.249296275649618,
+   -0.08829335145959515,
+   1.1892529999852965,
+   -0.6129614238673594
+  ],
+  "forward_sum_m": {
+   "recorded": 1.326,
+   "wrapped": 1.326,
+   "zero": 1.489
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 42,
+  "yaw_recorded": 1.4792870914650442,
+  "remaining": [
+   6.8046116284361755,
+   -0.19450441546368455,
+   1.1687040369189656,
+   -1.4792870914650444
+  ],
+  "forward_sum_m": {
+   "recorded": 0.728,
+   "wrapped": 0.728,
+   "zero": 1.706
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 43,
+  "yaw_recorded": 2.3456127590627296,
+  "remaining": [
+   5.928683079375972,
+   -0.2851871820655642,
+   1.1438658420946588,
+   -2.3456127590627296
+  ],
+  "forward_sum_m": {
+   "recorded": 0.728,
+   "wrapped": 0.728,
+   "zero": 1.598
+  }
+ },
+ {
+  "run": "reports\\qwen_integration_repairs_20261017\\long_waypoints_v2\\visible_target",
+  "request_id": 44,
+  "yaw_recorded": 0.5761168744117355,
+  "remaining": [
+   5.109497558370202,
+   -0.12058492535167022,
+   -0.061197510521198595,
+   -0.5761168744117355
+  ],
+  "forward_sum_m": {
+   "recorded": 1.109,
+   "wrapped": 1.109,
+   "zero": 1.326
+  }
+ }
+]

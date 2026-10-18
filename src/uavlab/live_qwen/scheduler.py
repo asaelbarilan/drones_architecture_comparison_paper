@@ -12,7 +12,12 @@ from .grounding import NEAR_OBJECT_M, capture_depth, grounded_direction, observe
 from .mission_plan import accept_plan, validate_direction
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
+from .search import search_allowed, start_search, update_search
 from .visual_progress import fresh_evidence, record_grounding
+from .world_contract import world_target
+
+NEAR_MARGIN_M = 0.25
+MIN_LEG_MARGIN_M = 0.1
 
 
 class GoalScheduler:
@@ -34,6 +39,8 @@ class GoalScheduler:
         self.memory, self.planner_event = [], None
         self.visual_evidence = self.visual_source = None
         self.target_missing = False
+        self.search_goal, self.search_deadline, self.search_turns = None, 0, 0
+        self.search_authorized = False
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -69,6 +76,8 @@ class GoalScheduler:
         self.last_yaw = obs.yaw_rad
         for event in self.worker.poll(self.version, now):
             self.receive(event, obs, now)
+        if update_search(self, obs, now):
+            return
         self.check_events(obs, now)
         if now < self.hold_until:
             return
@@ -177,6 +186,10 @@ class GoalScheduler:
             self.visual_evidence = None
             if not self.target_missing:
                 self.target_missing = True
+                if self.search_authorized and search_allowed(self):
+                    start_search(self, now)
+                    self.log("grounding_absent", now, source_seq=source.seq)
+                    return None
                 self.request_planner("target_lost", now)
             self.pause("requested object not visible; no blind approach", now)
             self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
@@ -184,6 +197,14 @@ class GoalScheduler:
             return None
         self.log("grounding_validated", now, payload=proposal, source_seq=source.seq)
         near = record_grounding(self, proposal, source, captured, now)
+        distance = self.visual_evidence["range_m"]
+        if distance is not None:
+            # Aim just inside the near range so the object stays in view, and keep
+            # each leg longer than the arrival tolerance so it is never reached on issue.
+            standoff = NEAR_OBJECT_M - NEAR_MARGIN_M
+            min_travel = self.settings["position_m"] + MIN_LEG_MARGIN_M
+            proposal["target"]["travel_m"] = min(self.settings["max_goal_m"],
+                                                 max(min_travel, distance-standoff))
         if self.verify_visual_stop(proposal, source, now):
             return None
         if near:
@@ -270,7 +291,8 @@ class GoalScheduler:
             self.replan("visual waypoint reached; same objective needs fresh grounding", now)
 
     def numeric_complete(self, obs):
-        return (bool(self.steps) and isinstance(self.plan["target"], list)
+        return (bool(self.steps) and (isinstance(self.plan["target"], list)
+                                     or world_target(self.plan["target"]))
                 and self.goal.arrived(obs, self.settings)
                 and obs.velocity.norm() <= self.settings["stopped_mps"])
 
@@ -301,7 +323,10 @@ class GoalScheduler:
                 self.request_monitor("arrival", now)
         elif now-self.progress_at >= s_to_ns(self.settings["stall_s"]):
             self.request_planner("stalled_progress", now)
-        elif elapsed >= s_to_ns(self.settings["monitor_interval_s"]):
+        elif (elapsed >= s_to_ns(self.settings["monitor_interval_s"])
+              and not (self.steps and isinstance(self.plan["target"], str))):
+            # Visual evidence goes stale as soon as the drone moves, so a mid-leg
+            # check can only answer replan; visual legs end in fresh grounding instead.
             self.request_monitor("periodic scene check", now)
 
     def failure(self, reason, now):

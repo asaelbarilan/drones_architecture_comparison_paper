@@ -42,6 +42,21 @@ class DecoderGraph:
         self.entries = {}
         self.head = None
         self.latest = None
+        self.evictions = 0
+
+    def cached(self, key, prepared):
+        """Bound memory without making the ninth input shape a fatal mission error."""
+        if key in self.entries:
+            entry = self.entries.pop(key)
+        else:
+            if len(self.entries) >= MAX_GRAPHS:
+                self.torch.cuda.synchronize()
+                self.latest = None
+                self.entries.pop(next(iter(self.entries)))
+                self.evictions += 1
+            entry = self.capture(prepared)
+        self.entries[key] = entry
+        return entry
 
     def deepstack(self, hidden, mask, features):
         ranks = (mask.long().cumsum(-1) - 1).clamp_min(0)
@@ -95,11 +110,7 @@ class DecoderGraph:
         prepared = self.prepared(kwargs)
         key = (kwargs["inputs_embeds"].shape,
                tuple(layer.keys.data_ptr() for layer in cache.layers))
-        if key not in self.entries:
-            if len(self.entries) >= MAX_GRAPHS:
-                raise RuntimeError("Bounded graph cache exhausted")
-            self.entries[key] = self.capture(prepared)
-        buffers, graph, output, indices, logits = self.entries[key]
+        buffers, graph, output, indices, logits = self.cached(key, prepared)
         for name, value in prepared.items():
             copy_tree(buffers[name], value, self.torch)
         if indices is not None:

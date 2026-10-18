@@ -11,6 +11,38 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-155 VLA vs classical pilot (2026-10-17)
+
+Read reports/qwen_classical_comparison_20261017/REPORT.md. Same planner,
+grounding, monitor and code; only the pilot swapped (config pilot_mode).
+Classical 3/9 vs VLA 2/9, classical faster on every shared pass. The other six
+failures are planner/perception gaps common to both. One seed, open scenes.
+A VLA benefit needs tasks where the pilot must use vision itself.
+
+## Latest user work: D-153/D-154 long waypoints and pilot probe (2026-10-17)
+
+Read REPORT.md D-153/D-154 in reports/qwen_integration_repairs_20261017. Long
+visual legs + 1.25m standoff + no mid-leg periodic monitor: 2/9 (3m legs 3/9).
+Offline replay shows the frozen VLA pilot hovers when instruction text or
+heading/goal numbers drift from a narrow pattern. Next: matched classical
+waypoint-controller comparison under the same planner and perception.
+
+## Latest user work: D-152 remaining six tasks (2026-10-17)
+
+Read reports/qwen_integration_repairs_20261017/REPORT.md D-152 section. 0/6 with
+D-151 repairs; first three still 3/3, so 3/9 overall on seed1061. Shared
+bottleneck: drone stationary 55-76% of flight waiting ~3s per waypoint for
+grounding. Next: overlap re-grounding with flight; then capability gaps.
+
+## Latest user work: D-151 integration repairs, first three tasks (2026-10-17)
+
+Read reports/qwen_integration_repairs_20261017/REPORT.md. Frozen VLA, seed1061,
+original criteria. known_goal, visible_target, turn_search now 3/3 (third_three)
+after Codex's integration repairs plus a near-object standoff fix in
+scheduler.py (waypoints were reached on issue at 1.52-1.57m range, so the
+proximity stop never fired). No collisions. One seed; next: rerun the other six
+tasks, then a matched classical-controller comparison. Local only, not pushed.
+
 ## Latest user work: D-150 existing nine-task screen (2026-10-17)
 
 Read reports/qwen_nine_capabilities_20261017/REPORT.md. All nine existing

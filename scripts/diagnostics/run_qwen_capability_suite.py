@@ -102,11 +102,11 @@ async def capability_flight(worker, case, settings, out):
         evidence.close()
 
 
-def prepare(out, seed):
+def prepare(out, seed, config, tasks):
     out.mkdir(parents=True, exist_ok=False)
-    settings = json.loads(Path("configs/experiments/qwen_visual_object.json").read_text())
-    settings.update(watchdog_s=1200, missions=[dict(id=name, seed=seed) for name in SCENARIOS])
-    resolved = {name: task_binding(name, settings)[0].model_dump(mode="json") for name in SCENARIOS}
+    settings = json.loads(config.read_text())
+    settings.update(watchdog_s=1200, missions=[dict(id=name, seed=seed) for name in tasks])
+    resolved = {name: task_binding(name, settings)[0].model_dump(mode="json") for name in tasks}
     prompts = dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR,
                    visual_planner=VISUAL_PLANNER, grounding=GROUNDING,
                    visual_monitor=VISUAL_MONITOR, recovery=RECOVERY)
@@ -126,8 +126,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--seed", type=int, default=1061)
+    parser.add_argument("--config", type=Path,
+                        default=Path("configs/experiments/qwen_visual_object.json"))
+    parser.add_argument("--tasks", nargs="+", choices=SCENARIOS, default=list(SCENARIOS))
     args = parser.parse_args()
-    settings = prepare(args.out, args.seed)
+    settings = prepare(args.out, args.seed, args.config, args.tasks)
     timer = threading.Timer(settings["watchdog_s"], deadline_exit)
     timer.daemon = True
     timer.start()

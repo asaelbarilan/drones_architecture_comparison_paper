@@ -5,6 +5,8 @@ from uavlab.core.registry import REGISTRY
 from uavlab.interfaces import DecisionContext
 from uavlab.plugins.reasoning.shared_qwen_pilot import pilot_action
 
+from .search import search_command
+
 
 def context(mission, obs, now):
     return DecisionContext(
@@ -46,6 +48,8 @@ class LiveControl:
             if packet is not None:
                 self.activate(packet, ctx, now)
         command = self.active if self.moving(now) else self.controller.hold(ctx)
+        if state.search_goal is not None and not state.failed and not state.stopped:
+            command = search_command(state, obs, self.controller.hold(ctx))
         command, safety = self.shield.check(command, ctx)
         if safety.modified:
             state.log("shield", now, reason=safety.reason, proposed_active=self.active is not None)

@@ -13,6 +13,8 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import (
 )
 from uavlab.plugins.reasoning.spf import SPFPoint, point_to_enu
 
+from .world_contract import world_target
+
 CHANNELS = 4
 
 
@@ -55,7 +57,8 @@ def relative_goal(delta, origin, limits):
 
 
 def visual_goal(data, obs, settings):
-    d = parse_direction(data)
+    # travel_m here is set from measured depth, bounded by the local goal limit.
+    d = parse_direction(data, settings["max_goal_m"])
     intr = obs.intrinsics
     if intr is None:
         raise ValueError("visual direction needs calibrated camera")
@@ -75,6 +78,9 @@ def interpret_goal(payload, source, origin, settings):
         raise ValueError("terminal must be boolean")
     if value["kind"] == "relative":
         position, yaw = relative_goal(value["target"], origin, settings)
+    elif value["kind"] == "world" and world_target(value["target"]):
+        position = Vec3(**dict(zip(("x", "y", "z"), value["target"]["world_enu"], strict=True)))
+        yaw = origin.yaw_rad
     elif value["kind"] == "visual":
         position, yaw = visual_goal(value["target"], source, settings)
     else:

@@ -1,0 +1,209 @@
+[
+ {
+  "task": "known_goal",
+  "vla": {
+   "p": "PASS",
+   "d": 0.24,
+   "t": 41.0,
+   "path": 17.9,
+   "still": 24.5,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "PASS",
+   "d": 0.06,
+   "t": 16.7,
+   "path": 11.9,
+   "still": 8.9,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "visible_target",
+  "vla": {
+   "p": "PASS",
+   "d": 1.57,
+   "t": 33.6,
+   "path": 12.9,
+   "still": 20.0,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "PASS",
+   "d": 1.58,
+   "t": 28.6,
+   "path": 10.9,
+   "still": 19.6,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "approach_hover",
+  "vla": {
+   "p": "fail",
+   "d": 1.81,
+   "t": 60.0,
+   "path": 14.5,
+   "still": 46.4,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "fail",
+   "d": 1.59,
+   "t": 60.0,
+   "path": 11.0,
+   "still": 50.9,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "turn_search",
+  "vla": {
+   "p": "fail",
+   "d": 4.26,
+   "t": 60.0,
+   "path": 31.7,
+   "still": 26.9,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "PASS",
+   "d": 1.89,
+   "t": 36.5,
+   "path": 10.5,
+   "still": 29.5,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "overturned_vehicle",
+  "vla": {
+   "p": "fail",
+   "d": 4.0,
+   "t": 60.0,
+   "path": 17.0,
+   "still": 44.4,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "fail",
+   "d": 3.64,
+   "t": 60.0,
+   "path": 9.5,
+   "still": 53.2,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "conditional_gate",
+  "vla": {
+   "p": "fail",
+   "d": 10.97,
+   "t": 60.0,
+   "path": 14.8,
+   "still": 47.9,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "fail",
+   "d": 10.77,
+   "t": 60.0,
+   "path": 6.1,
+   "still": 55.6,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "ordered_visit",
+  "vla": {
+   "p": "fail",
+   "d": 11.61,
+   "t": 60.0,
+   "path": 16.0,
+   "still": 46.0,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 1
+  },
+  "classical": {
+   "p": "fail",
+   "d": 11.71,
+   "t": 60.0,
+   "path": 9.7,
+   "still": 53.4,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 1
+  }
+ },
+ {
+  "task": "closing_passage",
+  "vla": {
+   "p": "fail",
+   "d": 24.0,
+   "t": 60.0,
+   "path": 0.0,
+   "still": 60.0,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "fail",
+   "d": 24.0,
+   "t": 60.0,
+   "path": 0.0,
+   "still": 60.0,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ },
+ {
+  "task": "follow_target",
+  "vla": {
+   "p": "fail",
+   "d": 47.64,
+   "t": 60.0,
+   "path": 2.7,
+   "still": 56.9,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  },
+  "classical": {
+   "p": "fail",
+   "d": 6.19,
+   "t": 60.0,
+   "path": 44.0,
+   "still": 28.3,
+   "coll": 0,
+   "track": 0.0,
+   "sub": 0
+  }
+ }
+]

@@ -4,6 +4,8 @@ import json
 
 from uavlab.contracts import s_to_ns
 
+from .search import search_allowed, start_search
+
 MEMORY_LIMIT = 16
 MAX_REASON = 400
 RECOVERY = '''You are the event-driven mission planner. Preserve the original mission,
@@ -11,9 +13,12 @@ ordered committed steps and completed steps. A local waypoint is not a subgoal.
 Review the trigger and observation memory. Choose exactly one action:
 retry_current (retry the same objective), refresh_view (request fresh visual
 grounding for that same objective), hold (temporary stationary safety pause).
-Do not invent motion, skip steps, change target identity or claim completion.
+search_turn (authorize a bounded in-place sweep, rechecking the camera after each
+45-degree turn, at most eight turns, ONLY when search_turn_allowed).
+Do not invent translations, skip steps, change target identity or claim completion.
 Return JSON with exactly action and reason. Reason at most 15 words.
-Use refresh_view for a lost target or stale perception, retry_current for
+Use search_turn for a lost target when search_turn_allowed; otherwise refresh_view.
+Use retry_current for
 recoverable stalled progress, hold for unsafe or unresolved conflicting evidence.
 Context: '''
 
@@ -28,6 +33,7 @@ def planner_context(state):
     return dict(original_mission=state.mission.instruction,
                 committed_steps=state.steps, active_step=state.step_index,
                 completed_steps=state.completed, trigger=state.planner_event,
+                search_turn_allowed=search_allowed(state),
                 observations=state.memory, feedback=state.feedback)
 
 
@@ -35,7 +41,7 @@ def accept_recovery(state, payload, now):
     data = json.loads(payload) if isinstance(payload, str) else payload
     if not isinstance(data, dict) or set(data) != {"action", "reason"}:
         raise ValueError("planner recovery requires action and reason")
-    if data["action"] not in {"retry_current", "refresh_view", "hold"}:
+    if data["action"] not in {"retry_current", "refresh_view", "hold", "search_turn"}:
         raise ValueError("planner recovery cannot change mission or complete it")
     if not isinstance(data["reason"], str) or not 1 <= len(data["reason"]) <= MAX_REASON:
         raise ValueError("invalid planner recovery reason")
@@ -44,3 +50,6 @@ def accept_recovery(state, payload, now):
     state.replan("planner recovery: " + data["reason"], now)
     if data["action"] == "hold":
         state.hold_until = now+s_to_ns(state.settings["monitor_retry_s"])
+    elif data["action"] == "search_turn":
+        start_search(state, now)
+        state.search_authorized = True

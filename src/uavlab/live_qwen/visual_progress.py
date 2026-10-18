@@ -49,4 +49,5 @@ def record_grounding(state, proposal, source, captured, now):
         remember(state, "target_reacquired", now, source_seq=source.seq)
     remember(state, "target_observed", now, **state.visual_evidence)
     state.target_missing = False
+    state.search_authorized = False
     return distance is not None and distance <= NEAR_OBJECT_M

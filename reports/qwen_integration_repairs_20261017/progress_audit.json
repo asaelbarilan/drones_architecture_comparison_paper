@@ -1,0 +1,28 @@
+{
+  "D150": {
+    "role_calls": {
+      "planner": 1,
+      "direction": 9,
+      "pilot": 24,
+      "monitor": 0
+    },
+    "consumed_actions": 57,
+    "mean_planned_consumption_s": 0.42208562280701756,
+    "final_distance_m": 7.574175933786467,
+    "action_duration_s": 0.5,
+    "pilot_ttl_s": 1.5
+  },
+  "first_repair": {
+    "role_calls": {
+      "planner": 1,
+      "direction": 12,
+      "pilot": 21,
+      "monitor": 0
+    },
+    "consumed_actions": 88,
+    "mean_planned_consumption_s": 0.09982120681818182,
+    "final_distance_m": 4.609094207727349,
+    "action_duration_s": 0.1,
+    "pilot_ttl_s": 1.5
+  }
+}

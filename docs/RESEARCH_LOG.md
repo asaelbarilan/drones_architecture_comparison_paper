@@ -3602,3 +3602,92 @@ run/result.json, per-task decisions/frames/evaluator snapshots, exact prompt/tok
 and event archive withSHA256manifest,verification.json,validation.json. Recorded
 rendered capability_grid3d, not AirSim; wall-paced screen not matched against
 historical simulator-clock architecture results.
+
+### D-151: integration repairs pass first three existing tasks (2026-10-17)
+
+Status: completed development screen; frozen VLA, local only.
+Rationale: D-150 failures were in the runtime around the VLA, so repairs were
+made to integration only, keeping task criteria, 60s limits and seed1061.
+Repairs: explicit world-coordinate contract accepting either valid wrapper;
+bounded search turns authorized by the planner, camera check after each turn;
+LRU eviction in the eight-entry decoder graph cache; 0.1s action period so an
+eight-action chunk fits the 1.5s freshness budget; depth-bounded visual
+waypoints up to the existing 3m cap; near-object standoff fix.
+
+Results: first_three 0/3; second_three 2/3 (known_goal 0.12m/25.9s,
+visible_target 1.95m/39.8s); turn_search reached 1.78m but never stopped.
+Cause: waypoint travel distance-1.5m floored at 0.25m sat inside the 0.5m
+arrival tolerance, so each waypoint was reached on issue and depth range
+stalled at 1.52-1.57m, above NEAR_OBJECT_M=1.5. Fix aims at standoff
+NEAR_OBJECT_M-position_m-0.25=0.75m. third_three 3/3: known_goal 0.28m/45.3s,
+visible_target 1.36m/37.9s, turn_search 1.25m/58.3s. Zero collisions/OOB,
+fresh actions, tick gaps<=61ms, GPU peak5071MiB from9MiB. known_goal slower
+(21.6m path) from pilot variation; same numeric goal, no visual waypoints.
+88 live-Qwen tests pass. One seed only; six tasks not rerun; no classical
+comparison yet. No AWS/training/weights changes; nothing pushed.
+
+Evidence: reports/qwen_integration_repairs_20261017/REPORT.md, first_three,
+second_three, third_three result.json/events.jsonl/gpu_samples.jsonl.
+
+### D-152: remaining six existing tasks with D-151 repairs (2026-10-17)
+
+Status: completed negative development screen; frozen VLA, local only.
+Same config, seed1061, original criteria/60s. 0/6; zero collisions/OOB.
+Final distances vs D-150: approach_hover 1.21m (7.48), overturned_vehicle
+8.01m (11.48), conditional_gate 10.74m (12.82), ordered_visit 12.53m (16.54,
+first visit truly completed at 47.8s), closing_passage 24.00m (never moved,
+pillar hidden behind wall, 8 in-place search sweeps), follow_target 32.51m
+(now moves; D-150 graph-cache crash fixed; marker outran drone).
+Shared bottleneck measured: drone stationary 55-76% of each flight; every
+visual waypoint ends with motion revoked for a ~3s grounding call (mean
+2.2-3.6s). Also: visual approach climbs ~1m (hover task 1.1m off approach
+line), monitor returns hold not stop on hover-duration task, planner turns
+conditional into fixed steps, no above-object altitude goal, no passage route
+or tracking behaviour. Next: overlap re-grounding with flight, then capability
+gaps. No AWS/training/weights changes; nothing pushed.
+
+Evidence: reports/qwen_integration_repairs_20261017/REPORT.md (D-152 section),
+remaining_six result.json/events.jsonl/evaluator snapshots.
+
+### D-153: long visual waypoints, standoff and mid-leg monitor (2026-10-17)
+
+Status: completed development screen; net no gain. Frozen VLA, seed1061.
+Shared single-GPU model serializes roles: grounding ~3s, pilot call covers
+0.8s flight, so the VLA cannot fly during a camera check. Chose depth-based
+legs up to max_goal_m=10m (was3m). First run 1/9: 0.75m standoff with
+precise arrival lost the pillar from view; 12s periodic monitor fired mid-leg
+and always replanned on stale evidence. Fixed: standoff 1.25m, minimum leg
+0.6m; periodic monitor skipped on committed visual steps. v2 2/9: known_goal
+0.24m/41.0s, visible_target 1.57m/33.6s (fastest pass); turn_search fails
+4.26m (pilot creep, D-154). 3m legs scored 3/9; one seed cannot separate.
+Zero collisions; 91 tests pass. Evidence: REPORT.md D-153, long_waypoints,
+long_waypoints_v2.
+
+### D-154: frozen VLA pilot brittle to instruction and numeric state (2026-10-17)
+
+Status: completed offline probe; no fix. Replayed saved turn_search and
+visible_target pilot requests with one input changed. Visible prompt on the
+search frame flies 1.94m/chunk; search instruction or search numbers
+(heading 210-221deg) give 0.02-0.13m. Wrapping heading to -139deg or zero
+does not help. Zeroing position state mid-flight on visible frames drops
+2.28m to 0.02m. Pilot flies only near a narrow training-like input pattern.
+Bears directly on VLA-vs-classical-controller comparison; that comparison is
+the recommended next step. Evidence: REPORT.md D-154, heading_probe/*.json,
+scripts/diagnostics/probe_pilot_heading.py.
+
+### D-155: matched VLA vs classical waypoint pilot on nine tasks (2026-10-17)
+
+Status: completed matched development comparison. Only the pilot role swapped
+(pilot_mode classical); same shared-Qwen planner, grounding and monitor,
+scheduler, shield, evaluator, criteria, seed1061, D-153 v2 code. Classical
+pilot: straight line to the same body-frame goal error, 2m/s, 1m/s^2 stop
+profile, same eight-step action contract, no image or weights.
+Result: classical 3/9 vs VLA 2/9. known_goal 0.06m/16.7s vs 0.24m/41.0s;
+visible_target 28.6s vs 33.6s; turn_search PASS 1.89m vs fail 4.26m (VLA
+creep, D-154); follow_target 6.19m/44m path vs 47.64m/2.7m path. Other five
+fail identically with both: planner/perception gaps, not piloting. Zero
+collisions both. On these open scenes the learned pilot adds no measured
+benefit; a VLA case needs tasks where the pilot itself must use vision.
+Two startup failures came from a wrapper bug (nested _load), fixed; no flights
+ran in them. Evidence: reports/qwen_classical_comparison_20261017/REPORT.md,
+comparison.json, classical/, long_waypoints_v2.

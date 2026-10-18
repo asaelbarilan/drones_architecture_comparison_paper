@@ -7,6 +7,7 @@ import json
 import threading
 from pathlib import Path
 
+from classical_pilot_backend import ClassicalPilotBackend
 from probe_qwen_fast_worker import ExperimentalBackend
 from run_qwen_async import deadline_exit
 
@@ -16,12 +17,17 @@ from uavlab.plugins.inference.qwen_worker import QwenWorker
 
 
 async def experiment(settings, out, flight=fly):
-    worker = QwenWorker(dict(
+    options = dict(
         package_path=settings["package_path"], model_id=settings["model_id"],
         max_new_tokens=128, warmup_path=str(out / "startup_equality.json"),
         cpu_placement="performance", cpu_qos="latency", burst_capacity=256,
-        prompt_audit=True),
-        factory=ExperimentalBackend)
+        prompt_audit=True)
+    factory = ExperimentalBackend
+    if settings.get("pilot_mode", "vla") == "classical":
+        factory = ClassicalPilotBackend
+        options.update({k: settings[k] for k in
+                        ("action_duration_s", "max_speed_mps", "max_yaw_rate_rps")})
+    worker = QwenWorker(options, factory=factory)
     worker.start()
     results = {}
     try:

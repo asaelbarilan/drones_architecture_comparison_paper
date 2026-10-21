@@ -3730,3 +3730,20 @@ world_contract reads coordinates. Result 5/9 (D-157: 3/9): approach_hover PASS
 collisions. Remaining: conditional_gate, ordered_visit, closing_passage,
 follow_target. Evidence: reports/qwen_vlm_fixes_20261018/REPORT.md (D-158),
 stop_rules_classical/, stop_rules_v2_classical/.
+
+### D-159: paper audit - which architectures are ready to compare (2026-10-21)
+
+Status: audit only (no flights, model calls or config/runtime changes). User restated the paper
+question: the planning capability of LLM/VLM/VLA foundation models for a single UAV across task
+types, answered by comparing the C architectures now that the D207 VLA runs locally.
+scripts/audit_architectures.py resolves all 107 architecture configs and counts 405 saved manifests.
+Findings: C0 ready (ceiling, 6/8); C1 and C5 real but screened with Gemma and task-specific
+profiles (2/8, 0/8, D-106); C2/C3 real (Qwen3-VL-4B) but only one dev task; C4 and C6 real configs
+never run; C7/C8 real AeroVLA configs never run on the suite and the D207 VLA is not wired as a
+harness C7/C8; C9-C14 are scripted stand-ins only. The shared-Qwen live stack (D-132-D-158) is a
+real C13-like (VLA pilot, ~3/9) / C6-like (classical pilot, 5/9) hierarchy on the same capability
+tasks but a wall-clock runtime. Blocking confounds: different models per architecture, SimClock vs
+wall-clock latency, task-specific profiles, single seed. Proposed (pending user decision): one
+shared Qwen3-VL-4B base for every role (+D207 adapter for VLA pilots), one live runtime, one frozen
+profile per architecture, 9+3 tasks x 3 development seeds, then one held-out run.
+Evidence: reports/paper_audit_20261021/REPORT.md, architectures.md/json.

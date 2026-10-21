@@ -11,6 +11,14 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-159 paper audit (2026-10-21)
+
+Read reports/paper_audit_20261021/REPORT.md. Paper question: LLM/VLM/VLA planning
+authority across tasks, by comparing C architectures. Only C0, C1, C5 and the
+shared-Qwen live stack have task-suite evidence; C2-C4/C6-C8 unscreened, C9-C14
+stand-ins. Proposed one model (shared Qwen3-VL-4B + D207), one live runtime,
+3 seeds; awaiting user decision. Audit only, nothing run.
+
 ## Latest user work: D-158 VLM fix 2, step completion (2026-10-18)
 
 Read reports/qwen_vlm_fixes_20261018/REPORT.md. stop_rules.py: object memory,

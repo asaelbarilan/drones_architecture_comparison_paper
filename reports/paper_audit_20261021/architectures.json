@@ -1,0 +1,3110 @@
+[
+ {
+  "file": "c0_oracle",
+  "id": "c0",
+  "family": "classical_baseline",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "oracle_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "free",
+  "models": [],
+  "real_model": false,
+  "privileged": true,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "control_ceiling",
+   "macro_screening"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 5,
+   "capability_known_goal": 5,
+   "capability_closing_passage": 4,
+   "capability_conditional_gate": 4,
+   "capability_follow_target": 4,
+   "capability_ordered_visit": 4,
+   "capability_overturned_vehicle": 4,
+   "capability_turn_search": 4,
+   "capability_visible_target": 4,
+   "grid_nav": 1,
+   "grid_nav_aerovla": 3
+  },
+  "capability_runs": 33
+ },
+ {
+  "file": "c10_periodic_hierarchy",
+  "id": "c10",
+  "family": "hybrid_stack",
+  "subfamily": "fast_slow_hierarchy",
+  "authority": "direct_vla",
+  "policy": "mock_vla",
+  "monitor": null,
+  "recovery": "hierarchical_reasoner",
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla-reasoner"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "hierarchy",
+   "timing_recovery"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c11_chunked_hierarchy",
+  "id": "c11",
+  "family": "hybrid_stack",
+  "subfamily": "fast_slow_hierarchy",
+  "authority": "direct_vla",
+  "policy": "chunk_vla",
+  "monitor": null,
+  "recovery": "hierarchical_reasoner",
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla-reasoner"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "hierarchy",
+   "action_horizon",
+   "memory_horizon"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c12_async_hierarchy",
+  "id": "c12",
+  "family": "hybrid_stack",
+  "subfamily": "fast_slow_hierarchy",
+  "authority": "direct_vla",
+  "policy": "chunk_vla",
+  "monitor": null,
+  "recovery": "hierarchical_reasoner",
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla-reasoner"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "hierarchy",
+   "async",
+   "timing_recovery"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c13_triggered_hierarchy",
+  "id": "c13",
+  "family": "hybrid_stack",
+  "subfamily": "fast_slow_hierarchy",
+  "authority": "direct_vla",
+  "policy": "chunk_vla",
+  "monitor": "local_progress",
+  "recovery": "bounded_reasoner",
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla-reasoner"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "event_triggered",
+  "tags": [
+   "hierarchy",
+   "recovery",
+   "timing_recovery"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c14_world_model",
+  "id": "c14",
+  "family": "hybrid_stack",
+  "subfamily": "fast_slow_hierarchy",
+  "authority": "direct_vla",
+  "policy": "world_model_vla",
+  "monitor": null,
+  "recovery": "hierarchical_reasoner",
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla-reasoner"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "world_model",
+   "predictive_state",
+   "sentinel"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c1_aerialclaw_qwen4_shared",
+  "id": "c1_aerialclaw_qwen4_shared",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "aerialclaw",
+   "shared_model_comparison",
+   "qwen3_vl_4b",
+   "real_model"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c1_capability_gemma_dev",
+  "id": "c1_capability_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_known_goal": 6,
+   "capability_closing_passage": 4,
+   "capability_conditional_gate": 4,
+   "capability_follow_target": 4,
+   "capability_ordered_visit": 4,
+   "capability_overturned_vehicle": 4,
+   "capability_turn_search": 2,
+   "capability_visible_target": 2
+  },
+  "capability_runs": 30
+ },
+ {
+  "file": "c1_inspected_search_gemma_dev",
+  "id": "c1_inspected_search_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_visual_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_turn_search_tools": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c1_llm_skills",
+  "id": "c1",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gpt-oss:20b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "grid_nav": 21,
+   "object_search": 10,
+   "grid_nav_aerovla": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c1_ordered_requested_gemma_dev",
+  "id": "c1_ordered_requested_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_ordered_visual",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_ordered_visit_tools": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c1_ordered_visual_gemma_dev",
+  "id": "c1_ordered_visual_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_ordered_visual",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_ordered_visit_tools": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c1_visual_search_gemma_dev",
+  "id": "c1_visual_search_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_visual_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_turn_search_tools": 4,
+   "capability_visible_target_tools": 2
+  },
+  "capability_runs": 6
+ },
+ {
+  "file": "c1_visual_tools_gemma_dev",
+  "id": "c1_visual_tools_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_visual_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_visible_target_tools": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c1_visual_tools_refined_gemma_dev",
+  "id": "c1_visual_tools_refined_gemma_dev",
+  "family": "llm_tool_planner",
+  "subfamily": null,
+  "authority": "skill",
+  "policy": "aerialclaw_visual_agent",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "skill_authority",
+   "aerialclaw",
+   "real_model"
+  ],
+  "runs": {
+   "capability_visible_target_tools": 2,
+   "capability_turn_search_tools": 2
+  },
+  "capability_runs": 4
+ },
+ {
+  "file": "c2_spf",
+  "id": "c2_spf",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:8b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "paper_valid",
+   "real_model",
+   "vision",
+   "spf",
+   "clean_room"
+  ],
+  "runs": {
+   "grid_nav_vision": 5,
+   "grid_nav_aerovla": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c2_spf_qwen4_current_dev",
+  "id": "c2_spf_qwen4_current_dev",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "real_model",
+   "vision",
+   "spf",
+   "normalized_profile",
+   "preflight_pending"
+  ],
+  "runs": {
+   "capability_visible_target_slow_240_dev": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c2_spf_qwen4_shared",
+  "id": "c2_spf_qwen4_shared",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "spf",
+   "shared_model_comparison",
+   "qwen3_vl_4b",
+   "real_model"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c2_spf_rgbd_arrival_qwen4_dev",
+  "id": "c2_spf_rgbd_arrival_qwen4_dev",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_rgbd_arrival",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "real_model",
+   "vision",
+   "spf_rgbd_arrival_extension",
+   "bounded_policy_target_state",
+   "preflight_pending"
+  ],
+  "runs": {
+   "capability_visible_target_slow_240_dev": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c2_vlm_waypoint",
+  "id": "c2",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vlm"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "waypoint_authority",
+   "macro_screening"
+  ],
+  "runs": {
+   "grid_nav_vision": 4,
+   "grid_nav": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c2g_gemma_waypoint",
+  "id": "c2g",
+  "family": "vlm_semantic_waypointer",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_point_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "real_model",
+   "vision",
+   "gemma"
+  ],
+  "runs": {
+   "grid_nav_vision": 15
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_gemma",
+  "id": "c3_onfly_gemma",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_qwen",
+  "id": "c3_onfly_qwen",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:8b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "qwen_relative_coordinates"
+  ],
+  "runs": {
+   "grid_nav_onfly": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_qwen4",
+  "id": "c3_onfly_qwen4",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "decision_ablation",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "qwen3_vl_4b",
+   "qwen_relative_coordinates"
+  ],
+  "runs": {
+   "grid_nav_onfly": 3,
+   "grid_nav_aerovla": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_qwen4_native_dynamics",
+  "id": "c3_onfly_qwen4_native_dynamics",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "decision_ablation",
+   "native_dynamics_profile",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_qwen4_native_shield",
+  "id": "c3_onfly_qwen4_native_shield",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "pmr_comparator",
+   "real_model",
+   "qwen3_vl_4b",
+   "independent_shield"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_onfly_qwen4_shared",
+  "id": "c3_onfly_qwen4_shared",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "onfly",
+   "shared_model_comparison",
+   "qwen3_vl_4b",
+   "real_model"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_spf_qwen4_current_dev",
+  "id": "c3_spf_qwen4_current_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "real_model",
+   "vision",
+   "spf",
+   "normalized_profile",
+   "preflight_pending"
+  ],
+  "runs": {
+   "capability_visible_target_slow_240_dev": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c3_spf_rgbd_arrival_qwen4_dev",
+  "id": "c3_spf_rgbd_arrival_qwen4_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "spf_rgbd_arrival",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "real_model",
+   "vision",
+   "spf_rgbd_arrival_extension",
+   "bounded_policy_target_state",
+   "preflight_pending"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c3_verifier",
+  "id": "c3",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "simulated",
+  "models": [
+   "sim-vlm"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "waypoint_authority",
+   "safety_screening"
+  ],
+  "runs": {
+   "grid_nav": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c3g_gemma_verifier",
+  "id": "c3g",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_point_waypoint",
+  "monitor": null,
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "real_model",
+   "vision",
+   "gemma"
+  ],
+  "runs": {
+   "grid_nav_vision": 4
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c4_onfly_gemma",
+  "id": "c4_onfly_gemma",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "dual_agent"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c4_onfly_qwen",
+  "id": "c4_onfly_qwen",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:8b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "dual_agent",
+   "qwen_relative_coordinates"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c4_periodic_monitor",
+  "id": "c4",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_waypoint",
+  "monitor": "progress",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "simulated",
+  "models": [
+   "sim-vlm-dual"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "supervision",
+   "timing_recovery"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c4g_gemma_monitor",
+  "id": "c4g",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_point_waypoint",
+  "monitor": "progress",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "real_model",
+   "vision",
+   "gemma"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_arrival_memory_gemma_dev",
+  "id": "c5_arrival_memory_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_visible_target": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c5_arrival_window_gemma_dev",
+  "id": "c5_arrival_window_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_visible_target": 2,
+   "capability_approach_hover": 2
+  },
+  "capability_runs": 4
+ },
+ {
+  "file": "c5_capability_gemma_dev",
+  "id": "c5_capability_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_closing_passage": 4,
+   "capability_conditional_gate": 4,
+   "capability_follow_target": 4,
+   "capability_known_goal": 4,
+   "capability_ordered_visit": 4,
+   "capability_overturned_vehicle": 4,
+   "capability_turn_search": 4,
+   "capability_visible_target": 4
+  },
+  "capability_runs": 32
+ },
+ {
+  "file": "c5_clutter_attributes_gemma_dev",
+  "id": "c5_clutter_attributes_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_clutter_qwen4_validated_dev",
+  "id": "c5_clutter_qwen4_validated_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_clutter_stable_gemma_dev",
+  "id": "c5_clutter_stable_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_free_vlm_router_dev",
+  "id": "c5_free_vlm_router_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "free_vlm_router",
+  "models": [
+   "free-vlm-router"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemini_flash_target_stop_dev",
+  "id": "c5_gemini_flash_target_stop_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "gemini",
+  "models": [
+   "gemini-3.5-flash"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_baseline_dev",
+  "id": "c5_gemma4_e2b_baseline_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 5
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_fresh_view_dev",
+  "id": "c5_gemma4_e2b_fresh_view_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 5
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_projector_dev",
+  "id": "c5_gemma4_e2b_projector_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b-visionfix-dev"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_runtime_fixed_dev",
+  "id": "c5_gemma4_e2b_runtime_fixed_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_runtime_fixed_target_stop_dev",
+  "id": "c5_gemma4_e2b_runtime_fixed_target_stop_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 5
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma4_e2b_target_stop_dev",
+  "id": "c5_gemma4_e2b_target_stop_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_attribute_guard_dev",
+  "id": "c5_gemma_attribute_guard_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_fresh_guarded_monitor_dev",
+  "id": "c5_gemma_fresh_guarded_monitor_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_goal_yaw_dev",
+  "id": "c5_gemma_goal_yaw_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_ground_monitor_dev",
+  "id": "c5_gemma_ground_monitor_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_grounded_policy_dev",
+  "id": "c5_gemma_grounded_policy_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_gemma_guarded_monitor_dev",
+  "id": "c5_gemma_guarded_monitor_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 6,
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_hover_context_gemma_dev",
+  "id": "c5_hover_context_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_hover_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_approach_hover": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c5_hover_gemma_dev",
+  "id": "c5_hover_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_hover_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_approach_hover": 2
+  },
+  "capability_runs": 2
+ },
+ {
+  "file": "c5_hover_level_gemma_dev",
+  "id": "c5_hover_level_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_hover_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_approach_hover": 6
+  },
+  "capability_runs": 6
+ },
+ {
+  "file": "c5_hover_stable_gemma_dev",
+  "id": "c5_hover_stable_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_hover_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "capability_approach_hover": 4
+  },
+  "capability_runs": 4
+ },
+ {
+  "file": "c5_keyframe_memory",
+  "id": "c5",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_waypoint",
+  "monitor": "progress",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "simulated",
+  "models": [
+   "sim-vlm-dual"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "memory",
+   "memory_horizon"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_observed_view_return_qwen4_dev",
+  "id": "c5_observed_view_return_qwen4_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_observed_view_return",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "observed_view_return",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_active_dev",
+  "id": "c5_onfly_active_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_fence_dev",
+  "id": "c5_onfly_fence_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "fence_recovery"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_gemma",
+  "id": "c5_onfly_gemma",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "dual_agent",
+   "hybrid_memory"
+  ],
+  "runs": {
+   "grid_nav_onfly": 4
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_gemma4b_direction_dev",
+  "id": "c5_onfly_gemma4b_direction_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b",
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "discrete_direction",
+   "real_model",
+   "gemma3_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 5,
+   "grid_nav_onfly_native_dynamics": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen",
+  "id": "c5_onfly_qwen",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:8b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "dual_agent",
+   "hybrid_memory",
+   "qwen_relative_coordinates"
+  ],
+  "runs": {
+   "grid_nav_onfly": 13
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4",
+  "id": "c5_onfly_qwen4",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "full_architecture",
+   "normalized_profile",
+   "real_model",
+   "vision",
+   "depth",
+   "dual_agent",
+   "hybrid_memory",
+   "qwen3_vl_4b",
+   "qwen_relative_coordinates"
+  ],
+  "runs": {
+   "grid_nav_onfly": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_corridor_frontier_dev",
+  "id": "c5_onfly_qwen4_corridor_frontier_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "corridor_frontier",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_coverage_dev",
+  "id": "c5_onfly_qwen4_coverage_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "coverage_prompt",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 4
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_direction_dev",
+  "id": "c5_onfly_qwen4_direction_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "discrete_direction",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_native_dynamics",
+  "id": "c5_onfly_qwen4_native_dynamics",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "full_architecture",
+   "native_dynamics_profile",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 5,
+   "grid_nav_onfly_native_dynamics": 30
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_shared",
+  "id": "c5_onfly_qwen4_shared",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "full_architecture",
+   "shared_model_comparison",
+   "qwen3_vl_4b",
+   "real_model"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen4_spf_step_dev",
+  "id": "c5_onfly_qwen4_spf_step_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "spf_step",
+   "real_model",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 3
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_qwen_native_dynamics",
+  "id": "c5_onfly_qwen_native_dynamics",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:8b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "full_architecture",
+   "native_dynamics_profile",
+   "real_model",
+   "qwen3_vl_8b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_stop_fence_dev",
+  "id": "c5_onfly_stop_fence_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "fence_recovery"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_onfly_target_stop_dev",
+  "id": "c5_onfly_target_stop_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "target_bound_stop"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_dynamics": 6
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_recovery_fresh_qwen4_dev",
+  "id": "c5_recovery_fresh_qwen4_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_direction_s1060",
+  "id": "c5_route_direction_s1060",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "discrete_direction",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_direction_s1061",
+  "id": "c5_route_direction_s1061",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "discrete_direction",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_direction_s1062",
+  "id": "c5_route_direction_s1062",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "discrete_direction",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_direction_s1063",
+  "id": "c5_route_direction_s1063",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "discrete_direction",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_direction_s1064",
+  "id": "c5_route_direction_s1064",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "discrete_direction",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_hint_s1060",
+  "id": "c5_route_hint_s1060",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_hint_s1061",
+  "id": "c5_route_hint_s1061",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_hint_s1062",
+  "id": "c5_route_hint_s1062",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_hint_s1063",
+  "id": "c5_route_hint_s1063",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_route_hint_s1064",
+  "id": "c5_route_hint_s1064",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": true,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "privileged_diagnostic",
+   "route_hint",
+   "qwen3_vl_4b"
+  ],
+  "runs": {
+   "grid_nav_onfly_native_long": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_target_commitment_off_qwen4_dev",
+  "id": "c5_target_commitment_off_qwen4_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_clutter_240_dev": 6
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5_target_commitment_qwen4_dev",
+  "id": "c5_target_commitment_qwen4_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "onfly_semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "onfly",
+   "development",
+   "real_model",
+   "gemma4_e2b"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 5,
+   "grid_nav_clutter_240_dev": 6
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c5g_gemma_keyframe",
+  "id": "c5g",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_point_waypoint",
+  "monitor": "progress",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "real_model",
+   "vision",
+   "gemma"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c6_pmr_qwen4_gptoss",
+  "id": "c6_pmr_qwen4_gptoss",
+  "family": "selective_recovery",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "onfly_decision",
+  "monitor": "local_progress",
+  "recovery": "pmr_recovery_reasoner",
+  "verifier": "onfly_semantic_geometric",
+  "backend": "role_router",
+  "models": [
+   "gpt-oss:20b",
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "event_triggered",
+  "tags": [
+   "pmr",
+   "learned_cvi",
+   "real_model",
+   "typed_recovery",
+   "qwen3_vl_4b",
+   "gpt_oss_20b"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c6_triggered_recovery",
+  "id": "c6",
+  "family": "selective_recovery",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_waypoint",
+  "monitor": "local_progress",
+  "recovery": "bounded_reasoner",
+  "verifier": "semantic_geometric",
+  "backend": "simulated",
+  "models": [
+   "sim-vlm-dual"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "event_triggered",
+  "tags": [
+   "recovery",
+   "timing_recovery"
+  ],
+  "runs": {
+   "grid_nav": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c6g_gemma_recovery",
+  "id": "c6g",
+  "family": "selective_recovery",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "vlm_point_waypoint",
+  "monitor": "local_progress",
+  "recovery": "bounded_reasoner",
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "event_triggered",
+  "tags": [
+   "real_model",
+   "vision",
+   "gemma"
+  ],
+  "runs": {
+   "grid_nav_vision": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c7_aerovla_gemma",
+  "id": "c7_aerovla_gemma",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "aerovla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "aerovla",
+   "normalized_profile",
+   "real_model"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c7_aerovla_native",
+  "id": "c7_aerovla_native",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "aerovla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "aerovla_hf",
+  "models": [
+   "XuPeng23/AeroVLA@e37685a",
+   "sim-vla"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "aerovla",
+   "native_profile",
+   "official_checkpoint"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c7_direct_vla",
+  "id": "c7",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "mock_vla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "macro_screening"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c7t_trained_vla",
+  "id": "c7t",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "learned_visuomotor",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "bc-visuomotor"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "trained",
+   "behaviour_cloning"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c8_aerovla_gemma",
+  "id": "c8_aerovla_gemma",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "aerovla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "gemma3:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "aerovla",
+   "normalized_profile",
+   "real_model",
+   "shielded"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 4
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c8_aerovla_native",
+  "id": "c8_aerovla_native",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "aerovla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "aerovla_hf",
+  "models": [
+   "XuPeng23/AeroVLA@e37685a",
+   "sim-vla"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "aerovla",
+   "native_profile",
+   "official_checkpoint",
+   "shielded"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c8_aerovla_qwen4_shared",
+  "id": "c8_aerovla_qwen4_shared",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "aerovla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "ollama",
+  "models": [
+   "qwen3-vl:4b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "aerovla",
+   "shared_model_comparison",
+   "qwen3_vl_4b",
+   "real_model",
+   "shielded"
+  ],
+  "runs": {
+   "grid_nav_aerovla": 2
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c8_shielded_vla",
+  "id": "c8",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "mock_vla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "safety_screening"
+  ],
+  "runs": {
+   "grid_nav": 1
+  },
+  "capability_runs": 0
+ },
+ {
+  "file": "c8t_trained_vla_shield",
+  "id": "c8t",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "learned_visuomotor",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "bc-visuomotor"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "trained",
+   "safety_screening"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "c9_vla_history",
+  "id": "c9",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "mock_vla",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "simulated",
+  "models": [
+   "sim-vla"
+  ],
+  "real_model": false,
+  "privileged": false,
+  "development": false,
+  "scheduler": "periodic",
+  "tags": [
+   "direct_vla",
+   "memory",
+   "memory_horizon"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "shared_qwen_vla_cached_dev",
+  "id": "shared_qwen_vla_cached_dev",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "shared_qwen_pilot",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "shared_qwen_vla",
+  "models": [
+   "qwen3-vl-4b-d207-shared"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "shared_base",
+   "four_roles"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "shared_qwen_vla_dev",
+  "id": "shared_qwen_vla_dev",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "shared_qwen_pilot",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "shared_qwen_vla",
+  "models": [
+   "qwen3-vl-4b-d207-shared"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "shared_base",
+   "four_roles"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "shared_qwen_vla_first_action_dev",
+  "id": "shared_qwen_vla_first_action_dev",
+  "family": "direct_vla",
+  "subfamily": null,
+  "authority": "direct_vla",
+  "policy": "shared_qwen_pilot",
+  "monitor": null,
+  "recovery": null,
+  "verifier": null,
+  "backend": "shared_qwen_vla",
+  "models": [
+   "qwen3-vl-4b-d207-shared"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "periodic",
+  "tags": [
+   "development",
+   "shared_base",
+   "four_roles"
+  ],
+  "runs": {},
+  "capability_runs": 0
+ },
+ {
+  "file": "vlm_adaptive_plan_gemma_dev",
+  "id": "vlm_adaptive_plan_gemma_dev",
+  "family": "hybrid_stack",
+  "subfamily": null,
+  "authority": "waypoint",
+  "policy": "adaptive_visual_plan",
+  "monitor": "onfly_monitor",
+  "recovery": null,
+  "verifier": "semantic_geometric",
+  "backend": "ollama",
+  "models": [
+   "gemma4:e2b"
+  ],
+  "real_model": true,
+  "privileged": false,
+  "development": true,
+  "scheduler": "async_multi_rate",
+  "tags": [
+   "development",
+   "real_model",
+   "vision",
+   "adaptive_plan",
+   "spf",
+   "component_adaptation"
+  ],
+  "runs": {
+   "grid_nav_onfly_depth_v2_dev": 1
+  },
+  "capability_runs": 0
+ }
+]

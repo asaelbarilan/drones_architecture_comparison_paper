@@ -7,7 +7,14 @@ from uavlab.plugins.inference.action_buffer import ActionBuffer, action_record
 from uavlab.plugins.inference.qwen_worker import WorkItem
 from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor
 
-from .architecture import commit_unplanned, no_monitor, recovery_due, switch, unverified_direction
+from .architecture import (
+    accept_native_line,
+    commit_unplanned,
+    no_monitor,
+    recovery_due,
+    switch,
+    unverified_direction,
+)
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
@@ -90,7 +97,7 @@ class GoalScheduler:
         if self.origin is None:
             self.origin, self.last_yaw = obs, obs.yaw_rad
             self.progress_at = self.last_monitor = self.last_recovery = now
-            if switch(self.settings, "goal_source") in ("instruction", "oracle"):
+            if switch(self.settings, "goal_source") in ("instruction", "oracle", "vla_native"):
                 commit_unplanned(self, now)
         self.yaw_total += angle_error(obs.yaw_rad, self.last_yaw)
         self.last_yaw = obs.yaw_rad
@@ -120,7 +127,9 @@ class GoalScheduler:
         if self.plan is None:
             return "planner"
         if self.goal is None:
-            return "direction" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
+            native = switch(self.settings, "goal_source") == "vla_native"
+            role = "vla_line" if native else "direction"
+            return role if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if not moving and not self.buffer.queue and not self.goal.arrived(obs, self.settings):
             return "pilot"
         return None
@@ -182,6 +191,8 @@ class GoalScheduler:
                     remember(self, "plan_committed", now, steps=self.steps)
             elif role == "direction":
                 self.accept_goal(payload, source, work.observed_ns, now)
+            elif role == "vla_line":
+                accept_native_line(self, payload, source, now)
             elif role == "monitor":
                 self.accept_monitor(parse_monitor(payload), obs, now)
         except (ValueError, KeyError, TypeError) as exc:

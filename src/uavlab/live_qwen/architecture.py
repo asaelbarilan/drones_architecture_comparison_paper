@@ -8,6 +8,8 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                instruction no planner call: the mission text is the single step
                oracle      privileged final goal from the evaluator (C0 ceiling only)
                skills      a text-only LLM agent picks one skill per turn (C1, skills.py)
+               vla_native  the D207 VLA writes its own box + Left line; the first line is
+                           the goal (goal memory), as in its UAV-Flow server (C7/C8)
   verifier     True        reject goals that change committed steps or leave the envelope
   monitor      default     arrival/near checks plus periodic checks on numeric legs
                periodic    also periodic checks on visual legs
@@ -25,7 +27,7 @@ from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0)
-CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills"},
+CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"})
 
@@ -78,7 +80,11 @@ def oracle_point(state):
 
 def commit_unplanned(state, now):
     """Commit the planner-free mission once, as accept_plan would; oracle also gets its goal."""
-    state.steps = unplanned_steps(state)
+    if switch(state.settings, "goal_source") == "vla_native":
+        state.settings["goal_mode"] = "numeric"
+        state.steps = [dict(objective=state.mission.instruction, target=[0, 0, 0, 0])]
+    else:
+        state.steps = unplanned_steps(state)
     state.plan = dict(state.steps[0])
     state.log("mission_plan_committed", now, mission=state.mission.instruction, authored=None,
               steps=state.steps, step_index=0, goal_source=switch(state.settings, "goal_source"))
@@ -119,3 +125,32 @@ def unverified_direction(state, payload):
     data = json.loads(payload) if isinstance(payload, str) else dict(payload)
     last = not state.steps or state.step_index == len(state.steps) - 1
     return dict(data, terminal=data.get("terminal", last) and last)
+
+
+def native_context(state, obs):
+    """The VLA line request: the mission and the start-frame state, exactly the pilot's state."""
+    from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
+
+    start = remaining_fru(obs.position, state.origin.position, state.origin.yaw_rad, obs.yaw_rad)
+    return dict(instruction=state.plan["objective"],
+                state=[*start[:3], -math.degrees(state.yaw_total)])
+
+
+def accept_native_line(state, payload, source, now):
+    """Goal memory: the VLA's own Left line (body frame of the source pose) becomes the goal."""
+    from .goals import Goal, relative_goal
+
+    data = json.loads(payload) if isinstance(payload, str) else payload
+    left = data.get("left")
+    if left is None:
+        raise ValueError("VLA wrote no parseable progress line")
+    limits = dict(state.settings, max_goal_m=state.settings["geofence_radius_m"])
+    position, yaw = relative_goal(left, source, limits)
+    if switch(state.settings, "verifier"):
+        bounded(position, state.settings)
+    state.version += 1
+    state.goal = Goal(state.version, position, yaw, True,
+                      now + int(state.settings["goal_ttl_s"] * 1e9), source.seq)
+    state.progress_at = state.last_monitor = now
+    state.best_distance = state.best_heading = math.inf
+    state.log("goal_authorized", now, position=position.model_dump(), yaw=yaw, vla_line=data)

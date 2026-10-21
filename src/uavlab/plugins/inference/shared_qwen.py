@@ -25,13 +25,14 @@ from .qwen_actions import (
     action_logits,
     decode_actions,
     encode_pilot,
+    native_line,
     read_pilot,
 )
 
 
 @register("inference", "shared_qwen_vla")
 class SharedQwenInference:
-    ROLES = frozenset({"planner", "direction", "monitor", "pilot"})
+    ROLES = frozenset({"planner", "direction", "monitor", "pilot", "vla_line"})
 
     def __init__(self, package_path: str, **options):
         self.package = Path(package_path)
@@ -217,6 +218,8 @@ class SharedQwenInference:
         with self._role_mode(request.role), self.torch.inference_mode():
             if request.role == "pilot":
                 return self._pilot(request)
+            if request.role == "vla_line":
+                return native_line(self, request)
             batch = self._chat_batch(request)
             output = self._generate(
                 request,
@@ -231,7 +234,8 @@ class SharedQwenInference:
 
     @contextmanager
     def _role_mode(self, role):
-        mode = nullcontext() if role == "pilot" else self.model.disable_adapter()
+        adapter = role in ("pilot", "vla_line")  # the trained D207 adapter; others use the base
+        mode = nullcontext() if adapter else self.model.disable_adapter()
         try:
             with mode:
                 # PEFT adapter switching can re-enable module gradients.

@@ -174,3 +174,33 @@ def test_unknown_skill_is_a_contract_failure_not_an_action():
     state = skill_agent()
     turn(state, "teleport")
     assert state.failures == 1 and state.goal is None
+
+
+def native_vla():
+    state = scheduler(goal_source="vla_native", monitor="none", recovery="none", memory=False,
+                      verifier=False)
+    state.update(observation(), ORIGIN_NS, ORIGIN_NS, False)
+    return state
+
+
+def test_native_vla_first_asks_the_vla_for_its_own_line_with_image():
+    state = native_vla()
+    request = state.worker.calls[0].request
+    assert request.role == "vla_line" and len(request.images) == 1
+    assert json.loads(request.prompt) == dict(instruction=state.mission.instruction,
+                                              state=[0.0, 0.0, 0.0, 0.0])
+
+
+def test_native_vla_line_becomes_the_goal_and_the_vla_flies_it():
+    state = native_vla()
+    state.worker.finish(dict(box=None, left=[4.0, 0.0, 0.0, 0.0], said="Left +04.0"))
+    state.update(observation(), ORIGIN_NS+s_to_ns(1), ORIGIN_NS+s_to_ns(1), False)
+    assert state.goal.position == Vec3(x=4, y=0, z=3) and state.goal.terminal
+    assert state.worker.calls[-1].request.role == "pilot"
+
+
+def test_native_vla_without_a_line_is_a_contract_failure():
+    state = native_vla()
+    state.worker.finish(dict(box=None, left=None, said="nonsense"))
+    state.update(observation(), ORIGIN_NS+s_to_ns(1), ORIGIN_NS+s_to_ns(1), False)
+    assert state.failures == 1 and state.goal is None

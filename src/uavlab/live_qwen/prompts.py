@@ -9,6 +9,7 @@ from uavlab.core.frame_store import global_store
 from uavlab.interfaces import InferenceRequest
 from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 
+from .architecture import native_context
 from .grounding import GROUNDING, VISUAL_PLANNER
 from .planner_memory import RECOVERY, planner_context
 from .skills import SKILL, skill_context
@@ -93,42 +94,52 @@ def monitor_context(state, obs):
                             ("position_m", "heading_deg", "stopped_mps")})
 
 
+VISUAL_CONTRACT = ("VISUAL object task. Each target MUST be a visual-description string. "
+                   "Never invent numeric movements or coordinates. Approach and stop nearby "
+                   "are one visual objective, not a numeric step plus a separate stop step.")
+
+
+def pilot_prompt(state, obs):
+    start = remaining_fru(obs.position, state.origin.position, state.origin.yaw_rad, obs.yaw_rad)
+    return json.dumps(dict(instruction=state.plan["objective"], box=None,
+                           state=[*start[:3], -math.degrees(state.yaw_total)],
+                           remaining=state.goal.error(obs)))
+
+
+def cognition_context(state, role, obs):
+    if role == "planner":
+        context = dict(original_mission=state.mission.instruction, feedback=state.feedback)
+        if state.settings.get("goal_mode") == "visual":
+            context["task_contract"] = VISUAL_CONTRACT
+        return context
+    if role == "monitor":
+        return monitor_context(state, obs)
+    return dict(active_objective=state.plan["objective"], authorized_target=state.plan["target"],
+                numeric_target=isinstance(state.plan["target"], list)
+                or world_target(state.plan["target"]))
+
+
+def cognition_prompt(state, role, obs):
+    visual = state.settings.get("goal_mode") == "visual"
+    prefix = {"planner": VISUAL_PLANNER if visual else PLANNER,
+              "direction": GROUNDING if visual else DIRECTION,
+              "monitor": VISUAL_MONITOR if visual else MONITOR}[role]
+    context = cognition_context(state, role, obs)
+    if role == "planner" and state.planner_event:
+        prefix, context = RECOVERY, planner_context(state)
+    if role == "planner" and skills_active(state):
+        prefix, context = SKILL, skill_context(state, obs)
+    return prefix + json.dumps(context)
+
+
 def role_request(state, role, obs):
-    if role == "pilot":
-        context = dict(instruction=state.plan["objective"], box=None,
-                       state=[*remaining_fru(obs.position, state.origin.position,
-                                            state.origin.yaw_rad, obs.yaw_rad)[:3],
-                              -math.degrees(state.yaw_total)],
-                       remaining=state.goal.error(obs))
-        prompt = json.dumps(context)
+    if role == "vla_line":
+        prompt, tag = json.dumps(native_context(state, obs)), "d162:vla_line:v1"
+    elif role == "pilot":
+        prompt, tag = pilot_prompt(state, obs), "d148:pilot:v1"
     else:
-        if role == "planner":
-            context = dict(original_mission=state.mission.instruction, feedback=state.feedback)
-            if state.settings.get("goal_mode") == "visual":
-                context["task_contract"] = (
-                    "VISUAL object task. Each target MUST be a visual-description string. "
-                    "Never invent numeric movements or coordinates. Approach and stop nearby "
-                    "are one visual objective, not a numeric step plus a separate stop step.")
-        elif role == "monitor":
-            context = monitor_context(state, obs)
-        else:
-            context = dict(active_objective=state.plan["objective"],
-                           authorized_target=state.plan["target"],
-                           numeric_target=isinstance(state.plan["target"], list)
-                           or world_target(state.plan["target"]))
-        prefix = {"planner": PLANNER, "direction": DIRECTION, "monitor": MONITOR}[role]
-        if role == "direction" and state.settings.get("goal_mode") == "visual":
-            prefix = GROUNDING
-        if role == "planner" and state.settings.get("goal_mode") == "visual":
-            prefix = VISUAL_PLANNER
-        if role == "planner" and state.planner_event:
-            prefix, context = RECOVERY, planner_context(state)
-        if role == "planner" and skills_active(state):
-            prefix, context = SKILL, skill_context(state, obs)
-        if role == "monitor" and state.settings.get("goal_mode") == "visual":
-            prefix = VISUAL_MONITOR
-        prompt = prefix + json.dumps(context)
+        prompt, tag = cognition_prompt(state, role, obs), f"d148:{role}:v1"
     images = () if role == "planner" else (image_text(obs),)
-    return InferenceRequest(model_id=state.settings["model_id"], role=role,
-                            prompt_hash=f"d148:{role}:v1", prompt=prompt,
-                            images=images, image_count=len(images), observation_seq=obs.seq)
+    return InferenceRequest(model_id=state.settings["model_id"], role=role, prompt_hash=tag,
+                            prompt=prompt, images=images, image_count=len(images),
+                            observation_seq=obs.seq)

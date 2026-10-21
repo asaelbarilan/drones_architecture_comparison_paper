@@ -3776,3 +3776,20 @@ pilot (verifier envelope check), approach -> the shared grounding legs and near-
 -> one grounding call reported back (visible, image_x, range). Stall, target loss or completion
 hand control back to the agent with the result. No camera image and no evaluator truth reach the
 agent. Matrix entry C1 added (monitor none, recovery none). 100 tests pass; code checks pass.
+
+### D-162: C7/C8 native direct VLA on the live runtime, stage 3 (2026-10-21)
+
+Status: implemented and CPU-tested; no flights or GPU calls. In the D-151 live stack the VLA pilot
+only follows the classical goal error (its "Left" line is computed from the scheduler's waypoint),
+so it never plans. goal_source "vla_native" adds the D207 model's own mode, as in its packaged
+UAV-Flow server (--box --progress --goal-memory --memory-deadband 1.0,5): a new worker role
+"vla_line" (adapter on) writes the box line after the forced '{"bbox_2d": [' prefix, then the
+progress line conditioned on it (qwen_actions.native_line). The first parseable Left line (body
+frame of the source pose) becomes the goal (goal memory); the VLA then flies its own 8-step
+chunks with that line counting down, and the step ends inside a 1.0 m / 5 deg deadband
+(position_m 1.0). Deviation: the box line is generated only with the goal line, not before every
+chunk (box-less frames are in the D207 training distribution). Matrix: C7 = native VLA, no shield,
+no verifier; C8 = C7 + simple_collision shield + envelope verifier. role_request was split into
+pilot / cognition helpers (code limits); prompt hashes unchanged. 124 live/worker tests pass; full
+unit suite 790 passed, 4 failed - the same 4 fail at the previous commit (graph-probe prompt_audit
+attribute, smoke C0-C14 structure), pre-existing and unrelated.

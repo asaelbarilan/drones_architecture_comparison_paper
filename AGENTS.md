@@ -11,6 +11,13 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
+
+Read docs/RESEARCH.md, docs/research/HANDLES_20261022.md, docs/paper/DRAFT.md.
+Thesis: vanilla architectures do not work by themselves; the handles (task
+contracts, sequencing owner, completion evidence, perception hand-off, critics,
+feedback, recovery policy) do. Next: handle ablation H1-H8. D-166 matrix running.
+
 ## Latest user work: D-160 paper architecture switches, stage 1 (2026-10-21)
 
 Read D-160 in docs/RESEARCH_LOG.md and src/uavlab/live_qwen/architecture.py.

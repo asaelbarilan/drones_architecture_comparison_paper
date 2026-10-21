@@ -3841,3 +3841,23 @@ sequence/branch/tracking tasks, which a single-goal oracle cannot express.
 
 Relaunched 12 architectures x 12 tasks x seeds 1060-1062 into reports/paper_matrix_d165, all
 from commit-clean code. Evidence: reports/paper_c0_gate_d165/.
+
+### D-167: research - the "handles" make architectures work; paper thesis and draft v0 (2026-10-22)
+
+Status: research and writing only; NO CODE CHANGED. The user observed that the vanilla prompts
+and flow of the C configurations lack the "handles" that made drone_control and AerialClaw work,
+and asked to make "vanilla architectures do not work by themselves" the starting point of the
+paper. The literature agrees:
+- LLMs cannot plan or self-verify without critics (LLM-Modulo).
+- Scaffold compatibility outweighs module strength (AgentSpec).
+- Closed-loop feedback and typed APIs are what made LLM planners work (Inner Monologue,
+  ProgPrompt, Code as Policies, SayCan, TypeFly).
+- A drone MCP harness gives 8/11 LLMs 90-100 % completion (DroneServer).
+
+Our evidence agrees: same-weight gains from handles only (D-143 -> D-145 0/4 -> 4/4;
+D-150 -> D-158 0/9 -> 5/9), AerialClaw's handles (D-44, D-85), drone_control's
+src/agent handles, and the D-166 seed-1060 planning 0/4 for every model-driven configuration.
+
+A taxonomy H1-H8 is proposed as experimental factors (add-one / remove-one ablation, not built).
+Evidence: docs/research/HANDLES_20261022.md (13 papers in papers/handles/), docs/RESEARCH.md
+(new findings document), docs/paper/DRAFT.md (v0).

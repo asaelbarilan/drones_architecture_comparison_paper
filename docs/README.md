@@ -10,6 +10,7 @@ research repository becomes unreadable, so the boundaries are stated here.
 | [`../CHANGES.md`](../CHANGES.md) | **The chronological record.** What was done, when, and what the measurement said at the time — including the wrong turns. | You want the narrative, or to find when something changed |
 | [`../TODO.md`](../TODO.md) | **What is undone.** Open work ordered by what it blocks, each item naming the decision it comes from and its first step. | You are picking up work, or you want to know what the results do not yet cover |
 | [`../AGENTS.md`](../AGENTS.md) | **The handoff.** Where the work stands, what to do next in order, and the rules that must not be broken. Points at the evidence rather than restating it. | You are an agent or a person picking this repository up cold |
+| [`RESEARCH.md`](RESEARCH.md) | **The paper's findings.** Each finding the paper will argue, with its evidence and status. Research documentation, not the paper; the draft is `paper/DRAFT.md`. | You want to know what the paper can claim and on what evidence |
 | [`SMALL_VLA_SEARCH.md`](SMALL_VLA_SEARCH.md) | A literature search and its negative result. | You are wondering whether a small aerial VLA can be dropped in |
 
 An item leaves `TODO.md` when it becomes a decision with evidence in

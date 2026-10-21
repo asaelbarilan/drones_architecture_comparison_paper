@@ -129,7 +129,9 @@ def load_settings(config, architecture=None, matrix=PAPER_MATRIX):
 
 def prepare(out, seed, settings, tasks):
     out.mkdir(parents=True, exist_ok=False)
-    settings.update(watchdog_s=1200, missions=[dict(id=name, seed=seed) for name in tasks])
+    # Whole-run watchdog: model load plus a bounded budget per task (D-164).
+    settings.update(watchdog_s=600 + 180 * len(tasks),
+                    missions=[dict(id=name, seed=seed) for name in tasks])
     resolved = {name: task_binding(name, settings)[0].model_dump(mode="json") for name in tasks}
     prompts = dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR,
                    visual_planner=VISUAL_PLANNER, grounding=GROUNDING,

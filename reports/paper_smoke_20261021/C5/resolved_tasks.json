@@ -1,0 +1,48 @@
+{
+  "visible_target": {
+    "id": "capability_visible_target",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Fly to the red pillar and stop within 2 metres.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "visible_target",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  }
+}

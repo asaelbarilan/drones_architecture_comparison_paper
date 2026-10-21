@@ -3793,3 +3793,12 @@ no verifier; C8 = C7 + simple_collision shield + envelope verifier. role_request
 pilot / cognition helpers (code limits); prompt hashes unchanged. 124 live/worker tests pass; full
 unit suite 790 passed, 4 failed - the same 4 fail at the previous commit (graph-probe prompt_audit
 attribute, smoke C0-C14 structure), pre-existing and unrelated.
+
+### D-163: smoke - all twelve paper architectures fly end to end (2026-10-21)
+
+Status: completed local development check, visible_target, seed 1061, one flight each, user
+approved. 10/12 pass; C7/C8 (native VLA) fail by the VLA's own line: correct box but "Left +2.6 m"
+for a ~12 m pillar, locked by goal memory, stopped 10.2 m short. Role-call counts match each
+design (C0 no model; C2 no planner/monitor; C4/C5 monitor; C1 skill turns + grounding tool; C7/C8
+VLA only). Zero collisions, timing passes. One easy task, one seed: not a result.
+Evidence: reports/paper_smoke_20261021/REPORT.md.

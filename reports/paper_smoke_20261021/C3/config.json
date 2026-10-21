@@ -1,0 +1,86 @@
+{
+  "package_path": "D:/drone_vla_pilot/release/hf_fresh_d257/model",
+  "model_id": "qwen3-vl-4b-d207-shared",
+  "cpu_placement": "performance",
+  "cpu_qos": "latency",
+  "control_hz": 20,
+  "pilot_ttl_s": 1.5,
+  "cognition_ttl_s": 15,
+  "goal_ttl_s": 45,
+  "monitor_interval_s": 12,
+  "monitor_retry_s": 2,
+  "stall_s": 10,
+  "progress_m": 0.08,
+  "progress_deg": 1,
+  "position_m": 0.5,
+  "heading_deg": 5,
+  "stopped_mps": 0.2,
+  "pose_drift_m": 0.2,
+  "pose_drift_deg": 5,
+  "max_goal_m": 10,
+  "max_goal_yaw_deg": 180,
+  "max_altitude_m": 10,
+  "min_altitude_m": 0.5,
+  "geofence_radius_m": 40,
+  "camera_pitch_rad": -0.1,
+  "max_failures": 3,
+  "stream_actions": 8,
+  "action_duration_s": 0.1,
+  "max_speed_mps": 2,
+  "max_yaw_rate_rps": 1,
+  "worker_ready_timeout_s": 120,
+  "max_tick_gap_s": 0.15,
+  "flight_seconds": 60,
+  "watchdog_s": 1200,
+  "environment": {
+    "name": "grid3d",
+    "params": {
+      "render": true,
+      "render_depth": true,
+      "scene": "open",
+      "n_obstacles": 0,
+      "camera_pitch_rad": -0.1,
+      "goal_distance_m": 6,
+      "n_distractors": 2,
+      "target_label": "red pillar",
+      "sensor_range_m": 20
+    }
+  },
+  "controller": {
+    "name": "mock_velocity",
+    "params": {}
+  },
+  "shield": {
+    "name": "simple_collision",
+    "params": {
+      "allow_deflection": false
+    }
+  },
+  "missions": [
+    {
+      "id": "visible_target",
+      "seed": 1061
+    }
+  ],
+  "audit_criteria": {
+    "frozen_before_run": true,
+    "near_object_m": 1.5,
+    "require_visible": true,
+    "require_monitor_stop": true,
+    "require_stationary": true,
+    "scope": "visible object approach, not out-of-view search"
+  },
+  "goal_mode": "visual",
+  "inference_kind": "D151 local integration repair; frozen shared Qwen",
+  "pilot_mode": "classical",
+  "visual_altitude": "hold",
+  "architecture": {
+    "name": "C3 = C2 + verifier",
+    "goal_source": "instruction",
+    "verifier": true,
+    "monitor": "none",
+    "recovery": "none",
+    "memory": false
+  },
+  "paper_architecture": "C3"
+}

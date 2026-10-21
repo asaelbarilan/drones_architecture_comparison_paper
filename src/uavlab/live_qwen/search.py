@@ -14,9 +14,9 @@ ARRIVAL_DEGREES = 3
 
 
 def search_allowed(state):
-    return (state.target_missing and bool(re.search(r"\b(find|search)\b",
-                                                   state.mission.instruction, re.I))
-            and state.search_turns < MAX_TURNS)
+    requested = bool(re.search(r"\b(find|search)\b", state.mission.instruction, re.I))
+    requested |= (state.plan or {}).get("kind") == "search"  # H2: a typed search step
+    return state.target_missing and requested and state.search_turns < MAX_TURNS
 
 
 def start_search(state, now):

@@ -18,6 +18,10 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                periodic    also wake it every recovery_interval_s (C10)
                none        no recovery planner: the same step is simply retried
   memory       True        planner event memory and object position memory
+  contract     flat        the planner writes plain objective/target steps (default)
+               typed       H1: a typed program (visit/pass/condition/follow/goto/search)
+  executive    basic       every step is fly-to-target-and-stop (default)
+               kinds       H2: one owner executes the step kinds (executive.py)
 """
 
 import dataclasses
@@ -28,10 +32,11 @@ from .mission_plan import add_stated_fields
 from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
-                memory=True, recovery_interval_s=20.0)
+                memory=True, recovery_interval_s=20.0, contract="flat", executive="basic")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
-               recovery={"event", "periodic", "none"})
+               recovery={"event", "periodic", "none"},
+               contract={"flat", "typed"}, executive={"basic", "kinds"})
 
 
 def switches(settings):

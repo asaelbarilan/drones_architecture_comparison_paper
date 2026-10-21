@@ -32,7 +32,7 @@ from .qwen_actions import (
 
 @register("inference", "shared_qwen_vla")
 class SharedQwenInference:
-    ROLES = frozenset({"planner", "direction", "monitor", "pilot", "vla_line"})
+    ROLES = frozenset({"planner", "direction", "monitor", "pilot", "vla_line", "check"})
 
     def __init__(self, package_path: str, **options):
         self.package = Path(package_path)

@@ -10,6 +10,8 @@ from uavlab.interfaces import InferenceRequest
 from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 
 from .architecture import native_context
+from .contract import TYPED_PLANNER
+from .executive import check_request_text, typed
 from .grounding import GROUNDING, VISUAL_PLANNER
 from .planner_memory import RECOVERY, planner_context
 from .skills import SKILL, skill_context
@@ -136,6 +138,8 @@ def cognition_prompt(state, role, obs):
         prefix, context = RECOVERY, planner_context(state)
     if role == "planner" and skills_active(state):
         prefix, context = SKILL, skill_context(state, obs)
+    elif role == "planner" and typed(state) and not state.planner_event:
+        prefix, context = TYPED_PLANNER, state.mission.instruction
     return prefix + json.dumps(context)
 
 
@@ -144,6 +148,8 @@ def role_request(state, role, obs):
         prompt, tag = json.dumps(native_context(state, obs)), "d162:vla_line:v1"
     elif role == "pilot":
         prompt, tag = pilot_prompt(state, obs), "d148:pilot:v1"
+    elif role == "check":
+        prompt, tag = check_request_text(state), "d168:check:v1"
     else:
         prompt, tag = cognition_prompt(state, role, obs), f"d148:{role}:v1"
     images = () if role == "planner" else (image_text(obs),)

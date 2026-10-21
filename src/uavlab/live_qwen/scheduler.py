@@ -15,6 +15,17 @@ from .architecture import (
     switch,
     unverified_direction,
 )
+from .executive import (
+    HOLD,
+    accept_check,
+    accept_contract,
+    adjust_visual,
+    follow_done,
+    on_step,
+    pass_arrived,
+)
+from .executive import kind as step_kind
+from .executive import typed as typed_contract
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
@@ -63,7 +74,7 @@ class GoalScheduler:
         self.object_memory = self.hold_started = None
         self.last_obs, self.last_recovery = None, 0
         self.skill, self.skill_turns, self.skill_history, self.skill_until = None, 0, [], 0
-        self.held_since = None
+        self.held_since = self.follow_started = None
         self.path = PathFollower(mission) if settings.get("path_planner") == "super" else None
 
     def log(self, kind, now, **data):
@@ -95,13 +106,24 @@ class GoalScheduler:
         self.feedback = reason
         self.log("replan", now, reason=reason)
 
+    def start(self, obs, now):
+        self.origin, self.last_yaw = obs, obs.yaw_rad
+        self.progress_at = self.last_monitor = self.last_recovery = now
+        if switch(self.settings, "goal_source") in ("instruction", "oracle", "vla_native"):
+            commit_unplanned(self, now)
+
+    def step_tick(self, now):
+        """Hover skills and follow steps own their own time; True while a hover waits."""
+        if skill_tick(self, now):
+            return True
+        if follow_done(self, now):
+            self.finish_step(now)
+        return False
+
     def update(self, obs, captured_ns, now, moving):
         self.last_obs = obs
         if self.origin is None:
-            self.origin, self.last_yaw = obs, obs.yaw_rad
-            self.progress_at = self.last_monitor = self.last_recovery = now
-            if switch(self.settings, "goal_source") in ("instruction", "oracle", "vla_native"):
-                commit_unplanned(self, now)
+            self.start(obs, now)
         self.yaw_total += angle_error(obs.yaw_rad, self.last_yaw)
         self.last_yaw = obs.yaw_rad
         for event in self.worker.poll(self.version, now):
@@ -109,7 +131,7 @@ class GoalScheduler:
         if self.hold_started is not None:
             self.check_hold(obs, now)
             return
-        if skill_tick(self, now):
+        if self.step_tick(now):
             return
         if update_search(self, obs, now):
             return
@@ -127,6 +149,8 @@ class GoalScheduler:
             return "planner" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.monitor_reason:
             return "monitor" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
+        if step_kind(self) == "condition":
+            return "check" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.plan is None:
             return "planner"
         if self.goal is None:
@@ -187,11 +211,9 @@ class GoalScheduler:
             if role == "planner" and skills_active(self):
                 accept_skill(self, payload, now)
             elif role == "planner":
-                if self.planner_event:
-                    accept_recovery(self, payload, now)
-                else:
-                    accept_plan(self, payload, now)
-                    remember(self, "plan_committed", now, steps=self.steps)
+                self.accept_planner(payload, now)
+            elif role == "check":
+                accept_check(self, payload, now)
             elif role == "direction":
                 self.accept_goal(payload, source, work.observed_ns, now)
             elif role == "vla_line":
@@ -200,6 +222,17 @@ class GoalScheduler:
                 self.accept_monitor(parse_monitor(payload), obs, now)
         except (ValueError, KeyError, TypeError) as exc:
             self.failure(str(exc), now)
+
+    def accept_planner(self, payload, now):
+        if self.planner_event:
+            accept_recovery(self, payload, now)
+            return
+        if typed_contract(self):
+            accept_contract(self, payload, now)
+        else:
+            accept_plan(self, payload, now)
+            on_step(self, now)
+        remember(self, "plan_committed", now, steps=self.steps)
 
     def pose_valid(self, source, obs):
         return (source.position.distance_to(obs.position) <= self.settings["pose_drift_m"]
@@ -236,6 +269,13 @@ class GoalScheduler:
         near = record_grounding(self, proposal, source, captured, now)
         distance = self.visual_evidence["range_m"]
         remember_object(self, proposal, source, distance, now)
+        adjusted = adjust_visual(self, proposal, distance, now)
+        if adjusted is HOLD:
+            self.pause("typed step holds inside its distance band", now)
+            self.hold_until = now+s_to_ns(self.settings["monitor_retry_s"])
+            return None
+        if adjusted is not None:
+            return adjusted
         if distance is not None:
             # Aim just inside the near range so the object stays in view, and keep
             # each leg longer than the arrival tolerance so it is never reached on issue.
@@ -377,6 +417,9 @@ class GoalScheduler:
             self.replan("hold interrupted: object no longer confirmed near", now)
 
     def continue_mission(self, obs, now):
+        if pass_arrived(self, obs):
+            self.finish_step(now)  # H2: an opening is passed, not approached and stopped at
+            return
         self.progress_at = now
         if (self.steps and isinstance(self.plan["target"], str)
                 and self.goal.arrived(obs, self.settings)
@@ -396,6 +439,7 @@ class GoalScheduler:
         if self.steps:
             self.step_index += 1
         self.replan("intermediate goal reached; advance mission", now)
+        on_step(self, now)
 
     def check_events(self, obs, now):
         if self.goal is None or self.stopped or self.failed or self.monitor_reason:

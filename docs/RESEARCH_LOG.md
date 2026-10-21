@@ -3861,3 +3861,35 @@ src/agent handles, and the D-166 seed-1060 planning 0/4 for every model-driven c
 A taxonomy H1-H8 is proposed as experimental factors (add-one / remove-one ablation, not built).
 Evidence: docs/research/HANDLES_20261022.md (13 papers in papers/handles/), docs/RESEARCH.md
 (new findings document), docs/paper/DRAFT.md (v0).
+
+### D-168: handles H1 (typed task contract) and H2 (kind-aware executive) (2026-10-22)
+
+Status: implemented and CPU-tested; flight runs queued behind the D-166 matrix. User approved
+starting the handle ablation with H1 and H2.
+
+H1 (src/uavlab/live_qwen/contract.py, switch contract=typed): the planner writes a typed program,
+in the spirit of ProgPrompt / MiniSpec. Its kinds:
+- visit: object, near_m, dwell_s, stop;
+- pass: an opening;
+- condition: a yes/no camera question with then / else branches;
+- follow: object, distance band, duration;
+- goto: only the explicit public world coordinate;
+- search.
+The schema is validated. The two prompt examples are generic, not benchmark tasks.
+
+H2 (src/uavlab/live_qwen/executive.py, switch executive=kinds): one owner executes the kinds.
+- condition: one "check" VLM call on the current image, then the chosen branch is spliced in;
+- pass: aims 2 m beyond the grounded opening and completes on arrival;
+- follow: holds inside the near half of the band, closes from beyond it, completes only after
+  the stated duration;
+- visit: the dwell becomes a hold; intermediate visits advance;
+- search: authorizes the bounded camera search;
+- goal mode is set per step.
+Without H2 a typed program is flattened into plain text steps (inert contract). Without H1 the
+executive has no kinds to execute. This interaction is itself a measured condition.
+
+Matrix entries: FULL_H1 (typed, basic), FULL_H2 (flat, kinds), FULL_H12 (typed, kinds). Defaults
+(flat, basic) leave every earlier configuration unchanged; D-166 runs that start after this
+commit load the new code with identical defaults. New worker role "check" (base model).
+134 tests pass; code checks pass. Driver: reports/paper_handles_d168/run_handles.sh (3 entries x
+12 tasks x seeds 1060-1062, paired with the D-166 FULL baseline).

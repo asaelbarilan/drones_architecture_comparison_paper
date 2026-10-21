@@ -1,0 +1,101 @@
+"""D-168 handles H1 (typed task contract) and H2 (kind-aware executive), CPU only."""
+
+import json
+from pathlib import Path
+
+import pytest
+
+from tests.test_live_qwen import ORIGIN_NS, ManualWorker, observation
+from uavlab.contracts import Vec3, s_to_ns
+from uavlab.live_qwen.contract import parse_contract
+from uavlab.live_qwen.executive import HOLD, adjust_visual, follow_done
+from uavlab.live_qwen.goals import Goal
+from uavlab.live_qwen.runner import mission_spec
+from uavlab.live_qwen.scheduler import GoalScheduler
+
+MISSION = ("If the left gap is clear fly through it, otherwise through the right gap. "
+           "Then visit the red pillar.")
+PROGRAM = dict(program=[
+    dict(kind="condition", question="Is the left gap clear?",
+         then=[dict(kind="pass", object="left gap")],
+         **{"else": [dict(kind="pass", object="right gap")]}),
+    dict(kind="visit", object="red pillar", near_m=2, dwell_s=0, stop=True)])
+FAR_M, BAND = 9.0, (4, 6)
+OPENING_M, BEYOND_M = 3.0, 2.0
+TYPED_START = "Write the mission as a small typed program"
+
+
+def scheduler(contract="typed", executive="kinds"):
+    settings = json.loads(Path("configs/experiments/qwen_async_local.json").read_text())
+    settings["architecture"] = dict(contract=contract, executive=executive)
+    settings["goal_mode"] = "visual"
+    case = dict(settings["missions"][0], instruction=MISSION)
+    state = GoalScheduler(ManualWorker(), mission_spec(case, settings), settings, lambda row: None)
+    state.update(observation(), ORIGIN_NS, ORIGIN_NS, False)
+    return state
+
+
+def answer(state, payload, at=1):
+    state.worker.finish(payload)
+    state.update(observation(), ORIGIN_NS+s_to_ns(at), ORIGIN_NS+s_to_ns(at), False)
+
+
+def test_contract_validation_rejects_unknown_kinds_and_invented_coordinates():
+    assert parse_contract(PROGRAM, MISSION)[0]["kind"] == "condition"
+    with pytest.raises(ValueError):
+        parse_contract(dict(program=[dict(kind="teleport")]), MISSION)
+    with pytest.raises(ValueError):
+        parse_contract(dict(program=[dict(kind="goto", world_enu=[1, 2, 3])]), MISSION)
+    with pytest.raises(ValueError):
+        parse_contract(dict(program=[dict(kind="follow", object="car", min_m=6, max_m=4,
+                                          duration_s=10)]), MISSION)
+
+
+def test_typed_planner_prompt_is_used_and_a_condition_asks_the_camera():
+    state = scheduler()
+    assert state.worker.calls[0].request.prompt.startswith(TYPED_START)
+    answer(state, PROGRAM)
+    request = state.worker.calls[-1].request
+    assert request.role == "check" and len(request.images) == 1
+    assert request.prompt.endswith("Is the left gap clear?")
+
+
+def test_condition_answer_splices_the_chosen_branch():
+    state = scheduler()
+    answer(state, PROGRAM)
+    answer(state, dict(answer="no", reason="a wall blocks the left gap"), at=2)
+    assert [s["target"] for s in state.steps] == ["right gap", "red pillar"]
+    assert state.plan["kind"] == "pass" and state.worker.calls[-1].request.role == "direction"
+
+
+def test_without_the_executive_the_typed_contract_is_flattened_and_inert():
+    state = scheduler(executive="basic")
+    answer(state, PROGRAM)
+    assert "kind" not in state.steps[0] and state.steps[0]["objective"].startswith("if Is the left")
+    assert state.worker.calls[-1].request.role == "direction"
+
+
+def test_pass_aims_beyond_the_opening_and_completes_on_arrival():
+    state = scheduler()
+    state.steps = [dict(kind="pass", objective="pass gap", target="gap"),
+                   dict(kind="visit", objective="visit pillar", target="pillar", final=True)]
+    state.plan = dict(state.steps[0])
+    proposal = dict(target=dict(u=500, v=500, travel_m=1.0))
+    travel = adjust_visual(state, proposal, OPENING_M, ORIGIN_NS)["target"]["travel_m"]
+    assert travel == OPENING_M + BEYOND_M
+    state.goal = Goal(2, Vec3(x=0, y=0, z=3), 0, False, ORIGIN_NS+s_to_ns(45), 1)
+    state.continue_mission(observation(), ORIGIN_NS)
+    assert state.step_index == 1 and state.plan["target"] == "pillar" and not state.stopped
+
+
+def test_follow_keeps_its_band_and_ends_only_after_its_duration():
+    state = scheduler()
+    state.steps = [dict(kind="follow", objective="follow car", target="car", min_m=BAND[0],
+                        max_m=BAND[1], duration_s=20)]
+    state.plan = dict(state.steps[0])
+    far = adjust_visual(state, dict(target=dict(u=500, v=500, travel_m=1.0)), FAR_M, ORIGIN_NS)
+    assert far["target"]["travel_m"] == pytest.approx(FAR_M - sum(BAND) / 2)
+    near = dict(target=dict(u=500, v=500, travel_m=1.0))
+    assert adjust_visual(state, near, 4.5, ORIGIN_NS) is HOLD
+    assert not follow_done(state, ORIGIN_NS+s_to_ns(19))
+    assert follow_done(state, ORIGIN_NS+s_to_ns(20))

@@ -37,7 +37,7 @@ literature, is the logic that connects the modules (the "handles"):
 
 | Evidence | What it shows | Source |
 |---|---|---|
-| D-166 matrix, seed 1060 (12 archs x 12 tasks, one model and runtime) | Every model-driven configuration fails all 4 planning tasks (if-then gate, ordered visit, closing passage, follow), while the oracle ceiling passes 9/12. Best non-oracle: FULL and C13, 7/12 | `reports/paper_matrix_d165/` |
+| D-166 matrix, complete (12 archs x 12 tasks x 3 seeds = 432 flights, one model and runtime, zero collisions) | Every model-driven configuration passes 0/12 planning tasks (if-then gate, ordered visit, closing passage, follow); oracle 28/36 overall. Best non-oracle C13 22/36 and FULL 21/36; vanilla C1-C6 9-18/36; VLA alone 0/36 | `reports/paper_matrix_d165/tables.md`, D-169 |
 | Live stack, same weights, no training (D-150 -> D-158) | 0/9 -> 5/9 from handle changes only: pose contract, standoff, altitude hold, object memory, stated standoff / hold, hold-as-stop | `RESEARCH_LOG.md` D-150 to D-158 |
 | Live stack, numeric suite (D-143 -> D-145) | 0/4 -> 4/4 from the completion contract and ordered-step preservation only | D-143 to D-145 |
 | AerialClaw C1 (D-44) | The one accepted paper family (5/5 grid, 5/5 search) had the richest handles: SOUL / BODY, soft-skill strategy, runtime checks, done / stuck verdicts, labelled metric detections | `docs/fidelity/AerialClaw.md`, D-85 |
@@ -49,14 +49,14 @@ tasks and seeds (the taxonomy H1 - H8 is in the research note).
 
 ## Finding 2 (preliminary): a VLA is a good pilot inside a hierarchy and a poor planner alone
 
-**Status: one seed (1060).**
-- C13 (planner -> D207 VLA pilot) ties the best stack, 7/12.
-- C7 / C8 (the VLA alone, writing its own goal line) pass 0/12.
+**Status: three seeds (D-169).**
+- C13 (planner -> D207 VLA pilot) is the best non-oracle stack, 22/36.
+- C7 / C8 (the VLA alone, writing its own goal line) pass 0/36.
 - The VLA boxes the target correctly but misjudges the distance, for example "Left +2.6 m" for
   a 12 m pillar. Goal memory locks that line (D-163).
 
 ## Open items
 
-- Seeds 1061 and 1062 of the D-166 matrix (running).
+- Handle ablation H1 / H2 on FULL (D-168, running).
 - Handle ablation design and implementation.
 - Held-out evaluation: once, at the end.

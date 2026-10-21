@@ -1,0 +1,73 @@
+=== s1060 C0 19:11:12
+exit=0 passes=9
+=== s1060 C1 19:14:20
+exit=0 passes=3
+=== s1060 C2 19:24:53
+exit=0 passes=4
+=== s1060 C3 19:33:49
+exit=0 passes=5
+=== s1060 C4 19:42:45
+exit=0 passes=5
+=== s1060 C5 19:51:34
+exit=0 passes=6
+=== s1060 C6 19:58:54
+exit=0 passes=6
+=== s1060 FULL 20:07:38
+exit=0 passes=7
+=== s1060 C7 20:15:57
+exit=0 passes=0
+=== s1060 C8 20:20:08
+exit=0 passes=0
+=== s1060 C10 20:24:16
+exit=0 passes=5
+=== s1060 C13 20:35:04
+exit=0 passes=7
+=== s1061 C0 20:45:05
+exit=0 passes=10
+=== s1061 C1 20:48:07
+exit=0 passes=3
+=== s1061 C2 20:58:39
+exit=0 passes=4
+=== s1061 C3 21:07:37
+exit=0 passes=5
+=== s1061 C4 21:16:29
+exit=0 passes=5
+=== s1061 C5 21:25:23
+exit=0 passes=7
+=== s1061 C6 21:33:02
+exit=0 passes=6
+=== s1061 FULL 21:41:35
+exit=0 passes=7
+=== s1061 C7 21:52:07
+exit=0 passes=0
+=== s1061 C8 21:56:55
+exit=0 passes=0
+=== s1061 C10 22:01:25
+exit=0 passes=6
+=== s1061 C13 22:12:02
+exit=0 passes=7
+=== s1062 C0 22:21:51
+exit=0 passes=9
+=== s1062 C1 22:25:00
+exit=0 passes=3
+=== s1062 C2 22:35:31
+exit=0 passes=4
+=== s1062 C3 22:44:19
+exit=0 passes=5
+=== s1062 C4 22:53:10
+exit=0 passes=5
+=== s1062 C5 23:02:05
+exit=0 passes=5
+=== s1062 C6 23:09:27
+exit=0 passes=6
+=== s1062 FULL 23:18:09
+exit=0 passes=7
+=== s1062 C7 23:27:19
+exit=0 passes=0
+=== s1062 C8 23:31:37
+exit=0 passes=0
+=== s1062 C10 23:35:52
+exit=0 passes=5
+=== s1062 C13 23:46:35
+exit=0 passes=8
+=== DONE 23:56:05

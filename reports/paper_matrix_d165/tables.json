@@ -1,0 +1,6307 @@
+{
+ "rows": [
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1603481694726447,
+   "sim_s": 11.3038703,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "closing_passage",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0674018139957422,
+   "sim_s": 32.7261315,
+   "calls": {
+    "pilot": 33
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1470935761952912,
+   "sim_s": 14.1620995,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 5.197194460565834,
+   "sim_s": 5.8057238,
+   "calls": {
+    "pilot": 6
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.19579726022606714,
+   "sim_s": 9.7429089,
+   "calls": {
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0740938270395166,
+   "sim_s": 14.3523377,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1749037433982983,
+   "sim_s": 9.7284259,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9121956322312238,
+   "sim_s": 11.5064763,
+   "calls": {
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2255357520268826,
+   "sim_s": 12.9406045,
+   "calls": {
+    "pilot": 14
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2647604045210294,
+   "sim_s": 10.6152683,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1565672096623643,
+   "sim_s": 8.4460808,
+   "calls": {
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C0",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1634927980376535,
+   "sim_s": 9.1744995,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.5109570174302278,
+   "sim_s": 30.1849901,
+   "calls": {
+    "planner": 3,
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.266865877490496,
+   "sim_s": 60.0258821,
+   "calls": {
+    "planner": 14,
+    "pilot": 19,
+    "direction": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.58046207681982,
+   "sim_s": 60.0406391,
+   "calls": {
+    "planner": 13,
+    "pilot": 22,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 44.28608038047243,
+   "sim_s": 59.9983808,
+   "calls": {
+    "planner": 11,
+    "pilot": 10,
+    "direction": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.09750162077119384,
+   "sim_s": 14.1367715,
+   "calls": {
+    "planner": 2,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.204848822426474,
+   "sim_s": 60.0082084,
+   "calls": {
+    "planner": 15,
+    "pilot": 21,
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0699171337337579,
+   "sim_s": 36.310946,
+   "calls": {
+    "planner": 4,
+    "pilot": 13,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.392284787199179,
+   "sim_s": 59.9933236,
+   "calls": {
+    "planner": 7,
+    "pilot": 27,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.6746248160715,
+   "sim_s": 60.0417728,
+   "calls": {
+    "planner": 10,
+    "direction": 6,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.650691680694775,
+   "sim_s": 60.0074723,
+   "calls": {
+    "planner": 11,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 1.1581280931089182,
+   "sim_s": 60.0387802,
+   "calls": {
+    "planner": 11,
+    "direction": 7,
+    "pilot": 20
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C1",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.6872697479008716,
+   "sim_s": 31.6079234,
+   "calls": {
+    "planner": 3,
+    "pilot": 11,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1356325305273098,
+   "sim_s": 40.0465391,
+   "calls": {
+    "planner": 2,
+    "direction": 5,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.035842,
+   "calls": {
+    "planner": 3,
+    "direction": 15
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.318911118619752,
+   "sim_s": 59.9934514,
+   "calls": {
+    "planner": 4,
+    "direction": 4,
+    "pilot": 17,
+    "monitor": 13
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.159323953511176,
+   "sim_s": 60.0400998,
+   "calls": {
+    "planner": 3,
+    "direction": 6,
+    "pilot": 25
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.1023762049320598,
+   "sim_s": 21.1693582,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.5221616472223305,
+   "sim_s": 60.0380394,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2801795924652484,
+   "sim_s": 39.7024423,
+   "calls": {
+    "planner": 2,
+    "direction": 5,
+    "pilot": 14,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 1.7246829420959524,
+   "sim_s": 60.0055102,
+   "calls": {
+    "planner": 6,
+    "direction": 7,
+    "pilot": 17,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.829715635596587,
+   "sim_s": 60.0097231,
+   "calls": {
+    "planner": 4,
+    "direction": 8,
+    "pilot": 18,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8742855702379958,
+   "sim_s": 51.5910744,
+   "calls": {
+    "planner": 3,
+    "direction": 7,
+    "pilot": 17
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.325602081166515,
+   "sim_s": 60.0118042,
+   "calls": {
+    "planner": 4,
+    "direction": 6,
+    "pilot": 30
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C10",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1507881225429273,
+   "sim_s": 31.9509415,
+   "calls": {
+    "planner": 2,
+    "direction": 3,
+    "pilot": 14,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1012965540033848,
+   "sim_s": 34.433993,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0042935,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.553018906595657,
+   "sim_s": 60.0160562,
+   "calls": {
+    "planner": 4,
+    "direction": 4,
+    "pilot": 20,
+    "monitor": 15
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 9.270429552861453,
+   "sim_s": 60.04298,
+   "calls": {
+    "planner": 1,
+    "direction": 7,
+    "pilot": 29
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.10295154841601292,
+   "sim_s": 21.413383,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.355383465266235,
+   "sim_s": 35.5163512,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 16,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3011686344174518,
+   "sim_s": 31.6173446,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.818468840859512,
+   "sim_s": 60.0392778,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 9,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.493719092470279,
+   "sim_s": 59.9971299,
+   "calls": {
+    "planner": 2,
+    "direction": 10,
+    "pilot": 19
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8388666335620284,
+   "sim_s": 48.8468144,
+   "calls": {
+    "planner": 2,
+    "direction": 5,
+    "pilot": 23
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1708698212118958,
+   "sim_s": 50.5492139,
+   "calls": {
+    "planner": 2,
+    "direction": 7,
+    "pilot": 20
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C13",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4348332470045868,
+   "sim_s": 31.8480882,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 14,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.26417974269588,
+   "sim_s": 28.2621079,
+   "calls": {
+    "direction": 5,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226124532772292,
+   "sim_s": 60.0288688,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0111496,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.772672762520024,
+   "sim_s": 60.0198739,
+   "calls": {
+    "direction": 7,
+    "pilot": 41
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 5.6681048,
+   "calls": {
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2966685977790395,
+   "sim_s": 32.2972788,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4242207519186645,
+   "sim_s": 23.9095639,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4353480460839954,
+   "sim_s": 25.5859053,
+   "calls": {
+    "direction": 4,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.666161959601666,
+   "sim_s": 60.0338467,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.8485303934626276,
+   "sim_s": 60.0099028,
+   "calls": {
+    "direction": 15,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0021498,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C2",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4741142041137927,
+   "sim_s": 23.3139715,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4707154156909634,
+   "sim_s": 22.5392469,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.225902382877322,
+   "sim_s": 59.9935493,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0297481,
+   "calls": {
+    "direction": 17
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 6.85176677933911,
+   "sim_s": 60.0189581,
+   "calls": {
+    "direction": 7,
+    "pilot": 40
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.18673089331930726,
+   "sim_s": 11.4153463,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2763857570675978,
+   "sim_s": 33.1639773,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3848018821546888,
+   "sim_s": 25.5957729,
+   "calls": {
+    "direction": 4,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4455149015259785,
+   "sim_s": 27.1121024,
+   "calls": {
+    "direction": 4,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.668071749359124,
+   "sim_s": 60.0397493,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.7872060465468155,
+   "sim_s": 59.9935872,
+   "calls": {
+    "direction": 14,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0026559,
+   "calls": {
+    "direction": 17
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C3",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4836813735198753,
+   "sim_s": 22.4824687,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.508103672327433,
+   "sim_s": 22.1915198,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.22611934413267,
+   "sim_s": 60.0336853,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0179284,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.829836116117015,
+   "sim_s": 60.007661,
+   "calls": {
+    "direction": 8,
+    "pilot": 37
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.11715707267078734,
+   "sim_s": 14.4026028,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3553906257628954,
+   "sim_s": 27.7883186,
+   "calls": {
+    "direction": 3,
+    "pilot": 16,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3569306363291906,
+   "sim_s": 23.2609751,
+   "calls": {
+    "direction": 3,
+    "pilot": 12,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9973221158758602,
+   "sim_s": 21.5871075,
+   "calls": {
+    "direction": 2,
+    "pilot": 13,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.673929225721674,
+   "sim_s": 60.0423492,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 2.61654359886049,
+   "sim_s": 59.9808567,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0276878,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C4",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4596031725226695,
+   "sim_s": 23.1573868,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2230474827943256,
+   "sim_s": 26.2527745,
+   "calls": {
+    "direction": 4,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226251352459485,
+   "sim_s": 60.0045073,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0039234,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.664646174263211,
+   "sim_s": 60.0127024,
+   "calls": {
+    "direction": 7,
+    "pilot": 41
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.13360103042551685,
+   "sim_s": 13.6443814,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3885868166808757,
+   "sim_s": 27.6440329,
+   "calls": {
+    "direction": 3,
+    "pilot": 15,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3813143415915354,
+   "sim_s": 22.8541086,
+   "calls": {
+    "direction": 3,
+    "pilot": 12,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4460038107668483,
+   "sim_s": 24.8478465,
+   "calls": {
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.653890244548814,
+   "sim_s": 13.0626976,
+   "calls": {
+    "direction": 2,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 2.651761077059561,
+   "sim_s": 14.0027059,
+   "calls": {
+    "direction": 2,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0168876,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C5",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4566181957115756,
+   "sim_s": 21.1874255,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2593126904222038,
+   "sim_s": 28.2128728,
+   "calls": {
+    "direction": 5,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226109212875777,
+   "sim_s": 59.9942815,
+   "calls": {
+    "direction": 17,
+    "pilot": 1,
+    "planner": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0260695,
+   "calls": {
+    "direction": 17,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.362943110285393,
+   "sim_s": 60.0116435,
+   "calls": {
+    "direction": 7,
+    "pilot": 41
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.20688243996078448,
+   "sim_s": 11.4631638,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2322130074006739,
+   "sim_s": 34.5775513,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.393248367671285,
+   "sim_s": 25.7940254,
+   "calls": {
+    "direction": 4,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3351991449920966,
+   "sim_s": 26.2064957,
+   "calls": {
+    "direction": 4,
+    "pilot": 14
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.647887641807547,
+   "sim_s": 60.0437802,
+   "calls": {
+    "direction": 15,
+    "pilot": 9,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 6.637931092672289,
+   "sim_s": 60.0168167,
+   "calls": {
+    "direction": 12,
+    "pilot": 14,
+    "planner": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1663031085231945,
+   "sim_s": 40.2444913,
+   "calls": {
+    "direction": 8,
+    "planner": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C6",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4810052718431006,
+   "sim_s": 22.5430222,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 11.2096047,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.139051081603544,
+   "sim_s": 15.188623,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.2837795485022,
+   "sim_s": 16.7623245,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 27.92995907,
+   "sim_s": 28.4713701,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 27.4772354,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.865366759276556,
+   "sim_s": 13.212739,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.160254474308983,
+   "sim_s": 14.5881985,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.187465835757127,
+   "sim_s": 13.2169925,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.457823972903473,
+   "sim_s": 16.8633377,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 6
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 7.8783260704775415,
+   "sim_s": 18.4209356,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 8
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.599864214945745,
+   "sim_s": 20.0041129,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C7",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.210507847149588,
+   "sim_s": 13.06221,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 11.3454944,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.101587432592208,
+   "sim_s": 15.1564862,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.357919483212491,
+   "sim_s": 15.1904679,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 27.147862089999997,
+   "sim_s": 27.3540887,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 28.1732754,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.864952976443908,
+   "sim_s": 13.6264841,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.1601521455126,
+   "sim_s": 13.5115187,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.187893233410536,
+   "sim_s": 12.710847,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.373020975345511,
+   "sim_s": 15.2951929,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 5
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 7.874597967489574,
+   "sim_s": 18.1142795,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 8
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.599655825538179,
+   "sim_s": 20.0016704,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "C8",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.159949244382535,
+   "sim_s": 13.2118108,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2192762304152447,
+   "sim_s": 33.3376449,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0046154,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.300700119539673,
+   "sim_s": 60.0106293,
+   "calls": {
+    "planner": 2,
+    "direction": 2,
+    "pilot": 24,
+    "monitor": 19
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.669418781961468,
+   "sim_s": 60.0219472,
+   "calls": {
+    "planner": 1,
+    "direction": 6,
+    "pilot": 38
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.10969675842062898,
+   "sim_s": 18.5516091,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2558250518165284,
+   "sim_s": 34.6653787,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 16,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.391136565042643,
+   "sim_s": 26.4964863,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 12,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 5.121581963527209,
+   "sim_s": 14.7054594,
+   "calls": {
+    "planner": 1,
+    "direction": 2,
+    "pilot": 7
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.666414121096954,
+   "sim_s": 60.0446399,
+   "calls": {
+    "planner": 2,
+    "direction": 14,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.7828935196458169,
+   "sim_s": 26.6705134,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1172302399227925,
+   "sim_s": 41.5227074,
+   "calls": {
+    "planner": 2,
+    "direction": 7,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1060,
+   "arch": "FULL",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4716788974945558,
+   "sim_s": 24.1595574,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1396895289839648,
+   "sim_s": 11.0108287,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "closing_passage",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0724900124219565,
+   "sim_s": 31.2011241,
+   "calls": {
+    "pilot": 32
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "conditional_gate",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1673394361882483,
+   "sim_s": 14.0032258,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 5.308603328782973,
+   "sim_s": 5.9080779,
+   "calls": {
+    "pilot": 6
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.196099706416339,
+   "sim_s": 9.6285035,
+   "calls": {
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0741029664113606,
+   "sim_s": 14.0062952,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.139640506960357,
+   "sim_s": 9.7773876,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8819687154580869,
+   "sim_s": 11.9222342,
+   "calls": {
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1659098449552237,
+   "sim_s": 12.8424406,
+   "calls": {
+    "pilot": 14
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.21198876771623,
+   "sim_s": 10.3434018,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1759758530940752,
+   "sim_s": 8.3620974,
+   "calls": {
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C0",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1394680483758854,
+   "sim_s": 8.9204822,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4901328261832427,
+   "sim_s": 30.5867911,
+   "calls": {
+    "planner": 3,
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.267048396399876,
+   "sim_s": 60.0329456,
+   "calls": {
+    "planner": 14,
+    "pilot": 17,
+    "direction": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 15.080815112565425,
+   "sim_s": 59.999504,
+   "calls": {
+    "planner": 15,
+    "pilot": 11,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 44.080692894490106,
+   "sim_s": 60.0317978,
+   "calls": {
+    "planner": 11,
+    "pilot": 10,
+    "direction": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.14859991950199714,
+   "sim_s": 14.0373098,
+   "calls": {
+    "planner": 2,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.169997084630639,
+   "sim_s": 60.0000061,
+   "calls": {
+    "planner": 16,
+    "pilot": 20,
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1555728264759413,
+   "sim_s": 36.8568849,
+   "calls": {
+    "planner": 4,
+    "pilot": 14,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.299047093485093,
+   "sim_s": 59.9903778,
+   "calls": {
+    "planner": 7,
+    "pilot": 27,
+    "direction": 6
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.664527205490328,
+   "sim_s": 60.0046999,
+   "calls": {
+    "planner": 12,
+    "direction": 7,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.650691680694775,
+   "sim_s": 59.9976289,
+   "calls": {
+    "planner": 11,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.422511937524437,
+   "sim_s": 56.4792739,
+   "calls": {
+    "planner": 15,
+    "direction": 4,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C1",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.7034225684923068,
+   "sim_s": 32.3704237,
+   "calls": {
+    "planner": 3,
+    "pilot": 11,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.074784602731122,
+   "sim_s": 39.5275668,
+   "calls": {
+    "planner": 2,
+    "direction": 5,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0236211,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.76574525094493,
+   "sim_s": 60.038627,
+   "calls": {
+    "planner": 3,
+    "direction": 3,
+    "pilot": 23,
+    "monitor": 13
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 15.417071887310387,
+   "sim_s": 60.045492,
+   "calls": {
+    "planner": 3,
+    "direction": 6,
+    "pilot": 27
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.102258186740784,
+   "sim_s": 21.0561332,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 6.580895727046102,
+   "sim_s": 60.0429715,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.365833964814324,
+   "sim_s": 33.8178691,
+   "calls": {
+    "planner": 2,
+    "direction": 4,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.714414820527286,
+   "sim_s": 60.0075984,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.539416241235472,
+   "sim_s": 60.0023485,
+   "calls": {
+    "planner": 4,
+    "direction": 9,
+    "pilot": 17,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.148103108892494,
+   "sim_s": 53.680641,
+   "calls": {
+    "planner": 3,
+    "direction": 7,
+    "pilot": 21
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2240413314688776,
+   "sim_s": 48.3029599,
+   "calls": {
+    "planner": 3,
+    "direction": 8,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C10",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4989876144872487,
+   "sim_s": 35.2762654,
+   "calls": {
+    "planner": 2,
+    "direction": 4,
+    "pilot": 14,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.023530487825785,
+   "sim_s": 37.7243965,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 11,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0056661,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.511159773503321,
+   "sim_s": 60.0427629,
+   "calls": {
+    "planner": 2,
+    "direction": 2,
+    "pilot": 25,
+    "monitor": 17
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 9.311087453880173,
+   "sim_s": 60.0087485,
+   "calls": {
+    "planner": 1,
+    "direction": 6,
+    "pilot": 30
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.10326562991521566,
+   "sim_s": 20.8192372,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3447003336664325,
+   "sim_s": 34.8197398,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 17,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0328805578671727,
+   "sim_s": 30.2415855,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.835790617897267,
+   "sim_s": 60.008003,
+   "calls": {
+    "planner": 3,
+    "direction": 13,
+    "pilot": 9,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.587301726582677,
+   "sim_s": 60.0066086,
+   "calls": {
+    "planner": 2,
+    "direction": 10,
+    "pilot": 19
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.5494299588535894,
+   "sim_s": 46.6545269,
+   "calls": {
+    "planner": 1,
+    "direction": 5,
+    "pilot": 22
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3144431929006475,
+   "sim_s": 41.5933957,
+   "calls": {
+    "planner": 2,
+    "direction": 7,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C13",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4878194573694556,
+   "sim_s": 29.7377864,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2585984319501329,
+   "sim_s": 29.3991785,
+   "calls": {
+    "direction": 5,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.22598129513062,
+   "sim_s": 60.016881,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.010527,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.806385198605497,
+   "sim_s": 60.0190104,
+   "calls": {
+    "direction": 7,
+    "pilot": 40
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 4.957401,
+   "calls": {
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2474584888918712,
+   "sim_s": 33.2523197,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3499188644020401,
+   "sim_s": 25.3159425,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3511223154609204,
+   "sim_s": 26.1869882,
+   "calls": {
+    "direction": 4,
+    "pilot": 14
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.665960826347398,
+   "sim_s": 60.0323762,
+   "calls": {
+    "direction": 16,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.784245813783891,
+   "sim_s": 60.0150432,
+   "calls": {
+    "direction": 14,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0320891,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C2",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4726490585602434,
+   "sim_s": 22.4865802,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4821588423433079,
+   "sim_s": 22.9927421,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.264865031605886,
+   "sim_s": 60.0150485,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 59.9944545,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.741962833902157,
+   "sim_s": 60.0177468,
+   "calls": {
+    "direction": 7,
+    "pilot": 41
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.21039105989684437,
+   "sim_s": 11.4985128,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2554144910588347,
+   "sim_s": 33.1047412,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.386062055049152,
+   "sim_s": 24.1700932,
+   "calls": {
+    "direction": 4,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8423685214058912,
+   "sim_s": 20.8679659,
+   "calls": {
+    "direction": 3,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.669411915701879,
+   "sim_s": 60.0239217,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.642074613024185,
+   "sim_s": 60.0230381,
+   "calls": {
+    "direction": 14,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0300405,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C3",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4554624929163484,
+   "sim_s": 22.778442,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4821735010259725,
+   "sim_s": 21.7278563,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.22597651007749,
+   "sim_s": 60.0132045,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0039338,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.080084692912989,
+   "sim_s": 60.0124657,
+   "calls": {
+    "direction": 8,
+    "pilot": 40
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.12978506844878446,
+   "sim_s": 14.1123691,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.033977213012105,
+   "sim_s": 28.9863791,
+   "calls": {
+    "direction": 3,
+    "pilot": 16,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.361666847671232,
+   "sim_s": 25.4746279,
+   "calls": {
+    "direction": 3,
+    "pilot": 12,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9234209603713301,
+   "sim_s": 21.9713843,
+   "calls": {
+    "direction": 2,
+    "pilot": 13,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.654250592246685,
+   "sim_s": 60.0380475,
+   "calls": {
+    "direction": 16,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 2.2713019699058594,
+   "sim_s": 60.0016145,
+   "calls": {
+    "direction": 15,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0373919,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C4",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.5024730529776704,
+   "sim_s": 21.3062329,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2218600375379716,
+   "sim_s": 27.0973382,
+   "calls": {
+    "direction": 4,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.22578944368541,
+   "sim_s": 60.0377949,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0073058,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.701193205028176,
+   "sim_s": 60.0354131,
+   "calls": {
+    "direction": 8,
+    "pilot": 37
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.10648693546962562,
+   "sim_s": 14.4913805,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9866873391041863,
+   "sim_s": 28.0718965,
+   "calls": {
+    "direction": 3,
+    "pilot": 15,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.439207851802885,
+   "sim_s": 23.4475097,
+   "calls": {
+    "direction": 3,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3963656199585233,
+   "sim_s": 26.908987,
+   "calls": {
+    "direction": 3,
+    "pilot": 14,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.668236921520124,
+   "sim_s": 12.7193378,
+   "calls": {
+    "direction": 2,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.6668441353785797,
+   "sim_s": 27.3739121,
+   "calls": {
+    "direction": 5,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0397533,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C5",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4753439740740717,
+   "sim_s": 22.1409077,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4801284706999533,
+   "sim_s": 22.5351164,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226026505462315,
+   "sim_s": 60.0375991,
+   "calls": {
+    "direction": 17,
+    "pilot": 1,
+    "planner": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0181957,
+   "calls": {
+    "direction": 17,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 7.393828688643502,
+   "sim_s": 60.0143938,
+   "calls": {
+    "direction": 7,
+    "pilot": 42
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.23266665607271797,
+   "sim_s": 11.6658915,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2355808278511378,
+   "sim_s": 33.7736936,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3906944085854664,
+   "sim_s": 24.484508,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4648820459891334,
+   "sim_s": 26.8510206,
+   "calls": {
+    "direction": 4,
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.650700830975083,
+   "sim_s": 60.032811,
+   "calls": {
+    "direction": 15,
+    "pilot": 9,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 2.3228483188577616,
+   "sim_s": 60.0205422,
+   "calls": {
+    "direction": 14,
+    "pilot": 10,
+    "planner": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2119855874611911,
+   "sim_s": 36.2498683,
+   "calls": {
+    "direction": 8,
+    "planner": 1,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C6",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4779197979276493,
+   "sim_s": 22.6321616,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 12.7099022,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.10383005913387,
+   "sim_s": 16.5072457,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 5
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 30.4046569,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 27.2986115,
+   "sim_s": 27.569445,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 31.1129715,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.864735665606219,
+   "sim_s": 12.8604521,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.212576209353168,
+   "sim_s": 13.4041824,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.231667522581787,
+   "sim_s": 12.5547207,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.503558029301495,
+   "sim_s": 17.4594642,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 7
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.650691680694775,
+   "sim_s": 31.569723,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.55621614604721,
+   "sim_s": 20.9460651,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C7",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.204273578973886,
+   "sim_s": 14.2652483,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 11.2009008,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.13591373665377,
+   "sim_s": 15.0444017,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 28.2736697,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 27.497325819999997,
+   "sim_s": 27.8533226,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 26.812424,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.866114840247146,
+   "sim_s": 13.1042566,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.158802033064806,
+   "sim_s": 13.4595314,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.188424509551094,
+   "sim_s": 12.7497758,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.563109974564027,
+   "sim_s": 17.4759589,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 7
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.650691680694775,
+   "sim_s": 29.794606,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.490146301279818,
+   "sim_s": 19.8986418,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "C8",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.21103037973558,
+   "sim_s": 12.8128407,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1603317402549036,
+   "sim_s": 33.8602997,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0142177,
+   "calls": {
+    "planner": 3,
+    "direction": 15
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.535576097897641,
+   "sim_s": 60.0182866,
+   "calls": {
+    "planner": 3,
+    "direction": 3,
+    "pilot": 32,
+    "monitor": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.667624824613306,
+   "sim_s": 59.9981958,
+   "calls": {
+    "planner": 1,
+    "direction": 5,
+    "pilot": 38
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.13314699423328769,
+   "sim_s": 19.2173869,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2949926401751823,
+   "sim_s": 36.597854,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 16,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3971829564369977,
+   "sim_s": 27.8144036,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.619703104567477,
+   "sim_s": 60.0195024,
+   "calls": {
+    "planner": 3,
+    "direction": 13,
+    "pilot": 7,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.668849127014504,
+   "sim_s": 60.0024394,
+   "calls": {
+    "planner": 2,
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.20519958293373688,
+   "sim_s": 32.9491869,
+   "calls": {
+    "planner": 1,
+    "direction": 5,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.225665080694635,
+   "sim_s": 38.8616652,
+   "calls": {
+    "planner": 2,
+    "direction": 7,
+    "pilot": 9,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1061,
+   "arch": "FULL",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4616756730378029,
+   "sim_s": 24.96649,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1659698394787004,
+   "sim_s": 11.4086058,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "closing_passage",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0563173511822803,
+   "sim_s": 31.7237457,
+   "calls": {
+    "pilot": 32
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2118636451271434,
+   "sim_s": 14.3656303,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 5.277206272014182,
+   "sim_s": 5.864374,
+   "calls": {
+    "pilot": 6
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.21158702699110066,
+   "sim_s": 10.0681294,
+   "calls": {
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1012018623669442,
+   "sim_s": 14.1064001,
+   "calls": {
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.207715231655344,
+   "sim_s": 9.9335407,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9189175530337922,
+   "sim_s": 11.2544506,
+   "calls": {
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1539779990486396,
+   "sim_s": 13.0493735,
+   "calls": {
+    "pilot": 14
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2562518454030187,
+   "sim_s": 10.8633182,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1405220626913375,
+   "sim_s": 9.0639049,
+   "calls": {
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C0",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1950661495224377,
+   "sim_s": 9.7206948,
+   "calls": {
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4916610581535321,
+   "sim_s": 30.4462848,
+   "calls": {
+    "planner": 3,
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.266919873972245,
+   "sim_s": 60.0442721,
+   "calls": {
+    "planner": 14,
+    "pilot": 19,
+    "direction": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 15.079768883059783,
+   "sim_s": 60.0063213,
+   "calls": {
+    "planner": 15,
+    "pilot": 11,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 44.33597637631099,
+   "sim_s": 60.011407,
+   "calls": {
+    "planner": 11,
+    "pilot": 10,
+    "direction": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.11204097551299164,
+   "sim_s": 14.9393262,
+   "calls": {
+    "planner": 2,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.170616461329404,
+   "sim_s": 60.0016047,
+   "calls": {
+    "planner": 16,
+    "pilot": 20,
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0906033124451227,
+   "sim_s": 36.5706467,
+   "calls": {
+    "planner": 4,
+    "pilot": 14,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.861332263475532,
+   "sim_s": 60.0035873,
+   "calls": {
+    "planner": 7,
+    "pilot": 29,
+    "direction": 5
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.647522500326145,
+   "sim_s": 60.0240922,
+   "calls": {
+    "planner": 11,
+    "direction": 6,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.650691680694775,
+   "sim_s": 59.9930465,
+   "calls": {
+    "planner": 11,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 2.131165025752468,
+   "sim_s": 60.0097323,
+   "calls": {
+    "planner": 11,
+    "direction": 6,
+    "pilot": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C1",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.6487303662193724,
+   "sim_s": 32.617736,
+   "calls": {
+    "planner": 3,
+    "pilot": 11,
+    "direction": 4
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1010068863142666,
+   "sim_s": 40.789387,
+   "calls": {
+    "planner": 2,
+    "direction": 5,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0372732,
+   "calls": {
+    "planner": 3,
+    "direction": 15
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.332758624429148,
+   "sim_s": 59.9960243,
+   "calls": {
+    "planner": 4,
+    "direction": 4,
+    "pilot": 16,
+    "monitor": 12
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.431899706683915,
+   "sim_s": 60.016491,
+   "calls": {
+    "planner": 3,
+    "direction": 6,
+    "pilot": 26
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.08844587194750161,
+   "sim_s": 21.3227198,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.797482261623278,
+   "sim_s": 59.9983543,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.62860284298935,
+   "sim_s": 31.3644002,
+   "calls": {
+    "planner": 2,
+    "direction": 3,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.715333203083989,
+   "sim_s": 60.0412534,
+   "calls": {
+    "planner": 3,
+    "direction": 12,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.106748303728322,
+   "sim_s": 60.0267991,
+   "calls": {
+    "planner": 4,
+    "direction": 7,
+    "pilot": 22,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.5321752134716884,
+   "sim_s": 50.7337672,
+   "calls": {
+    "planner": 3,
+    "direction": 6,
+    "pilot": 20
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 9.516944986730385,
+   "sim_s": 60.0314907,
+   "calls": {
+    "planner": 4,
+    "direction": 6,
+    "pilot": 29
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C10",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4253423766285682,
+   "sim_s": 34.9336366,
+   "calls": {
+    "planner": 2,
+    "direction": 4,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9571452176444674,
+   "sim_s": 37.6927613,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0079645,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.600021578634564,
+   "sim_s": 60.0358571,
+   "calls": {
+    "planner": 2,
+    "direction": 2,
+    "pilot": 22,
+    "monitor": 19
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.646711124520865,
+   "sim_s": 60.0153255,
+   "calls": {
+    "planner": 1,
+    "direction": 7,
+    "pilot": 28
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.18576147935890894,
+   "sim_s": 19.549172,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4231362695739476,
+   "sim_s": 34.9942581,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 16,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.0933913390988765,
+   "sim_s": 31.8131734,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.7341442055076749,
+   "sim_s": 28.6215658,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 15
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.585828232219468,
+   "sim_s": 60.0154457,
+   "calls": {
+    "planner": 2,
+    "direction": 10,
+    "pilot": 19
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.5442605981914753,
+   "sim_s": 40.8066726,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 20
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8848198788477238,
+   "sim_s": 58.8976268,
+   "calls": {
+    "planner": 2,
+    "direction": 6,
+    "pilot": 27,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C13",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4844286696315214,
+   "sim_s": 30.3080972,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4920397079825374,
+   "sim_s": 22.9833147,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.225896740303206,
+   "sim_s": 60.0320544,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 59.9914412,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 9.021317504842742,
+   "sim_s": 60.0348464,
+   "calls": {
+    "direction": 7,
+    "pilot": 38
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 5.0105592,
+   "calls": {
+    "direction": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2666568607525504,
+   "sim_s": 33.3502311,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4363477112267338,
+   "sim_s": 24.6182706,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.483923044666254,
+   "sim_s": 25.7864354,
+   "calls": {
+    "direction": 4,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.6688986284047,
+   "sim_s": 60.0172439,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.9364721468728624,
+   "sim_s": 59.9925024,
+   "calls": {
+    "direction": 15,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0353047,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C2",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4696538849578253,
+   "sim_s": 22.2848025,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4882631414454301,
+   "sim_s": 22.5052506,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.225859311173433,
+   "sim_s": 60.0053029,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0117506,
+   "calls": {
+    "direction": 17
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 8.13667652429561,
+   "sim_s": 60.0385229,
+   "calls": {
+    "direction": 7,
+    "pilot": 40
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.18580600189572927,
+   "sim_s": 11.7824379,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2782692563682598,
+   "sim_s": 32.423155,
+   "calls": {
+    "direction": 5,
+    "pilot": 16
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4115559753516407,
+   "sim_s": 24.3154114,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9917261490864606,
+   "sim_s": 20.7807861,
+   "calls": {
+    "direction": 3,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.656493849779062,
+   "sim_s": 60.0052639,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.3570229782518194,
+   "sim_s": 59.9929484,
+   "calls": {
+    "direction": 15,
+    "pilot": 12
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0195018,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C3",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4635407607852713,
+   "sim_s": 22.5590329,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.5046104906145767,
+   "sim_s": 22.1085288,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226242686444845,
+   "sim_s": 60.0252244,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0022244,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.255574122392538,
+   "sim_s": 60.0322871,
+   "calls": {
+    "direction": 8,
+    "pilot": 37
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.1212707497722576,
+   "sim_s": 13.9760201,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.9801811364002874,
+   "sim_s": 28.0527838,
+   "calls": {
+    "direction": 3,
+    "pilot": 16,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.366168371002619,
+   "sim_s": 24.0126222,
+   "calls": {
+    "direction": 3,
+    "pilot": 12,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4831489680266543,
+   "sim_s": 25.7661583,
+   "calls": {
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.659489691306641,
+   "sim_s": 60.0408144,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 2.6526098206081783,
+   "sim_s": 59.9882743,
+   "calls": {
+    "direction": 15,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.023783,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C4",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4698299554549088,
+   "sim_s": 23.0743982,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4947055489217438,
+   "sim_s": 21.9081209,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226221341457926,
+   "sim_s": 60.0255335,
+   "calls": {
+    "direction": 17,
+    "pilot": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0155053,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.228476160924643,
+   "sim_s": 60.0082235,
+   "calls": {
+    "direction": 8,
+    "pilot": 36
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.14763793881853005,
+   "sim_s": 14.1686871,
+   "calls": {
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.1464221456396522,
+   "sim_s": 27.9198634,
+   "calls": {
+    "direction": 3,
+    "pilot": 15,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.392387784237309,
+   "sim_s": 23.6292525,
+   "calls": {
+    "direction": 3,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4736857226617237,
+   "sim_s": 25.3666904,
+   "calls": {
+    "direction": 3,
+    "pilot": 13,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.67273297503921,
+   "sim_s": 13.2058624,
+   "calls": {
+    "direction": 2,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 2.660720689214578,
+   "sim_s": 14.1494641,
+   "calls": {
+    "direction": 2,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.313708498984761,
+   "sim_s": 60.0403541,
+   "calls": {
+    "direction": 18
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C5",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4796071572178437,
+   "sim_s": 22.0512296,
+   "calls": {
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4927087324055965,
+   "sim_s": 23.5344931,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 23.226008260061835,
+   "sim_s": 60.034288,
+   "calls": {
+    "direction": 17,
+    "pilot": 1,
+    "planner": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 16.0,
+   "sim_s": 60.0099015,
+   "calls": {
+    "direction": 17,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.458154996208833,
+   "sim_s": 60.0267396,
+   "calls": {
+    "direction": 8,
+    "pilot": 36
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.14892403711220403,
+   "sim_s": 12.1371802,
+   "calls": {
+    "direction": 1,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2568013114300913,
+   "sim_s": 35.411102,
+   "calls": {
+    "direction": 5,
+    "pilot": 17
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.3844466750295215,
+   "sim_s": 24.1996261,
+   "calls": {
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "obstacle_slalom",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4835840151364676,
+   "sim_s": 26.2195527,
+   "calls": {
+    "direction": 4,
+    "pilot": 13
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.659345163317187,
+   "sim_s": 60.0131025,
+   "calls": {
+    "direction": 15,
+    "pilot": 9,
+    "planner": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 0.7633085998129121,
+   "sim_s": 60.0184237,
+   "calls": {
+    "direction": 14,
+    "pilot": 11,
+    "planner": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2051332526313832,
+   "sim_s": 39.7052948,
+   "calls": {
+    "direction": 8,
+    "planner": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C6",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4864663710590769,
+   "sim_s": 23.6355134,
+   "calls": {
+    "direction": 4,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 11.5184004,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.122069948570605,
+   "sim_s": 16.9927281,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.19737635437437,
+   "sim_s": 16.3586288,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 28.29264265,
+   "sim_s": 28.9894895,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 28.9449509,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.911878236224604,
+   "sim_s": 13.7740784,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.161836668576214,
+   "sim_s": 13.7797125,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.231455736542001,
+   "sim_s": 13.1083891,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.474964042486615,
+   "sim_s": 17.329736,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 5
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 7.883188732456955,
+   "sim_s": 18.7285023,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 8
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.599159897899359,
+   "sim_s": 20.3133983,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C7",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.203549748271488,
+   "sim_s": 13.7710326,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "approach_hover",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.0,
+   "sim_s": 11.8034727,
+   "calls": {
+    "vla_line": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 19.210732679023323,
+   "sim_s": 15.8967597,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 5
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 11.243521972857753,
+   "sim_s": 15.8567379,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 4
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 27.90392922,
+   "sim_s": 28.4341846,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "known_goal",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 12.0,
+   "sim_s": 29.1530373,
+   "calls": {
+    "vla_line": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "obstacle_low_wall",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 9.912113820203851,
+   "sim_s": 13.4724338,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "obstacle_post",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.160396248534035,
+   "sim_s": 13.4675469,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.18840627872683,
+   "sim_s": 12.82006,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 12.451658851241586,
+   "sim_s": 16.0554234,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 6
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "overturned_vehicle",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 7.88206783068254,
+   "sim_s": 19.4396697,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 8
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "turn_search",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 13.59963813866799,
+   "sim_s": 20.2511632,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 10
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "C8",
+   "task": "visible_target",
+   "passed": false,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 10.215512198985113,
+   "sim_s": 13.615435,
+   "calls": {
+    "vla_line": 1,
+    "pilot": 3
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "approach_hover",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.2286662385539109,
+   "sim_s": 34.868157,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 10,
+    "monitor": 2
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "closing_passage",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 24.0,
+   "sim_s": 60.0019987,
+   "calls": {
+    "planner": 3,
+    "direction": 16
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "conditional_gate",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 10.397628693338207,
+   "sim_s": 59.9973788,
+   "calls": {
+    "planner": 2,
+    "direction": 2,
+    "pilot": 24,
+    "monitor": 19
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "follow_target",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 9.45305244333228,
+   "sim_s": 60.0247631,
+   "calls": {
+    "planner": 1,
+    "direction": 5,
+    "pilot": 37
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "known_goal",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.1727379695321556,
+   "sim_s": 18.8766662,
+   "calls": {
+    "planner": 1,
+    "direction": 1,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "obstacle_low_wall",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.239103419682738,
+   "sim_s": 34.6792596,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 16,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "obstacle_post",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4112274804959375,
+   "sim_s": 27.3560021,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 11,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "obstacle_slalom",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 5.109502593432893,
+   "sim_s": 60.0036326,
+   "calls": {
+    "planner": 2,
+    "direction": 11,
+    "pilot": 20
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "ordered_visit",
+   "passed": false,
+   "collided": false,
+   "stopped": false,
+   "distance_m": 11.654148016866731,
+   "sim_s": 60.0222132,
+   "calls": {
+    "planner": 2,
+    "direction": 14,
+    "pilot": 9
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "overturned_vehicle",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 0.8532531874253616,
+   "sim_s": 26.9494714,
+   "calls": {
+    "planner": 1,
+    "direction": 4,
+    "pilot": 11
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "turn_search",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.175973676214504,
+   "sim_s": 42.4712093,
+   "calls": {
+    "planner": 2,
+    "direction": 7,
+    "pilot": 10,
+    "monitor": 1
+   }
+  },
+  {
+   "seed": 1062,
+   "arch": "FULL",
+   "task": "visible_target",
+   "passed": true,
+   "collided": false,
+   "stopped": true,
+   "distance_m": 1.4728540369386227,
+   "sim_s": 25.5558167,
+   "calls": {
+    "planner": 1,
+    "direction": 3,
+    "pilot": 10,
+    "monitor": 1
+   }
+  }
+ ],
+ "summary": {
+  "C0": {
+   "passed": 28,
+   "flights": 36,
+   "ci": [
+    0.619,
+    0.883
+   ]
+  },
+  "C1": {
+   "passed": 9,
+   "flights": 36,
+   "ci": [
+    0.138,
+    0.411
+   ]
+  },
+  "C2": {
+   "passed": 12,
+   "flights": 36,
+   "ci": [
+    0.202,
+    0.497
+   ]
+  },
+  "C3": {
+   "passed": 15,
+   "flights": 36,
+   "ci": [
+    0.271,
+    0.578
+   ]
+  },
+  "C4": {
+   "passed": 15,
+   "flights": 36,
+   "ci": [
+    0.271,
+    0.578
+   ]
+  },
+  "C5": {
+   "passed": 18,
+   "flights": 36,
+   "ci": [
+    0.345,
+    0.655
+   ]
+  },
+  "C6": {
+   "passed": 18,
+   "flights": 36,
+   "ci": [
+    0.345,
+    0.655
+   ]
+  },
+  "FULL": {
+   "passed": 21,
+   "flights": 36,
+   "ci": [
+    0.422,
+    0.729
+   ]
+  },
+  "C7": {
+   "passed": 0,
+   "flights": 36,
+   "ci": [
+    0.0,
+    0.096
+   ]
+  },
+  "C8": {
+   "passed": 0,
+   "flights": 36,
+   "ci": [
+    0.0,
+    0.096
+   ]
+  },
+  "C10": {
+   "passed": 16,
+   "flights": 36,
+   "ci": [
+    0.295,
+    0.604
+   ]
+  },
+  "C13": {
+   "passed": 22,
+   "flights": 36,
+   "ci": [
+    0.449,
+    0.752
+   ]
+  }
+ }
+}

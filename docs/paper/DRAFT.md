@@ -103,10 +103,10 @@ model can plan for a drone. Architecture comparisons should report them as first
 
 ## 5 Results (to fill)
 
-- **5.1 Vanilla matrix.** Pass by task group, with a Wilson 95 % CI, and the cost vector (calls by
-  role, latency, mission time). Seed 1060: C0 9/12; FULL and C13 7/12; C5 and C6 6/12; C3, C4
-  and C10 5/12; C2 4/12; C1 3/12; C7 and C8 0/12. Planning tasks: 0/4 for every model-driven
-  architecture. [TBD: three seeds]
+- **5.1 Vanilla matrix** (432 flights, seeds 1060-1062, zero collisions; D-169). Passes / 36:
+  C0 28; C13 22; FULL 21; C5 and C6 18; C10 16; C3 and C4 15; C2 12; C1 9; C7 and C8 0.
+  Planning tasks: 0/12 for every model-driven architecture (C0 4/12). Tables:
+  `reports/paper_matrix_d165/tables.md`.
 - **5.2 The same model, different handles.** The history D-143 -> D-145 (0/4 -> 4/4) and
   D-150 -> D-158 (0/9 -> 5/9).
 - **5.3 Handle ablation.** [TBD]

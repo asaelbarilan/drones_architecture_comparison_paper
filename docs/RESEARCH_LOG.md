@@ -3893,3 +3893,37 @@ Matrix entries: FULL_H1 (typed, basic), FULL_H2 (flat, kinds), FULL_H12 (typed, 
 commit load the new code with identical defaults. New worker role "check" (base model).
 134 tests pass; code checks pass. Driver: reports/paper_handles_d168/run_handles.sh (3 entries x
 12 tasks x seeds 1060-1062, paired with the D-166 FULL baseline).
+
+### D-169: D-166 paper matrix complete - 432 flights, 3 development seeds (2026-10-22)
+
+Status: completed (seeds 1060-1062, 12 architectures x 12 tasks, no retries, zero collisions in
+all 432 flights). Total passes with 95 % Wilson CI:
+
+| Arch | Passes / 36 | 95 % CI |
+|---|---|---|
+| C0 oracle ceiling | 28 | 0.62-0.88 |
+| C13 | 22 | 0.45-0.75 |
+| FULL | 21 | 0.42-0.73 |
+| C5, C6 | 18 | - |
+| C10 | 16 | - |
+| C3, C4 | 15 | - |
+| C2 | 12 | - |
+| C1 | 9 | - |
+| C7, C8 | 0 | 0.00-0.10 |
+
+By task group:
+- Planning tasks (conditional gate, ordered visit, closing passage, follow): 0/12 for every
+  model-driven architecture. C0 gets 4/12.
+- Basic: 9/9 for FULL, C10, C13 and C0; 3-8/9 for the vanilla C1-C6.
+- Perception (search, overturned vehicle): 6/6 FULL, C13 and C0; C6 3/6, C5 1/6, C1-C4 0/6.
+- Obstacles: 9/9 for C0 and C2-C6, but FULL 6/9 and C10 3/9 (slalom).
+
+Cost:
+- Model calls per flight: 13 (C0) to 26.6 (C1).
+- The VLA line call takes ~9.5 s median.
+- The VLA pilot chunk takes 0.76 s; the classical chunk 0.06 s.
+
+The finding: no architecture family, as built from its diagram, plans. Where the architectures
+differ, the difference lines up with handle-like components (memory, recovery, planner-authored
+steps) rather than with authority type. The VLA alone (C7/C8) fails everything. Evidence:
+reports/paper_matrix_d165/tables.md, tables.json; raw runs under s1060-s1062.

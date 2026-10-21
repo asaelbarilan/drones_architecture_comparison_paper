@@ -1,0 +1,324 @@
+{
+  "obstacle_post": {
+    "id": "capability_obstacle_post",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Fly to the red pillar and stop within 2 metres, avoiding the obstacles on the way.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "obstacle_post",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "obstacle_slalom": {
+    "id": "capability_obstacle_slalom",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Fly to the red pillar and stop within 2 metres, avoiding the obstacles on the way.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "obstacle_slalom",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "obstacle_low_wall": {
+    "id": "capability_obstacle_low_wall",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Fly to the red pillar and stop within 2 metres, avoiding the obstacles on the way.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "obstacle_low_wall",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "turn_search": {
+    "id": "capability_turn_search",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "object_search",
+    "instruction": "Find the red pillar, which may be outside the current view. Fly to it and stop within 2 metres.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "turn_search",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "approach_hover": {
+    "id": "capability_approach_hover",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "semantic_goal_nav",
+    "instruction": "Approach the red pillar and hover about 1 metre before it on your approach side, keeping it in view, without touching it. Hold for 2 continuous seconds, then finish. Acceptance: 0.75 to 1.25 metres from its reference point, within 0.35 metres of the approach line, speed at most 0.2 m/s.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "approach_hover",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "conditional_gate": {
+    "id": "capability_conditional_gate",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "conditional_task",
+    "instruction": "At the wall ahead, use the left opening if it is clear; if the left opening is blocked, use the right opening. Stay below 7 metres. Then fly to the red pillar and stop within 2 metres.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "conditional_gate",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  },
+  "closing_passage": {
+    "id": "capability_closing_passage",
+    "adapter": {
+      "name": "capability_grid3d",
+      "params": {}
+    },
+    "task_family": "failure_recovery",
+    "instruction": "Fly toward the red pillar through the open passage. If the passage closes, find another route around the wall. Stay below 7 metres and stop within 2 metres of the pillar.",
+    "max_episode_s": 60.0,
+    "params": {
+      "scenario": "closing_passage",
+      "world_size": [
+        100,
+        100,
+        12
+      ],
+      "max_speed_mps": 2,
+      "render": true,
+      "render_depth": true,
+      "image_size": 224,
+      "fov_deg": 90,
+      "camera_pitch_rad": -0.1,
+      "success": {
+        "goal_radius_m": 2,
+        "require_terminal_stop": true,
+        "max_flight_time_s": 60
+      },
+      "constraints": {
+        "max_speed_mps": 2,
+        "min_altitude_m": 0.5,
+        "max_altitude_m": 7,
+        "geofence_radius_m": 45,
+        "min_obstacle_clearance_m": 0.6
+      },
+      "allowed_skills": [
+        "goto",
+        "move",
+        "approach",
+        "hover",
+        "scan",
+        "back_off",
+        "ascend",
+        "stop"
+      ]
+    }
+  }
+}

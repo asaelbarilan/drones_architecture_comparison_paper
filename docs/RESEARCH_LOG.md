@@ -3830,3 +3830,14 @@ Oracle C0:
 
 A numeric arrival without a monitor now waits for a stated hold (held_long_enough). Tests: obstacle
 detour, open-field direction, oracle yaw/standoff/hold, numeric hold. 107 live tests pass.
+
+### D-166: C0 gate after D-165 passes; full matrix relaunched (2026-10-21)
+
+C0 on seed 1060, the seven flight-stack tasks: 6/7 pass, zero collisions. Passes: obstacle_post,
+obstacle_slalom, obstacle_low_wall, closing_passage, turn_search, approach_hover. conditional_gate
+fails at 1.20 m: the final-goal oracle does not apply the left/right rule, which is expected.
+Before the fix C0 failed all seven. The ceiling is now sound except for the
+sequence/branch/tracking tasks, which a single-goal oracle cannot express.
+
+Relaunched 12 architectures x 12 tasks x seeds 1060-1062 into reports/paper_matrix_d165, all
+from commit-clean code. Evidence: reports/paper_c0_gate_d165/.

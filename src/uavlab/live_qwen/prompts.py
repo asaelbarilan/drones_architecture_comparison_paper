@@ -103,7 +103,14 @@ def pilot_prompt(state, obs):
     start = remaining_fru(obs.position, state.origin.position, state.origin.yaw_rad, obs.yaw_rad)
     return json.dumps(dict(instruction=state.plan["objective"], box=None,
                            state=[*start[:3], -math.degrees(state.yaw_total)],
-                           remaining=state.goal.error(obs)))
+                           remaining=pilot_remaining(state, obs)))
+
+
+def pilot_remaining(state, obs):
+    """Straight-line goal error, or the error to the shared SUPER path's carrot (D-165)."""
+    if state.path is None:
+        return state.goal.error(obs)
+    return state.path.remaining(state.goal, obs, obs.t_wall_ns)
 
 
 def cognition_context(state, role, obs):

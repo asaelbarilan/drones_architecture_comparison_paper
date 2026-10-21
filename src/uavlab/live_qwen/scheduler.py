@@ -18,6 +18,7 @@ from .architecture import (
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
+from .path import PathFollower
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
 from .search import search_allowed, start_search, update_search
@@ -62,6 +63,8 @@ class GoalScheduler:
         self.object_memory = self.hold_started = None
         self.last_obs, self.last_recovery = None, 0
         self.skill, self.skill_turns, self.skill_history, self.skill_until = None, 0, [], 0
+        self.held_since = None
+        self.path = PathFollower(mission) if settings.get("path_planner") == "super" else None
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -85,7 +88,7 @@ class GoalScheduler:
     def replan(self, reason, now):
         self.pause(reason, now)
         self.version += 1
-        self.plan = self.goal = self.hold_started = None
+        self.plan = self.goal = self.hold_started = self.held_since = None
         if self.steps:
             self.plan = dict(self.steps[self.step_index])
         self.monitor_reason = None

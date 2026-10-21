@@ -20,9 +20,11 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
   memory       True        planner event memory and object position memory
 """
 
+import dataclasses
 import json
 import math
 
+from .mission_plan import add_stated_fields
 from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
@@ -56,14 +58,16 @@ def unplanned_steps(state):
     """Steps without a planner call: explicit public coordinates, else the whole mission."""
     instruction = state.mission.instruction
     if switch(state.settings, "goal_source") == "oracle":
-        return [dict(objective=instruction, target=dict(world_enu=oracle_point(state)))]
+        step = dict(objective=instruction)
+        add_stated_fields(step)  # stated standoff / hold, read from public text as for all
+        return [dict(step, target=dict(world_enu=oracle_point(state, step.get("standoff_m"))))]
     world = explicit_world(instruction)
     if world is not None and state.settings.get("goal_mode") != "visual":
         return [dict(objective=instruction, target=dict(world_enu=world))]
     return [dict(objective=instruction, target=instruction)]
 
 
-def oracle_point(state):
+def oracle_point(state, stated_standoff=None):
     """C0: the evaluator's goal, approached to a standoff on visual tasks (privileged)."""
     goal = state.settings.get("oracle_goal")
     if goal is None:
@@ -72,7 +76,7 @@ def oracle_point(state):
     if state.settings.get("oracle_visual"):
         dx, dy = goal[0] - start.x, goal[1] - start.y
         distance = math.hypot(dx, dy)
-        standoff = state.settings.get("oracle_standoff_m", 1.0)
+        standoff = stated_standoff or state.settings.get("oracle_standoff_m", 1.0)
         keep = max(0.0, distance - standoff) / max(distance, 1e-9)
         return [start.x + dx * keep, start.y + dy * keep, start.z]
     return [float(v) for v in goal]
@@ -91,6 +95,11 @@ def commit_unplanned(state, now):
     if switch(state.settings, "goal_source") == "oracle":
         payload = dict(kind="world", target=state.plan["target"], terminal=True)
         state.accept_goal(payload, state.origin, now, now)
+        if state.settings.get("oracle_visual"):
+            goal, start = state.goal, state.origin.position
+            target = state.settings["oracle_goal"]  # face the object, as visual tasks require
+            yaw = math.atan2(target[1] - start.y, target[0] - start.x)
+            state.goal = dataclasses.replace(goal, yaw=yaw)
 
 
 def no_monitor(state, reason, now):
@@ -99,11 +108,22 @@ def no_monitor(state, reason, now):
     settled = state.last_obs.velocity.norm() <= state.settings["stopped_mps"]
     if state.settings.get("goal_mode") != "visual":
         arrived = state.goal is not None and state.goal.arrived(state.last_obs, state.settings)
-        if arrived and settled:
+        if arrived and settled and held_long_enough(state, now):
             state.finish_step(now)
         return
     state.visual_stop_pending = reason.startswith("fresh object proximity")
     state.replan(reason, now)
+
+
+def held_long_enough(state, now):
+    """A stated hold ("hold for N seconds") on a numeric arrival, without a monitor."""
+    hold_ns = int(float((state.plan or {}).get("hold_s") or 0.0) * 1e9)
+    if hold_ns == 0:
+        return True
+    if state.held_since is None:
+        state.held_since = now
+        state.log("hold_started", now, hold_s=hold_ns / 1e9)
+    return now - state.held_since >= hold_ns
 
 
 def recovery_due(state, now):

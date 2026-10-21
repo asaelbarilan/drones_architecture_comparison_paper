@@ -14,6 +14,11 @@ from uavlab.live_qwen.runner import mission_spec
 from uavlab.live_qwen.scheduler import GoalScheduler
 
 OUTSIDE_X = 100.0
+DETOUR_M = 0.3
+GOAL_X = 10.0
+HALF_PI = 1.5707963
+TOL = 1e-6
+HOLD_S = 2.0
 
 
 def scheduler(instruction="Approach the red pillar and stop nearby.", **arch):
@@ -204,3 +209,53 @@ def test_native_vla_without_a_line_is_a_contract_failure():
     state.worker.finish(dict(box=None, left=None, said="nonsense"))
     state.update(observation(), ORIGIN_NS+s_to_ns(1), ORIGIN_NS+s_to_ns(1), False)
     assert state.failures == 1 and state.goal is None
+
+
+def ranged(blocked_deg=12.0, wall_m=3.0, rays=72):
+    import math as m
+
+    bearings = tuple(-m.pi + 2 * m.pi * i / rays for i in range(rays))
+    ranges = tuple(wall_m if abs(m.degrees(b)) <= blocked_deg else 25.0 for b in bearings)
+    return observation().model_copy(update=dict(range_rays=ranges, ray_bearings_rad=bearings))
+
+
+def test_super_path_steers_the_pilot_around_an_obstacle_ahead():
+    from uavlab.live_qwen.path import PathFollower
+
+    state = scheduler()
+    follower = PathFollower(state.mission)
+    goal = Goal(1, Vec3(x=10, y=0, z=3), 0, True, ORIGIN_NS+s_to_ns(45), 1)
+    forward, right, _, _ = follower.remaining(goal, ranged(), ORIGIN_NS)
+    assert abs(right) > DETOUR_M and forward < GOAL_X  # not the straight line through the obstacle
+
+
+def test_super_path_without_obstacles_keeps_the_goal_direction():
+    from uavlab.live_qwen.path import PathFollower
+
+    state = scheduler()
+    follower = PathFollower(state.mission)
+    goal = Goal(1, Vec3(x=10, y=0, z=3), 0, True, ORIGIN_NS+s_to_ns(45), 1)
+    forward, right, _, _ = follower.remaining(goal, ranged(blocked_deg=-1), ORIGIN_NS)
+    assert forward > 0 and abs(right) < DETOUR_M
+
+
+def test_oracle_faces_a_visual_target_and_uses_stated_standoff_and_hold():
+    state = scheduler("Approach the red pillar and hover about 1 metre before it. "
+                      "Hold for 2 continuous seconds, then finish.", goal_source="oracle",
+                      monitor="none")
+    state.settings.update(goal_mode="numeric", oracle_goal=[0.0, 6.0, 1.0], oracle_visual=True)
+    state.update(observation(), ORIGIN_NS, ORIGIN_NS, False)
+    assert state.goal.position == Vec3(x=0, y=5, z=3)
+    assert abs(state.goal.yaw - HALF_PI) < TOL and state.plan["hold_s"] == HOLD_S
+
+
+def test_numeric_arrival_without_monitor_waits_for_a_stated_hold():
+    state = scheduler(goal_source="instruction", monitor="none")
+    state.settings["goal_mode"] = "numeric"
+    state.steps = [dict(objective="Hold for 2 seconds", target=[2, 0, 0, 0], hold_s=2.0)]
+    state.plan, state.origin, state.last_obs = dict(state.steps[0]), observation(), observation(2)
+    state.goal = Goal(1, Vec3(x=2, y=0, z=3), 0, True, ORIGIN_NS+s_to_ns(45), 1)
+    state.request_monitor("arrival", ORIGIN_NS)
+    assert not state.stopped
+    state.request_monitor("arrival", ORIGIN_NS+s_to_ns(2))
+    assert state.stopped

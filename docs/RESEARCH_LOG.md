@@ -3802,3 +3802,31 @@ for a ~12 m pillar, locked by goal memory, stopped 10.2 m short. Role-call count
 design (C0 no model; C2 no planner/monitor; C4/C5 monitor; C1 skill turns + grounding tool; C7/C8
 VLA only). Zero collisions, timing passes. One easy task, one seed: not a result.
 Evidence: reports/paper_smoke_20261021/REPORT.md.
+
+### D-164: first paper-matrix pass stopped by the C0 gate (2026-10-21)
+
+Status: diagnostic only (user-approved launch of 12 archs x 12 tasks x 3 seeds; stopped after
+C0, C1 and most of C2 on seed 1060 by the agreed plan). C0 oracle 3/12, C1 2/12, C2 1/10. The C0
+ceiling failed for flight-stack reasons: the live runtime had no path planner (straight-line
+pilot error; the shield halted every architecture about 1.8 m before the first obstacle), the
+oracle did not face the target (turn_search) or hold 2 s (approach_hover). The whole-run watchdog
+now scales with the task count (600 + 180 s per task). Evidence:
+reports/paper_matrix_20261021/DIAGNOSTIC.md and s1060/.
+
+### D-165: shared SUPER path planner in the live runtime; C0 oracle completed (2026-10-21)
+
+Status: implemented and CPU-tested. src/uavlab/live_qwen/path.py plans each authorized goal with
+SUPER (the same parameters as the harness C0: 0.5 m grid, 16 m horizon, 2.5 m commitment, 1.2 m
+clearance margin, range-fan evidence only, no truth). It replans on a new goal or every 0.5 s sim,
+and gives the pilot (classical or VLA) the error to a 1.5 m lookahead point on the path instead of
+the straight line. With no safe path it gives zeros (hold). Goal, yaw and arrival tests are
+unchanged. Enabled by "path_planner": "super" for every matrix entry except C7/C8: a direct VLA
+has no planner by definition, and C8 keeps only the shield.
+
+Oracle C0:
+- It reads the stated standoff and hold from the mission text, like every other architecture
+  (add_stated_fields).
+- It faces the target on visual tasks.
+
+A numeric arrival without a monitor now waits for a stated hold (held_long_enough). Tests: obstacle
+detour, open-field direction, oracle yaw/standoff/hold, numeric hold. 107 live tests pass.

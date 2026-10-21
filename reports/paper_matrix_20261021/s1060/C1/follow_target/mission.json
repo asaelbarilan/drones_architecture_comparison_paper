@@ -1,0 +1,23 @@
+{
+  "mission_id": "follow_target",
+  "instruction": "Follow the red moving marker, staying 4 to 6 metres away and keeping it within 20 degrees of the camera centre. Acquire it in 5 seconds, then track until 20 seconds elapsed. Do not stop early.",
+  "task_family": "fine_maneuver",
+  "success": {
+    "goal_radius_m": 2.0,
+    "require_terminal_stop": false,
+    "max_flight_time_s": 60.0,
+    "required_subgoals": 0
+  },
+  "constraints": {
+    "max_speed_mps": 2.0,
+    "max_accel_mps2": 4.0,
+    "min_altitude_m": 0.5,
+    "max_altitude_m": 7.0,
+    "geofence_radius_m": 45.0,
+    "min_obstacle_clearance_m": 0.6
+  },
+  "start_pose": null,
+  "goal_hint": null,
+  "allowed_skills": [],
+  "metadata": {}
+}

@@ -1,0 +1,58 @@
+{
+  "task": "obstacle_post",
+  "task_pass": false,
+  "stopped": false,
+  "contract_failed": false,
+  "status": {
+    "t_sim_ns": 59997079800,
+    "position": {
+      "x": 3.85138618225059,
+      "y": 0.31380101513094577,
+      "z": 2.170730518939462,
+      "frame": "enu"
+    },
+    "distance_to_goal_m": 8.196710687838888,
+    "goal_visible": true,
+    "subgoals_completed": 0,
+    "subgoals_total": 0,
+    "task_complete": false,
+    "collided": false,
+    "collision_count": 0,
+    "min_obstacle_distance_m": 1.8506224120999142,
+    "out_of_bounds": false,
+    "constraint_violations": 0,
+    "path_length_m": 4.213501506982537,
+    "shortest_path_m": 0.0,
+    "speed_mps": 3.9347645095397515e-57,
+    "terminated": false,
+    "termination_reason": null,
+    "extras": {
+      "goal_radius_m": 2.0,
+      "lure_dwell_s": 0.0,
+      "landmarks": 1.0,
+      "obstacles": 1.0,
+      "skipped_injections": 0.0,
+      "min_injected_block_clearance_m": -1.0,
+      "hover_streak_s": 0.0,
+      "target_contact": 0.0,
+      "task_complete": 0.0,
+      "target_ever_visible": 1.0,
+      "branch_correct": 0.0,
+      "wrong_branch": 0.0,
+      "passage_closed": 0.0,
+      "tracking_good_s": 0.0,
+      "tracking_total_s": 0.0,
+      "tracking_fraction": 0.0,
+      "shortest_path_valid": 0.0
+    }
+  },
+  "fresh_actions": true,
+  "actions_consumed": 37,
+  "max_tick_gap_s": 0.0522565,
+  "timing_pass": true,
+  "role_calls": {
+    "planner": 3,
+    "pilot": 16,
+    "direction": 15
+  }
+}

@@ -11,6 +11,8 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import remaining_fru
 
 from .grounding import GROUNDING, VISUAL_PLANNER
 from .planner_memory import RECOVERY, planner_context
+from .skills import SKILL, skill_context
+from .skills import active as skills_active
 from .visual_progress import VISUAL_MONITOR, visual_context
 from .world_contract import world_target
 
@@ -121,6 +123,8 @@ def role_request(state, role, obs):
             prefix = VISUAL_PLANNER
         if role == "planner" and state.planner_event:
             prefix, context = RECOVERY, planner_context(state)
+        if role == "planner" and skills_active(state):
+            prefix, context = SKILL, skill_context(state, obs)
         if role == "monitor" and state.settings.get("goal_mode") == "visual":
             prefix = VISUAL_MONITOR
         prompt = prefix + json.dumps(context)

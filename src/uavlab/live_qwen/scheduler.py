@@ -14,6 +14,9 @@ from .mission_plan import accept_plan, validate_direction
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
 from .search import search_allowed, start_search, update_search
+from .skills import accept_skill, detected, skill_tick
+from .skills import active as skills_active
+from .skills import finished as skill_finished
 from .stop_rules import (
     aim_standoff,
     hold_required_ns,
@@ -51,6 +54,7 @@ class GoalScheduler:
         self.search_authorized = False
         self.object_memory = self.hold_started = None
         self.last_obs, self.last_recovery = None, 0
+        self.skill, self.skill_turns, self.skill_history, self.skill_until = None, 0, [], 0
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -86,7 +90,7 @@ class GoalScheduler:
         if self.origin is None:
             self.origin, self.last_yaw = obs, obs.yaw_rad
             self.progress_at = self.last_monitor = self.last_recovery = now
-            if switch(self.settings, "goal_source") != "planned":
+            if switch(self.settings, "goal_source") in ("instruction", "oracle"):
                 commit_unplanned(self, now)
         self.yaw_total += angle_error(obs.yaw_rad, self.last_yaw)
         self.last_yaw = obs.yaw_rad
@@ -94,6 +98,8 @@ class GoalScheduler:
             self.receive(event, obs, now)
         if self.hold_started is not None:
             self.check_hold(obs, now)
+            return
+        if skill_tick(self, now):
             return
         if update_search(self, obs, now):
             return
@@ -166,7 +172,9 @@ class GoalScheduler:
         try:
             if role in {"direction", "monitor"} and not self.pose_valid(source, obs):
                 raise ValueError("pose drift while interpreting cognitive image")
-            if role == "planner":
+            if role == "planner" and skills_active(self):
+                accept_skill(self, payload, now)
+            elif role == "planner":
                 if self.planner_event:
                     accept_recovery(self, payload, now)
                 else:
@@ -185,6 +193,9 @@ class GoalScheduler:
                 <= self.settings["pose_drift_deg"])
 
     def accept_goal(self, payload, source, captured, now):
+        if self.skill is not None and self.skill["skill"] == "detect":
+            detected(self, payload, source, now)
+            return
         if self.settings.get("goal_mode") == "visual":
             payload = self.prepare_visual_goal(payload, source, captured, now)
             if payload is None:
@@ -248,6 +259,9 @@ class GoalScheduler:
         self.log("grounding_absent", now, source_seq=source.seq)
 
     def request_planner(self, trigger, now):
+        if skills_active(self):
+            skill_finished(self, trigger, now)  # the skill agent decides what to do next
+            return
         self.visual_stop_pending = False
         remember(self, trigger, now, objective=self.plan, evidence=self.visual_evidence)
         self.replan(trigger, now)
@@ -294,6 +308,9 @@ class GoalScheduler:
             self.finish_step(now)
 
     def finish_step(self, now):
+        if skills_active(self):
+            skill_finished(self, "completed", now)
+            return
         remember(self, "subgoal_completed", now, objective=self.plan)
         terminal = self.step_index == len(self.steps)-1 if self.steps else self.goal.terminal
         if terminal:

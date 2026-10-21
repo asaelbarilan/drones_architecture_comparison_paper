@@ -7,6 +7,7 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
   goal_source  planned     the model plans ordered steps from the mission (default)
                instruction no planner call: the mission text is the single step
                oracle      privileged final goal from the evaluator (C0 ceiling only)
+               skills      a text-only LLM agent picks one skill per turn (C1, skills.py)
   verifier     True        reject goals that change committed steps or leave the envelope
   monitor      default     arrival/near checks plus periodic checks on numeric legs
                periodic    also periodic checks on visual legs
@@ -24,7 +25,7 @@ from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0)
-CHOICES = dict(goal_source={"planned", "instruction", "oracle"},
+CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"})
 

@@ -26,6 +26,7 @@ from uavlab.live_qwen.planner_memory import RECOVERY
 from uavlab.live_qwen.prompts import DIRECTION, MONITOR, PLANNER
 from uavlab.live_qwen.runner import flight_loop
 from uavlab.live_qwen.scheduler import GoalScheduler
+from uavlab.live_qwen.skills import SKILL
 from uavlab.live_qwen.visual_progress import VISUAL_MONITOR
 
 PAPER_MATRIX = Path("configs/experiments/paper_architectures.json")
@@ -132,7 +133,7 @@ def prepare(out, seed, settings, tasks):
     resolved = {name: task_binding(name, settings)[0].model_dump(mode="json") for name in tasks}
     prompts = dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR,
                    visual_planner=VISUAL_PLANNER, grounding=GROUNDING,
-                   visual_monitor=VISUAL_MONITOR, recovery=RECOVERY)
+                   visual_monitor=VISUAL_MONITOR, recovery=RECOVERY, skill=SKILL)
     for name, value in (("config", settings), ("resolved_tasks", resolved),
                         ("prompt_templates", prompts)):
         (out / f"{name}.json").write_text(json.dumps(value, indent=2), encoding="utf-8")

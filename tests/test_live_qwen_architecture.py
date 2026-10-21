@@ -117,3 +117,60 @@ def test_verifier_switch_controls_the_envelope_check(verifier):
     else:
         position, _, _ = interpret_goal(payload, observation(), observation(), state.settings)
         assert position.x == OUTSIDE_X
+
+
+def skill_agent(instruction="Approach the red pillar and stop nearby."):
+    state = scheduler(instruction, goal_source="skills", monitor="none", recovery="none",
+                      memory=False)
+    state.update(observation(), ORIGIN_NS, ORIGIN_NS, False)
+    return state
+
+
+def turn(state, skill, **args):
+    state.worker.finish(dict(skill=skill, args=args, reason="test"))
+    state.update(observation(), ORIGIN_NS+s_to_ns(1), ORIGIN_NS+s_to_ns(1), False)
+
+
+def test_skill_agent_asks_a_text_only_skill_turn_first():
+    state = skill_agent()
+    request = state.worker.calls[0].request
+    assert request.role == "planner" and request.images == ()
+    assert '"mission": "Approach the red pillar and stop nearby."' in request.prompt
+
+
+def test_goto_skill_becomes_one_numeric_goal_relative_to_current_pose():
+    state = skill_agent()
+    turn(state, "goto", forward_m=3)
+    assert state.goal.position == Vec3(x=3, y=0, z=3) and state.settings["goal_mode"] == "numeric"
+    assert state.worker.calls[-1].request.role == "pilot"
+
+
+def test_approach_skill_uses_the_shared_grounding_role():
+    state = skill_agent()
+    turn(state, "approach", object="red pillar")
+    assert state.plan["target"] == "red pillar" and state.settings["goal_mode"] == "visual"
+    assert state.worker.calls[-1].request.role == "direction"
+
+
+def test_failed_approach_returns_control_and_history_to_the_agent():
+    state = skill_agent()
+    turn(state, "approach", object="red pillar")
+    state.request_planner("target_lost", ORIGIN_NS+s_to_ns(2))
+    assert state.plan is None and state.skill is None
+    assert state.skill_history[-1]["result"] == "target_lost"
+
+
+def test_hover_waits_then_hands_back_and_done_stops():
+    state = skill_agent()
+    turn(state, "hover", seconds=2)
+    assert state.skill["skill"] == "hover"
+    state.update(observation(), ORIGIN_NS+s_to_ns(4), ORIGIN_NS+s_to_ns(4), False)
+    assert state.skill_history[-1]["result"] == "hovered"
+    turn(state, "done")
+    assert state.stopped
+
+
+def test_unknown_skill_is_a_contract_failure_not_an_action():
+    state = skill_agent()
+    turn(state, "teleport")
+    assert state.failures == 1 and state.goal is None

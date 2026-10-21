@@ -3764,3 +3764,15 @@ world-model VLA). Still to build: C1 (LLM skills) and C7/C8 (native VLA: in the 
 only follows the classical waypoint error, so a direct-VLA entry needs its own box + Left line).
 Known open fairness point: goal_mode is set from the task name (numeric only for known_goal).
 94 tests pass; code checks pass. Evidence: tests/test_live_qwen_architecture.py.
+
+### D-161: C1 LLM skill agent on the live runtime, stage 2 (2026-10-21)
+
+Status: implemented and CPU-tested; no flights. goal_source "skills" (src/uavlab/live_qwen/skills.py):
+an AerialClaw-style text-only agent on the same shared Qwen3-VL-4B chooses ONE skill per turn
+(goto relative/world, approach object, detect object, scan 45 deg, hover N s, done) from the
+mission, measured ENU pose, heading and its own skill history (12 entries, 24-turn limit). The
+runtime executes skills with the shared machinery: goto/scan -> one numeric goal for the classical
+pilot (verifier envelope check), approach -> the shared grounding legs and near-stop rules, detect
+-> one grounding call reported back (visible, image_x, range). Stall, target loss or completion
+hand control back to the agent with the result. No camera image and no evaluator truth reach the
+agent. Matrix entry C1 added (monitor none, recovery none). 100 tests pass; code checks pass.

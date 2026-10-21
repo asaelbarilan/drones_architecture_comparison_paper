@@ -4,6 +4,7 @@ import json
 
 from uavlab.contracts import s_to_ns
 
+from .architecture import switch
 from .search import search_allowed, start_search
 
 MEMORY_LIMIT = 16
@@ -24,6 +25,8 @@ Context: '''
 
 
 def remember(state, event, now, **details):
+    if not switch(state.settings, "memory"):
+        return  # memory-free architectures keep no event history
     entry = dict(event=event, wall_ns=now, step_index=state.step_index, **details)
     state.memory = [*state.memory, entry][-MEMORY_LIMIT:]
     state.log("planner_memory", now, entry=entry)

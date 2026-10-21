@@ -7,14 +7,21 @@ from uavlab.plugins.inference.action_buffer import ActionBuffer, action_record
 from uavlab.plugins.inference.qwen_worker import WorkItem
 from uavlab.plugins.reasoning.shared_qwen_pilot import parse_monitor
 
+from .architecture import commit_unplanned, no_monitor, recovery_due, switch, unverified_direction
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, grounded_direction, observed_range
 from .mission_plan import accept_plan, validate_direction
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
 from .search import search_allowed, start_search, update_search
-from .stop_rules import (aim_standoff, hold_required_ns, near_limit, object_below,
-                         remember_object, start_hold)
+from .stop_rules import (
+    aim_standoff,
+    hold_required_ns,
+    near_limit,
+    object_below,
+    remember_object,
+    start_hold,
+)
 from .visual_progress import fresh_evidence, record_grounding
 from .world_contract import world_target
 
@@ -43,6 +50,7 @@ class GoalScheduler:
         self.search_goal, self.search_deadline, self.search_turns = None, 0, 0
         self.search_authorized = False
         self.object_memory = self.hold_started = None
+        self.last_obs, self.last_recovery = None, 0
 
     def log(self, kind, now, **data):
         self.record(dict(kind=kind, wall_ns=now, goal_version=self.version, **data))
@@ -56,6 +64,9 @@ class GoalScheduler:
 
     def request_monitor(self, reason, now):
         if self.goal is None or self.monitor_reason is not None:
+            return
+        if switch(self.settings, "monitor") == "none":
+            no_monitor(self, reason, now)
             return
         self.pause(reason, now)
         self.monitor_reason = reason
@@ -71,9 +82,12 @@ class GoalScheduler:
         self.log("replan", now, reason=reason)
 
     def update(self, obs, captured_ns, now, moving):
+        self.last_obs = obs
         if self.origin is None:
             self.origin, self.last_yaw = obs, obs.yaw_rad
-            self.progress_at = self.last_monitor = now
+            self.progress_at = self.last_monitor = self.last_recovery = now
+            if switch(self.settings, "goal_source") != "planned":
+                commit_unplanned(self, now)
         self.yaw_total += angle_error(obs.yaw_rad, self.last_yaw)
         self.last_yaw = obs.yaw_rad
         for event in self.worker.poll(self.version, now):
@@ -175,7 +189,10 @@ class GoalScheduler:
             payload = self.prepare_visual_goal(payload, source, captured, now)
             if payload is None:
                 return
-        payload = validate_direction(self, payload)
+        if switch(self.settings, "verifier"):
+            payload = validate_direction(self, payload)
+        else:
+            payload = unverified_direction(self, payload)
         position, yaw, terminal = interpret_goal(payload, source, self.origin, self.settings)
         self.version += 1
         self.goal = Goal(self.version, position, yaw, terminal,
@@ -234,7 +251,7 @@ class GoalScheduler:
         self.visual_stop_pending = False
         remember(self, trigger, now, objective=self.plan, evidence=self.visual_evidence)
         self.replan(trigger, now)
-        if self.steps:
+        if self.steps and switch(self.settings, "recovery") != "none":
             self.planner_event = trigger
             self.log("planner_wakeup", now, trigger=trigger, step_index=self.step_index)
 
@@ -370,10 +387,20 @@ class GoalScheduler:
                 self.request_monitor("arrival", now)
         elif now-self.progress_at >= s_to_ns(self.settings["stall_s"]):
             self.request_planner("stalled_progress", now)
-        elif (elapsed >= s_to_ns(self.settings["monitor_interval_s"])
-              and not (self.steps and isinstance(self.plan["target"], str))):
-            # Visual evidence goes stale as soon as the drone moves, so a mid-leg
-            # check can only answer replan; visual legs end in fresh grounding instead.
+        else:
+            self.periodic_checks(elapsed, now)
+
+    def periodic_checks(self, elapsed, now):
+        if recovery_due(self, now):
+            self.last_recovery = now
+            self.request_planner("periodic_review", now)
+            return
+        monitor = switch(self.settings, "monitor")
+        visual_leg = bool(self.steps) and isinstance(self.plan["target"], str)
+        # Visual evidence goes stale as soon as the drone moves, so by default a mid-leg
+        # check can only answer replan; visual legs end in fresh grounding instead.
+        if (monitor != "none" and elapsed >= s_to_ns(self.settings["monitor_interval_s"])
+                and (monitor == "periodic" or not visual_leg)):
             self.request_monitor("periodic scene check", now)
 
     def failure(self, reason, now):

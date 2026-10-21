@@ -9,6 +9,7 @@ import math
 from uavlab.contracts import s_to_ns
 from uavlab.plugins.reasoning.spf import SPFPoint, point_to_enu
 
+from .architecture import switch
 from .grounding import COORD_MAX, NEAR_OBJECT_M
 
 NEAR_MARGIN_M = 0.25
@@ -47,6 +48,8 @@ def object_position(proposal, source, range_m, settings):
 
 
 def remember_object(state, proposal, source, range_m, now):
+    if not switch(state.settings, "memory"):
+        return
     position = object_position(proposal, source, range_m, state.settings)
     if position is not None:
         state.object_memory = dict(position=position, target=state.plan["target"], seen_ns=now)

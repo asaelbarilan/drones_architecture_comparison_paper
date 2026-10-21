@@ -42,3 +42,28 @@ def test_all_nine_existing_configs_keep_their_limits():
         assert bound["flight_seconds"] == config.max_episode_s == EPISODE_SECONDS
         assert all(getattr(mission.success, key) == value
                    for key, value in config.params["success"].items())
+
+
+def test_every_paper_architecture_resolves_from_one_base():
+    import json
+
+    from run_qwen_capability_suite import PAPER_MATRIX, load_settings
+
+    names = json.loads(PAPER_MATRIX.read_text())["architectures"]
+    for name in names:
+        settings = load_settings(None, name)
+        assert settings["paper_architecture"] == name
+        assert settings["model_id"] == "qwen3-vl-4b-d207-shared"
+        assert settings["pilot_mode"] in {"classical", "vla"}
+
+
+def test_only_the_oracle_receives_the_evaluator_goal():
+    from run_qwen_capability_suite import privileged_goal
+
+    class Env:
+        def debug_scene(self):
+            return dict(goal=[6.0, 0.0, 1.0])
+
+    bound = dict(goal_mode="visual")
+    privileged_goal(bound, Env())
+    assert bound == dict(goal_mode="numeric", oracle_goal=[6.0, 0.0, 1.0], oracle_visual=True)

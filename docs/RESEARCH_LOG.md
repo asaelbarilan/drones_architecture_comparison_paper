@@ -3747,3 +3747,20 @@ wall-clock latency, task-specific profiles, single seed. Proposed (pending user 
 shared Qwen3-VL-4B base for every role (+D207 adapter for VLA pilots), one live runtime, one frozen
 profile per architecture, 9+3 tasks x 3 development seeds, then one held-out run.
 Evidence: reports/paper_audit_20261021/REPORT.md, architectures.md/json.
+
+### D-160: paper architecture switches, stage 1 (2026-10-21)
+
+Status: implemented and CPU-tested; no flights or model calls. User approved "one model, one
+runtime" (D-159) and the C mapping. src/uavlab/live_qwen/architecture.py adds switches over the
+shared GoalScheduler: goal_source (planned | instruction | oracle), verifier, monitor
+(default | periodic | none), recovery (event | periodic | none), memory. Defaults reproduce the
+D-158 stack exactly (all 79 earlier live tests unchanged). configs/experiments/paper_architectures.json
+defines C0, C2, C3, C4, C5, C6, FULL (= D-158 classical stack), C10 and C13 (VLA pilot) on one base
+(qwen_capability_classical.json, Qwen3-VL-4B + D207). run_qwen_capability_suite.py --architecture
+NAME selects an entry; only C0 receives the evaluator goal (privileged ceiling, standoff 1 m on
+visual tasks). Deliberately dropped as separate entries: C9 (VLA history: D207 carries its own
+progress line), C11 (chunking: D207 emits 8-step chunks), C12 (the runtime is async), C14 (no
+world-model VLA). Still to build: C1 (LLM skills) and C7/C8 (native VLA: in the live stack the VLA
+only follows the classical waypoint error, so a direct-VLA entry needs its own box + Left line).
+Known open fairness point: goal_mode is set from the task name (numeric only for known_goal).
+94 tests pass; code checks pass. Evidence: tests/test_live_qwen_architecture.py.

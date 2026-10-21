@@ -13,6 +13,7 @@ from uavlab.plugins.reasoning.shared_qwen_pilot import (
 )
 from uavlab.plugins.reasoning.spf import SPFPoint, point_to_enu
 
+from .architecture import bounded, switch
 from .world_contract import world_target
 
 CHANNELS = 4
@@ -89,8 +90,6 @@ def interpret_goal(payload, source, origin, settings):
         position, yaw = visual_goal(value["target"], source, settings)
     else:
         raise ValueError("unknown goal kind")
-    if not settings["min_altitude_m"] <= position.z <= settings["max_altitude_m"]:
-        raise ValueError("goal outside altitude envelope")
-    if math.hypot(position.x, position.y) > settings["geofence_radius_m"]:
-        raise ValueError("goal outside geofence")
+    if switch(settings, "verifier"):
+        bounded(position, settings)
     return position, yaw, value["terminal"]

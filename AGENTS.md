@@ -11,6 +11,13 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Latest user work: D-160 paper architecture switches, stage 1 (2026-10-21)
+
+Read D-160 in docs/RESEARCH_LOG.md and src/uavlab/live_qwen/architecture.py.
+One model (Qwen3-VL-4B + D207), one live runtime. Run an entry with
+run_qwen_capability_suite.py --architecture C3 (C0,C2-C6,FULL,C10,C13).
+Defaults = D-158 stack. Next: C1 skills, C7/C8 native VLA; no flights yet.
+
 ## Latest user work: D-159 paper audit (2026-10-21)
 
 Read reports/paper_audit_20261021/REPORT.md. Paper question: LLM/VLM/VLA planning

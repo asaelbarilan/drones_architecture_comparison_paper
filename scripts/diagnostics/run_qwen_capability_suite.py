@@ -17,6 +17,7 @@ from uavlab.adapters.gym.capability_env import OBSTACLE_SCENARIOS, SCENARIOS, Ca
 from uavlab.contracts import MissionSpec
 from uavlab.core.compose import load_environment
 from uavlab.core.frame_store import global_store
+from uavlab.live_qwen.architecture import switch
 from uavlab.live_qwen.control import LiveControl
 from uavlab.live_qwen.evidence import Evidence
 from uavlab.live_qwen.grounding import GROUNDING, VISUAL_PLANNER
@@ -26,6 +27,8 @@ from uavlab.live_qwen.prompts import DIRECTION, MONITOR, PLANNER
 from uavlab.live_qwen.runner import flight_loop
 from uavlab.live_qwen.scheduler import GoalScheduler
 from uavlab.live_qwen.visual_progress import VISUAL_MONITOR
+
+PAPER_MATRIX = Path("configs/experiments/paper_architectures.json")
 
 
 def finite_json(value):
@@ -82,6 +85,8 @@ async def capability_flight(worker, case, settings, out):
     print(f"START {case['id']} seed={case['seed']} limit={bound['flight_seconds']}s", flush=True)
     try:
         obs = await env.reset(mission, case["seed"])
+        if switch(bound, "goal_source") == "oracle":
+            privileged_goal(bound, env)
         evidence.save("mission.json", mission.model_dump(mode="json"))
         evidence.save("initial_evaluator_only.json", finite_json(env.debug_scene()))
         global_store().get(obs.rgb.uri).save(out / "initial_camera.png")
@@ -102,9 +107,27 @@ async def capability_flight(worker, case, settings, out):
         evidence.close()
 
 
-def prepare(out, seed, config, tasks):
+def privileged_goal(bound, env):
+    """C0 only: the evaluator's final goal, never given to any model-backed architecture."""
+    bound.update(oracle_goal=env.debug_scene()["goal"],
+                 oracle_visual=bound["goal_mode"] == "visual", goal_mode="numeric")
+
+
+def load_settings(config, architecture=None, matrix=PAPER_MATRIX):
+    """A plain config, or the D-160 paper matrix base plus one named architecture."""
+    if architecture is None:
+        return json.loads(config.read_text())
+    paper = json.loads(matrix.read_text())
+    settings = json.loads(Path(paper["base"]).read_text())
+    override = json.loads(json.dumps(paper["architectures"][architecture]))
+    settings["architecture"] = override.pop("architecture")
+    settings.update(override, paper_architecture=architecture)
+    switch(settings, "goal_source")  # validate before any model is loaded
+    return settings
+
+
+def prepare(out, seed, settings, tasks):
     out.mkdir(parents=True, exist_ok=False)
-    settings = json.loads(config.read_text())
     settings.update(watchdog_s=1200, missions=[dict(id=name, seed=seed) for name in tasks])
     resolved = {name: task_binding(name, settings)[0].model_dump(mode="json") for name in tasks}
     prompts = dict(planner=PLANNER, direction=DIRECTION, monitor=MONITOR,
@@ -130,8 +153,10 @@ def main():
                         default=Path("configs/experiments/qwen_visual_object.json"))
     parser.add_argument("--tasks", nargs="+", choices=SCENARIOS + OBSTACLE_SCENARIOS,
                         default=list(SCENARIOS))
+    parser.add_argument("--architecture", help="D-160 paper matrix entry, e.g. C3 or C13")
     args = parser.parse_args()
-    settings = prepare(args.out, args.seed, args.config, args.tasks)
+    settings = load_settings(args.config, args.architecture)
+    settings = prepare(args.out, args.seed, settings, args.tasks)
     timer = threading.Timer(settings["watchdog_s"], deadline_exit)
     timer.daemon = True
     timer.start()

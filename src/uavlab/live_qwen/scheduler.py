@@ -20,6 +20,7 @@ from .executive import (
     accept_check,
     accept_contract,
     adjust_visual,
+    detour,
     follow_done,
     look_due,
     on_step,
@@ -80,6 +81,7 @@ class GoalScheduler:
         self.last_obs, self.last_recovery = None, 0
         self.skill, self.skill_turns, self.skill_history, self.skill_until = None, 0, [], 0
         self.held_since = self.follow_started = self.last_look_sim = None
+        self.detours = 0
         self.path = PathFollower(mission) if settings.get("path_planner") == "super" else None
 
     def log(self, kind, now, **data):
@@ -160,8 +162,10 @@ class GoalScheduler:
             return "check" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.plan is None:
             return "planner"
-        if look_due(self, obs):
-            return "direction"  # H7: keep looking while following, no stop
+        wants_pilot = (self.goal is not None and not moving and not self.buffer.queue
+                       and not self.goal.arrived(obs, self.settings))
+        if look_due(self, obs) and not wants_pilot:
+            return "direction"  # H7: look again while the last moves fly (D-176: moves first)
         if self.goal is None:
             native = switch(self.settings, "goal_source") == "vla_native"
             role = "vla_line" if native else "direction"
@@ -315,6 +319,8 @@ class GoalScheduler:
             self.goal = Goal(self.version, source.position, source.yaw_rad, False,
                              captured+s_to_ns(self.settings["goal_ttl_s"]), source.seq)
             self.complete_visual(now)
+            return
+        if detour(self, source, now):
             return
         if not self.target_missing:
             self.target_missing = True

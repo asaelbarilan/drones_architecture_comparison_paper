@@ -4088,3 +4088,23 @@ Fixes, active only under their switches:
 
 Entries: FULL_H125 (now with routing) and FULL_H1257 (+ H7). 139 tests pass.
 Evidence: reports/paper_handles_d174/.
+
+### D-176: round 2 result (gate solved); H7 fix; H5 v3 wall-end detour (2026-10-22)
+
+Round 2 (seeds 1060-1062):
+- FULL_H125 (H1 + H2 + H5 with check routing): 30/36. Planning 6/12: conditional_gate 3/3 with
+  the correct branch on every seed, and ordered_visit 3/3.
+- FULL_H1257 (+ H7): also 30/36, but the follow run shows the drone never moved: the look was
+  always due (every 0.5 s against a ~3 s grounding call), so the single GPU worker never served
+  the pilot, and the marker drove 26 m away.
+
+Fixes:
+- H7: a look is requested only while moves are flying or when no move is wanted. An idle drone
+  with a follow goal asks the pilot first.
+- H5 v3 detour: when a visit / pass step's object is not visible and the range fan shows an
+  open wall end, fly 2 m past the most forward wall end to a new viewpoint, then look again (at
+  most 4 per step). This targets closing_passage, where the pillar is hidden behind the closed
+  wall.
+
+141 tests pass. Round 3 reruns FULL_H125 and FULL_H1257.
+Evidence: reports/paper_handles_d175/.

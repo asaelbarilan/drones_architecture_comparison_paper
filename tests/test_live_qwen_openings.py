@@ -91,3 +91,30 @@ def test_follow_looks_again_while_moving_only_with_tracking():
         moving = observation(speed=1.0)
         state.buffer.queue.append(dict(packet=1))
         assert state.next_role(moving, True) == role
+
+
+def test_tracking_asks_for_moves_before_looking_again():
+    from tests.test_live_qwen_handles import scheduler
+    from uavlab.contracts import Vec3, s_to_ns
+    from uavlab.live_qwen.goals import Goal
+
+    state = scheduler()
+    state.settings["architecture"]["tracking"] = "moving"
+    state.steps = [dict(kind="follow", objective="follow car", target="car", min_m=4,
+                        max_m=6, duration_s=20)]
+    state.plan = dict(state.steps[0])
+    state.goal = Goal(3, Vec3(x=5, y=0, z=3), 0, False, s_to_ns(200), 1)
+    assert state.next_role(observation(), False) == "pilot"  # idle with a goal: move first
+
+
+def test_a_hidden_target_behind_a_wall_flies_past_the_open_wall_end():
+    from tests.test_live_qwen_handles import scheduler
+    from uavlab.contracts import s_to_ns
+    from uavlab.live_qwen.executive import detour
+
+    state = scheduler()
+    state.settings["architecture"]["perception"] = "openings"
+    state.steps = [dict(kind="visit", objective="visit pillar", target="pillar", final=True)]
+    state.plan, state.goal, state.detours = dict(state.steps[0]), None, 0
+    assert detour(state, wall_scan(left_blocked=True), s_to_ns(101))
+    assert state.goal is not None and state.detours == 1

@@ -27,6 +27,7 @@ CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
 PASS_BEYOND_M = 2.0
 LOOK_EVERY_S = 0.5
+MAX_DETOURS = 4
 SEARCHABLE = ("search", "visit", "pass", "follow")
 HOLD = "hold"
 MAX_REASON = 200
@@ -64,6 +65,7 @@ def on_step(state, now):
         return
     state.settings["goal_mode"] = "numeric" if is_numeric(state.plan) else "visual"
     state.follow_started = None
+    state.detours = 0
     # D-170: a step whose object is out of view may turn to look for it (bounded search).
     state.search_authorized = state.plan.get("kind") in SEARCHABLE
     state.settings["visual_altitude_m"] = state.plan.get("altitude_m")
@@ -97,6 +99,30 @@ def look_due(state, obs):
     """H7 (D-175): while following, look again every LOOK_EVERY_S of flight, without stopping."""
     last = state.last_look_sim
     return tracking(state) and (last is None or obs.t_sim_ns - last >= s_to_ns(LOOK_EVERY_S))
+
+
+def detour(state, obs, now):
+    """H5 v3 (D-176): the step's object is not visible and a wall blocks the way: fly past the
+    measured open wall end (the most forward one) to a new viewpoint, then look again.
+    A bounded number per step; only range evidence chooses the viewpoint."""
+    if (kind(state) not in ("visit", "pass") or state.goal is not None
+            or switch(state.settings, "perception") != "openings"
+            or state.detours >= MAX_DETOURS):
+        return False
+    ends = [o for o in find_openings(obs) if o["kind"] == "open_side"]
+    if not ends:
+        return False
+    end = min(ends, key=lambda o: abs(o["bearing_deg"]))
+    position, heading = through_point(end, obs, PASS_BEYOND_M)
+    state.detours += 1
+    state.version += 1
+    state.goal = Goal(state.version, position, heading, False,
+                      now + s_to_ns(state.settings["goal_ttl_s"]), obs.seq)
+    state.progress_at = state.last_monitor = now
+    state.best_distance = state.best_heading = float("inf")
+    state.log("goal_authorized", now, position=position.model_dump(), yaw=heading,
+              source="detour_viewpoint", wall_end=end, detour=state.detours)
+    return True
 
 
 def resolve_pass(state, obs, now):

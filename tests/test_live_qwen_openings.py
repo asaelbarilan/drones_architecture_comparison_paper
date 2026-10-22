@@ -107,7 +107,7 @@ def test_tracking_asks_for_moves_before_looking_again():
     assert state.next_role(observation(), False) == "pilot"  # idle with a goal: move first
 
 
-def test_a_hidden_target_behind_a_wall_flies_past_the_open_wall_end():
+def test_a_hidden_target_behind_a_wall_aims_behind_the_wall_and_open_space_does_not():
     from tests.test_live_qwen_handles import scheduler
     from uavlab.contracts import s_to_ns
     from uavlab.live_qwen.executive import detour
@@ -116,5 +116,10 @@ def test_a_hidden_target_behind_a_wall_flies_past_the_open_wall_end():
     state.settings["architecture"]["perception"] = "openings"
     state.steps = [dict(kind="visit", objective="visit pillar", target="pillar", final=True)]
     state.plan, state.goal, state.detours = dict(state.steps[0]), None, 0
+    open_space = observation().model_copy(update=dict(
+        range_rays=(FAR_M,) * RAYS,
+        ray_bearings_rad=tuple(-math.pi + 2 * math.pi * i / RAYS for i in range(RAYS))))
+    assert not detour(state, open_space, s_to_ns(101)) and state.goal is None
     assert detour(state, wall_scan(left_blocked=True), s_to_ns(101))
     assert state.goal is not None and state.detours == 1
+    assert state.goal.position.x == pytest.approx(WALL_X + 5.0) and state.goal.position.y == 0

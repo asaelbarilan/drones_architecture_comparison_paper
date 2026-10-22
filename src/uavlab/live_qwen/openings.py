@@ -113,6 +113,19 @@ def named_opening(found, text):
     return max(candidates, key=lambda o: o["width_m"] or 0.0)
 
 
+def wall_ahead(obs, within_m):
+    """Range to a wall that blocks every ray within SIDE_DEG of straight ahead, else None."""
+    ahead = [r for b, r in front_rays(obs) if abs(math.degrees(b)) <= SIDE_DEG]
+    return min(ahead) if ahead and max(ahead) < within_m else None
+
+
+def ahead_point(obs, reach_m):
+    """A point reach_m straight ahead at the drone's altitude, facing the same way."""
+    heading = obs.yaw_rad
+    return (Vec3(x=obs.position.x + reach_m * math.cos(heading),
+                 y=obs.position.y + reach_m * math.sin(heading), z=obs.position.z), heading)
+
+
 def through_point(opening, obs, beyond_m):
     """A point beyond the opening along its bearing, at the drone's altitude."""
     heading = obs.yaw_rad + math.radians(opening["bearing_deg"])

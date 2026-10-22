@@ -29,7 +29,7 @@ def classical_chunk(remaining, count, step_s, max_speed_mps, max_yaw_rate_rps):
         move = [v / distance * length for v in offset] if distance > 0 else [0.0, 0.0, 0.0]
         turn = max(-yaw_step_max, min(yaw_step_max, yaw))
         steps.append([*move, turn])
-        offset = [v - m for v, m in zip(offset, move)]
+        offset = [v - m for v, m in zip(offset, move, strict=False)]
         yaw -= turn
     return steps
 

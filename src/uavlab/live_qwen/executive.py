@@ -21,13 +21,23 @@ from .architecture import switch
 from .contract import executable, flattened, is_numeric, parse_contract
 from .goals import Goal
 from .grounding import grounded_direction
-from .openings import find_openings, named_opening, range_facts, sensor_answer, through_point
+from .openings import (
+    ahead_point,
+    find_openings,
+    named_opening,
+    range_facts,
+    sensor_answer,
+    through_point,
+    wall_ahead,
+)
 
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
 PASS_BEYOND_M = 2.0
 LOOK_EVERY_S = 0.5
 MAX_DETOURS = 4
+BLOCKING_M = 10.0  # a wall this close straight ahead blocks the way
+BEHIND_M = 5.0  # aim this far beyond the wall face
 SEARCHABLE = ("search", "visit", "pass", "follow")
 HOLD = "hold"
 MAX_REASON = 200
@@ -102,18 +112,18 @@ def look_due(state, obs):
 
 
 def detour(state, obs, now):
-    """H5 v3 (D-176): the step's object is not visible and a wall blocks the way: fly past the
-    measured open wall end (the most forward one) to a new viewpoint, then look again.
+    """H5 v4 (D-177): the step's object is not visible and a measured wall blocks the way
+    straight ahead: aim for the far side of that wall (the SUPER path planner finds the way
+    around it), then look again. In open space it does nothing, so the camera search runs.
     A bounded number per step; only range evidence chooses the viewpoint."""
     if (kind(state) not in ("visit", "pass") or state.goal is not None
             or switch(state.settings, "perception") != "openings"
             or state.detours >= MAX_DETOURS):
         return False
-    ends = [o for o in find_openings(obs) if o["kind"] == "open_side"]
-    if not ends:
+    distance = wall_ahead(obs, BLOCKING_M)
+    if distance is None:
         return False
-    end = min(ends, key=lambda o: abs(o["bearing_deg"]))
-    position, heading = through_point(end, obs, PASS_BEYOND_M)
+    position, heading = ahead_point(obs, distance + BEHIND_M)
     state.detours += 1
     state.version += 1
     state.goal = Goal(state.version, position, heading, False,
@@ -121,7 +131,7 @@ def detour(state, obs, now):
     state.progress_at = state.last_monitor = now
     state.best_distance = state.best_heading = float("inf")
     state.log("goal_authorized", now, position=position.model_dump(), yaw=heading,
-              source="detour_viewpoint", wall_end=end, detour=state.detours)
+              source="detour_viewpoint", wall_m=distance, detour=state.detours)
     return True
 
 

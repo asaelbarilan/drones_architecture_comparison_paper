@@ -21,11 +21,12 @@ from .architecture import switch
 from .contract import executable, flattened, is_numeric, parse_contract
 from .goals import Goal
 from .grounding import grounded_direction
-from .openings import find_openings, named_opening, range_facts, through_point
+from .openings import find_openings, named_opening, range_facts, sensor_answer, through_point
 
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
 PASS_BEYOND_M = 2.0
+LOOK_EVERY_S = 0.5
 SEARCHABLE = ("search", "visit", "pass", "follow")
 HOLD = "hold"
 MAX_REASON = 200
@@ -76,6 +77,26 @@ def check_request_text(state, obs):
         text += "\nMeasured by the range sensor (trust these numbers): " + json.dumps(
             range_facts(obs))
     return text
+
+
+def route_check(state, obs, now):
+    """H5 routing: a condition the range sensor can answer is answered without the VLM."""
+    if kind(state) != "condition" or switch(state.settings, "perception") != "openings":
+        return
+    answer = sensor_answer(state.plan["question"], obs)
+    if answer is not None:
+        state.log("check_routed", now, answered_by="range_sensor", **answer)
+        accept_check(state, answer, now)
+
+
+def tracking(state):
+    return kind(state) == "follow" and switch(state.settings, "tracking") == "moving"
+
+
+def look_due(state, obs):
+    """H7 (D-175): while following, look again every LOOK_EVERY_S of flight, without stopping."""
+    last = state.last_look_sim
+    return tracking(state) and (last is None or obs.t_sim_ns - last >= s_to_ns(LOOK_EVERY_S))
 
 
 def resolve_pass(state, obs, now):

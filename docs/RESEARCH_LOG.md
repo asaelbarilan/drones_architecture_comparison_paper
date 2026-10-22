@@ -4065,3 +4065,26 @@ With switch perception=openings:
 No evaluator truth is used. Tests: both gaps found on their sides, a blocked gap disappears and
 is reported as walled, the pass point goes through the named gap, and the scheduler-level pass
 plus check facts work. FULL_H125 = FULL + H1 + H2 + H5.
+
+### D-175: H5 v1 result; check routing (H5 v2) and look-while-following (H7) (2026-10-22)
+
+H5 v1 result (FULL_H125, seeds 1060-1062): 28/36, versus H1 + H2 at 27/36.
+- ordered_visit 3/3.
+- conditional_gate now reaches the pillar on every seed through the measured opening, but has
+  the right branch only 1/3. The range facts were correct on all seeds (a left opening when
+  clear, none when blocked), yet the VLM answered "no" every time, ignoring them; the one pass
+  was the truly blocked case.
+- closing_passage 0/3: the VLM answered "passage still open? yes" against measured "no opening
+  ahead", and the hidden pillar was never reacquired.
+- follow 0/3.
+
+Fixes, active only under their switches:
+- H5 v2 check routing: a yes/no question about an opening / gap / passage / door on a side
+  (left / right / ahead) is answered from the measured openings ("check_routed",
+  answered_by=range_sensor); other questions still go to the VLM.
+- H7 tracking=moving: a follow step looks again every 0.5 s of flight without stopping. The
+  pose-drift rejection is skipped there, because the goal is built from the capture pose. The
+  last follow goal is kept until the next look replaces it.
+
+Entries: FULL_H125 (now with routing) and FULL_H1257 (+ H7). 139 tests pass.
+Evidence: reports/paper_handles_d174/.

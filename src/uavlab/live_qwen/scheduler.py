@@ -21,10 +21,13 @@ from .executive import (
     accept_contract,
     adjust_visual,
     follow_done,
+    look_due,
     on_step,
     pass_arrived,
     resolve_pass,
+    route_check,
     tolerant_grounding,
+    tracking,
 )
 from .executive import kind as step_kind
 from .executive import typed as typed_contract
@@ -76,7 +79,7 @@ class GoalScheduler:
         self.object_memory = self.hold_started = None
         self.last_obs, self.last_recovery = None, 0
         self.skill, self.skill_turns, self.skill_history, self.skill_until = None, 0, [], 0
-        self.held_since = self.follow_started = None
+        self.held_since = self.follow_started = self.last_look_sim = None
         self.path = PathFollower(mission) if settings.get("path_planner") == "super" else None
 
     def log(self, kind, now, **data):
@@ -136,6 +139,7 @@ class GoalScheduler:
         if self.step_tick(now):
             return
         resolve_pass(self, obs, now)
+        route_check(self, obs, now)
         if update_search(self, obs, now):
             return
         self.check_events(obs, now)
@@ -156,6 +160,8 @@ class GoalScheduler:
             return "check" if obs.velocity.norm() <= self.settings["stopped_mps"] else None
         if self.plan is None:
             return "planner"
+        if look_due(self, obs):
+            return "direction"  # H7: keep looking while following, no stop
         if self.goal is None:
             native = switch(self.settings, "goal_source") == "vla_native"
             role = "vla_line" if native else "direction"
@@ -209,8 +215,7 @@ class GoalScheduler:
         role, payload = work.request.role, event["payload"][0]
         self.log("result", now, request_id=work.request_id, role=role, payload=payload)
         try:
-            if role in {"direction", "monitor"} and not self.pose_valid(source, obs):
-                raise ValueError("pose drift while interpreting cognitive image")
+            self.check_source(role, source, obs)
             if role == "planner" and skills_active(self):
                 accept_skill(self, payload, now)
             elif role == "planner":
@@ -225,6 +230,13 @@ class GoalScheduler:
                 self.accept_monitor(parse_monitor(payload), obs, now)
         except (ValueError, KeyError, TypeError) as exc:
             self.failure(str(exc), now)
+
+    def check_source(self, role, source, obs):
+        if role == "direction":
+            self.last_look_sim = source.t_sim_ns
+        if (role in {"direction", "monitor"} and not tracking(self)
+                and not self.pose_valid(source, obs)):
+            raise ValueError("pose drift while interpreting cognitive image")
 
     def accept_planner(self, payload, now):
         if self.planner_event:
@@ -420,6 +432,8 @@ class GoalScheduler:
             self.replan("hold interrupted: object no longer confirmed near", now)
 
     def continue_mission(self, obs, now):
+        if tracking(self):
+            return  # H7: keep the last follow goal until the next look replaces it
         if pass_arrived(self, obs):
             self.finish_step(now)  # H2: an opening is passed, not approached and stopped at
             return

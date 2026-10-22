@@ -85,6 +85,21 @@ def range_facts(obs):
                 walled_sides_without_opening=[s for s in sides_with_wall if s not in open_sides])
 
 
+OPENING_WORDS = ("opening", "gap", "passage", "door", "doorway", "way through")
+
+
+def sensor_answer(question, obs):
+    """H5 routing (D-175): a yes/no question about whether an opening on a side is clear is
+    answered from the measured openings; anything else returns None (the VLM answers)."""
+    words = question.lower()
+    if not any(word in words for word in OPENING_WORDS):
+        return None
+    side = "left" if "left" in words else "right" if "right" in words else "ahead"
+    found = [o for o in find_openings(obs) if o["kind"] == "opening" and o["side"] == side]
+    reason = f"range sensor: {len(found)} measured opening(s) on the {side}"
+    return dict(answer="yes" if found else "no", reason=reason)
+
+
 def named_opening(found, text):
     """The opening a step's object names ("left gap", "right opening"), else the widest one."""
     words = text.lower()

@@ -23,6 +23,7 @@ from .contract import executable, flattened, is_numeric, parse_contract
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
 PASS_BEYOND_M = 2.0
+SEARCHABLE = ("search", "visit", "pass", "follow")
 HOLD = "hold"
 MAX_REASON = 200
 
@@ -41,14 +42,15 @@ def kind(state):
 
 def accept_contract(state, payload, now):
     """H1: the typed program; executed by kind (H2) or flattened into plain steps."""
-    program = parse_contract(payload, state.mission.instruction)
+    program, repairs = parse_contract(payload, state.mission.instruction)
     steps = [executable(n) if active(state) else flattened(n) for n in program]
     if state.steps and steps != state.steps:
         raise ValueError("replanning cannot replace the committed program")
     state.steps = steps
     state.plan = dict(steps[state.step_index])
     state.log("mission_plan_committed", now, mission=state.mission.instruction,
-              authored=payload, steps=steps, step_index=state.step_index, contract="typed")
+              authored=payload, steps=steps, step_index=state.step_index, contract="typed",
+              repairs=repairs)
     on_step(state, now)
 
 
@@ -58,8 +60,9 @@ def on_step(state, now):
         return
     state.settings["goal_mode"] = "numeric" if is_numeric(state.plan) else "visual"
     state.follow_started = None
-    if state.plan.get("kind") == "search":
-        state.search_authorized = True
+    # D-170: a step whose object is out of view may turn to look for it (bounded search).
+    state.search_authorized = state.plan.get("kind") in SEARCHABLE
+    state.settings["visual_altitude_m"] = state.plan.get("altitude_m")
     state.log("step_activated", now, step_index=state.step_index, step_kind=state.plan.get("kind"))
 
 
@@ -96,9 +99,11 @@ def adjust_visual(state, proposal, distance, now):
         state.follow_started = now
         state.log("follow_started", now, duration_s=state.plan["duration_s"])
     middle = (state.plan["min_m"] + state.plan["max_m"]) / 2
-    if distance is not None and distance <= middle:
-        return HOLD  # inside the band's near half: watch, do not close in
-    target["travel_m"] = min(limit, max(0.5, (distance or middle + 1.0) - middle))
+    near = state.plan["min_m"]
+    if distance is not None and distance <= near:
+        return HOLD  # at the band's near edge: watch, do not close in
+    # D-170: aim at the near edge; the target keeps moving while the next look is taken.
+    target["travel_m"] = min(limit, max(0.5, (distance or middle + 1.0) - near))
     return proposal
 
 

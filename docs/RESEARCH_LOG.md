@@ -3927,3 +3927,43 @@ The finding: no architecture family, as built from its diagram, plans. Where the
 differ, the difference lines up with handle-like components (memory, recovery, planner-authored
 steps) rather than with authority type. The VLA alone (C7/C8) fails everything. Evidence:
 reports/paper_matrix_d165/tables.md, tables.json; raw runs under s1060-s1062.
+
+### D-170: handle ablation v1 result, diagnosis, and handles v2 (2026-10-22)
+
+v1 result: 3 seeds x 12 tasks, paired with the D-166 FULL baseline. Planning tasks stay 0/12
+in every variant.
+
+| Variant | Passes / 36 |
+|---|---|
+| FULL baseline | 21 |
+| + H1 | 19 |
+| + H2 | 22 |
+| + H1 + H2 | 18 |
+
+Diagnosis from the raw events (seed 1060, H1 + H2):
+- conditional_gate: the planner wrote a CORRECT if-then program, but added "stop": false to the
+  condition. The strict schema rejected it 3x and the mission failed.
+- closing_passage: rejected for min_m 0.
+- overturned_vehicle: the contract had no way to state "hover above at 3.2 m altitude", so the
+  planner invented a goto [0, 0, 3.2] and was rejected.
+- approach_hover: "about 1 metre before it" lost its standoff in the typed visit; the flight
+  ended at 1.29 m, outside the 0.75-1.25 m window.
+- ordered_visit: red completed (object below + 1 s hold). Blue was out of view and recovery
+  only re-grounded; no turn was authorized.
+- follow_target: followed for 20 s, but stopping for each 3 s look let the marker run away
+  (never within 4-6 m).
+
+So the model's task understanding was largely right and the handle implementation failed. That
+is evidence for the thesis, not against it.
+
+v2 fixes (handles only, same model):
+- lenient contract normalization: unknown keys dropped, numbers clamped, visit defaults
+  filled, invented goto dropped; every repair is logged;
+- visit altitude_m (stated flight altitude) and near_m < 1.5 m as a hover standoff;
+- the executive authorizes the bounded search turn for an out-of-view object on
+  visit / pass / follow steps;
+- follow aims at the band's near edge and holds only at it.
+
+129 tests pass. The v2 ablation reruns H1, H2 and H1 + H2 on the same tasks and seeds
+(reports/paper_handles_d170). Note: seeds 1060-1062 are development seeds; handle iterations
+are tuned on them, so final claims need the held-out run.

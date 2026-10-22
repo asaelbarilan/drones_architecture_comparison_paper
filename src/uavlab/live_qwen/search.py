@@ -15,7 +15,8 @@ ARRIVAL_DEGREES = 3
 
 def search_allowed(state):
     requested = bool(re.search(r"\b(find|search)\b", state.mission.instruction, re.I))
-    requested |= (state.plan or {}).get("kind") == "search"  # H2: a typed search step
+    # H2 (D-170): typed steps the executive authorizes to look for an out-of-view object.
+    requested |= (state.plan or {}).get("kind") in ("search", "visit", "pass", "follow")
     return state.target_missing and requested and state.search_turns < MAX_TURNS
 
 

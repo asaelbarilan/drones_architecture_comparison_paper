@@ -21,6 +21,7 @@ PROGRAM = dict(program=[
          **{"else": [dict(kind="pass", object="right gap")]}),
     dict(kind="visit", object="red pillar", near_m=2, dwell_s=0, stop=True)])
 FAR_M, BAND = 9.0, (4, 6)
+ALTITUDE_M = 3.2
 OPENING_M, BEYOND_M = 3.0, 2.0
 TYPED_START = "Write the mission as a small typed program"
 
@@ -40,15 +41,28 @@ def answer(state, payload, at=1):
     state.update(observation(), ORIGIN_NS+s_to_ns(at), ORIGIN_NS+s_to_ns(at), False)
 
 
-def test_contract_validation_rejects_unknown_kinds_and_invented_coordinates():
-    assert parse_contract(PROGRAM, MISSION)[0]["kind"] == "condition"
+def test_contract_rejects_structure_errors_but_repairs_small_ones():
+    program, repairs = parse_contract(PROGRAM, MISSION)
+    assert program[0]["kind"] == "condition" and repairs == []
     with pytest.raises(ValueError):
         parse_contract(dict(program=[dict(kind="teleport")]), MISSION)
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError):  # the only step invents a coordinate: nothing left to run
         parse_contract(dict(program=[dict(kind="goto", world_enu=[1, 2, 3])]), MISSION)
-    with pytest.raises(ValueError):
-        parse_contract(dict(program=[dict(kind="follow", object="car", min_m=6, max_m=4,
-                                          duration_s=10)]), MISSION)
+    noisy = dict(program=[dict(PROGRAM["program"][0], stop=False),
+                          dict(kind="follow", object="car", min_m=6, max_m=0, duration_s=10)])
+    program, repairs = parse_contract(noisy, MISSION)
+    assert "stop" not in program[0] and (program[1]["min_m"], program[1]["max_m"]) == (0.5, 6)
+    assert any("dropped" in r for r in repairs) and any("clamped" in r for r in repairs)
+
+
+def test_stated_hover_distance_and_altitude_reach_the_executable_visit():
+    from uavlab.live_qwen.contract import executable
+
+    node = parse_contract(dict(program=[dict(kind="visit", object="car", near_m=1,
+                                             altitude_m=3.2)]), MISSION)[0][0]
+    step = executable(node)
+    assert step["standoff_m"] == 1.0 and step["altitude_m"] == ALTITUDE_M
+    assert node["dwell_s"] == 0.0 and node["stop"] is False
 
 
 def test_typed_planner_prompt_is_used_and_a_condition_asks_the_camera():
@@ -94,8 +108,8 @@ def test_follow_keeps_its_band_and_ends_only_after_its_duration():
                         max_m=BAND[1], duration_s=20)]
     state.plan = dict(state.steps[0])
     far = adjust_visual(state, dict(target=dict(u=500, v=500, travel_m=1.0)), FAR_M, ORIGIN_NS)
-    assert far["target"]["travel_m"] == pytest.approx(FAR_M - sum(BAND) / 2)
+    assert far["target"]["travel_m"] == pytest.approx(FAR_M - BAND[0])
     near = dict(target=dict(u=500, v=500, travel_m=1.0))
-    assert adjust_visual(state, near, 4.5, ORIGIN_NS) is HOLD
+    assert adjust_visual(state, near, BAND[0], ORIGIN_NS) is HOLD
     assert not follow_done(state, ORIGIN_NS+s_to_ns(19))
     assert follow_done(state, ORIGIN_NS+s_to_ns(20))

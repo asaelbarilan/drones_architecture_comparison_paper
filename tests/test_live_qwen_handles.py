@@ -22,6 +22,7 @@ PROGRAM = dict(program=[
     dict(kind="visit", object="red pillar", near_m=2, dwell_s=0, stop=True)])
 FAR_M, BAND = 9.0, (4, 6)
 ALTITUDE_M = 3.2
+HOVER_LIMIT_M = 1.15
 OPENING_M, BEYOND_M = 3.0, 2.0
 TYPED_START = "Write the mission as a small typed program"
 
@@ -59,7 +60,8 @@ def test_stated_hover_distance_and_altitude_reach_the_executable_visit():
     from uavlab.live_qwen.contract import executable
 
     node = parse_contract(dict(program=[dict(kind="visit", object="car", near_m=1,
-                                             altitude_m=3.2)]), MISSION)[0][0]
+                                             altitude_m=3.2)]),
+                          "Hover above the car at 3.2 metres altitude.")[0][0]
     step = executable(node)
     assert step["standoff_m"] == 1.0 and step["altitude_m"] == ALTITUDE_M
     assert node["dwell_s"] == 0.0 and node["stop"] is False
@@ -113,3 +115,34 @@ def test_follow_keeps_its_band_and_ends_only_after_its_duration():
     assert adjust_visual(state, near, BAND[0], ORIGIN_NS) is HOLD
     assert not follow_done(state, ORIGIN_NS+s_to_ns(19))
     assert follow_done(state, ORIGIN_NS+s_to_ns(20))
+
+
+def test_altitude_critic_drops_a_limit_written_as_an_altitude():
+    limited = "Fly to the red pillar through the passage. Stay below 7 metres."
+    node, repairs = parse_contract(dict(program=[dict(kind="visit", object="red pillar",
+                                                      altitude_m=7)]), limited)
+    assert node[0]["altitude_m"] is None and any("altitude" in r for r in repairs)
+    stated = "Hover above the car at 3.2 metres altitude."
+    node, _ = parse_contract(dict(program=[dict(kind="visit", object="car", altitude_m=3.2)]),
+                             stated)
+    assert node[0]["altitude_m"] == ALTITUDE_M
+
+
+def test_malformed_grounding_is_not_visible_only_with_the_executive():
+    from uavlab.live_qwen.executive import tolerant_grounding
+
+    bad = dict(target_visible=True, box=None)
+    assert tolerant_grounding(scheduler(), bad, ORIGIN_NS) is None
+    with pytest.raises(ValueError):
+        tolerant_grounding(scheduler(executive="basic"), bad, ORIGIN_NS)
+
+
+def test_typed_hover_uses_the_tighter_tolerance():
+    from uavlab.live_qwen.contract import executable
+    from uavlab.live_qwen.stop_rules import near_limit
+
+    state = scheduler()
+    node = parse_contract(dict(program=[dict(kind="visit", object="pillar", near_m=1)]),
+                          MISSION)[0][0]
+    state.plan = executable(node)
+    assert near_limit(state) == pytest.approx(HOVER_LIMIT_M)

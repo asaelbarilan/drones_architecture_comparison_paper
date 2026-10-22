@@ -10,6 +10,7 @@ contract is present but inert.
 
 import json
 import math
+import re
 
 from .world_contract import explicit_world, world_target
 
@@ -24,14 +25,18 @@ REQUIRED = dict(visit={"object"}, pass_={"object"}, condition={"question", "then
                 search={"object"})
 OPTIONAL = dict(visit=dict(near_m=2.0, dwell_s=0.0, stop=False, altitude_m=None))
 STANDOFF_BELOW_M = 1.5  # a stated "near" tighter than the default near-object range is a hover
+HOVER_TOLERANCE_M = 0.15  # D-172: a stated hover distance is held to +/-0.15 m, not +0.25 m
+SAME_NUMBER = 1e-6
 
 TYPED_PLANNER = '''Write the mission as a small typed program. Return ONLY JSON
 {"program":[STEP,...]} where each STEP is exactly one of:
-{"kind":"visit","object":"noun phrase","near_m":N,"dwell_s":S,"stop":true|false,"altitude_m":H}
+{"kind":"visit","object":"noun phrase","near_m":N,"dwell_s":S,"stop":true|false,
+ "altitude_m":H}
   fly to the object; near_m = the stated "within N metres" or "about N metres from it" (2 if not
   stated); dwell_s = the stated seconds to stay near it (0 if not stated); stop=true only for the
-  final destination; altitude_m ONLY when a flight altitude is stated (e.g. "hover above it at
-  4 metres altitude" gives 4), otherwise omit it.
+  final destination; altitude_m ONLY when the mission states an altitude to fly AT (e.g.
+  "hover above it at 4 metres altitude" gives 4). A limit such as "stay below 7 metres" is NOT
+  an altitude: omit altitude_m then.
 {"kind":"pass","object":"noun phrase of an opening, gap or door"}  fly through it.
 {"kind":"condition","question":"a yes/no question answerable from the camera image",
  "then":[STEP,...],"else":[STEP,...]}  choose a branch by looking.
@@ -96,12 +101,25 @@ def normalize_node(node, instruction, depth, repairs):
         repairs.append("dropped goto with an invented coordinate")
         return None
     clean = clamp_fields(clean, repairs)
+    altitude = clean.get("altitude_m")
+    if altitude is not None and not stated_altitude(altitude, instruction):
+        repairs.append(f"dropped altitude_m {clean['altitude_m']} not stated as a flight altitude")
+        clean["altitude_m"] = None
     if kind == "follow" and clean["min_m"] > clean["max_m"]:
         clean["min_m"], clean["max_m"] = clean["max_m"], clean["min_m"]
     if kind == "condition":
         clean["then"] = normalize_block(clean["then"], instruction, depth + 1, repairs)
         clean["else"] = normalize_block(clean["else"], instruction, depth + 1, repairs)
     return clean
+
+
+def stated_altitude(value, instruction):
+    """A critic (D-172): an altitude must appear in the mission as "N metres altitude" or
+    "altitude of N", never as a limit ("below N metres")."""
+    number = r"(\d+(?:\.\d+)?)"
+    found = re.findall(number + r"\s*(?:m|metres?|meters?)\s+altitude", instruction, re.I)
+    found += re.findall(r"altitude\s+(?:of\s+)?" + number, instruction, re.I)
+    return any(abs(float(v) - value) < SAME_NUMBER for v in found)
 
 
 def clamp_fields(node, repairs):
@@ -144,6 +162,7 @@ def executable(node):
             step["hold_s"] = float(node["dwell_s"])
         if node["near_m"] < STANDOFF_BELOW_M:
             step["standoff_m"] = float(node["near_m"])  # "about N metres before it"
+            step["near_tolerance_m"] = HOVER_TOLERANCE_M
         if node.get("altitude_m") is not None:
             step["altitude_m"] = float(node["altitude_m"])
     elif kind == "follow":

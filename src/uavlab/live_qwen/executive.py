@@ -19,6 +19,7 @@ from uavlab.contracts import s_to_ns
 
 from .architecture import switch
 from .contract import executable, flattened, is_numeric, parse_contract
+from .grounding import grounded_direction
 
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
@@ -105,6 +106,18 @@ def adjust_visual(state, proposal, distance, now):
     # D-170: aim at the near edge; the target keeps moving while the next look is taken.
     target["travel_m"] = min(limit, max(0.5, (distance or middle + 1.0) - near))
     return proposal
+
+
+def tolerant_grounding(state, payload, now):
+    """D-172: with the executive, a malformed grounding reply means "not visible" (logged),
+    not a contract failure that can end the mission; the basic executor stays strict."""
+    try:
+        return grounded_direction(payload)
+    except (ValueError, KeyError, TypeError) as exc:
+        if not active(state):
+            raise
+        state.log("grounding_repaired", now, error=str(exc), payload=str(payload)[:200])
+        return None
 
 
 def follow_done(state, now):

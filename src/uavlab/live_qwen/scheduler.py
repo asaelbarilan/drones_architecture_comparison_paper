@@ -23,11 +23,12 @@ from .executive import (
     follow_done,
     on_step,
     pass_arrived,
+    tolerant_grounding,
 )
 from .executive import kind as step_kind
 from .executive import typed as typed_contract
 from .goals import Goal, angle_error, interpret_goal
-from .grounding import capture_depth, grounded_direction, observed_range
+from .grounding import capture_depth, observed_range
 from .mission_plan import accept_plan, validate_direction
 from .path import PathFollower
 from .planner_memory import accept_recovery, remember
@@ -261,7 +262,7 @@ class GoalScheduler:
                  terminal=terminal, expires_ns=self.goal.expires_ns, source_seq=source.seq)
 
     def prepare_visual_goal(self, payload, source, captured, now):
-        proposal = grounded_direction(payload)
+        proposal = tolerant_grounding(self, payload, now)
         if proposal is None:
             self.target_absent(source, captured, now)
             return None

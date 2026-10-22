@@ -23,7 +23,8 @@ def stated_standoff(state):
 
 def near_limit(state):
     standoff = stated_standoff(state)
-    return NEAR_OBJECT_M if standoff is None else standoff + NEAR_MARGIN_M
+    margin = (state.plan or {}).get("near_tolerance_m", NEAR_MARGIN_M)  # typed hovers: tighter
+    return NEAR_OBJECT_M if standoff is None else standoff + margin
 
 
 def aim_standoff(state):

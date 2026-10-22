@@ -3998,3 +3998,19 @@ Remaining H1 + H2 failures on seed 1060 are again handle defects:
 - follow: cannot keep up while stopping to look.
 
 Evidence: reports/paper_handles_d170/.
+
+### D-172: handles v3 - tolerant grounding, altitude critic, tighter typed hover (2026-10-22)
+
+Status: implemented and CPU-tested; ablation rerun launched (H1, H2, H1 + H2 on seeds
+1060-1062). Each fix is active only under a handle switch, so FULL and every D-166 configuration
+are unchanged:
+- H2 executive: a malformed grounding reply is logged as "grounding_repaired" and treated as
+  "not visible", instead of a contract failure that ends the mission. The basic executor stays
+  strict.
+- H1 contract: the planner prompt says altitude_m is only an altitude to fly AT, never a limit
+  ("stay below 7 m"). A critic drops an altitude_m that the mission does not state as
+  "N metres altitude" or "altitude of N".
+- Typed hover: a stated "about N m before it" holds +/-0.15 m (near_tolerance_m) instead of
+  +0.25 m.
+
+132 tests pass. Following while moving is a separate, larger change (not in v3).

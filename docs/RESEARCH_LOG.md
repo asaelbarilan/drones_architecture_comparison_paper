@@ -4223,3 +4223,35 @@ and the same stack minus each handle. 12 tasks x seeds 1060-1062, the same model
   held-out seeds must test whether this holds beyond seeds 1060-1062.
 
 Evidence: reports/paper_ablation_d179/ (run.log, run_ablation.sh).
+
+### D-181: the same handle set on the other planner architectures (C10, C13) (2026-10-22)
+
+The final handle set (H1 + H2 + H5) is applied unchanged to the two other architectures that
+have a planner -> executor connection. Both use the VLA pilot. C1-C6 have no plan-execution
+connection for these handles, so they are not applicable there; nothing is added to any
+architecture. 12 tasks x seeds 1060-1062.
+
+| Task | C10 | C10 + H | C13 | C13 + H |
+|---|---|---|---|---|
+| turn_search | 1/3 | 2/3 | 3/3 | 3/3 |
+| overturned_vehicle | 3/3 | 2/3 | 3/3 | 3/3 |
+| conditional_gate | 0/3 | 0/3 | 0/3 | 3/3 |
+| obstacle_slalom | 0/3 | 3/3 | 1/3 | 3/3 |
+| obstacle_low_wall | 0/3 | 2/3 | 3/3 | 3/3 |
+| ordered_visit, closing_passage, follow_target | 0/3 each | 0/3 each | 0/3 each | 0/3 each |
+| other 5 tasks | 3/3 each | 3/3 each | 3/3 each | 3/3 each |
+| **total / 36** | **16** | **21** | **22** | **27** |
+
+- The handles add 5 passes on both architectures (FULL: +9). C13 + H solves the if-then gate
+  3/3, as FULL + H does.
+- ordered_visit fails with the VLA pilot (C13 + H): the program and the order are correct and the
+  red pillar is visited, but the VLA pilot covers about 3 m in its first 16 s. The first visit
+  completes at 48 s, and the 60 s budget ends on the way to blue. Pilot speed, not plan logic.
+- conditional_gate fails on C10 + H: the right branch is chosen from the sensor, then the
+  periodic planner review at 20 s (C10's defining box) replaces the executive's measured pass
+  goal with a VLM grounding of "left opening", and the drone flies off course (to 10, 12). This is
+  a conflict between two owners of the sequence: H2's single executive versus a periodic planner
+  that overrides it. It is evidence for H2's principle (one sequencing owner). C13, whose planner
+  wakes only on events, does not have it.
+
+Evidence: reports/paper_handles_transfer_d181/ (run.log, run.sh).

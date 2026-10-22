@@ -18,6 +18,10 @@ stopped after three rounds without progress (D-176..D-179): follow_target and cl
 are latency-bound (RESEARCH.md Finding 3). Final stack FULL_H125 (H1 + H2 + H5) 30/36.
 Remove-one ablation done (D-180): minus H5 27, minus H2 21, minus H1 21, no handles 21.
 Next is the user's: the held-out run (seeds 1-40) and the paper. No push without permission.
+D-181: H1+H2+H5 transfer to C13 (22->27) and C10 (16->21). D-182: connection handles for
+architectures without a planner (H3 search policy, H4 evidence completion, H9 measured distance;
+connections.py, switches search/completion/measure): C2 12->19 ... C7/C8 0->6; planning stays 0.
+Task maps: scripts/paper_task_maps.py -> reports/paper_maps/.
 
 ## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
 

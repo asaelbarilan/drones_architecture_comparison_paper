@@ -27,6 +27,7 @@ from matplotlib.patches import Patch, Rectangle
 MATRIX = "reports/paper_matrix_d165"
 ABLATION = "reports/paper_ablation_d179"
 TRANSFER = "reports/paper_handles_transfer_d181"
+CONNECTIONS = "reports/paper_connections_d182"
 # (code, short description, run root, run folder); None leaves a slot empty.
 ROWS = [
     ("Reference and\nsingle-model", [
@@ -34,12 +35,19 @@ ROWS = [
         ("C1", "LLM calls text skills", MATRIX, "C1"),
         ("C7", "VLA alone", MATRIX, "C7"),
         ("C8", "VLA alone + shield", MATRIX, "C8"), None]),
+    ("VLA alone\n+ handles", [
+        None, None,
+        ("C7+H", "with H4 H9", CONNECTIONS, "C7_H"),
+        ("C8+H", "with H4 H9", CONNECTIONS, "C8_H"), None]),
     ("VLM waypoint\nstacks (no planner)", [
         ("C2", "VLM points to a waypoint", MATRIX, "C2"),
         ("C3", "C2 + verifier", MATRIX, "C3"),
         ("C4", "C3 + periodic monitor", MATRIX, "C4"),
         ("C5", "C4 + memory", MATRIX, "C5"),
         ("C6", "C3 + recovery planner", MATRIX, "C6")]),
+    ("VLM waypoint\nstacks + handles", [
+        (f"{code}+H", "with H3 H4", CONNECTIONS, f"{code}_H")
+        for code in ("C2", "C3", "C4", "C5", "C6")]),
     ("Planner stacks", [
         ("FULL", "planner, classical pilot", MATRIX, "FULL"),
         ("C10", "timed planner, VLA pilot", MATRIX, "C10"),
@@ -67,6 +75,9 @@ LEGEND = [
     ("H1", "Handle: typed task contract (visit / pass / condition / follow / goto / search)."),
     ("H2", "Handle: one executive runs the contract by step kind."),
     ("H5", "Handle: measured openings from the range sensor; sensor answers what it can."),
+    ("H3", "Handle: a find / search mission starts the bounded camera search itself."),
+    ("H4", "Handle: completion on evidence: stated standoff / hold, object passed below."),
+    ("H9", "Handle: the VLA picks the target box, the depth sensor gives the distance."),
 ]
 TASKS = ["known_goal", "visible_target", "approach_hover", "turn_search", "overturned_vehicle",
          "conditional_gate", "ordered_visit", "closing_passage", "follow_target",
@@ -196,15 +207,15 @@ def symbol_legend(fig):
                Patch(color="#ef9a9a", label="wall that appears in flight"),
                Line2D([], [], color="#e53935", ls="--", label="moving target")]
     fig.legend(handles=handles, loc="upper center", ncol=7, frameon=False, fontsize=11,
-               bbox_to_anchor=(0.5, 0.955))
+               bbox_to_anchor=(0.5, 0.965))
 
 
 def task_page(task, seed):
     arms = [arm for _, row in ROWS for arm in row]
     flights = [arm and load(Path(arm[2]) / f"s{seed}" / arm[3] / task) for arm in arms]
     bounds = task_bounds(flights)
-    fig, axes = plt.subplots(len(ROWS), COLS, figsize=(20, 4.2 * len(ROWS) + 1.8))
-    fig.subplots_adjust(left=0.08, right=0.985, top=0.89, bottom=0.08, hspace=0.34, wspace=0.14)
+    fig, axes = plt.subplots(len(ROWS), COLS, figsize=(20, 3.7 * len(ROWS) + 1.8))
+    fig.subplots_adjust(left=0.08, right=0.985, top=0.92, bottom=0.06, hspace=0.36, wspace=0.14)
     colour = None
     for ax, arm, flight in zip(axes.flat, arms, flights, strict=True):
         if arm is None:
@@ -220,7 +231,7 @@ def task_page(task, seed):
                  fontsize=18, fontweight="bold", y=0.985)
     symbol_legend(fig)
     if colour is not None:
-        bar = fig.add_axes([0.3, 0.03, 0.4, 0.012])
+        bar = fig.add_axes([0.3, 0.022, 0.4, 0.008])
         fig.colorbar(colour, cax=bar, orientation="horizontal",
                      label="time since start (s); path colour")
     return fig
@@ -240,7 +251,7 @@ def legend_page():
         fig.text(0.15, y, text, fontsize=13, va="top", color="#212121")
         y -= 0.07 if "\n" in text else 0.048
     fig.text(0.06, 0.03, "Same model (Qwen3-VL-4B + D207 VLA adapter), runtime, path planner, "
-             "shield and tasks in every panel. '+H' = the handles H1 + H2 + H5.",
+             "shield and tasks in every panel. '+H' = the handles that fit that architecture.",
              fontsize=11, color="#616161")
     return fig
 

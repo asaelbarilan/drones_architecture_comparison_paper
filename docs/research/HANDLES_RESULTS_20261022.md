@@ -1,4 +1,4 @@
-# Handles: results (D-168 to D-181, 2026-10-22)
+# Handles: results (D-168 to D-182, 2026-10-22)
 
 Companion to the research note (in the PDF it follows this section). All runs use the same model (Qwen3-VL-4B + D207 adapter),
 the same real-time runtime, the same 12 tasks and development seeds 1060-1062. Each variant
@@ -102,6 +102,31 @@ connection, so these handles do not apply there.
 - Ordered visit fails with the VLA pilot. The order is right, but the pilot is slow, so the
   first pillar is reached at 48 s and time runs out before the second.
 
+## Step 6: handles for the architectures without a planner (C2-C8)
+
+H1, H2 and H5 need a planner. C2-C8 have other connections, and three handles act on those,
+again without adding any box:
+
+| Handle | Connection | Fits |
+|---|---|---|
+| H3 search policy | target not visible -> bounded camera search, when the mission says find | C2-C6 |
+| H4 evidence-based completion | the stop decision: stated standoff / hold, object passed below | C2-C8 |
+| H9 measured distance | the VLA picks the target box, the depth sensor gives the distance | C7, C8 |
+
+The code audit found that H3 and H4 already existed, but only on the planned path, so FULL had
+them and C2-C5 never did. These were hidden handles inside the "full" architecture.
+
+| Architecture | C2 | C3 | C4 | C5 | C6 | C7 | C8 |
+|---|---|---|---|---|---|---|---|
+| without handles | 12 | 15 | 15 | 18 | 18 | 0 | 0 |
+| with handles | 19 | 21 | 23 | 23 | 23 | 6 | 6 |
+
+- Approach and hover: 0/3 -> 3/3 on C2, C3, C4 and C6 (H4 reads "hover 1 m, hold 2 s").
+- Turn and search: 0/3 -> 3/3 on C2-C5 (H3).
+- C7 / C8, the VLA alone: 0 -> 6. The VLA boxes the target correctly; the sensor fixes its
+  distance. They still fail the obstacle tasks, because they fly without the path planner.
+- Planning tasks stay 0/12 on all of them. With no planner, nothing holds a branch or an order.
+
 ## Where this stands
 
 | Configuration | Passes / 36 | Planning / 12 |
@@ -112,6 +137,9 @@ connection, so these handles do not apply there.
 | FULL + H1 + H2 + H5 | 30 | 6 |
 | C13 + H1 + H2 + H5 | 27 | 3 |
 
+Every architecture improves with the handles that fit it (C2 12 -> 19 ... C7 0 -> 6). Only the
+planner stacks gain planning tasks.
+
 Same model, same tasks, same seeds. The difference is only the handles. The handled stack even
 beats the privileged C0 on the planning tasks, because C0 has the true goal but no plan logic.
 
@@ -120,15 +148,29 @@ beats the privileged C0 on the planning tasks, because C0 has the true goal but 
 Each page is one task (seed 1060). Every panel is one architecture, seen from above. The line is
 the drone's path, coloured by time (dark = start, yellow = 60 s). Grey blocks are walls, red
 blocks are walls that appear during the flight, and triangles are objects (black edge = the
-target). Rows: the reference and single-model stacks, the VLM waypoint stacks without a planner,
-the planner stacks, and the same planner stacks with the handles, each directly below its
-vanilla version. All 12 tasks for all three seeds are in reports/paper_maps/.
+target). Rows: each group of architectures, then the same group with its handles: the handled versions, each directly below its vanilla version
+(+H = the handles that fit that architecture). All 12 tasks for all three seeds are in reports/paper_maps/.
 
 <div class="break"></div>
 
 ![maps_legend](../paper/figures/maps_legend.png)
 
 **Legend.** What each architecture code means.
+
+<div class="break"></div>
+
+![map_s1060_approach_hover](../paper/figures/map_s1060_approach_hover.png)
+
+**Approach and hover.** Every VLM waypoint stack gets to the pillar, but C2, C3, C4 and C6 stop at
+the wrong distance and never hold. With H4 they read "about 1 m, hold for 2 s" from the mission
+and pass, as FULL does through its planner.
+
+<div class="break"></div>
+
+![map_s1060_turn_search](../paper/figures/map_s1060_turn_search.png)
+
+**Turn and search.** The pillar starts behind the drone. C2-C5 never turn, because nothing
+authorizes a search without a planner. With H3 they turn, find it and fly to it.
 
 <div class="break"></div>
 

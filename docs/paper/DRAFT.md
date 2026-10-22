@@ -32,7 +32,9 @@ and the perception-to-state hand-off. We call this logic the system's *handles*.
 handles to the most complete vanilla stack, with no other change, raises it from 21/36 to
 30/36 and from 0/12 to 6/12 planning passes. Removing the typed contract or the executive alone
 returns it to 21/36. The same handles also lift the two other planner architectures
-(C13 22 -> 27, C10 16 -> 21). Two time-critical tasks stay unsolved by every architecture, the oracle
+(C13 22 -> 27, C10 16 -> 21), and handles that fit the other connections lift every
+architecture without a planner (C2 12 -> 19 ... VLA alone 0 -> 6), though only planner stacks
+gain planning tasks. Two time-critical tasks stay unsolved by every architecture, the oracle
 included: they are bound by model latency, not by the logic between the modules.
 
 We argue that the handles, not the architecture family, determine whether a small foundation
@@ -143,6 +145,12 @@ model can plan for a drone. Architecture comparisons should report them as first
   C13 + H solves the if-then gate as FULL + H does. On C10 the timed planner overrides the
   executive (two sequencing owners), and with the VLA pilot the ordered visit runs out of time.
   C1-C6 have no such connection, so the handles are not applicable there; no box is added.
+- **5.9 Handles for the architectures without a planner** (D-182). H3 (search policy), H4
+  (evidence-based completion) and H9 (measured distance) act on connections C2-C8 already have.
+  C2 12 -> 19, C3 15 -> 21, C4 15 -> 23, C5 18 -> 23, C6 18 -> 23, C7 0 -> 6, C8 0 -> 6. H3 and
+  H4 already existed in FULL's planned path ("hidden handles") but never reached C2-C5.
+  Planning tasks stay at 0 without a planner: the handles that solve planning need a plan
+  connection to act on.
 - **Figures: task maps** (`scripts/paper_task_maps.py`). One page per task, one top-down panel
   per architecture, path coloured by time:
   - Figure M0: architecture legend (`figures/maps_legend.png`).
@@ -151,6 +159,8 @@ model can plan for a drone. Architecture comparisons should report them as first
   - Figure M3: closing passage (`figures/map_s1060_closing_passage.png`).
   - Figure M4: follow target (`figures/map_s1060_follow_target.png`).
   - Figure M5: obstacle slalom (`figures/map_s1060_obstacle_slalom.png`).
+  - Figure M6: approach and hover (`figures/map_s1060_approach_hover.png`).
+  - Figure M7: turn and search (`figures/map_s1060_turn_search.png`).
 
 ![Task map legend](figures/maps_legend.png)
 ![If-then gate](figures/map_s1060_conditional_gate.png)
@@ -158,6 +168,8 @@ model can plan for a drone. Architecture comparisons should report them as first
 ![Closing passage](figures/map_s1060_closing_passage.png)
 ![Follow target](figures/map_s1060_follow_target.png)
 ![Obstacle slalom](figures/map_s1060_obstacle_slalom.png)
+![Approach and hover](figures/map_s1060_approach_hover.png)
+![Turn and search](figures/map_s1060_turn_search.png)
 
 ## 6 Discussion (outline)
 

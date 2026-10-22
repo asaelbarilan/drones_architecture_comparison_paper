@@ -4255,3 +4255,38 @@ architecture. 12 tasks x seeds 1060-1062.
   wakes only on events, does not have it.
 
 Evidence: reports/paper_handles_transfer_d181/ (run.log, run.sh).
+
+### D-182: connection handles for the architectures without a planner (C2-C8) (2026-10-22)
+
+H1/H2/H5 act on the planner -> executor connection, so they fit only FULL, C10 and C13. Three
+handles act on connections C2-C8 already have, as switches (off by default, connections.py):
+- H3 search policy (search=policy): a mission that says find / search starts the bounded camera
+  search itself. Without a planner, nothing authorized it.
+- H4 evidence-based completion (completion=evidence): the stated standoff / hold are read from
+  the mission text, the last fresh grounding counts for object-below arrival without the memory
+  box, and a measured leg that ends short of the object looks again.
+- H9 measured distance (measure=range): the VLA's own box gives the bearing and the depth
+  sensor the distance, instead of the distance the VLA writes; a box with a cut-off line is enough.
+
+Code audit first: H3 and H4 already existed in the default stack, but only reached the planned
+path (parse_steps reads stated fields per step; the recovery planner authorizes search; object
+memory sits behind the memory switch). So FULL had them and C2-C5 never did: hidden handles in
+the "full" architecture. H6 (attribute check) was not needed: C2-C6 point at the right vehicle;
+they failed to complete.
+
+Arms: C2_H..C6_H = + H3 + H4; C7_H, C8_H = + H4 + H9. 12 tasks x seeds 1060-1062.
+
+| | C2 | C3 | C4 | C5 | C6 | C7 | C8 |
+|---|---|---|---|---|---|---|---|
+| without handles | 12 | 15 | 15 | 18 | 18 | 0 | 0 |
+| with handles | 19 | 21 | 23 | 23 | 23 | 6 | 6 |
+
+- approach_hover: 0/3 -> 3/3 on C2, C3, C4, C6 (C5 2 -> 3), from the stated standoff and hold (H4).
+- turn_search: 0/3 -> 3/3 on C2-C5 (H3).
+- overturned_vehicle: 0-1 -> 1-2 of 3 (H4 object-below arrival); not solved.
+- C7 / C8 (VLA alone): 0 -> 6 (known_goal 3/3, visible_target 3/3) with H9 + H4. They still fail
+  the obstacle tasks, because by design they fly without the SUPER path planner (D-162).
+- Planning tasks: 0/12 on every arm, as predicted. Without a planner there is no connection to
+  hold a branch or an order.
+
+Evidence: reports/paper_connections_d182/ (run.log, run.sh).

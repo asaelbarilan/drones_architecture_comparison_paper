@@ -239,6 +239,18 @@ def test_super_path_without_obstacles_keeps_the_goal_direction():
     assert forward > 0 and abs(right) < DETOUR_M
 
 
+def test_path_to_go_follows_the_plan_around_an_obstacle():
+    from uavlab.live_qwen.path import PathFollower
+
+    state = scheduler()
+    follower = PathFollower(state.mission)
+    goal = Goal(1, Vec3(x=10, y=0, z=3), 0, True, ORIGIN_NS+s_to_ns(45), 1)
+    obs = ranged()
+    assert follower.to_go(goal, obs) == obs.position.distance_to(goal.position)  # not planned
+    follower.remaining(goal, obs, ORIGIN_NS)
+    assert follower.to_go(goal, obs) > obs.position.distance_to(goal.position)  # the way round
+
+
 def test_oracle_faces_a_visual_target_and_uses_stated_standoff_and_hold():
     state = scheduler("Approach the red pillar and hover about 1 metre before it. "
                       "Hold for 2 continuous seconds, then finish.", goal_source="oracle",

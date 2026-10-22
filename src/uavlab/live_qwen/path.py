@@ -53,6 +53,19 @@ class PathFollower:
                 return point
         return self.points[-1] if self.points else None
 
+    def to_go(self, goal, obs):
+        """Length still to fly along the current plan of this goal (plus the straight rest
+        beyond its horizon); the straight distance when there is no plan for it."""
+        straight = obs.position.distance_to(goal.position)
+        if goal.version != self.goal_version or not self.points:
+            return straight
+        start = min(range(len(self.points)),
+                    key=lambda i: obs.position.distance_to(self.points[i]))
+        total, here = 0.0, obs.position
+        for point in self.points[start:]:
+            total, here = total + here.distance_to(point), point
+        return total + here.distance_to(goal.position)
+
     def remaining(self, goal, obs, now):
         """The pilot's error to the path carrot; all zeros (hold) when no safe path exists."""
         self.replan(goal, obs, now)

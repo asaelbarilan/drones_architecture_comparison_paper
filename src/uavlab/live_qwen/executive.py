@@ -34,6 +34,7 @@ from .openings import (
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
 PASS_BEYOND_M = 2.0
+OPENING_BEYOND_M = 4.0  # D-178: end a measured pass clear of the doorway, not inside it
 LOOK_EVERY_S = 0.5
 MAX_DETOURS = 4
 BLOCKING_M = 10.0  # a wall this close straight ahead blocks the way
@@ -135,6 +136,14 @@ def detour(state, obs, now):
     return True
 
 
+def progress_distance(state, obs):
+    """H5 v5 (D-178): with measured openings, progress toward a goal is measured along the
+    planned path, so going around a wall end is not a stall; otherwise the straight distance."""
+    if switch(state.settings, "perception") == "openings" and state.path is not None:
+        return state.path.to_go(state.goal, obs)
+    return obs.position.distance_to(state.goal.position)
+
+
 def resolve_pass(state, obs, now):
     """H5: a pass step aims through the named measured opening; the camera is the fallback."""
     if (kind(state) != "pass" or state.goal is not None
@@ -143,7 +152,7 @@ def resolve_pass(state, obs, now):
     opening = named_opening(find_openings(obs), state.plan["target"])
     if opening is None:
         return
-    position, heading = through_point(opening, obs, PASS_BEYOND_M)
+    position, heading = through_point(opening, obs, OPENING_BEYOND_M)
     state.version += 1
     state.goal = Goal(state.version, position, heading, False,
                       now + s_to_ns(state.settings["goal_ttl_s"]), obs.seq)

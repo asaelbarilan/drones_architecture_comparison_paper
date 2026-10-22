@@ -25,6 +25,7 @@ from .executive import (
     look_due,
     on_step,
     pass_arrived,
+    progress_distance,
     resolve_pass,
     route_check,
     tolerant_grounding,
@@ -470,7 +471,7 @@ class GoalScheduler:
         if now >= self.goal.expires_ns:
             self.replan("persistent goal expired", now)
             return
-        distance = obs.position.distance_to(self.goal.position)
+        distance = progress_distance(self, obs)
         heading = abs(self.goal.error(obs)[-1])
         progressed = distance < self.best_distance-self.settings["progress_m"]
         progressed |= heading < self.best_heading-self.settings["progress_deg"]

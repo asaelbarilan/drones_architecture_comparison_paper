@@ -19,6 +19,8 @@ Loop: diagnose raw events -> one handle fix (switch, default off) -> CPU tests -
 commit -> 3-seed run -> record in RESEARCH_LOG / docs/RESEARCH.md / docs/paper/DRAFT.md.
 Limits: local GPU only; no AWS; no push; no held-out seeds (user runs those at the end).
 Stop: all three pass, or three rounds without progress. Then report briefly.
+Then (user, 2026-10-22): remove-one ablation of the final stack - full stack
+minus each handle (H1, H2, H5, H7 ...) one at a time, same 12 tasks x 3 seeds.
 
 ## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
 

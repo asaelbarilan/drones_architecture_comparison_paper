@@ -4145,3 +4145,29 @@ flew half as far.
 
 126 live runtime tests pass. Round 4 reruns FULL_H125 only.
 Evidence: reports/paper_handles_d176/.
+
+### D-178: round 4 result; H5 v5 path progress and a deeper measured pass (2026-10-22)
+
+Round 4 (FULL_H125 with detour v4, seeds 1060-1062): 29/36, the same pattern as round 3
+(gate 2/3, closing_passage 0/3, follow 0/3).
+
+Diagnosis:
+- closing_passage: on all three seeds the v4 detour was correct. It aimed 5 m behind the
+  measured wall at (18, 0), and SUPER flew the way round, reaching the wall end at y -13 in about
+  10 s. But the stall check measures straight-line distance to the goal, which grows on the
+  sideways leg, so "stalled_progress" fired at the corner. The recovery then spent the rest of
+  the episode on an 8-turn camera search in place.
+- conditional_gate seed 1061: the correct branch again. The measured pass ended at x 8.2, inside
+  the doorway (the wall is at x 7.4-8.6), so the search turns saw only wall faces close up, and
+  the pillar was found too late (54 s). The detour did not fire in open space, as intended.
+
+Fixes, under perception=openings only:
+- Progress for the stall check is measured along the planned SUPER path (PathFollower.to_go),
+  so going around a wall end is progress.
+- A measured pass ends 4 m beyond the flank range instead of 2 m. On the gate geometry that is
+  x 10, clear of the wall, and still crosses the gate inside the correct opening.
+
+127 live runtime tests pass. Round 5 reruns FULL_H125. This is the third round in a row without
+progress on the open tasks, so per the goal's stopping rule it is the last one before the
+remove-one ablation.
+Evidence: reports/paper_handles_d177/.

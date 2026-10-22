@@ -19,7 +19,9 @@ from uavlab.contracts import s_to_ns
 
 from .architecture import switch
 from .contract import executable, flattened, is_numeric, parse_contract
+from .goals import Goal
 from .grounding import grounded_direction
+from .openings import find_openings, named_opening, range_facts, through_point
 
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
@@ -67,8 +69,31 @@ def on_step(state, now):
     state.log("step_activated", now, step_index=state.step_index, step_kind=state.plan.get("kind"))
 
 
-def check_request_text(state):
-    return CHECK + state.plan["question"]
+def check_request_text(state, obs):
+    text = CHECK + state.plan["question"]
+    if switch(state.settings, "perception") == "openings":
+        # H5 (D-174): measured range-fan openings handed to the check as facts.
+        text += "\nMeasured by the range sensor (trust these numbers): " + json.dumps(
+            range_facts(obs))
+    return text
+
+
+def resolve_pass(state, obs, now):
+    """H5: a pass step aims through the named measured opening; the camera is the fallback."""
+    if (kind(state) != "pass" or state.goal is not None
+            or switch(state.settings, "perception") != "openings"):
+        return
+    opening = named_opening(find_openings(obs), state.plan["target"])
+    if opening is None:
+        return
+    position, heading = through_point(opening, obs, PASS_BEYOND_M)
+    state.version += 1
+    state.goal = Goal(state.version, position, heading, False,
+                      now + s_to_ns(state.settings["goal_ttl_s"]), obs.seq)
+    state.progress_at = state.last_monitor = now
+    state.best_distance = state.best_heading = float("inf")
+    state.log("goal_authorized", now, position=position.model_dump(), yaw=heading,
+              source="measured_opening", opening=opening)
 
 
 def accept_check(state, payload, now):

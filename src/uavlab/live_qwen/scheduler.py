@@ -23,6 +23,7 @@ from .executive import (
     follow_done,
     on_step,
     pass_arrived,
+    resolve_pass,
     tolerant_grounding,
 )
 from .executive import kind as step_kind
@@ -134,6 +135,7 @@ class GoalScheduler:
             return
         if self.step_tick(now):
             return
+        resolve_pass(self, obs, now)
         if update_search(self, obs, now):
             return
         self.check_events(obs, now)

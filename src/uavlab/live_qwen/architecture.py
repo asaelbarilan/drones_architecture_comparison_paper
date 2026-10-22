@@ -22,6 +22,8 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                typed       H1: a typed program (visit/pass/condition/follow/goto/search)
   executive    basic       every step is fly-to-target-and-stop (default)
                kinds       H2: one owner executes the step kinds (executive.py)
+  perception   vlm         objects and openings only from the VLM (default)
+               openings    H5: measured range-fan openings for checks and pass steps
 """
 
 import dataclasses
@@ -32,11 +34,13 @@ from .mission_plan import add_stated_fields
 from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
-                memory=True, recovery_interval_s=20.0, contract="flat", executive="basic")
+                memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
+                perception="vlm")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
-               contract={"flat", "typed"}, executive={"basic", "kinds"})
+               contract={"flat", "typed"}, executive={"basic", "kinds"},
+               perception={"vlm", "openings"})
 
 
 def switches(settings):

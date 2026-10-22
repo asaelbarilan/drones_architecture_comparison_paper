@@ -1,5 +1,5 @@
 {
-  "_comment": "D-160 paper matrix: one shared Qwen3-VL-4B (+D207 VLA adapter for VLA pilots), one wall-clock runtime. Each entry overrides the base config; switches are documented in src/uavlab/live_qwen/architecture.py. All waypoint entries share the SUPER local path planner (D-165); native direct-VLA entries C7/C8 do not. FULL_H1 / FULL_H2 / FULL_H12 are the D-168 handle ablations on the FULL stack.",
+  "_comment": "D-160 paper matrix: one shared Qwen3-VL-4B (+D207 VLA adapter for VLA pilots), one wall-clock runtime. Each entry overrides the base config; switches are documented in src/uavlab/live_qwen/architecture.py. All waypoint entries share the SUPER local path planner (D-165); native direct-VLA entries C7/C8 do not. FULL_H1 / FULL_H2 / FULL_H12 are the D-168 handle ablations on the FULL stack. FULL_H125 adds the D-174 H5 measured-openings perception hand-off.",
   "base": "configs/experiments/qwen_capability_classical.json",
   "architectures": {
     "C0": {
@@ -190,6 +190,21 @@
         "memory": true,
         "contract": "typed",
         "executive": "kinds"
+      },
+      "path_planner": "super"
+    },
+    "FULL_H125": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "FULL + H1 typed contract + H2 executive + H5 measured openings",
+        "goal_source": "planned",
+        "verifier": true,
+        "monitor": "default",
+        "recovery": "event",
+        "memory": true,
+        "contract": "typed",
+        "executive": "kinds",
+        "perception": "openings"
       },
       "path_planner": "super"
     }

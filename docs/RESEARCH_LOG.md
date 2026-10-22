@@ -4044,3 +4044,24 @@ offered to the check and pass steps as a tool. This is in the spirit of Code as 
 perception API and drone_control's blackboard. Also, following while moving.
 
 Evidence: reports/paper_handles_d172/.
+
+### D-174: H5 measured-openings perception hand-off (2026-10-22)
+
+Status: implemented and CPU-tested; flights launched (FULL_H125, seeds 1060-1062, 12 tasks).
+The user approved building the openings tool after D-173 showed that the 4B VLM cannot ground
+wall openings. src/uavlab/live_qwen/openings.py reads the drone's own 24-ray range fan (front
+half):
+- a wall ray is shorter than 20 m;
+- a gap is a run of rays at least 4 m longer than both flanking wall rays;
+- an open wall end is the same with one flank only.
+Each is reported with side (left / right / ahead), bearing, distance and width.
+
+With switch perception=openings:
+- the condition check receives the measured openings and the walled sides without an opening
+  as text facts, and the VLM still decides;
+- a pass step aims 2 m beyond the opening its object names ("left" / "right", else the widest).
+  The camera grounding is the fallback.
+
+No evaluator truth is used. Tests: both gaps found on their sides, a blocked gap disappears and
+is reported as walled, the pass point goes through the named gap, and the scheduler-level pass
+plus check facts work. FULL_H125 = FULL + H1 + H2 + H5.

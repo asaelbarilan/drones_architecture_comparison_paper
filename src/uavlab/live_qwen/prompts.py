@@ -149,7 +149,7 @@ def role_request(state, role, obs):
     elif role == "pilot":
         prompt, tag = pilot_prompt(state, obs), "d148:pilot:v1"
     elif role == "check":
-        prompt, tag = check_request_text(state), "d168:check:v1"
+        prompt, tag = check_request_text(state, obs), "d168:check:v1"
     else:
         prompt, tag = cognition_prompt(state, role, obs), f"d148:{role}:v1"
     images = () if role == "planner" else (image_text(obs),)

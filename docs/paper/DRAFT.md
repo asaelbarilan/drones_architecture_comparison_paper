@@ -109,8 +109,10 @@ model can plan for a drone. Architecture comparisons should report them as first
   `reports/paper_matrix_d165/tables.md`.
 - **5.2 The same model, different handles.** The history D-143 -> D-145 (0/4 -> 4/4) and
   D-150 -> D-158 (0/9 -> 5/9).
-- **5.3 Handle ablation** (D-171, FULL base, 3 seeds): FULL 21/36; + H1 21/36; + H2 21/36;
-  + H1 and H2 26/36, with planning 0/12 -> 3/12 (ordered visit 3/3). Interaction: neither alone.
+- **5.3 Handle ablation** (FULL base, 3 seeds; D-171 v2, D-173 v3). v3: FULL 21/36; + H1 24/36;
+  + H2 21/36; + H1 and H2 27/36, with planning 0/12 -> 3/12 (ordered visit 3/3) and every
+  non-planning task passed. The executive alone does nothing; the pair is better than either.
+  Remaining failures: wall openings cannot be grounded by the 4B VLM, and tracking.
 - **5.4 VLA alone vs in a hierarchy.** [TBD]
 
 ## 6 Discussion (outline)

@@ -1,0 +1,20 @@
+matrix finished; starting 02:18:41
+=== s1060 FULL_H1 02:18:41
+exit=0 passes=8
+=== s1060 FULL_H2 02:27:12
+exit=0 passes=7
+=== s1060 FULL_H12 02:36:25
+exit=0 passes=9
+=== s1061 FULL_H1 02:43:49
+exit=0 passes=8
+=== s1061 FULL_H2 02:52:20
+exit=0 passes=7
+=== s1061 FULL_H12 03:01:27
+exit=0 passes=9
+=== s1062 FULL_H1 03:08:48
+exit=0 passes=8
+=== s1062 FULL_H2 03:17:04
+exit=0 passes=7
+=== s1062 FULL_H12 03:26:30
+exit=0 passes=9
+=== DONE 03:33:54

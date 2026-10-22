@@ -38,7 +38,7 @@ literature, is the logic that connects the modules (the "handles"):
 | Evidence | What it shows | Source |
 |---|---|---|
 | D-166 matrix, complete (12 archs x 12 tasks x 3 seeds = 432 flights, one model and runtime, zero collisions) | Every model-driven configuration passes 0/12 planning tasks (if-then gate, ordered visit, closing passage, follow); oracle 28/36 overall. Best non-oracle C13 22/36 and FULL 21/36; vanilla C1-C6 9-18/36; VLA alone 0/36 | `reports/paper_matrix_d165/tables.md`, D-169 |
-| Handle ablation on FULL (D-171; 3 seeds x 12 tasks, same model / runtime / tasks) | FULL 21/36; + H1 typed contract 21/36; + H2 executive 21/36; + H1 and H2 26/36 with the first planning passes (ordered visit 3/3, planning 3/12). Neither handle alone helps; together they do (interaction effect) | `reports/paper_handles_d170/`, D-171 |
+| Handle ablation on FULL (D-171 v2 / D-173 v3; 3 seeds x 12 tasks, same model / runtime / tasks) | v3: FULL 21/36; + H1 24/36; + H2 21/36; + H1 and H2 27/36. H1 + H2 passes every non-planning task (24/24) and the first planning task (ordered visit 3/3). The executive alone does nothing; the pair is better than either. The remaining planning failures are perception (the 4B VLM cannot ground wall openings) and tracking | `reports/paper_handles_d172/`, D-171, D-173 |
 | Live stack, same weights, no training (D-150 -> D-158) | 0/9 -> 5/9 from handle changes only: pose contract, standoff, altitude hold, object memory, stated standoff / hold, hold-as-stop | `RESEARCH_LOG.md` D-150 to D-158 |
 | Live stack, numeric suite (D-143 -> D-145) | 0/4 -> 4/4 from the completion contract and ordered-step preservation only | D-143 to D-145 |
 | AerialClaw C1 (D-44) | The one accepted paper family (5/5 grid, 5/5 search) had the richest handles: SOUL / BODY, soft-skill strategy, runtime checks, done / stuck verdicts, labelled metric detections | `docs/fidelity/AerialClaw.md`, D-85 |
@@ -58,6 +58,6 @@ tasks, and a held-out confirmation run.
 
 ## Open items
 
-- Handles v3 (D-172): lenient grounding parse, altitude wording, hover window.
+- H5 perception hand-off: a geometric openings primitive for check / pass steps (D-173).
 - Handles H3 - H8; following while moving.
 - Held-out evaluation: once, at the end.

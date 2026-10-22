@@ -4014,3 +4014,33 @@ are unchanged:
   +0.25 m.
 
 132 tests pass. Following while moving is a separate, larger change (not in v3).
+
+### D-173: handle ablation v3 result; the remaining planning failures are perception (2026-10-22)
+
+Status: completed, seeds 1060-1062, 12 tasks, paired with the D-166 FULL baseline.
+
+| Variant | Passes / 36 | Planning |
+|---|---|---|
+| FULL | 21 | 0/12 |
+| + H1 | 24 | 0/12 |
+| + H2 | 21 | 0/12 |
+| + H1 + H2 | 27 | 3/12 |
+
+The H1 + H2 planning passes are ordered_visit 3/3. H1 + H2 passes every non-planning task
+(24/24, including obstacle_slalom 3/3, which FULL fails 0/3). H1 alone now raises obstacles to
+9/9: its typed prompt changes how obstacle missions are planned. H2 alone stays a no-op.
+
+The remaining planning failures, from raw events on all 3 seeds:
+- conditional_gate: the program is correct. The camera check answers "left opening obscured /
+  not visible", and the pass step then searches 8 turns without ever grounding an opening. The
+  4B VLM cannot box a wall opening.
+- closing_passage: the same perception gap ("no passage visible in image"), plus a planner
+  logic error (then / else inverted).
+- follow_target: tracking while stopping to look (unchanged).
+
+So the next handle is a perception hand-off, not more prompt logic. Candidate (H5): a generic
+geometric "openings" primitive from the range fan (gaps in a wall: bearing, width, clear / not),
+offered to the check and pass steps as a tool. This is in the spirit of Code as Policies'
+perception API and drone_control's blackboard. Also, following while moving.
+
+Evidence: reports/paper_handles_d172/.

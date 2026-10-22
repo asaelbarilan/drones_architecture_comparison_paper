@@ -28,6 +28,12 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                moving      H7: a follow step looks again while flying (executive.py)
   detour       none        a hidden object starts the camera search (default)
                wall        H5 detour (D-177/178): aim behind a measured wall ahead, path progress
+  search       planner     only a planner (recovery / H2) authorizes the camera search (default)
+               policy      H3: a find / search mission starts it itself (connections.py)
+  completion   default     planned steps read stated standoff / hold; memory keeps groundings
+               evidence    H4: also for unplanned missions; measured legs look again
+  measure      model       the VLA line's distance is used as written (default)
+               range       H9: the VLA's own box gives the bearing, depth the distance
 """
 
 import dataclasses
@@ -39,13 +45,15 @@ from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
-                perception="vlm", tracking="stop", detour="none")
+                perception="vlm", tracking="stop", detour="none", search="planner",
+                completion="default", measure="model")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
                contract={"flat", "typed"}, executive={"basic", "kinds"},
                perception={"vlm", "openings"}, tracking={"stop", "moving"},
-               detour={"none", "wall"})
+               detour={"none", "wall"}, search={"planner", "policy"},
+               completion={"default", "evidence"}, measure={"model", "range"})
 
 
 def switches(settings):
@@ -69,7 +77,14 @@ def switch(settings, key):
 
 
 def unplanned_steps(state):
-    """Steps without a planner call: explicit public coordinates, else the whole mission."""
+    """Steps without a planner call; H4 reads their stated standoff / hold (connections.py)."""
+    from .connections import stated_steps
+
+    return stated_steps(state, mission_steps(state))
+
+
+def mission_steps(state):
+    """Explicit public coordinates, else the whole mission as one step."""
     instruction = state.mission.instruction
     if switch(state.settings, "goal_source") == "oracle":
         step = dict(objective=instruction)
@@ -118,10 +133,14 @@ def commit_unplanned(state, now):
 
 def no_monitor(state, reason, now):
     """Monitor-free completion: arrival or fresh near grounding ends the step directly."""
+    from .connections import look_again
+
     state.pause(reason, now)
     settled = state.last_obs.velocity.norm() <= state.settings["stopped_mps"]
     if state.settings.get("goal_mode") != "visual":
         arrived = state.goal is not None and state.goal.arrived(state.last_obs, state.settings)
+        if arrived and settled and look_again(state, now):
+            return
         if arrived and settled and held_long_enough(state, now):
             state.finish_step(now)
         return
@@ -172,19 +191,26 @@ def native_context(state, obs):
 
 def accept_native_line(state, payload, source, now):
     """Goal memory: the VLA's own Left line (body frame of the source pose) becomes the goal."""
+    from .connections import measured_line
     from .goals import Goal, relative_goal
 
     data = json.loads(payload) if isinstance(payload, str) else payload
     left = data.get("left")
     if left is None:
         raise ValueError("VLA wrote no parseable progress line")
-    limits = dict(state.settings, max_goal_m=state.settings["geofence_radius_m"])
-    position, yaw = relative_goal(left, source, limits)
+    measured = measured_line(state, data, source)
+    if measured is None:
+        limits = dict(state.settings, max_goal_m=state.settings["geofence_radius_m"])
+        position, yaw = relative_goal(left, source, limits)
+        terminal = True
+    else:
+        position, yaw, terminal = measured
     if switch(state.settings, "verifier"):
         bounded(position, state.settings)
     state.version += 1
-    state.goal = Goal(state.version, position, yaw, True,
+    state.goal = Goal(state.version, position, yaw, terminal,
                       now + int(state.settings["goal_ttl_s"] * 1e9), source.seq)
     state.progress_at = state.last_monitor = now
     state.best_distance = state.best_heading = math.inf
-    state.log("goal_authorized", now, position=position.model_dump(), yaw=yaw, vla_line=data)
+    state.log("goal_authorized", now, position=position.model_dump(), yaw=yaw, vla_line=data,
+              measured=measured is not None, terminal=terminal)

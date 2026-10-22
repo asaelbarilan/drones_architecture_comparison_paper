@@ -15,6 +15,7 @@ from .architecture import (
     switch,
     unverified_direction,
 )
+from .connections import search_policy
 from .executive import (
     HOLD,
     accept_check,
@@ -183,7 +184,7 @@ class GoalScheduler:
         if role == "pilot":
             self.buffer.begin(work.request_id, self.version)
         self.pending = (work, obs)
-        self.pending_depth = capture_depth(obs) if role == "direction" else None
+        self.pending_depth = capture_depth(obs) if role in ("direction", "vla_line") else None
         self.worker.submit(work)
         self.next_id += 1
         self.log("submitted", captured, request_id=work.request_id, role=role,
@@ -325,7 +326,7 @@ class GoalScheduler:
             return
         if not self.target_missing:
             self.target_missing = True
-            if self.search_authorized and search_allowed(self):
+            if (self.search_authorized or search_policy(self)) and search_allowed(self):
                 start_search(self, now)
                 self.log("grounding_absent", now, source_seq=source.seq)
                 return

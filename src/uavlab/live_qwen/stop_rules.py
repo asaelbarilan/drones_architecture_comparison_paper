@@ -49,7 +49,9 @@ def object_position(proposal, source, range_m, settings):
 
 
 def remember_object(state, proposal, source, range_m, now):
-    if not switch(state.settings, "memory"):
+    # The memory box keeps it; so does H4 (completion=evidence, connections.py), for the
+    # object-below arrival only, within the same cognition TTL.
+    if not (switch(state.settings, "memory") or switch(state.settings, "completion") == "evidence"):
         return
     position = object_position(proposal, source, range_m, state.settings)
     if position is not None:

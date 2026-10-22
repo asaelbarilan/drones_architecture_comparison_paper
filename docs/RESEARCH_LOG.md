@@ -3967,3 +3967,34 @@ v2 fixes (handles only, same model):
 129 tests pass. The v2 ablation reruns H1, H2 and H1 + H2 on the same tasks and seeds
 (reports/paper_handles_d170). Note: seeds 1060-1062 are development seeds; handle iterations
 are tuned on them, so final claims need the held-out run.
+
+### D-171: handle ablation v2 result - H1 and H2 only help together (2026-10-22)
+
+Status: completed, development seeds 1060-1062, 12 tasks, paired with the D-166 FULL baseline
+(same model, runtime and tasks).
+
+| Variant | Passes / 36 | Planning |
+|---|---|---|
+| FULL | 21 | 0/12 |
+| + H1 typed contract (flattened) | 21 | 0/12 |
+| + H2 executive (flat contract) | 21 | 0/12 |
+| + H1 + H2 | 26 | 3/12 |
+
+The H1 + H2 planning passes are ordered_visit 3/3: the first planning tasks solved by any
+model-driven configuration in this testbed. By group (H1 + H2 vs FULL):
+- basic 8/9 vs 9/9;
+- perception 6/6 vs 6/6;
+- obstacles 9/9 vs 6/9.
+
+Neither handle alone changes the score. Only the combination does: a contract nobody executes is
+inert, and an executor with nothing typed to execute is a no-op. This is an interaction effect,
+as AgentSpec reports for scaffolds.
+
+Remaining H1 + H2 failures on seed 1060 are again handle defects:
+- conditional_gate: the camera check said the left opening was "partly hidden"; then three
+  malformed grounding replies were counted as contract failures and ended the mission;
+- closing_passage: "stay below 7 metres" was written as altitude_m 7;
+- approach_hover: ended at 1.25 m, on the edge of the hover window;
+- follow: cannot keep up while stopping to look.
+
+Evidence: reports/paper_handles_d170/.

@@ -20,7 +20,7 @@ Setup (D-159 - D-166):
 
 ## Finding 1 (working thesis): vanilla architectures do not work by themselves; the handles do
 
-**Status: supported by converging evidence; not yet measured by a controlled handle ablation.**
+**Status: supported by converging evidence and a first controlled handle ablation (D-171), on development seeds; held-out confirmation pending.**
 
 The textbook architectures differ in which modules exist and who decides the goal: skills,
 waypoints, direct VLA, hierarchy. Built from those modules alone, they solve simple
@@ -38,14 +38,15 @@ literature, is the logic that connects the modules (the "handles"):
 | Evidence | What it shows | Source |
 |---|---|---|
 | D-166 matrix, complete (12 archs x 12 tasks x 3 seeds = 432 flights, one model and runtime, zero collisions) | Every model-driven configuration passes 0/12 planning tasks (if-then gate, ordered visit, closing passage, follow); oracle 28/36 overall. Best non-oracle C13 22/36 and FULL 21/36; vanilla C1-C6 9-18/36; VLA alone 0/36 | `reports/paper_matrix_d165/tables.md`, D-169 |
+| Handle ablation on FULL (D-171; 3 seeds x 12 tasks, same model / runtime / tasks) | FULL 21/36; + H1 typed contract 21/36; + H2 executive 21/36; + H1 and H2 26/36 with the first planning passes (ordered visit 3/3, planning 3/12). Neither handle alone helps; together they do (interaction effect) | `reports/paper_handles_d170/`, D-171 |
 | Live stack, same weights, no training (D-150 -> D-158) | 0/9 -> 5/9 from handle changes only: pose contract, standoff, altitude hold, object memory, stated standoff / hold, hold-as-stop | `RESEARCH_LOG.md` D-150 to D-158 |
 | Live stack, numeric suite (D-143 -> D-145) | 0/4 -> 4/4 from the completion contract and ordered-step preservation only | D-143 to D-145 |
 | AerialClaw C1 (D-44) | The one accepted paper family (5/5 grid, 5/5 search) had the richest handles: SOUL / BODY, soft-skill strategy, runtime checks, done / stuck verdicts, labelled metric detections | `docs/fidelity/AerialClaw.md`, D-85 |
 | drone_control working loop | Handles around the models, and its recent fixes are handle fixes (S9, S10, B12): pinned reasoning order + task policy, capability allow-list, typed mission contract, proposal gate, single sequencing owner, freshness-limited blackboard | `drone_control/src/agent/` |
 | Literature | LLMs cannot plan or self-verify without critics (LLM-Modulo); scaffold fit beats module strength and can outweigh model scale (AgentSpec); closed-loop feedback and typed APIs are what made LLM planners work (Inner Monologue, ProgPrompt, Code as Policies, SayCan, TypeFly); a drone harness gives 8/11 models 90-100 % mission completion (DroneServer) | `docs/research/HANDLES_20261022.md` |
 
-What is still needed to state it as a result: an add-one / remove-one handle ablation on the same
-tasks and seeds (the taxonomy H1 - H8 is in the research note).
+What is still needed: the remaining handles (H3 - H8), the v3 fixes for the remaining planning
+tasks, and a held-out confirmation run.
 
 ## Finding 2 (preliminary): a VLA is a good pilot inside a hierarchy and a poor planner alone
 
@@ -57,6 +58,6 @@ tasks and seeds (the taxonomy H1 - H8 is in the research note).
 
 ## Open items
 
-- Handle ablation H1 / H2 on FULL (D-168, running).
-- Handle ablation design and implementation.
+- Handles v3 (D-172): lenient grounding parse, altitude wording, hover window.
+- Handles H3 - H8; following while moving.
 - Held-out evaluation: once, at the end.

@@ -4171,3 +4171,31 @@ Fixes, under perception=openings only:
 progress on the open tasks, so per the goal's stopping rule it is the last one before the
 remove-one ablation.
 Evidence: reports/paper_handles_d177/.
+
+### D-179: round 5 result; the handle loop stops; remove-one ablation (2026-10-22)
+
+Round 5 (FULL_H125 with path progress and a 4 m measured pass, seeds 1060-1062): 29/36. Same
+pattern again: gate 2/3, closing_passage 0/3, follow 0/3.
+- closing_passage: the detour goal behind the wall was right, but the drone now physically
+  stops at the wall end (x 11, y -12) about 10 s into the detour, so the stall is real. SUPER
+  does not plan past the corner with the forward-facing fan (yaw 0 while flying sideways). This
+  is a path-planner limit, not a handle.
+- conditional_gate seed 1061: the pass ended clear of the wall (10, -5.7). After two search
+  turns the drone faced the gate wall, so the detour fired (a wall within 10 m ahead) and flew
+  back through the gate. Without the detour (round 2) the search continued and found the pillar.
+
+Decision (the goal's stopping rule: three rounds in a row without progress on the open tasks):
+the handle loop stops. The detour and its path progress move to their own switch,
+architecture.detour = wall (FULL_H125D, which is exactly the round 5 configuration). The final
+stack FULL_H125 is H1 + H2 + H5 (measured facts, check routing, measured pass 4 m deep).
+
+What remains open, and why:
+- follow_target: latency floor (D-177). Every architecture fails it, C0 included.
+- closing_passage: C0 passes it with the true goal. A model-driven stack would need either a
+  way to reach a goal behind a corner that the fan cannot see, or the model to ground the
+  pillar through the gap before the wall closes (at t = 3 s, while the planner is still
+  thinking). Recorded as open.
+
+Remove-one ablation (reports/paper_ablation_d179/): FULL_H125, FULL_H12 (no H5), FULL_H15
+(no H2), FULL_H25 (no H1), 12 tasks x 3 seeds each. FULL (no handles) is the D-169 arm.
+Evidence: reports/paper_handles_d178/.

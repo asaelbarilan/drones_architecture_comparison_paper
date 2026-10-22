@@ -4108,3 +4108,40 @@ Fixes:
 
 141 tests pass. Round 3 reruns FULL_H125 and FULL_H1257.
 Evidence: reports/paper_handles_d175/.
+
+### D-177: round 3 result (no progress); follow is latency-bound; H5 v4 detour (2026-10-22)
+
+Round 3 (seeds 1060-1062): FULL_H125 29/36 and FULL_H1257 29/36. ordered_visit 3/3 on both,
+conditional_gate 2/3 on both, closing_passage 0/3, follow_target 0/3.
+
+Diagnosis:
+- conditional_gate seed 1061: the measured branch was correct (gate crossed on the right), but
+  after the gate the pillar was not in view and the v3 detour flew the drone away in open space
+  (to x 30, y -24). In round 2, without the detour, the camera search found it. So this is a
+  regression caused by the detour.
+- closing_passage: the check was routed to the sensor and answered "no opening ahead", which is
+  correct. The v3 detour then aimed along the open ray beside the wall end (2 m past the wall
+  end's range, at bearing -82 deg). That ended beside the wall (11, -8), not past it (the wall
+  spans y -11..11 and is 8 m tall), and later detours flew backwards.
+- follow_target is latency-bound for every architecture in this runtime, C0 included (0/3 in
+  D-169). Scoring needs the drone 4-6 m from the marker for 13.5 s of the 5-20 s window. The
+  marker starts at 8 m and drives at 0.7 m/s, so the drone must be tracking by about t = 6.5 s.
+  Planner (2.6 s) plus the first grounding (3.1 s) means the first move comes at about 5.7 s,
+  when the marker is 12 m away. After that, the drone moves only between ~3 s looks: 1.2 m per
+  cycle, slower than the marker. With H7 the drone flew 7.6 m in 25 s; with stop-and-look it
+  flew 15 m but still fell 10 m behind. No change to the connecting logic can recover a
+  closing distance of 6 m in under a second. Recorded as a latency floor, not chased: it needs a
+  faster perception loop, such as a tracker seeded by the VLM box or a smaller model, which is
+  out of scope for handles.
+
+Fix, under perception=openings only:
+- H5 v4 detour fires only when a wall blocks every ray within 10 deg of straight ahead, within
+  10 m. It aims 5 m beyond the wall face along the current heading, and SUPER (the same planner
+  C0 uses to pass this task) plans the way around. In open space it does nothing, so the camera
+  search runs as in round 2.
+
+H7 is kept as a measured negative: looking while moving cost the pilot GPU time and the drone
+flew half as far.
+
+126 live runtime tests pass. Round 4 reruns FULL_H125 only.
+Evidence: reports/paper_handles_d176/.

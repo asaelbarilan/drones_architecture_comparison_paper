@@ -148,8 +148,8 @@ beats the privileged C0 on the planning tasks, because C0 has the true goal but 
 Each page is one task (seed 1060). Every panel is one architecture, seen from above. The line is
 the drone's path, coloured by time (dark = start, yellow = 60 s). Grey blocks are walls, red
 blocks are walls that appear during the flight, and triangles are objects (black edge = the
-target). Rows: each group of architectures, then the same group with its handles: the handled versions, each directly below its vanilla version
-(+H = the handles that fit that architecture). All 12 tasks for all three seeds are in reports/paper_maps/.
+target). Rows: each group of architectures, with its handled version (+H = the handles that fit that
+architecture) in the row directly below. All 12 tasks for all three seeds are in reports/paper_maps/.
 
 <div class="break"></div>
 

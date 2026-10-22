@@ -195,10 +195,10 @@ def accept_native_line(state, payload, source, now):
     from .goals import Goal, relative_goal
 
     data = json.loads(payload) if isinstance(payload, str) else payload
+    measured = measured_line(state, data, source)  # H9 needs only the VLA's own box
     left = data.get("left")
-    if left is None:
+    if left is None and measured is None:
         raise ValueError("VLA wrote no parseable progress line")
-    measured = measured_line(state, data, source)
     if measured is None:
         limits = dict(state.settings, max_goal_m=state.settings["geofence_radius_m"])
         position, yaw = relative_goal(left, source, limits)

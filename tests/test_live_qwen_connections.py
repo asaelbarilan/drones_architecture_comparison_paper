@@ -84,3 +84,12 @@ def test_h4_a_measured_leg_that_ends_short_looks_again_instead_of_finishing():
                        ranged(PILLAR_M), ORIGIN_NS)
     assert look_again(state, ORIGIN_NS + s_to_ns(1)) and state.goal is None
     assert not state.stopped
+
+
+def test_h9_needs_only_the_box_when_the_written_line_is_cut_off():
+    state = native("range")
+    accept_native_line(state, dict(box=[375, 0, 775, 756], left=None), ranged(2.4), ORIGIN_NS)
+    assert state.goal is not None and state.goal.terminal
+    with pytest.raises(ValueError):
+        accept_native_line(native("model"), dict(box=[375, 0, 775, 756], left=None),
+                           ranged(2.4), ORIGIN_NS)

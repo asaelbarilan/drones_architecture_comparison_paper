@@ -113,7 +113,7 @@ def test_a_hidden_target_behind_a_wall_aims_behind_the_wall_and_open_space_does_
     from uavlab.live_qwen.executive import detour
 
     state = scheduler()
-    state.settings["architecture"]["perception"] = "openings"
+    state.settings["architecture"].update(perception="openings", detour="wall")
     state.steps = [dict(kind="visit", objective="visit pillar", target="pillar", final=True)]
     state.plan, state.goal, state.detours = dict(state.steps[0]), None, 0
     open_space = observation().model_copy(update=dict(

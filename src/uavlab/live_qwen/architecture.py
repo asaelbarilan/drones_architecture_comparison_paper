@@ -26,6 +26,8 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                openings    H5: measured range-fan openings for checks and pass steps
   tracking     stop        a follow step stops to look each time (default)
                moving      H7: a follow step looks again while flying (executive.py)
+  detour       none        a hidden object starts the camera search (default)
+               wall        H5 detour (D-177/178): aim behind a measured wall ahead, path progress
 """
 
 import dataclasses
@@ -37,12 +39,13 @@ from .world_contract import explicit_world
 
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
-                perception="vlm", tracking="stop")
+                perception="vlm", tracking="stop", detour="none")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
                contract={"flat", "typed"}, executive={"basic", "kinds"},
-               perception={"vlm", "openings"}, tracking={"stop", "moving"})
+               perception={"vlm", "openings"}, tracking={"stop", "moving"},
+               detour={"none", "wall"})
 
 
 def switches(settings):

@@ -118,7 +118,7 @@ def detour(state, obs, now):
     around it), then look again. In open space it does nothing, so the camera search runs.
     A bounded number per step; only range evidence chooses the viewpoint."""
     if (kind(state) not in ("visit", "pass") or state.goal is not None
-            or switch(state.settings, "perception") != "openings"
+            or switch(state.settings, "detour") != "wall"
             or state.detours >= MAX_DETOURS):
         return False
     distance = wall_ahead(obs, BLOCKING_M)
@@ -139,7 +139,7 @@ def detour(state, obs, now):
 def progress_distance(state, obs):
     """H5 v5 (D-178): with measured openings, progress toward a goal is measured along the
     planned path, so going around a wall end is not a stall; otherwise the straight distance."""
-    if switch(state.settings, "perception") == "openings" and state.path is not None:
+    if switch(state.settings, "detour") == "wall" and state.path is not None:
         return state.path.to_go(state.goal, obs)
     return obs.position.distance_to(state.goal.position)
 

@@ -31,7 +31,8 @@ includes typed task contracts, a single owner of mission sequencing, evidence-ba
 and the perception-to-state hand-off. We call this logic the system's *handles*. Adding three
 handles to the most complete vanilla stack, with no other change, raises it from 21/36 to
 30/36 and from 0/12 to 6/12 planning passes. Removing the typed contract or the executive alone
-returns it to 21/36. Two time-critical tasks stay unsolved by every architecture, the oracle
+returns it to 21/36. The same handles also lift the two other planner architectures
+(C13 22 -> 27, C10 16 -> 21). Two time-critical tasks stay unsolved by every architecture, the oracle
 included: they are bound by model latency, not by the logic between the modules.
 
 We argue that the handles, not the architecture family, determine whether a small foundation
@@ -137,6 +138,26 @@ model can plan for a drone. Architecture comparisons should report them as first
   architecture, C0 included on follow, because the first move comes after about 5.7 s of model
   time.
 - **5.7 VLA alone vs in a hierarchy.** C13 22/36 against C7 / C8 0/36 (D-169).
+- **5.8 The same handles on other architectures** (D-181). The handle set fits unchanged on every
+  architecture with a planner -> executor connection: FULL 21 -> 30, C13 22 -> 27, C10 16 -> 21.
+  C13 + H solves the if-then gate as FULL + H does. On C10 the timed planner overrides the
+  executive (two sequencing owners), and with the VLA pilot the ordered visit runs out of time.
+  C1-C6 have no such connection, so the handles are not applicable there; no box is added.
+- **Figures: task maps** (`scripts/paper_task_maps.py`). One page per task, one top-down panel
+  per architecture, path coloured by time:
+  - Figure M0: architecture legend (`figures/maps_legend.png`).
+  - Figure M1: if-then gate (`figures/map_s1060_conditional_gate.png`).
+  - Figure M2: ordered visit (`figures/map_s1060_ordered_visit.png`).
+  - Figure M3: closing passage (`figures/map_s1060_closing_passage.png`).
+  - Figure M4: follow target (`figures/map_s1060_follow_target.png`).
+  - Figure M5: obstacle slalom (`figures/map_s1060_obstacle_slalom.png`).
+
+![Task map legend](figures/maps_legend.png)
+![If-then gate](figures/map_s1060_conditional_gate.png)
+![Ordered visit](figures/map_s1060_ordered_visit.png)
+![Closing passage](figures/map_s1060_closing_passage.png)
+![Follow target](figures/map_s1060_follow_target.png)
+![Obstacle slalom](figures/map_s1060_obstacle_slalom.png)
 
 ## 6 Discussion (outline)
 

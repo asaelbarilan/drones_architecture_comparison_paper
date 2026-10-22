@@ -11,6 +11,15 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## ACTIVE GOAL (user, 2026-10-22, autonomous while away)
+
+Make the remaining planning tasks (conditional_gate, closing_passage, follow_target)
+pass via HANDLES only, on development seeds 1060-1062, building on FULL_H12/H125.
+Loop: diagnose raw events -> one handle fix (switch, default off) -> CPU tests ->
+commit -> 3-seed run -> record in RESEARCH_LOG / docs/RESEARCH.md / docs/paper/DRAFT.md.
+Limits: local GPU only; no AWS; no push; no held-out seeds (user runs those at the end).
+Stop: all three pass, or three rounds without progress. Then report briefly.
+
 ## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
 
 Read docs/RESEARCH.md, docs/research/HANDLES_20261022.md, docs/paper/DRAFT.md.

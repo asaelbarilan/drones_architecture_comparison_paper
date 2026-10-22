@@ -23,12 +23,16 @@ of one runtime, with the same small on-board model (Qwen3-VL-4B, plus a trained 
 the same real-time loop, the same path planner and safety shield, and the same twelve capability
 tasks. Built only from their diagram's modules, every model-driven architecture solves simple
 see-and-go missions and fails every task that needs planning: a conditional branch, an ordered
-visit, recovery from a closed passage, following a moving target [TBD: three-seed numbers].
+visit, recovery from a closed passage, following a moving target (0/12 planning passes for
+every model-driven architecture over 432 flights).
 
 The same model improves from 0/9 to 5/9 when only the connective logic changes. That logic
 includes typed task contracts, a single owner of mission sequencing, evidence-based completion,
-and the perception-to-state hand-off. We call this logic the system's *handles*. [TBD: handle
-ablation result.]
+and the perception-to-state hand-off. We call this logic the system's *handles*. Adding three
+handles to the most complete vanilla stack, with no other change, raises it from 21/36 to
+30/36 and from 0/12 to 6/12 planning passes. Removing the typed contract or the executive alone
+returns it to 21/36. Two time-critical tasks stay unsolved by every architecture, the oracle
+included: they are bound by model latency, not by the logic between the modules.
 
 We argue that the handles, not the architecture family, determine whether a small foundation
 model can plan for a drone. Architecture comparisons should report them as first-class factors.
@@ -113,7 +117,26 @@ model can plan for a drone. Architecture comparisons should report them as first
   + H2 21/36; + H1 and H2 27/36, with planning 0/12 -> 3/12 (ordered visit 3/3) and every
   non-planning task passed. The executive alone does nothing; the pair is better than either.
   Remaining failures: wall openings cannot be grounded by the 4B VLM, and tracking.
-- **5.4 VLA alone vs in a hierarchy.** [TBD]
+- **5.4 Stacking a perception handle** (D-174, D-175). + H5 measured openings: 28/36 when the
+  measured facts are only given to the VLM, which ignores them; 30/36 when sensor-answerable
+  questions are routed to the range sensor. The if-then gate goes to 3/3.
+- **5.5 Remove-one ablation of the final stack** (D-180, 3 seeds x 12 tasks).
+
+  | Arm | Passes / 36 | Planning / 12 |
+  |---|---|---|
+  | H1 + H2 + H5 | 30 | 6 |
+  | minus H5 | 27 | 3 |
+  | minus H2 | 21 | 0 |
+  | minus H1 | 21 | 0 |
+  | no handles (FULL) | 21 | 0 |
+
+  H1 and H2 are each necessary: removing either returns the stack to the no-handle level. H5
+  only helps on top of both.
+- **5.6 Negatives and the latency floor** (D-176 to D-179). Looking while moving (H7) and two
+  wall-detour designs did not help. follow_target and closing_passage fail for every
+  architecture, C0 included on follow, because the first move comes after about 5.7 s of model
+  time.
+- **5.7 VLA alone vs in a hierarchy.** C13 22/36 against C7 / C8 0/36 (D-169).
 
 ## 6 Discussion (outline)
 
@@ -131,5 +154,7 @@ model can plan for a drone. Architecture comparisons should report them as first
 - A synthetic rendered simulator, not AirSim or real flight.
 - One model family, at 4B.
 - Development seeds only, until the final held-out run.
+- Task outcomes are near deterministic across the three development seeds (PPP or FFF), so each
+  arm is closer to 12 outcomes than 36 trials, and the confidence intervals overstate precision.
 - The handles are partly designed by us. We mitigate this by using only public mission text
   and sensed state, never evaluator truth.

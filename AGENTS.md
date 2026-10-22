@@ -11,16 +11,13 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
-## ACTIVE GOAL (user, 2026-10-22, autonomous while away)
+## Last goal: DONE (user, 2026-10-22; finished D-180)
 
-Make the remaining planning tasks (conditional_gate, closing_passage, follow_target)
-pass via HANDLES only, on development seeds 1060-1062, building on FULL_H12/H125.
-Loop: diagnose raw events -> one handle fix (switch, default off) -> CPU tests ->
-commit -> 3-seed run -> record in RESEARCH_LOG / docs/RESEARCH.md / docs/paper/DRAFT.md.
-Limits: local GPU only; no AWS; no push; no held-out seeds (user runs those at the end).
-Stop: all three pass, or three rounds without progress. Then report briefly.
-Then (user, 2026-10-22): remove-one ablation of the final stack - full stack
-minus each handle (H1, H2, H5, H7 ...) one at a time, same 12 tasks x 3 seeds.
+Handles loop on development seeds 1060-1062: conditional_gate solved (3/3, D-175). The loop
+stopped after three rounds without progress (D-176..D-179): follow_target and closing_passage
+are latency-bound (RESEARCH.md Finding 3). Final stack FULL_H125 (H1 + H2 + H5) 30/36.
+Remove-one ablation done (D-180): minus H5 27, minus H2 21, minus H1 21, no handles 21.
+Next is the user's: the held-out run (seeds 1-40) and the paper. No push without permission.
 
 ## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
 

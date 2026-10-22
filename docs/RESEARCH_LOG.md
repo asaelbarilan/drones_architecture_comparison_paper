@@ -4199,3 +4199,27 @@ What remains open, and why:
 Remove-one ablation (reports/paper_ablation_d179/): FULL_H125, FULL_H12 (no H5), FULL_H15
 (no H2), FULL_H25 (no H1), 12 tasks x 3 seeds each. FULL (no handles) is the D-169 arm.
 Evidence: reports/paper_handles_d178/.
+
+### D-180: remove-one ablation of the final stack (2026-10-22)
+
+The final stack FULL_H125 (H1 typed contract, H2 kind-aware executive, H5 measured openings),
+and the same stack minus each handle. 12 tasks x seeds 1060-1062, the same model and runtime.
+
+| Arm | Passes / 36 (Wilson 95 %) | Planning / 12 | Tasks lost against the full stack |
+|---|---|---|---|
+| Full stack (H1 + H2 + H5) | 30 (0.68-0.92) | 6 | - |
+| minus H5 (FULL_H12) | 27 (0.59-0.86) | 3 | conditional_gate 3 |
+| minus H2 (FULL_H15) | 21 (0.42-0.73) | 0 | conditional_gate 3, ordered_visit 3, approach_hover 3 |
+| minus H1 (FULL_H25) | 21 (0.42-0.73) | 0 | conditional_gate 3, ordered_visit 3, obstacle_slalom 3 |
+| no handles (FULL, D-169) | 21 (0.42-0.73) | 0 | - |
+
+- The full stack replicates round 2 exactly (30/36, gate 3/3, ordered visit 3/3).
+- Removing H1 or H2 drops the stack to the no-handle level (21/36). Neither works without the
+  other, which matches the D-173 2x2 (H1 alone 24, H2 alone 21, both 27). H5 is useful only on
+  top of both, because its check routing and measured pass act on typed condition / pass steps.
+- Every task gave the same outcome on all three seeds in every arm (PPP or FFF). The 36 flights
+  per arm therefore behave more like 12 task outcomes than 36 independent trials, and the Wilson
+  intervals overstate the precision. The differences are whole tasks that flip, not noise. The
+  held-out seeds must test whether this holds beyond seeds 1060-1062.
+
+Evidence: reports/paper_ablation_d179/ (run.log, run_ablation.sh).

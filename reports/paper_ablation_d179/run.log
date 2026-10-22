@@ -1,0 +1,26 @@
+starting 08:05:35
+=== s1060 FULL_H125 08:05:35
+exit=0 passes=10
+=== s1060 FULL_H12 08:12:39
+exit=0 passes=9
+=== s1060 FULL_H15 08:20:12
+exit=0 passes=7
+=== s1060 FULL_H25 08:28:29
+exit=0 passes=7
+=== s1061 FULL_H125 08:37:44
+exit=0 passes=10
+=== s1061 FULL_H12 08:45:07
+exit=0 passes=9
+=== s1061 FULL_H15 08:52:38
+exit=0 passes=7
+=== s1061 FULL_H25 09:01:01
+exit=0 passes=7
+=== s1062 FULL_H125 09:10:14
+exit=0 passes=10
+=== s1062 FULL_H12 09:17:20
+exit=0 passes=9
+=== s1062 FULL_H15 09:24:49
+exit=0 passes=7
+=== s1062 FULL_H25 09:33:13
+exit=0 passes=7
+=== DONE 09:42:26

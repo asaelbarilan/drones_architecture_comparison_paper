@@ -151,6 +151,17 @@ model can plan for a drone. Architecture comparisons should report them as first
   H4 already existed in FULL's planned path ("hidden handles") but never reached C2-C5.
   Planning tasks stay at 0 without a planner: the handles that solve planning need a plan
   connection to act on.
+- **5.10 Timing: where the VLA is fast and where it is slow** (held-out seeds 1-8, about
+  15,000 VLA requests; `scripts/paper_vla_timing.py`, Figure T1). As a pilot, the VLA streams
+  its first action at a median of 0.26 s and a full 8-action chunk at 0.77 s, the same in every
+  architecture, with or without handles. That is well inside the 1.5 s action expiry; the
+  classical pilot takes 0.06 s. As the sole decision-maker (C7 / C8), writing its own target box
+  and goal line takes a median of 9.3 s per line. So actions are fast enough in every
+  architecture; the VLA is slow only where it must decide where to go. This fits the latency
+  floor in 5.6: the cost is in the deciding calls (planner, grounding, goal line), not in flying.
+  Figure T1: `figures/vla_timing.png`.
+
+![VLA timing per architecture](figures/vla_timing.png)
 - **Figures: task maps** (`scripts/paper_task_maps.py`). One page per task, one top-down panel
   per architecture, path coloured by time:
   - Figure M0: architecture legend (`figures/maps_legend.png`).

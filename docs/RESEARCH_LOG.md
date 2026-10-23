@@ -4290,3 +4290,45 @@ Arms: C2_H..C6_H = + H3 + H4; C7_H, C8_H = + H4 + H9. 12 tasks x seeds 1060-1062
   hold a branch or an order.
 
 Evidence: reports/paper_connections_d182/ (run.log, run.sh).
+
+### D-183: public benchmark full-architecture boundary preflight (2026-10-23)
+
+User authorized public benchmark testing with the VLA and existing handles.
+Reuse C13_H125; FULL_H125 uses a classical pilot and is not the requested arm.
+Rationale: preserve planner/executive/perception integration while adapting only
+the simulator boundary; do not report grid3d runs as public benchmark results.
+Added offline validation-only loader, instruction allowlist, arm selection and
+pose/depth conversion checks. AerialVLN-S val_seen contains333 episodes; no
+train/test members read. Upstream pinned at1c2fb6f17af3098d083edf31f13dec83dd65d1d3.
+Status: integration incomplete, zero flights/updates. Official AirSim bridge is
+missing; existing OpenFly renderer has a historical failed smoke. No AWS use.
+Evidence: reports/public_benchmark_preflight_20261023/REPORT.md and preflight.json;
+14 boundary/handles tests passed. Existing paper configurations unchanged.
+
+D-183 continuation: user requires waiting for all existing GPU runs. Live
+process inspection confirmed both held-out execution and queued launchers;
+created an hourly monitor and left the GPU untouched. Isolated sensor module
+adds camera channel calibration, ray-depth to planar-Z conversion and pose
+conversion. Existing grounding recovers10m off-axis range in a synthetic test;
+16 focused tests/code checks pass. No real sensor or flight claim. Runtime
+range/shield channels and official action/evaluator bridge still incomplete.
+
+D-183 CPU continuation2: reproducible three-case validation manifest frozen by
+sorted episode ID, not performance. Policy instructions, simulator reset data
+and evaluator goals/routes saved separately. Preparer refuses overwrite/test
+split and imports no model/simulator.17 focused tests and code checks pass.
+Live process check again confirms held-out/queued jobs; GPU remains untouched.
+Forward benchmark sensing versus360-degree grid range fan is a remaining
+compatibility issue, not permission to invent free-space or privileged sensing.
+
+### D-183: VLA timing per architecture (2026-10-23)
+
+From the wall-clock events of held-out seeds 1-8 (about 15,000 VLA requests;
+scripts/paper_vla_timing.py, reports/paper_maps/vla_timing.png):
+- VLA pilot, request -> first streamed action: median 0.26 s in every VLA architecture
+  (C7, C8, C10, C13, with and without handles).
+- VLA pilot, request -> all 8 actions (complete chunks only; chunks revoked early are left out):
+  median 0.77 s, the same everywhere. Classical pilot: 0.06 s.
+- VLA alone (C7 / C8), request -> own box + goal line: median 9.3 s per line.
+Actions are fast enough for every architecture (well inside the 1.5 s expiry). The VLA is slow
+only as the decision-maker, which fits the latency floor (D-177): deciding is what costs time.

@@ -37,6 +37,7 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
   oracle_plan  False       D-185 privileged: the first typed program is the correct one
   oracle_grounding False   D-185 privileged: looks return the true box of a visible object
                            (oracles.py; reference lines only, never results)
+  oracle_delay_s 0.0       hold an oracle look for the model's measured grounding latency
 """
 
 import dataclasses
@@ -50,7 +51,7 @@ DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recover
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
                 perception="vlm", tracking="stop", detour="none", search="planner",
                 completion="default", measure="model", oracle_plan=False,
-                oracle_grounding=False)
+                oracle_grounding=False, oracle_delay_s=0.0)
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},

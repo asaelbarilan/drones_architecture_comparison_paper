@@ -9,6 +9,8 @@ One level at a time is replaced by a perfect version while the rest of the stack
   evaluator scene, only when the object is in view and not hidden behind a wall (the depth
   image must reach it); otherwise the model answers as usual. A hidden object is never given
   away.
+oracle_delay_s holds each oracle look for the model's measured grounding latency (3.0 s median
+in FULL + H, D-185), so "perfect perception" is not also "instant perception".
 The pilot oracle is a configuration (C0_VLA: the C0 goal with the VLA pilot), not code here.
 """
 
@@ -25,6 +27,7 @@ PILLAR = dict(radius_m=0.5, half_height_m=1.5)
 VEHICLE = dict(radius_m=1.0, half_height_m=0.6)
 HIDDEN_MARGIN_M = 1.5  # the depth ray may stop this far in front of the object's centre
 MIN_BOX = 8  # normalized units
+HEIGHT_SAMPLES = 9
 
 
 def oracle_program(state):
@@ -74,23 +77,39 @@ def camera_point(position, obs, pitch):
     return forward, right, up
 
 
-def true_box(obj, obs, settings, depth):
-    """The object's normalized box when it is in view and not hidden, else None."""
+def visible_pixels(obj, obs, settings, depth):
+    """Pixels of sample points over the object's extent that the depth image actually reaches.
+
+    D-185 fix: one centre pixel called a pillar hidden when a low wall covered its centre but
+    its top showed above the wall, which the VLM sees. Samples across the width and height
+    keep only the visible part, so a fully hidden object still yields nothing."""
     _, position, size = obj
     intr = obs.intrinsics
     forward, right, up = camera_point(position, obs, settings["camera_pitch_rad"])
     if intr is None or forward <= size["radius_m"]:
+        return []
+    found = []
+    for dr in (-size["radius_m"], 0.0, size["radius_m"]):
+        for dz in np.linspace(-size["half_height_m"], size["half_height_m"], HEIGHT_SAMPLES):
+            px = intr.cx + (right + dr) * intr.fx / forward
+            py = intr.cy - (up + dz) * intr.fy / forward
+            if not (0 <= px < intr.width and 0 <= py < intr.height):
+                continue
+            if depth is None or depth[int(py), int(px)] >= forward - HIDDEN_MARGIN_M:
+                found.append((px, py))
+    return found
+
+
+def true_box(obj, obs, settings, depth):
+    """The normalized box of the object's visible part, else None (never a hidden object)."""
+    found = visible_pixels(obj, obs, settings, depth)
+    if not found:
         return None
-    px = intr.cx + right * intr.fx / forward
-    py = intr.cy - up * intr.fy / forward
-    if not (0 <= px < intr.width and 0 <= py < intr.height):
-        return None
-    if depth is not None and depth[int(py), int(px)] < forward - HIDDEN_MARGIN_M:
-        return None  # a wall is in front of it: never give a hidden object away
-    half_w = max(MIN_BOX / 2, size["radius_m"] * intr.fx / forward * COORD_MAX / intr.width)
-    half_h = max(MIN_BOX / 2, size["half_height_m"] * intr.fy / forward * COORD_MAX / intr.height)
-    u, v = px * COORD_MAX / intr.width, py * COORD_MAX / intr.height
-    box = [u - half_w, v - half_h, u + half_w, v + half_h]
+    intr = obs.intrinsics
+    us = [px * COORD_MAX / intr.width for px, _ in found]
+    vs = [py * COORD_MAX / intr.height for _, py in found]
+    box = [min(us) - MIN_BOX / 2, min(vs) - MIN_BOX / 2, max(us) + MIN_BOX / 2,
+           max(vs) + MIN_BOX / 2]
     return [int(min(COORD_MAX, max(0, round(b)))) for b in box]
 
 
@@ -121,13 +140,26 @@ def privileged_answer(state, role, obs, captured, now):
     look = oracle_look(state, obs)
     if look is None:
         return False
-    state.log("oracle_grounding", now, payload=look, source_seq=obs.seq)
     state.last_look_sim = obs.t_sim_ns
-    state.pending_depth = capture_depth(obs)
+    ready = now + int(float(switch(state.settings, "oracle_delay_s")) * 1e9)
+    state.oracle_pending = (ready, look, obs, captured, capture_depth(obs))
+    state.hold_until = max(state.hold_until, ready)  # like a busy worker during a VLM call
+    release_look(state, now)
+    return True
+
+
+def release_look(state, now):
+    """Apply a pending oracle look once its matched delay has passed (D-185 latency match)."""
+    pending = getattr(state, "oracle_pending", None)
+    if pending is None or now < pending[0]:
+        return
+    state.oracle_pending = None
+    _, look, obs, captured, depth = pending
+    state.log("oracle_grounding", now, payload=look, source_seq=obs.seq)
+    state.pending_depth = depth
     try:
         state.accept_goal(json.dumps(look), obs, captured, now)
     except (ValueError, KeyError, TypeError) as exc:
         state.failure(str(exc), now)
     finally:
         state.pending_depth = None
-    return True

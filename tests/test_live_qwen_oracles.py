@@ -66,3 +66,28 @@ def test_the_plan_oracle_feeds_the_typed_contract_once_and_never_recovery():
     flat = SimpleNamespace(settings=dict(settings, architecture=dict(oracle_plan=True)),
                            planner_event=None)
     assert oracle_program(flat) is None
+
+
+def test_a_pillar_whose_centre_is_behind_a_low_wall_shows_its_top():
+    """D-185 fix: the visible part above a low wall counts; a fully hidden pillar still not."""
+    pillar = ("red pillar", np.array([12.0, 0.0, 3.0]), PILLAR)
+    obs = seen()
+    depth = np.full((224, 224), FAR)
+    depth[100:, :] = 6.0  # a low wall 6 m ahead covers everything from row 100 down
+    box = true_box(pillar, obs, SETTINGS, depth)
+    assert box is not None and box[3] <= 100 * 1000 / 224 + 8  # only the part above the wall
+    assert true_box(pillar, obs, SETTINGS, np.full((224, 224), 6.0)) is None
+
+
+def test_a_delayed_oracle_look_is_applied_only_after_the_matched_latency():
+    from uavlab.live_qwen.oracles import release_look
+
+    applied = []
+    state = SimpleNamespace(oracle_pending=(5, dict(target_visible=False, box=None), seen(), 1,
+                                            None),
+                            pending_depth=None, log=lambda *a, **k: None,
+                            accept_goal=lambda payload, *a: applied.append(payload))
+    release_look(state, 4)
+    assert applied == [] and state.oracle_pending is not None
+    release_look(state, 5)
+    assert len(applied) == 1 and state.oracle_pending is None

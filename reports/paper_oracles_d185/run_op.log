@@ -1,0 +1,56 @@
+starting 14:21:56 commit 717f520
+skip reports/paper_oracles_d185/twins/s1060/C0 (exists)
+skip reports/paper_oracles_d185/twins/s1060/C0_VLA (exists)
+skip reports/paper_oracles_d185/twins/s1060/FULL (exists)
+skip reports/paper_oracles_d185/twins/s1060/FULL_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1060/C13_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1060/C3_H (exists)
+=== reports/paper_oracles_d185/twins/s1060/FULL_H125_OP 14:21:56
+exit=0 passes=0
+skip reports/paper_oracles_d185/twins/s1060/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1060/C0_VLA (exists)
+=== reports/paper_oracles_d185/s1060/FULL_H125_OP 14:23:20
+exit=0 passes=11
+=== reports/paper_oracles_d185/s1060/C13_H125_OP 14:29:33
+exit=0 passes=9
+skip reports/paper_oracles_d185/s1060/FULL_OG (exists)
+skip reports/paper_oracles_d185/s1060/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1060/C13_H125_OG (exists)
+skip reports/paper_oracles_d185/s1060/C3_H_OG (exists)
+skip reports/paper_oracles_d185/twins/s1061/C0 (exists)
+skip reports/paper_oracles_d185/twins/s1061/C0_VLA (exists)
+skip reports/paper_oracles_d185/twins/s1061/FULL (exists)
+skip reports/paper_oracles_d185/twins/s1061/FULL_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1061/C13_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1061/C3_H (exists)
+=== reports/paper_oracles_d185/twins/s1061/FULL_H125_OP 14:38:35
+exit=0 passes=0
+skip reports/paper_oracles_d185/twins/s1061/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1061/C0_VLA (exists)
+=== reports/paper_oracles_d185/s1061/FULL_H125_OP 14:39:57
+exit=0 passes=11
+=== reports/paper_oracles_d185/s1061/C13_H125_OP 14:46:19
+exit=0 passes=9
+skip reports/paper_oracles_d185/s1061/FULL_OG (exists)
+skip reports/paper_oracles_d185/s1061/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1061/C13_H125_OG (exists)
+skip reports/paper_oracles_d185/s1061/C3_H_OG (exists)
+skip reports/paper_oracles_d185/twins/s1062/C0 (exists)
+skip reports/paper_oracles_d185/twins/s1062/C0_VLA (exists)
+skip reports/paper_oracles_d185/twins/s1062/FULL (exists)
+skip reports/paper_oracles_d185/twins/s1062/FULL_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1062/C13_H125 (exists)
+skip reports/paper_oracles_d185/twins/s1062/C3_H (exists)
+=== reports/paper_oracles_d185/twins/s1062/FULL_H125_OP 14:54:28
+exit=0 passes=0
+skip reports/paper_oracles_d185/twins/s1062/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1062/C0_VLA (exists)
+=== reports/paper_oracles_d185/s1062/FULL_H125_OP 14:55:50
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1062/C13_H125_OP 15:02:17
+exit=0 passes=10
+skip reports/paper_oracles_d185/s1062/FULL_OG (exists)
+skip reports/paper_oracles_d185/s1062/FULL_H125_OG (exists)
+skip reports/paper_oracles_d185/s1062/C13_H125_OG (exists)
+skip reports/paper_oracles_d185/s1062/C3_H_OG (exists)
+=== DONE 15:10:03

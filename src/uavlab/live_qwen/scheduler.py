@@ -37,7 +37,7 @@ from .executive import typed as typed_contract
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, observed_range
 from .mission_plan import accept_plan, validate_direction
-from .oracles import privileged_answer
+from .oracles import privileged_answer, release_look
 from .path import PathFollower
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
@@ -138,6 +138,7 @@ class GoalScheduler:
         self.last_yaw = obs.yaw_rad
         for event in self.worker.poll(self.version, now):
             self.receive(event, obs, now)
+        release_look(self, now)
         if self.hold_started is not None:
             self.check_hold(obs, now)
             return

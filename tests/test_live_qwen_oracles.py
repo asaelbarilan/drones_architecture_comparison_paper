@@ -57,7 +57,10 @@ def test_the_plan_oracle_feeds_the_typed_contract_once_and_never_recovery():
     settings = dict(architecture=dict(contract="typed", oracle_plan=True),
                     oracle_program=[dict(kind="search", object="red pillar")])
     state = SimpleNamespace(settings=settings, planner_event=None)
-    assert '"search"' in oracle_program(state)
+    from uavlab.live_qwen.contract import parse_contract
+
+    program, repairs = parse_contract(oracle_program(state), "Find the red pillar.")
+    assert program[0]["kind"] == "search" and repairs == []  # the same parser as the model
     state.planner_event = "target_lost"
     assert oracle_program(state) is None
     flat = SimpleNamespace(settings=dict(settings, architecture=dict(oracle_plan=True)),

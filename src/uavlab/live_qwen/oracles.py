@@ -33,7 +33,7 @@ def oracle_program(state):
             or switch(state.settings, "contract") != "typed"):
         return None
     program = state.settings.get("oracle_program")
-    return None if program is None else json.dumps(program)
+    return None if program is None else json.dumps(dict(program=program))  # as the model writes it
 
 
 def scene_objects(env):

@@ -1,0 +1,18 @@
+[
+ {
+  "detector": "YOLO-World-S",
+  "pillar_hits": "33/39",
+  "pillar_mean_iou": 0.815,
+  "overturned_hits": "0/9",
+  "median_ms": 37.4,
+  "p95_ms": 261.9
+ },
+ {
+  "detector": "OWLv2-base",
+  "pillar_hits": "33/39",
+  "pillar_mean_iou": 0.812,
+  "overturned_hits": "2/9",
+  "median_ms": 413.5,
+  "p95_ms": 434.5
+ }
+]

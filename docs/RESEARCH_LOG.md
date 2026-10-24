@@ -4478,3 +4478,30 @@ Candidate handles for the gaps (step 2, equal budget per architecture): an attri
 the named object (H6, yes/no "is this vehicle upside down?" before committing) and a plan critic
 that checks a typed program against the mission's stated structure before it runs (LLM-Modulo
 style: a sound external check, not self-critique).
+
+### D-186: YOLO-World and OWLv2 against the VLM on the same frames (2026-10-25)
+
+Offline probe, no flight. 54 simulator frames (6 object tasks x 3 development seeds x 0 / 3 / 6 m
+along the line to the object), with true boxes of each visible part from the renderer's
+geometry (make_detector_frames.py; the oracle's extents were corrected to the renderer's
+landmark tower: 0.88 m half-width, 1.44 m below and 3.52 m above the centre). The detectors
+reuse drone_control's environment and weights (YOLO-World-S yolov8s-world.pt, OWLv2-base from
+the HF cache); nothing was downloaded or installed. The VLM uses the runtime GROUNDING prompt.
+
+| Perception | Pillar: box centre on the pillar | Pillar mean IoU | Overturned car: centre on it / on the upright car | Time per look |
+|---|---|---|---|---|
+| YOLO-World-S | 33/39 | 0.82 | 0/9 / 0 | 37 ms median (GPU) |
+| OWLv2-base | 36/39 | 0.81 | 2/9 / 3 | 414 ms |
+| Qwen3-VL-4B (runtime) | 33/39 | 0.44 | 6/9 / 1 | 1.5-3.0 s in flight (D-183/185); 12 s in this unoptimised probe |
+
+- Every pillar miss of all three is the low wall at 3 and 6 m, where only the pillar top shows.
+- The detectors give tighter boxes (IoU 0.8 against 0.44), but navigation uses the box centre,
+  where the three are equal.
+- The VLM is clearly best at the attribute: "overturned" vs "upright" (6/9 against 0-2/9).
+- YOLO-World is 40-80x faster than the VLM look. Speed is what follow_target needs (the D-185
+  twins: perfect looks pass only when instant).
+So a detector does not make grounding more accurate here; its value is speed. The fitting
+design is a hybrid perception box: the VLM chooses and names the object, and a fast
+open-vocabulary detector re-finds it between VLM looks. That adds a box, so it is an
+architecture variant, not a handle.
+Evidence: reports/detector_probe/ (truth.json, per-detector JSON, summary.json).

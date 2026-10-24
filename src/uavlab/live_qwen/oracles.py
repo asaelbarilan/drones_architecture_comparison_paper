@@ -23,8 +23,10 @@ from .architecture import switch
 from .grounding import COORD_MAX, capture_depth
 
 COLOURS = ("red", "blue", "green", "yellow")
-PILLAR = dict(radius_m=0.5, half_height_m=1.5)
-VEHICLE = dict(radius_m=1.0, half_height_m=0.6)
+# Extents as the renderer draws them (render.py: a landmark tower is 0.55 x 1.6 m each side,
+# 0.9 x 1.6 m below and 2.2 x 1.6 m above its centre; a vehicle body is 1.6 m long, low).
+PILLAR = dict(radius_m=0.88, below_m=1.44, above_m=3.52)
+VEHICLE = dict(radius_m=1.6, below_m=0.6, above_m=0.6)
 HIDDEN_MARGIN_M = 1.5  # the depth ray may stop this far in front of the object's centre
 MIN_BOX = 8  # normalized units
 HEIGHT_SAMPLES = 9
@@ -90,7 +92,7 @@ def visible_pixels(obj, obs, settings, depth):
         return []
     found = []
     for dr in (-size["radius_m"], 0.0, size["radius_m"]):
-        for dz in np.linspace(-size["half_height_m"], size["half_height_m"], HEIGHT_SAMPLES):
+        for dz in np.linspace(-size["below_m"], size["above_m"], HEIGHT_SAMPLES):
             px = intr.cx + (right + dr) * intr.fx / forward
             py = intr.cy - (up + dz) * intr.fy / forward
             if not (0 <= px < intr.width and 0 <= py < intr.height):

@@ -1,0 +1,749 @@
+[
+ {
+  "image": "visible_target_s1060_a0.png",
+  "task": "visible_target",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1060_a3.png",
+  "task": "visible_target",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1060_a6.png",
+  "task": "visible_target",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1061_a0.png",
+  "task": "visible_target",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1061_a3.png",
+  "task": "visible_target",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1061_a6.png",
+  "task": "visible_target",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1062_a0.png",
+  "task": "visible_target",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1062_a3.png",
+  "task": "visible_target",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "visible_target_s1062_a6.png",
+  "task": "visible_target",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1060_a0.png",
+  "task": "approach_hover",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1060_a3.png",
+  "task": "approach_hover",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1060_a6.png",
+  "task": "approach_hover",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1061_a0.png",
+  "task": "approach_hover",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1061_a3.png",
+  "task": "approach_hover",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1061_a6.png",
+  "task": "approach_hover",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1062_a0.png",
+  "task": "approach_hover",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    514
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1062_a3.png",
+  "task": "approach_hover",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    534
+   ]
+  }
+ },
+ {
+  "image": "approach_hover_s1062_a6.png",
+  "task": "approach_hover",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1060_a0.png",
+  "task": "ordered_visit",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    0,
+    185,
+    138,
+    560
+   ],
+   "blue pillar": [
+    469,
+    339,
+    531,
+    498
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1060_a3.png",
+  "task": "ordered_visit",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {
+   "blue pillar": [
+    463,
+    315,
+    537,
+    507
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1060_a6.png",
+  "task": "ordered_visit",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {
+   "blue pillar": [
+    454,
+    277,
+    546,
+    523
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1061_a0.png",
+  "task": "ordered_visit",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    0,
+    185,
+    138,
+    560
+   ],
+   "blue pillar": [
+    469,
+    339,
+    531,
+    498
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1061_a3.png",
+  "task": "ordered_visit",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {
+   "blue pillar": [
+    463,
+    315,
+    537,
+    507
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1061_a6.png",
+  "task": "ordered_visit",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {
+   "blue pillar": [
+    454,
+    277,
+    546,
+    523
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1062_a0.png",
+  "task": "ordered_visit",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    0,
+    185,
+    138,
+    560
+   ],
+   "blue pillar": [
+    469,
+    339,
+    531,
+    498
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1062_a3.png",
+  "task": "ordered_visit",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {
+   "blue pillar": [
+    463,
+    315,
+    537,
+    507
+   ]
+  }
+ },
+ {
+  "image": "ordered_visit_s1062_a6.png",
+  "task": "ordered_visit",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {
+   "blue pillar": [
+    454,
+    277,
+    546,
+    523
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1060_a0.png",
+  "task": "overturned_vehicle",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {
+   "overturned vehicle": [
+    433,
+    505,
+    567,
+    560
+   ],
+   "upright vehicle": [
+    49,
+    519,
+    213,
+    586
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1060_a3.png",
+  "task": "overturned_vehicle",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {
+   "overturned vehicle": [
+    414,
+    523,
+    586,
+    592
+   ],
+   "upright vehicle": [
+    85,
+    549,
+    93,
+    640
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1060_a6.png",
+  "task": "overturned_vehicle",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {
+   "overturned vehicle": [
+    379,
+    556,
+    621,
+    652
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1061_a0.png",
+  "task": "overturned_vehicle",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {
+   "upright vehicle": [
+    787,
+    519,
+    951,
+    586
+   ],
+   "overturned vehicle": [
+    433,
+    505,
+    567,
+    560
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1061_a3.png",
+  "task": "overturned_vehicle",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {
+   "upright vehicle": [
+    907,
+    549,
+    915,
+    640
+   ],
+   "overturned vehicle": [
+    414,
+    523,
+    586,
+    592
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1061_a6.png",
+  "task": "overturned_vehicle",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {
+   "overturned vehicle": [
+    379,
+    556,
+    621,
+    652
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1062_a0.png",
+  "task": "overturned_vehicle",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {
+   "overturned vehicle": [
+    433,
+    505,
+    567,
+    560
+   ],
+   "upright vehicle": [
+    49,
+    519,
+    213,
+    586
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1062_a3.png",
+  "task": "overturned_vehicle",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {
+   "overturned vehicle": [
+    414,
+    523,
+    586,
+    592
+   ],
+   "upright vehicle": [
+    85,
+    549,
+    93,
+    640
+   ]
+  }
+ },
+ {
+  "image": "overturned_vehicle_s1062_a6.png",
+  "task": "overturned_vehicle",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {
+   "overturned vehicle": [
+    379,
+    556,
+    621,
+    652
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1060_a0.png",
+  "task": "obstacle_low_wall",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    410
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1060_a3.png",
+  "task": "obstacle_low_wall",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    396
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1060_a6.png",
+  "task": "obstacle_low_wall",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1061_a0.png",
+  "task": "obstacle_low_wall",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    410
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1061_a3.png",
+  "task": "obstacle_low_wall",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    396
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1061_a6.png",
+  "task": "obstacle_low_wall",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1062_a0.png",
+  "task": "obstacle_low_wall",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {
+   "red pillar": [
+    459,
+    298,
+    541,
+    410
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1062_a3.png",
+  "task": "obstacle_low_wall",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {
+   "red pillar": [
+    447,
+    249,
+    553,
+    396
+   ]
+  }
+ },
+ {
+  "image": "obstacle_low_wall_s1062_a6.png",
+  "task": "obstacle_low_wall",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {
+   "red pillar": [
+    422,
+    151,
+    578,
+    574
+   ]
+  }
+ },
+ {
+  "image": "conditional_gate_s1060_a0.png",
+  "task": "conditional_gate",
+  "seed": 1060,
+  "advance_m": 0.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1060_a3.png",
+  "task": "conditional_gate",
+  "seed": 1060,
+  "advance_m": 3.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1060_a6.png",
+  "task": "conditional_gate",
+  "seed": 1060,
+  "advance_m": 6.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1061_a0.png",
+  "task": "conditional_gate",
+  "seed": 1061,
+  "advance_m": 0.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1061_a3.png",
+  "task": "conditional_gate",
+  "seed": 1061,
+  "advance_m": 3.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1061_a6.png",
+  "task": "conditional_gate",
+  "seed": 1061,
+  "advance_m": 6.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1062_a0.png",
+  "task": "conditional_gate",
+  "seed": 1062,
+  "advance_m": 0.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1062_a3.png",
+  "task": "conditional_gate",
+  "seed": 1062,
+  "advance_m": 3.0,
+  "boxes": {}
+ },
+ {
+  "image": "conditional_gate_s1062_a6.png",
+  "task": "conditional_gate",
+  "seed": 1062,
+  "advance_m": 6.0,
+  "boxes": {}
+ }
+]

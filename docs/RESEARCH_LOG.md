@@ -4459,3 +4459,22 @@ Reading:
 
 Part 3 (running): matched-latency grounding oracle on C1, C2 / C4 / C5 / C6 + H, C10 + H, and
 the C10 plan oracle. Evidence: reports/paper_oracles_d185/ (run*.log).
+
+### D-185 part 3: the remaining architectures (2026-10-24)
+
+Grounding oracle held for the 3.0 s model latency (/36, development seeds 1060-1062):
+C1 9 -> 12 (slalom 0 -> 3), C2 + H 19 -> 21, C4 + H 23 -> 24, C5 + H 23 -> 24, C6 + H 23 -> 24,
+C10 + H 21 -> 23. Plan oracle: C10 + H 21 -> 23 (conditional_gate 0 -> 2/3).
+
+Where the perfect parts make the score jump, over all architectures:
+- Perception: almost only on overturned_vehicle (the VLM sometimes points at the upright car),
+  and C1 / FULL on slalom. Otherwise perfect grounding changes nothing.
+- Plan: closing_passage on FULL + H and C13 + H (swapped branches), conditional_gate on C10 + H.
+- Pilot: nowhere (C0-VLA = C0).
+- Planning tasks on C1-C6: 0 even with perfect perception, so that limit is the architecture
+  (no plan connection), not perception.
+- follow_target: look latency (the D-185 twins).
+Candidate handles for the gaps (step 2, equal budget per architecture): an attribute check for
+the named object (H6, yes/no "is this vehicle upside down?" before committing) and a plan critic
+that checks a typed program against the mission's stated structure before it runs (LLM-Modulo
+style: a sound external check, not self-critique).

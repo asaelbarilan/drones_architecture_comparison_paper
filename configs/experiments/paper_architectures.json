@@ -539,6 +539,119 @@
         "oracle_delay_s": 3.0
       },
       "path_planner": "super"
+    },
+    "C1_OGD": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "C1 text-only LLM skill agent (goto/approach/detect/scan/hover/done) -> classical pilot + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "skills",
+        "verifier": true,
+        "monitor": "none",
+        "recovery": "none",
+        "memory": false,
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C2_H_OGD": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "C2 VLM point -> waypoint -> classical pilot + H3 + H4 + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "instruction",
+        "verifier": false,
+        "monitor": "none",
+        "recovery": "none",
+        "memory": false,
+        "search": "policy",
+        "completion": "evidence",
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C4_H_OGD": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "C4 = C3 + periodic monitor + H3 + H4 + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "instruction",
+        "verifier": true,
+        "monitor": "periodic",
+        "recovery": "none",
+        "memory": false,
+        "search": "policy",
+        "completion": "evidence",
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C5_H_OGD": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "C5 = C4 + memory + H3 + H4 + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "instruction",
+        "verifier": true,
+        "monitor": "periodic",
+        "recovery": "none",
+        "memory": true,
+        "search": "policy",
+        "completion": "evidence",
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C6_H_OGD": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "C6 = C3 + event-triggered recovery planner + H3 + H4 + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "instruction",
+        "verifier": true,
+        "monitor": "none",
+        "recovery": "event",
+        "memory": false,
+        "search": "policy",
+        "completion": "evidence",
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C10_H125_OGD": {
+      "pilot_mode": "vla",
+      "architecture": {
+        "name": "C10 periodic planner -> VLA pilot -> shield + H1 + H2 + H5 + grounding oracle with the model's 3.0 s latency (privileged)",
+        "goal_source": "planned",
+        "verifier": true,
+        "monitor": "default",
+        "recovery": "periodic",
+        "memory": true,
+        "recovery_interval_s": 20.0,
+        "contract": "typed",
+        "executive": "kinds",
+        "perception": "openings",
+        "oracle_grounding": true,
+        "oracle_delay_s": 3.0
+      },
+      "path_planner": "super"
+    },
+    "C10_H125_OP": {
+      "pilot_mode": "vla",
+      "architecture": {
+        "name": "C10 periodic planner -> VLA pilot -> shield + H1 + H2 + H5 + plan oracle (privileged)",
+        "goal_source": "planned",
+        "verifier": true,
+        "monitor": "default",
+        "recovery": "periodic",
+        "memory": true,
+        "recovery_interval_s": 20.0,
+        "contract": "typed",
+        "executive": "kinds",
+        "perception": "openings",
+        "oracle_plan": true
+      },
+      "path_planner": "super"
     }
   }
 }

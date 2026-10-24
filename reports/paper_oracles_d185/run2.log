@@ -1,0 +1,62 @@
+starting 15:12:11 commit 24d439f
+=== reports/paper_oracles_d185/twins/s1060/FULL_H125_OG 15:12:11
+exit=0 passes=2
+=== reports/paper_oracles_d185/twins/s1060/FULL_H125_OGD 15:14:30
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1060/C3_H_OG 15:16:58
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1060/C3_H_OGD 15:18:45
+exit=0 passes=0
+=== reports/paper_oracles_d185/s1060/FULL_OG 15:21:21
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1060/FULL_H125_OG 15:28:38
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1060/C13_H125_OG 15:33:56
+exit=0 passes=9
+=== reports/paper_oracles_d185/s1060/C3_H_OG 15:40:45
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1060/FULL_H125_OGD 15:46:09
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1060/C3_H_OGD 15:53:26
+exit=0 passes=8
+=== reports/paper_oracles_d185/twins/s1061/FULL_H125_OG 16:00:40
+exit=0 passes=2
+=== reports/paper_oracles_d185/twins/s1061/FULL_H125_OGD 16:03:00
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1061/C3_H_OG 16:05:25
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1061/C3_H_OGD 16:07:12
+exit=0 passes=0
+=== reports/paper_oracles_d185/s1061/FULL_OG 16:09:48
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1061/FULL_H125_OG 16:17:08
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1061/C13_H125_OG 16:22:42
+exit=0 passes=9
+=== reports/paper_oracles_d185/s1061/C3_H_OG 16:29:58
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1061/FULL_H125_OGD 16:35:32
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1061/C3_H_OGD 16:43:34
+exit=0 passes=8
+=== reports/paper_oracles_d185/twins/s1062/FULL_H125_OG 16:51:02
+exit=0 passes=1
+=== reports/paper_oracles_d185/twins/s1062/FULL_H125_OGD 16:53:26
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1062/C3_H_OG 16:55:57
+exit=0 passes=0
+=== reports/paper_oracles_d185/twins/s1062/C3_H_OGD 16:57:49
+exit=0 passes=0
+=== reports/paper_oracles_d185/s1062/FULL_OG 17:00:28
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1062/FULL_H125_OG 17:07:50
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1062/C13_H125_OG 17:13:12
+exit=0 passes=9
+=== reports/paper_oracles_d185/s1062/C3_H_OG 17:20:05
+exit=0 passes=8
+=== reports/paper_oracles_d185/s1062/FULL_H125_OGD 17:25:38
+exit=0 passes=10
+=== reports/paper_oracles_d185/s1062/C3_H_OGD 17:32:58
+exit=0 passes=8
+=== DONE 17:40:13

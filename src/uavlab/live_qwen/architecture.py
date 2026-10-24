@@ -34,6 +34,9 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
                evidence    H4: also for unplanned missions; measured legs look again
   measure      model       the VLA line's distance is used as written (default)
                range       H9: the VLA's own box gives the bearing, depth the distance
+  oracle_plan  False       D-185 privileged: the first typed program is the correct one
+  oracle_grounding False   D-185 privileged: looks return the true box of a visible object
+                           (oracles.py; reference lines only, never results)
 """
 
 import dataclasses
@@ -46,7 +49,8 @@ from .world_contract import explicit_world
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
                 perception="vlm", tracking="stop", detour="none", search="planner",
-                completion="default", measure="model")
+                completion="default", measure="model", oracle_plan=False,
+                oracle_grounding=False)
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
@@ -66,7 +70,7 @@ def switches(settings):
     for key, allowed in CHOICES.items():
         if merged[key] not in allowed:
             raise ValueError(f"architecture {key} must be one of {sorted(allowed)}")
-    for key in ("verifier", "memory"):
+    for key in ("verifier", "memory", "oracle_plan", "oracle_grounding"):
         if type(merged[key]) is not bool:
             raise ValueError(f"architecture {key} must be true or false")
     return merged

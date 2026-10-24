@@ -283,3 +283,24 @@ def test_hover_contact_is_latched_and_motion_does_not_count():
         assert not env.status().task_complete
 
     asyncio.run(check())
+
+
+def test_latency_relaxed_twins_keep_the_scene_and_only_slow_the_dynamics():
+    """D-185: the follow twin scores 10-30 s at 0.3 m/s; the closing twin closes at 12 s."""
+
+    async def check():
+        env, mission = make_env("follow_target_slow")
+        await env.reset(mission, 1061)
+        env.vehicle.position = point(3)
+        env.vehicle.velocity = point(0.3, 0, 0)
+        await step(env, (0.3, 0, 0), steps=602)
+        status = env.status()
+        assert status.task_complete and status.extras["tracking_total_s"] == pytest.approx(20)
+        late, mission = make_env("closing_passage_late")
+        await late.reset(mission, 1061)
+        await step(late, steps=200)  # 10 s: the original closes at 3 s, the twin not yet
+        assert len(late.obstacles) == 2
+        await step(late, steps=50)
+        assert len(late.obstacles) == 3
+
+    asyncio.run(check())

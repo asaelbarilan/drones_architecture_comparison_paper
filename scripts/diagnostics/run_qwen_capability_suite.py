@@ -13,7 +13,12 @@ from gpu_trace import GpuTrace
 from run_qwen_async import deadline_exit
 from run_qwen_full_architecture import experiment, provenance
 
-from uavlab.adapters.gym.capability_env import OBSTACLE_SCENARIOS, SCENARIOS, CapabilityEnv
+from uavlab.adapters.gym.capability_env import (
+    OBSTACLE_SCENARIOS,
+    SCENARIOS,
+    TASK_VARIANTS,
+    CapabilityEnv,
+)
 from uavlab.contracts import MissionSpec
 from uavlab.core.compose import load_environment
 from uavlab.core.frame_store import global_store
@@ -30,6 +35,7 @@ from uavlab.live_qwen.skills import SKILL
 from uavlab.live_qwen.visual_progress import VISUAL_MONITOR
 
 PAPER_MATRIX = Path("configs/experiments/paper_architectures.json")
+ORACLE_PROGRAMS = Path("configs/experiments/oracle_programs.json")
 
 
 def finite_json(value):
@@ -88,6 +94,7 @@ async def capability_flight(worker, case, settings, out):
         obs = await env.reset(mission, case["seed"])
         if switch(bound, "goal_source") == "oracle":
             privileged_goal(bound, env)
+        privileged_levels(state, bound, env, case["id"])
         evidence.save("mission.json", mission.model_dump(mode="json"))
         evidence.save("initial_evaluator_only.json", finite_json(env.debug_scene()))
         global_store().get(obs.rgb.uri).save(out / "initial_camera.png")
@@ -112,6 +119,14 @@ def privileged_goal(bound, env):
     """C0 only: the evaluator's final goal, never given to any model-backed architecture."""
     bound.update(oracle_goal=env.debug_scene()["goal"],
                  oracle_visual=bound["goal_mode"] == "visual", goal_mode="numeric")
+
+
+def privileged_levels(state, bound, env, task):
+    """D-185 oracle swaps (reference lines only): the hand-written program and the live scene."""
+    if switch(bound, "oracle_plan"):
+        bound["oracle_program"] = json.loads(ORACLE_PROGRAMS.read_text())[task]
+    if switch(bound, "oracle_grounding"):
+        state.oracle_env = env
 
 
 def load_settings(config, architecture=None, matrix=PAPER_MATRIX):
@@ -154,7 +169,8 @@ def main():
     parser.add_argument("--seed", type=int, default=1061)
     parser.add_argument("--config", type=Path,
                         default=Path("configs/experiments/qwen_visual_object.json"))
-    parser.add_argument("--tasks", nargs="+", choices=SCENARIOS + OBSTACLE_SCENARIOS,
+    parser.add_argument("--tasks", nargs="+",
+                        choices=SCENARIOS + OBSTACLE_SCENARIOS + TASK_VARIANTS,
                         default=list(SCENARIOS))
     parser.add_argument("--architecture", help="D-160 paper matrix entry, e.g. C3 or C13")
     args = parser.parse_args()

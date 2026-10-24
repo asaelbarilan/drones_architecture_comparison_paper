@@ -1,0 +1,5 @@
+_base_: capability_closing_passage.yaml
+id: capability_closing_passage_late
+params:
+  scenario: closing_passage
+  close_at_s: 12.0

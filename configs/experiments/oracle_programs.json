@@ -1,0 +1,170 @@
+{
+ "_comment": "D-185 plan oracle: the correct typed program per task, written once by hand from the public mission text only (privileged reference, never a result).",
+ "known_goal": [
+  {
+   "kind": "goto",
+   "world_enu": [
+    12,
+    0,
+    3
+   ]
+  }
+ ],
+ "visible_target": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "approach_hover": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 1,
+   "dwell_s": 2,
+   "stop": true
+  }
+ ],
+ "turn_search": [
+  {
+   "kind": "search",
+   "object": "red pillar"
+  },
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "overturned_vehicle": [
+  {
+   "kind": "search",
+   "object": "overturned vehicle"
+  },
+  {
+   "kind": "visit",
+   "object": "overturned vehicle",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true,
+   "altitude_m": 3.2
+  }
+ ],
+ "conditional_gate": [
+  {
+   "kind": "condition",
+   "question": "Is the left opening clear?",
+   "then": [
+    {
+     "kind": "pass",
+     "object": "left opening"
+    }
+   ],
+   "else": [
+    {
+     "kind": "pass",
+     "object": "right opening"
+    }
+   ]
+  },
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "ordered_visit": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "blue pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "closing_passage": [
+  {
+   "kind": "pass",
+   "object": "open passage"
+  },
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "closing_passage_late": [
+  {
+   "kind": "pass",
+   "object": "open passage"
+  },
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "follow_target": [
+  {
+   "kind": "follow",
+   "object": "red moving marker",
+   "min_m": 4,
+   "max_m": 6,
+   "duration_s": 20
+  }
+ ],
+ "follow_target_slow": [
+  {
+   "kind": "follow",
+   "object": "red moving marker",
+   "min_m": 4,
+   "max_m": 6,
+   "duration_s": 30
+  }
+ ],
+ "obstacle_post": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "obstacle_slalom": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "obstacle_low_wall": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ]
+}

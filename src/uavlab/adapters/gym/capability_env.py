@@ -35,6 +35,10 @@ OBSTACLE_SCENARIOS = (
     "obstacle_slalom",
     "obstacle_low_wall",
 )
+# D-185 latency-relaxed twins: the same scenes with slower dynamics, so a failure there is
+# planning, not the first-decision latency (D-177). Task names, not new scenarios.
+TASK_VARIANTS = ("follow_target_slow", "closing_passage_late")
+FOLLOW_TRACK_SHARE = 0.9  # good tracking needed in the scoring window (13.5 of 15 s)
 POST_HALF = (0.3, 0.3, 2.5)  # 5 m tall: going over is not an option
 RED = (206, 44, 44)
 BLUE = (40, 85, 220)
@@ -70,6 +74,10 @@ class CapabilityEnv(DeterministicEnv):
         settings.setdefault("image_size", 224)
         settings.setdefault("camera_pitch_rad", -0.10)
         super().__init__(**settings)
+        self.close_at_s = float(params.get("close_at_s", 3.0))
+        self.target_speed = float(params.get("target_speed_mps", 0.7))
+        self.acquire_s = float(params.get("acquire_s", 5.0))
+        self.track_until_s = float(params.get("track_until_s", 20.0))
         self.task_events: list[dict] = []
         self._branch_ok = False
         self._wrong_branch = False
@@ -218,7 +226,7 @@ class CapabilityEnv(DeterministicEnv):
         previous = self.vehicle.position.copy()
         old_t = ns_to_s(self._t_ns)
         # A fixed-time gate closure. The 2 m/s fixture leaves >=7 m reaction room.
-        if self.scenario == "closing_passage" and not self._blocked and old_t >= 3.0:
+        if self.scenario == "closing_passage" and not self._blocked and old_t >= self.close_at_s:
             self._blocked = True
             self._box(point(14, 0, 4), point(0.6, 5, 4))
             self._rebuild_obstacle_arrays()
@@ -236,7 +244,7 @@ class CapabilityEnv(DeterministicEnv):
         ):
             self._out_of_bounds = True
         if self.scenario == "follow_target":
-            self.goal = point(8 + 0.7 * t)
+            self.goal = point(8 + self.target_speed * t)
             self.landmarks[0].position = self.goal.copy()
         self._seen |= self._visible_goal()
         distance = float(np.linalg.norm(self.goal - p))
@@ -290,8 +298,8 @@ class CapabilityEnv(DeterministicEnv):
         elif self.scenario == "closing_passage":
             complete &= self._blocked
         elif self.scenario == "follow_target":
-            # Five seconds to acquire, then a fixed 15-second scoring window.
-            overlap = max(0.0, min(t, 20.0) - max(old_t, 5.0))
+            # acquire_s to acquire (default 5 s), then score until track_until_s (default 20 s).
+            overlap = max(0.0, min(t, self.track_until_s) - max(old_t, self.acquire_s))
             delta = self.goal - p
             bearing = math.atan2(delta[1], delta[0]) - self.vehicle.yaw
             angle = abs(math.atan2(math.sin(bearing), math.cos(bearing)))
@@ -299,9 +307,11 @@ class CapabilityEnv(DeterministicEnv):
             self._tracking_total_s += overlap
             self._tracking_good_s += overlap if good else 0
             self._tracking_streak_s = self._tracking_streak_s + dt if good else 0.0
-            if t >= 20 and self._tracking_passed is None:
+            if t >= self.track_until_s and self._tracking_passed is None:
                 self._tracking_passed = (
-                    self._tracking_good_s >= 13.5 and self._tracking_streak_s >= 2
+                    self._tracking_good_s
+                    >= FOLLOW_TRACK_SHARE * (self.track_until_s - self.acquire_s) - 1e-9
+                    and self._tracking_streak_s >= 2
                 )
             complete = bool(self._tracking_passed)
         self._task_complete = bool(complete and not self._collided and not self._out_of_bounds)

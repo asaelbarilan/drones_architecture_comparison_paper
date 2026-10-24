@@ -1,0 +1,10 @@
+_base_: capability_follow_target.yaml
+id: capability_follow_target_slow
+instruction: Follow the red moving marker, staying 4 to 6 metres away and keeping
+  it within 20 degrees of the camera centre. Acquire it in 10 seconds, then track until
+  30 seconds elapsed. Do not stop early.
+params:
+  scenario: follow_target
+  target_speed_mps: 0.3
+  acquire_s: 10.0
+  track_until_s: 30.0

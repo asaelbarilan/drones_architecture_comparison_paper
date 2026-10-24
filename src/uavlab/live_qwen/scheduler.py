@@ -37,6 +37,7 @@ from .executive import typed as typed_contract
 from .goals import Goal, angle_error, interpret_goal
 from .grounding import capture_depth, observed_range
 from .mission_plan import accept_plan, validate_direction
+from .oracles import privileged_answer
 from .path import PathFollower
 from .planner_memory import accept_recovery, remember
 from .prompts import role_request
@@ -152,7 +153,7 @@ class GoalScheduler:
         if self.stopped or self.failed or self.worker.current is not None:
             return
         role = self.next_role(obs, moving)
-        if role:
+        if role and not privileged_answer(self, role, obs, captured_ns, now):
             self.submit(role, obs, captured_ns)
 
     def next_role(self, obs, moving):

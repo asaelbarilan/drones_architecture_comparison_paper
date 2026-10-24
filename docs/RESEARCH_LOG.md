@@ -4421,3 +4421,41 @@ reports/paper_heldout/maps/; timing in reports/paper_heldout/vla_timing.png.
   further also needs the safety box. Reported as is.
 - closing_passage and follow_target: 0 for every model-driven arm (latency floor, D-177).
 - Timing over all ten seeds matches D-183.
+
+### D-185: perfect-part (oracle) swaps and latency-relaxed twins, part 1-2 (2026-10-24)
+
+Method (docs/research/EVALUATION_20261024.md): one level replaced at a time by a perfect
+version, the rest of the stack unchanged; privileged reference lines, never results.
+Development seeds 1060-1062, 12 tasks (/36), plus the twins follow_target_slow (0.3 m/s, scored
+10-30 s) and closing_passage_late (closes at 12 s). Code: live_qwen/oracles.py, switches
+oracle_plan / oracle_grounding / oracle_delay_s; C0_VLA config.
+
+| Architecture | as is | perfect plan | perfect grounding | grounding, 3.0 s latency |
+|---|---|---|---|---|
+| FULL + H | 30 | 32 (closing_passage 0 -> 2/3) | 30 | 30 |
+| C13 + H | 27 | 28 (closing 0 -> 2/3) | 27 | - |
+| FULL | 21 | - | 24 (slalom 0 -> 3/3) | - |
+| C3 + H | 21 | - | 24 (overturned 0 -> 3/3) | 24 |
+| C0 (true goal, classical pilot) vs C0-VLA | 28 vs 27 | | | |
+
+Twins (/3 each, follow_slow / closing_late): only instant perfect grounding passes (FULL + H
+3/3, 2/3); the same oracle held for the model's measured 3.0 s grounding latency gets 0/3 and
+0/3, as does every model-driven arm (C13 + H closing_late 1/3; C0-VLA closing_late 2/3).
+
+Reading:
+- For the planner stacks with handles, perception is not the limit (perfect grounding: no
+  change). The plan is, on closing_passage: the model's program swaps the branches, and the
+  correct program passes 2/3. **Correction to D-177**: closing_passage is not purely
+  latency-bound; a wrong plan is a large part of it.
+- The pilot is not the limit: the VLA flies as well as the classical pilot when given the
+  true goal (C0-VLA 27 vs C0 28).
+- Perception is a limit for C3 + H (the upside-down vehicle) and for FULL on slalom.
+- Follow is a look-latency problem: even with a slower marker and perfect perception, the
+  3.0 s look time alone makes it fail; instant looks pass.
+- Two bugs were found and fixed before use: the plan oracle first handed over a bare list (9
+  runs failed instantly), and the first grounding oracle tested occlusion at one centre pixel,
+  which hid a pillar whose top shows above the low wall. All affected runs were moved to
+  reports/paper_oracles_d185/failed_* and rerun.
+
+Part 3 (running): matched-latency grounding oracle on C1, C2 / C4 / C5 / C6 + H, C10 + H, and
+the C10 plan oracle. Evidence: reports/paper_oracles_d185/ (run*.log).

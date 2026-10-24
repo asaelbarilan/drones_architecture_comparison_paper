@@ -15,7 +15,9 @@ import math
 import statistics
 from pathlib import Path
 
-ARCHS = ["C0", "C1", "C2", "C3", "C4", "C5", "C6", "FULL", "C7", "C8", "C10", "C13"]
+# Each architecture is followed by its handled version, when that arm was flown (D-180..D-182).
+ARCHS = ["C0", "C1", "C2", "C2_H", "C3", "C3_H", "C4", "C4_H", "C5", "C5_H", "C6", "C6_H",
+         "C7", "C7_H", "C8", "C8_H", "FULL", "FULL_H125", "C10", "C10_H125", "C13", "C13_H125"]
 TASKS = ["known_goal", "visible_target", "approach_hover", "turn_search", "overturned_vehicle",
          "conditional_gate", "ordered_visit", "closing_passage", "follow_target",
          "obstacle_post", "obstacle_slalom", "obstacle_low_wall"]

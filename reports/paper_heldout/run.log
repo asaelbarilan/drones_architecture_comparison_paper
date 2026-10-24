@@ -1,0 +1,442 @@
+held-out start 19:08:39 commit c2dfc42 arms: C0 C1 C2 C3 C4 C5 C6 C7 C8 FULL C10 C13 C2_H C3_H C4_H C5_H C6_H C7_H C8_H FULL_H125 C10_H125 C13_H125
+=== s1 C0 19:08:40
+exit=0 passes=10
+=== s1 C1 19:11:55
+exit=0 passes=4
+=== s1 C2 19:22:38
+exit=0 passes=4
+=== s1 C3 19:31:39
+exit=0 passes=5
+=== s1 C4 19:40:45
+exit=0 passes=5
+=== s1 C5 19:49:44
+exit=0 passes=6
+=== s1 C6 19:57:19
+exit=0 passes=6
+=== s1 C7 20:05:48
+exit=0 passes=0
+=== s1 C8 20:10:25
+exit=0 passes=0
+=== s1 FULL 20:15:06
+exit=0 passes=7
+=== s1 C10 20:24:21
+exit=0 passes=6
+=== s1 C13 20:34:53
+exit=0 passes=7
+=== s1 C2_H 20:44:49
+exit=0 passes=6
+=== s1 C3_H 20:51:55
+exit=0 passes=8
+=== s1 C4_H 20:59:11
+exit=0 passes=7
+=== s1 C5_H 21:06:23
+exit=0 passes=7
+=== s1 C6_H 21:14:02
+exit=0 passes=8
+=== s1 C7_H 21:21:32
+exit=0 passes=2
+=== s1 C8_H 21:29:08
+exit=0 passes=2
+=== s1 FULL_H125 21:38:54
+exit=0 passes=9
+=== s1 C10_H125 21:46:37
+exit=0 passes=6
+=== s1 C13_H125 21:56:17
+exit=0 passes=8
+=== s2 C0 22:04:54
+exit=0 passes=9
+=== s2 C1 22:08:08
+exit=0 passes=2
+=== s2 C2 22:19:19
+exit=0 passes=4
+=== s2 C3 22:29:27
+exit=0 passes=5
+=== s2 C4 22:38:30
+exit=0 passes=5
+=== s2 C5 22:47:23
+exit=0 passes=7
+=== s2 C6 22:55:02
+exit=0 passes=7
+=== s2 C7 23:03:46
+exit=0 passes=0
+=== s2 C8 23:08:04
+exit=0 passes=0
+=== s2 FULL 23:12:13
+exit=0 passes=7
+=== s2 C10 23:21:23
+exit=0 passes=5
+=== s2 C13 23:32:14
+exit=0 passes=7
+=== s2 C2_H 23:42:14
+exit=0 passes=7
+=== s2 C3_H 23:49:20
+exit=0 passes=8
+=== s2 C4_H 23:56:33
+exit=0 passes=7
+=== s2 C5_H 00:04:04
+exit=0 passes=7
+=== s2 C6_H 00:11:38
+exit=0 passes=8
+=== s2 C7_H 00:18:45
+exit=0 passes=2
+=== s2 C8_H 00:26:05
+exit=0 passes=2
+=== s2 FULL_H125 00:35:46
+exit=0 passes=10
+=== s2 C10_H125 00:42:50
+exit=0 passes=8
+=== s2 C13_H125 00:52:20
+exit=0 passes=8
+=== s3 C0 01:01:19
+exit=0 passes=10
+=== s3 C1 01:04:33
+exit=0 passes=3
+=== s3 C2 01:15:09
+exit=0 passes=4
+=== s3 C3 01:23:57
+exit=0 passes=5
+=== s3 C4 01:32:59
+exit=0 passes=5
+=== s3 C5 01:41:54
+exit=0 passes=6
+=== s3 C6 01:49:27
+exit=0 passes=6
+=== s3 C7 01:57:58
+exit=0 passes=0
+=== s3 C8 02:02:40
+exit=0 passes=0
+=== s3 FULL 02:07:25
+exit=0 passes=7
+=== s3 C10 02:16:36
+exit=0 passes=6
+=== s3 C13 02:27:02
+exit=0 passes=7
+=== s3 C2_H 02:36:48
+exit=0 passes=6
+=== s3 C3_H 02:43:53
+exit=0 passes=7
+=== s3 C4_H 02:51:35
+exit=0 passes=7
+=== s3 C5_H 02:58:43
+exit=0 passes=7
+=== s3 C6_H 03:05:45
+exit=0 passes=7
+=== s3 C7_H 03:13:21
+exit=0 passes=3
+=== s3 C8_H 03:20:51
+exit=0 passes=2
+=== s3 FULL_H125 03:30:33
+exit=0 passes=10
+=== s3 C10_H125 03:37:47
+exit=0 passes=8
+=== s3 C13_H125 03:46:51
+exit=0 passes=9
+=== s4 C0 03:55:10
+exit=0 passes=9
+=== s4 C1 03:58:28
+exit=0 passes=3
+=== s4 C2 04:09:13
+exit=0 passes=4
+=== s4 C3 04:18:08
+exit=0 passes=5
+=== s4 C4 04:27:11
+exit=0 passes=5
+=== s4 C5 04:36:06
+exit=0 passes=6
+=== s4 C6 04:43:34
+exit=0 passes=6
+=== s4 C7 04:52:13
+exit=0 passes=0
+=== s4 C8 04:56:31
+exit=0 passes=0
+=== s4 FULL 05:00:48
+exit=0 passes=7
+=== s4 C10 05:10:02
+exit=0 passes=5
+=== s4 C13 05:20:40
+exit=0 passes=7
+=== s4 C2_H 05:30:30
+exit=0 passes=7
+=== s4 C3_H 05:37:33
+exit=0 passes=8
+=== s4 C4_H 05:44:45
+exit=0 passes=8
+=== s4 C5_H 05:51:48
+exit=0 passes=8
+=== s4 C6_H 05:58:52
+exit=0 passes=8
+=== s4 C7_H 06:06:02
+exit=0 passes=2
+=== s4 C8_H 06:13:24
+exit=0 passes=2
+=== s4 FULL_H125 06:22:56
+exit=0 passes=10
+=== s4 C10_H125 06:29:56
+exit=0 passes=8
+=== s4 C13_H125 06:39:24
+exit=0 passes=9
+=== s5 C0 06:47:33
+exit=0 passes=10
+=== s5 C1 06:50:45
+exit=0 passes=4
+=== s5 C2 07:01:26
+exit=0 passes=4
+=== s5 C3 07:10:25
+exit=0 passes=6
+=== s5 C4 07:19:30
+exit=0 passes=5
+=== s5 C5 07:28:29
+exit=0 passes=5
+=== s5 C6 07:36:34
+exit=0 passes=6
+=== s5 C7 07:45:01
+exit=0 passes=0
+=== s5 C8 07:49:44
+exit=0 passes=0
+=== s5 FULL 07:54:25
+exit=0 passes=7
+=== s5 C10 08:03:31
+exit=0 passes=7
+=== s5 C13 08:14:53
+exit=0 passes=7
+=== s5 C2_H 08:24:18
+exit=0 passes=6
+=== s5 C3_H 08:31:50
+exit=0 passes=7
+=== s5 C4_H 08:39:03
+exit=0 passes=7
+=== s5 C5_H 08:46:08
+exit=0 passes=7
+=== s5 C6_H 08:53:22
+exit=0 passes=8
+=== s5 C7_H 09:00:59
+exit=0 passes=2
+=== s5 C8_H 09:08:30
+exit=0 passes=2
+=== s5 FULL_H125 09:18:05
+exit=0 passes=10
+=== s5 C10_H125 09:25:22
+exit=0 passes=7
+=== s5 C13_H125 09:34:46
+exit=0 passes=9
+=== s6 C0 09:43:13
+exit=0 passes=9
+=== s6 C1 09:46:29
+exit=0 passes=3
+=== s6 C2 09:57:07
+exit=0 passes=4
+=== s6 C3 10:05:59
+exit=0 passes=5
+=== s6 C4 10:15:00
+exit=0 passes=5
+=== s6 C5 10:23:51
+exit=0 passes=6
+=== s6 C6 10:32:36
+exit=0 passes=7
+=== s6 C7 10:41:23
+exit=0 passes=0
+=== s6 C8 10:45:40
+exit=0 passes=0
+=== s6 FULL 10:49:59
+exit=0 passes=7
+=== s6 C10 10:58:20
+exit=0 passes=5
+=== s6 C13 11:09:22
+exit=0 passes=5
+=== s6 C2_H 11:19:24
+exit=0 passes=7
+=== s6 C3_H 11:26:27
+exit=0 passes=8
+=== s6 C4_H 11:33:40
+exit=0 passes=8
+=== s6 C5_H 11:40:36
+exit=0 passes=8
+=== s6 C6_H 11:47:45
+exit=0 passes=8
+=== s6 C7_H 11:55:01
+exit=0 passes=2
+=== s6 C8_H 12:02:24
+exit=0 passes=2
+=== s6 FULL_H125 12:12:35
+exit=0 passes=10
+=== s6 C10_H125 12:19:36
+exit=0 passes=8
+=== s6 C13_H125 12:28:52
+exit=0 passes=9
+=== s7 C0 12:37:42
+exit=0 passes=10
+=== s7 C1 12:41:10
+exit=0 passes=3
+=== s7 C2 12:51:33
+exit=0 passes=4
+=== s7 C3 13:00:29
+exit=0 passes=5
+=== s7 C4 13:09:41
+exit=0 passes=4
+=== s7 C5 13:19:07
+exit=0 passes=6
+=== s7 C6 13:26:47
+exit=0 passes=6
+=== s7 C7 13:35:25
+exit=0 passes=0
+=== s7 C8 13:40:10
+exit=0 passes=0
+=== s7 FULL 13:44:51
+exit=0 passes=7
+=== s7 C10 13:54:01
+exit=0 passes=5
+=== s7 C13 14:04:52
+exit=0 passes=7
+=== s7 C2_H 14:14:51
+exit=0 passes=7
+=== s7 C3_H 14:22:04
+exit=0 passes=7
+=== s7 C4_H 14:29:10
+exit=0 passes=7
+=== s7 C5_H 14:38:14
+exit=0 passes=8
+=== s7 C6_H 14:45:22
+exit=0 passes=7
+=== s7 C7_H 14:53:05
+exit=0 passes=2
+=== s7 C8_H 15:00:45
+exit=0 passes=2
+=== s7 FULL_H125 15:10:36
+exit=0 passes=10
+=== s7 C10_H125 15:17:53
+exit=0 passes=7
+=== s7 C13_H125 15:27:27
+exit=0 passes=8
+=== s8 C0 15:36:05
+exit=0 passes=9
+=== s8 C1 15:39:18
+exit=0 passes=3
+=== s8 C2 15:49:56
+exit=0 passes=4
+=== s8 C3 15:58:48
+exit=0 passes=6
+=== s8 C4 16:07:50
+exit=0 passes=5
+=== s8 C5 16:16:50
+exit=0 passes=6
+=== s8 C6 16:24:30
+exit=0 passes=6
+=== s8 C7 16:33:13
+exit=0 passes=0
+=== s8 C8 16:37:37
+exit=0 passes=0
+=== s8 FULL 16:41:54
+exit=0 passes=7
+=== s8 C10 16:50:21
+exit=0 passes=4
+=== s8 C13 17:01:23
+exit=0 passes=5
+=== s8 C2_H 17:11:51
+exit=0 passes=7
+=== s8 C3_H 17:18:54
+exit=0 passes=8
+=== s8 C4_H 17:26:08
+exit=0 passes=8
+=== s8 C5_H 17:33:28
+exit=0 passes=8
+=== s8 C6_H 17:40:30
+exit=0 passes=8
+=== s8 C7_H 17:47:43
+exit=0 passes=3
+=== s8 C8_H 17:55:01
+exit=0 passes=2
+=== s8 FULL_H125 18:04:48
+exit=0 passes=10
+=== s8 C10_H125 18:11:48
+exit=0 passes=8
+=== s8 C13_H125 18:21:17
+exit=0 passes=8
+=== s9 C0 18:29:27
+exit=0 passes=10
+=== s9 C1 18:32:44
+exit=0 passes=3
+=== s9 C2 18:43:20
+exit=0 passes=4
+=== s9 C3 18:52:19
+exit=0 passes=5
+=== s9 C4 19:01:24
+exit=0 passes=5
+=== s9 C5 19:10:16
+exit=0 passes=6
+=== s9 C6 19:17:50
+exit=0 passes=6
+=== s9 C7 19:26:33
+exit=0 passes=0
+=== s9 C8 19:31:18
+exit=0 passes=0
+=== s9 FULL 19:35:56
+exit=0 passes=7
+=== s9 C10 19:45:08
+exit=0 passes=5
+=== s9 C13 19:55:56
+exit=0 passes=8
+=== s9 C2_H 20:05:14
+exit=0 passes=6
+=== s9 C3_H 20:12:38
+exit=0 passes=8
+=== s9 C4_H 20:19:51
+exit=0 passes=8
+=== s9 C5_H 20:26:53
+exit=0 passes=8
+=== s9 C6_H 20:34:04
+exit=0 passes=7
+=== s9 C7_H 20:41:30
+exit=0 passes=2
+=== s9 C8_H 20:48:50
+exit=0 passes=3
+=== s9 FULL_H125 20:58:36
+exit=0 passes=10
+=== s9 C10_H125 21:05:53
+exit=0 passes=7
+=== s9 C13_H125 21:15:18
+exit=0 passes=7
+=== s10 C0 21:23:57
+exit=0 passes=9
+=== s10 C1 21:27:19
+exit=0 passes=3
+=== s10 C2 21:38:07
+exit=0 passes=4
+=== s10 C3 21:47:07
+exit=0 passes=5
+=== s10 C4 21:56:13
+exit=0 passes=6
+=== s10 C5 22:05:12
+exit=0 passes=7
+=== s10 C6 22:12:55
+exit=0 passes=6
+=== s10 C7 22:21:35
+exit=0 passes=0
+=== s10 C8 22:25:52
+exit=0 passes=0
+=== s10 FULL 22:30:04
+exit=0 passes=8
+=== s10 C10 22:38:57
+exit=0 passes=4
+=== s10 C13 22:51:12
+exit=0 passes=6
+=== s10 C2_H 23:01:18
+exit=0 passes=7
+=== s10 C3_H 23:08:17
+exit=0 passes=8
+=== s10 C4_H 23:15:17
+exit=0 passes=8
+=== s10 C5_H 23:22:21
+exit=0 passes=8
+=== s10 C6_H 23:29:22
+exit=0 passes=8
+=== s10 C7_H 23:36:42
+exit=0 passes=2
+=== s10 C8_H 23:44:04
+exit=0 passes=2
+=== s10 FULL_H125 23:53:31
+exit=0 passes=10
+=== s10 C10_H125 00:00:31
+exit=0 passes=8
+=== s10 C13_H125 00:10:08
+exit=0 passes=8
+=== DONE 00:18:26

@@ -162,6 +162,15 @@ model can plan for a drone. Architecture comparisons should report them as first
   Figure T1: `figures/vla_timing.png`.
 
 ![VLA timing per architecture](figures/vla_timing.png)
+- **5.11 Held-out confirmation** (D-184; 22 arms x 12 tasks x held-out seeds 1-10 = 2,640
+  flights, frozen code, run once). Passes / 120, without -> with the handles that fit:
+  C2 40 -> 66, C3 52 -> 77, C4 50 -> 75, C5 61 -> 76, C6 62 -> 77, C7 0 -> 22, C8 0 -> 21,
+  FULL 71 -> 99, C10 52 -> 75, C13 66 -> 83; C0 (privileged) 95, C1 31. Planning tasks / 40:
+  FULL 0 -> 20, C13 0 -> 9, C10 0 -> 3, every architecture without a planner 0. FULL + handles
+  beats the privileged C0 overall (99 vs 95) and on planning (20 vs 15). One safety
+  interaction: C7 + H (no shield) collides on both obstacle tasks (20 flights), because the
+  measured distance makes it fly far enough to reach them; C8 + H (shield) has none. All other
+  arms have 0 collisions. Tables: `reports/paper_heldout/tables.md`.
 - **Figures: task maps** (`scripts/paper_task_maps.py`). One page per task, one top-down panel
   per architecture, path coloured by time:
   - Figure M0: architecture legend (`figures/maps_legend.png`).
@@ -197,8 +206,8 @@ model can plan for a drone. Architecture comparisons should report them as first
 
 - A synthetic rendered simulator, not AirSim or real flight.
 - One model family, at 4B.
-- Development seeds only, until the final held-out run.
-- Task outcomes are near deterministic across the three development seeds (PPP or FFF), so each
-  arm is closer to 12 outcomes than 36 trials, and the confidence intervals overstate precision.
+- Development seeds 1060-1062 for all design; one held-out run (seeds 1-10) at the end.
+- Development outcomes were near deterministic across the three development seeds (PPP or FFF).
+  The ten held-out seeds vary more, but each task still uses one scene family per seed.
 - The handles are partly designed by us. We mitigate this by using only public mission text
   and sensed state, never evaluator truth.

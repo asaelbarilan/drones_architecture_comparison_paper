@@ -4,6 +4,19 @@ This is research documentation, **not the paper**. It holds the findings the pap
 each with its evidence and status. Decisions and their rationale stay in `RESEARCH_LOG.md`;
 literature notes stay in `docs/research/`. The paper draft lives in `docs/paper/DRAFT.md`.
 
+## Readiness finding — D-184, 2026-10-24
+
+The saved D253 state/history critic is not integrated into the PPO training
+entry point: a CPU reproduction rejects its schema, while all53 cached
+predictions reproduce exactly. Its validation remains incomplete and includes
+no failed terminal stop. A mathematical counterexample also shows why negative
+sampled continuation advantage alone does not establish a bad critic.
+These are engineering/assessment findings, not new flight or performance claims.
+See reports/public_benchmark_preflight_20261023/READINESS_DECISION.md and its
+CPU audit. Literature review coverage passes (20 retained,17 primary);
+benchmark integration and actor-training readiness remain NO-GO.
+
+
 ## Research question
 
 How much planning authority can a foundation model (LLM, VLM or VLA) hold for a single UAV, and
@@ -20,7 +33,7 @@ Setup (D-159 - D-166):
 
 ## Finding 1 (working thesis): vanilla architectures do not work by themselves; the handles do
 
-**Status: supported by a 2x2 handle ablation (D-173), a stacked handle series (D-175) and a remove-one ablation of the final stack (D-180), on development seeds 1060-1062; held-out confirmation pending.**
+**Status: confirmed on held-out seeds 1-10 (D-184; 2,640 flights): every architecture improves with the handles that fit it, FULL 71 -> 99 / 120 beats the privileged C0 at 95, and only planner architectures gain planning tasks. Development evidence: D-173 2x2, D-175 stack, D-180 remove-one, D-181/182 transfer.**
 
 The textbook architectures differ in which modules exist and who decides the goal: skills,
 waypoints, direct VLA, hierarchy. Built from those modules alone, they solve simple

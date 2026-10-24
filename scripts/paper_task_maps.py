@@ -210,9 +210,10 @@ def symbol_legend(fig):
                bbox_to_anchor=(0.5, 0.965))
 
 
-def task_page(task, seed):
+def task_page(task, seed, root=None):
+    """root (e.g. the held-out run) replaces every arm's run root when given."""
     arms = [arm for _, row in ROWS for arm in row]
-    flights = [arm and load(Path(arm[2]) / f"s{seed}" / arm[3] / task) for arm in arms]
+    flights = [arm and load(Path(root or arm[2]) / f"s{seed}" / arm[3] / task) for arm in arms]
     bounds = task_bounds(flights)
     fig, axes = plt.subplots(len(ROWS), COLS, figsize=(20, 3.7 * len(ROWS) + 1.8))
     fig.subplots_adjust(left=0.08, right=0.985, top=0.92, bottom=0.06, hspace=0.36, wspace=0.14)
@@ -260,6 +261,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--seed", type=int, default=1060)
     parser.add_argument("--out", type=Path, default=Path("reports/paper_maps"))
+    parser.add_argument("--root", type=Path, default=None,
+                        help="one run folder holding every arm, e.g. reports/paper_heldout")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update(STYLE)
@@ -270,7 +273,7 @@ def main():
         pdf.savefig(fig)
         plt.close(fig)
         for task in TASKS:
-            fig = task_page(task, args.seed)
+            fig = task_page(task, args.seed, args.root)
             fig.savefig(args.out / f"s{args.seed}_{task}.png", dpi=110)
             pdf.savefig(fig)
             plt.close(fig)

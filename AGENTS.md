@@ -22,6 +22,9 @@ D-181: H1+H2+H5 transfer to C13 (22->27) and C10 (16->21). D-182: connection han
 architectures without a planner (H3 search policy, H4 evidence completion, H9 measured distance;
 connections.py, switches search/completion/measure): C2 12->19 ... C7/C8 0->6; planning stays 0.
 Task maps: scripts/paper_task_maps.py -> reports/paper_maps/.
+D-184 HELD-OUT DONE (seeds 1-10, 22 arms, 2,640 flights, commit c2dfc42): FULL 71->99,
+C13 66->83, C10 52->75, C2-C6 +15..26, C7/C8 0->22/21; C0 95. Held-out seeds 1-10 are now
+USED: do not tune on them; any further held-out claim needs seeds 11-40.
 
 ## Latest user work: D-167 handles thesis, paper draft v0 (2026-10-22)
 

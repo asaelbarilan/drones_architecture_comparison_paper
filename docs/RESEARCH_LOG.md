@@ -4332,3 +4332,92 @@ scripts/paper_vla_timing.py, reports/paper_maps/vla_timing.png):
 - VLA alone (C7 / C8), request -> own box + goal line: median 9.3 s per line.
 Actions are fast enough for every architecture (well inside the 1.5 s expiry). The VLA is slow
 only as the decision-maker, which fits the latency floor (D-177): deciding is what costs time.
+
+### D-184: research and readiness before benchmark or PPO spending (2026-10-24)
+
+Status: preparation only; replacement training design remains provisional.
+User questioned the readiness of the proposed cloud work and requested a plan,
+critic diagnosis and research first. Keep AWS stopped during this phase. The
+previous eight aggregate instance-hour authorization is a ceiling, not a mandate.
+The heartbeat now explicitly prohibits autonomous job launches during the review.
+
+Rationale: D253 in the sibling training repo remains failed/incomplete (5/6 flights,
+no observed premature terminal stop). Source inspection also shows its two-input
+state/history critic is local-only; train_path_ppo.py still constructs a one-input
+Linear(hidden,1). This is an integration gap, not proof of a historical wrong-model
+run. Audit actual returns, GAE, stopping ownership, horizon bootstraps, full-token
+replay and data coverage before choosing a repair. A negative sampled continuation
+advantage does not by itself prove a faulty value estimate. Do not silently relax
+D253 or force a critic to make every useful sampled action positive.
+
+Separate tracks: frozen C13_H125 AerialVLN-S three-validation-case smoke after
+sensor/action/scorer compatibility, OpenFly conditional second, TravelUAV later;
+PPO only after an independently justified integrated qualification protocol, at
+most four committed updates followed by matched comparison and user review.
+Preserve official protocols or label deviations; do not invent unknown free space
+or use oracle paths. No original273 or architecture held-out tuning. Current GPU
+job and queue, runtime/config, weights and cloud state remain untouched.
+
+Evidence: reports/public_benchmark_preflight_20261023/PLAN.md and aws_effort.json;
+docs/research/BENCHMARK_PPO_READINESS_20261024_PROTOCOL.md; read-only D253 DECISION
+and scripts/rl source inspection; targeted primary-source references in PLAN.
+The full registered literature review is not complete. No flights, actor updates,
+new test runs or model inference were performed in this planning turn.
+
+D-184 continuation (2026-10-24): the research-first readiness report is complete,
+with30 screened candidates,20 retained works (17 primary papers), and a passing
+coverage validator. This supersedes the preceding literature-incomplete status,
+not the NO-GO for paid execution. Resource/code gaps remain explicit.
+
+One-thread CPU reproduction confirms the actual trainer loader rejects the
+22-feature D253 critic. Its53 cached predictions reproduce exactly; terminal
+flight-weighted MSE0.1846453013, three successful terminal flights, no failed
+terminal stop. GAE boundary and exact-value/PPO-derivative toy checks pass.
+A below-average successful action can correctly have negative advantage;
+blanket positivity is not a critic correctness theorem. D253 remains failed.
+
+Decision: local critic-interface and stop/horizon contract work first, followed
+by a separately frozen qualification. Keep frozen-system AerialVLN-S smoke
+independent of PPO; no GRPO/head replacement or automatic cloud launch.
+Evidence: reports/public_benchmark_preflight_20261023/READINESS_DECISION.md,
+readiness_audit_20261024/{REPORT.md,audit.json,evidence_validation.json};
+docs/research/BENCHMARK_PPO_READINESS_20261024_{EVIDENCE.json,MATRIX.md}.
+Source/checkpoint hashes unchanged; no actor, simulator, AWS or protected GPU
+work executed. scripts/check_code.py passes for the isolated CPU diagnostic.
+
+### D-184: held-out result, 22 arms x 12 tasks x seeds 1-10 (2026-10-24)
+
+The run used the frozen commit c2dfc42, with no change after launch: 2,640 flights, all
+exit 0. Tables: reports/paper_heldout/tables.md (Wilson 95 %); maps for seed 1 in
+reports/paper_heldout/maps/; timing in reports/paper_heldout/vla_timing.png.
+
+| Architecture | without handles / 120 | with handles / 120 | planning / 40 (without -> with) |
+|---|---|---|---|
+| C0 (true goal, privileged) | 95 | - | 15 |
+| C1 (skill agent) | 31 | - | 0 |
+| C2 | 40 | 66 | 0 -> 0 |
+| C3 | 52 | 77 | 0 -> 0 |
+| C4 | 50 | 75 | 0 -> 0 |
+| C5 | 61 | 76 | 0 -> 0 |
+| C6 | 62 | 77 | 0 -> 0 |
+| C7 (VLA alone) | 0 | 22 | 0 -> 0 |
+| C8 (VLA alone + shield) | 0 | 21 | 0 -> 0 |
+| FULL | 71 | 99 | 0 -> 20 |
+| C10 | 52 | 75 | 0 -> 3 |
+| C13 | 66 | 83 | 0 -> 9 |
+
+- The development result holds on unseen seeds: every architecture improves with the
+  handles that fit it, and only the planner architectures gain planning tasks.
+- FULL + H1 H2 H5 (99/120, 0.75-0.88) beats the privileged C0 (95/120, 0.71-0.86), and on
+  planning by 20/40 against 15/40: the same 4B model with handles beats a ceiling that is given
+  the true goal but no plan logic (C0 fails the ordered visit 0/10 and the gate 5/10).
+- The held-out seeds vary more than the development seeds did: for example C13 + H on the
+  gate is 9/10, C10 + H 3/10, and the overturned vehicle 5-10/10. So the outcomes are no
+  longer PPP / FFF per task, and the intervals are meaningful.
+- Collisions: 0 in every arm except C7 + H (20 = obstacle_post 10/10 + obstacle_low_wall
+  10/10). C7 has no shield by design. Without H9 it flew only the VLA's written distance (about
+  2.6 m) and never reached an obstacle; with the measured distance it flies far enough to hit
+  one. C8 + H (shield) has 0. This is a real interaction: a handle that makes a stack act
+  further also needs the safety box. Reported as is.
+- closing_passage and follow_target: 0 for every model-driven arm (latency floor, D-177).
+- Timing over all ten seeds matches D-183.

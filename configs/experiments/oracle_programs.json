@@ -182,5 +182,118 @@
   "visible_target": 2.39,
   "closing_passage_late": 5.52,
   "follow_target_slow": 2.48
- }
+ },
+ "ordered_visit_3": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "blue pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "green pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "ordered_visit_4": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "blue pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "green pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "yellow pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "conditional_search": [
+  {
+   "kind": "condition",
+   "question": "Is the blue pillar in view?",
+   "then": [
+    {
+     "kind": "visit",
+     "object": "blue pillar",
+     "near_m": 2,
+     "dwell_s": 0,
+     "stop": true
+    }
+   ],
+   "else": [
+    {
+     "kind": "search",
+     "object": "red pillar"
+    },
+    {
+     "kind": "visit",
+     "object": "red pillar",
+     "near_m": 2,
+     "dwell_s": 0,
+     "stop": true
+    }
+   ]
+  }
+ ],
+ "revisit": [
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "blue pillar",
+   "near_m": 2,
+   "dwell_s": 0.5,
+   "stop": false
+  },
+  {
+   "kind": "visit",
+   "object": "red pillar",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ],
+ "spatial_relation": [
+  {
+   "kind": "visit",
+   "object": "red pillar next to the car",
+   "near_m": 2,
+   "dwell_s": 0,
+   "stop": true
+  }
+ ]
 }

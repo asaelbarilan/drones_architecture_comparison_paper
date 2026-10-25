@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 
 from uavlab.adapters.gym.capability_env import SCENARIOS, point
+from uavlab.adapters.gym.capability_plans import PLAN_SCENARIOS
 from uavlab.contracts import ControlCommand, MissionSpec, Vec3
 from uavlab.contracts.mission import SuccessCriteria
 from uavlab.core.compose import load_environment
@@ -38,7 +39,7 @@ async def step(env, velocity=(0, 0, 0), yaw=0, steps=1):
         )
 
 
-@pytest.mark.parametrize("name", SCENARIOS)
+@pytest.mark.parametrize("name", SCENARIOS + PLAN_SCENARIOS)
 def test_reset_images_privacy_and_determinism(name):
     async def check():
         env, mission = make_env(name)
@@ -302,5 +303,65 @@ def test_latency_relaxed_twins_keep_the_scene_and_only_slow_the_dynamics():
         assert len(late.obstacles) == 2
         await step(late, steps=50)
         assert len(late.obstacles) == 3
+
+    asyncio.run(check())
+
+
+REVISIT_STAGES = 3
+
+
+async def visit(env, point_xy, steps=12):
+    """Hold the drone at a point for steps x 50 ms (scripted fixture, not a policy)."""
+    env.vehicle.position = point(point_xy[0], point_xy[1])
+    env.vehicle.velocity = point(0, 0, 0)
+    await step(env, steps=steps)
+
+
+@pytest.mark.parametrize("name,count", [("ordered_visit_3", 3), ("ordered_visit_4", 4)])
+def test_d188_ordered_visits_score_each_stage_and_reject_a_skipped_order(name, count):
+    async def check():
+        env, mission = make_env(name)
+        await env.reset(mission, 1061)
+        stages = [p for p, _ in env.plan_stages]
+        await visit(env, stages[-1])  # straight to the last pillar: not complete
+        assert not env.status().task_complete
+        for p in stages:
+            await visit(env, p)
+        status = env.status()
+        assert status.task_complete and status.extras["stages_done"] == count
+
+    asyncio.run(check())
+
+
+@pytest.mark.parametrize("seed,blue", [(1060, True), (1061, False)])
+def test_d188_conditional_search_rewards_only_the_branch_the_view_calls_for(seed, blue):
+    async def check():
+        env, mission = make_env("conditional_search")
+        await env.reset(mission, seed)
+        red = next(m.position for m in env.landmarks if m.label == "red pillar")
+        await visit(env, red)
+        assert env.status().task_complete is (not blue)  # red is the wrong branch if blue is seen
+        if blue:
+            await visit(env, env.goal)
+            assert not env.status().task_complete and env.status().extras["wrong_object"] == 1
+
+    asyncio.run(check())
+
+
+def test_d188_revisit_needs_the_return_and_spatial_relation_rejects_the_lone_pillar():
+    async def check():
+        env, mission = make_env("revisit")
+        await env.reset(mission, 1062)
+        red, blue = (p for p, _ in env.plan_stages[:2])
+        await visit(env, red)
+        assert not env.status().task_complete  # the first red visit is not the end
+        await visit(env, blue)
+        await visit(env, red)
+        assert env.status().task_complete and env.status().extras["stages_done"] == REVISIT_STAGES
+        spatial, mission = make_env("spatial_relation")
+        await spatial.reset(mission, 1060)
+        await visit(spatial, spatial.plan_forbidden[0])
+        await visit(spatial, spatial.goal)
+        assert not spatial.status().task_complete
 
     asyncio.run(check())

@@ -1,0 +1,11 @@
+_base_: capability_known_goal.yaml
+id: capability_ordered_visit_4
+task_family: multi_stage
+instruction: Visit the red pillar, then the blue pillar, then the green pillar, then the
+  yellow pillar, staying within 2 metres of each for at least half a second, and stop
+  within 2 metres of the yellow pillar.
+max_episode_s: 120
+params:
+  scenario: ordered_visit_4
+  success:
+    max_flight_time_s: 120

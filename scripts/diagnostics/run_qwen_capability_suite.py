@@ -15,6 +15,7 @@ from run_qwen_full_architecture import experiment, provenance
 
 from uavlab.adapters.gym.capability_env import (
     OBSTACLE_SCENARIOS,
+    PLAN_SCENARIOS,
     SCENARIOS,
     TASK_VARIANTS,
     CapabilityEnv,
@@ -173,7 +174,7 @@ def main():
     parser.add_argument("--config", type=Path,
                         default=Path("configs/experiments/qwen_visual_object.json"))
     parser.add_argument("--tasks", nargs="+",
-                        choices=SCENARIOS + OBSTACLE_SCENARIOS + TASK_VARIANTS,
+                        choices=SCENARIOS + OBSTACLE_SCENARIOS + TASK_VARIANTS + PLAN_SCENARIOS,
                         default=list(SCENARIOS))
     parser.add_argument("--architecture", help="D-160 paper matrix entry, e.g. C3 or C13")
     args = parser.parse_args()

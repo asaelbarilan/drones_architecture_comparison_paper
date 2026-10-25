@@ -11,6 +11,12 @@ from typing import Any
 
 import numpy as np
 
+from uavlab.adapters.gym.capability_plans import (
+    PLAN_SCENARIOS,
+    build_plan_scene,
+    plan_extras,
+    update_plan,
+)
 from uavlab.adapters.gym.deterministic_env import DeterministicEnv, Landmark, Obstacle
 from uavlab.contracts import ControlCommand, MissionSpec, ObservationPacket, ns_to_s
 from uavlab.contracts.env_status import EnvironmentStatus
@@ -54,7 +60,7 @@ class CapabilityEnv(DeterministicEnv):
 
     def __init__(self, **params: Any) -> None:
         self.scenario = str(params.get("scenario", "known_goal"))
-        if self.scenario not in SCENARIOS + OBSTACLE_SCENARIOS:
+        if self.scenario not in SCENARIOS + OBSTACLE_SCENARIOS + PLAN_SCENARIOS:
             raise ValueError(f"Unknown capability scenario: {self.scenario}")
         if params.get("failures") or params.get("coarse_goal_direction"):
             raise ValueError("Capability fixtures define their own events and hide goal hints")
@@ -152,6 +158,8 @@ class CapabilityEnv(DeterministicEnv):
             self.goal = point(8)
         elif self.scenario in OBSTACLE_SCENARIOS:
             self._obstacle_scene()
+        elif self.scenario in PLAN_SCENARIOS:
+            build_plan_scene(self, seed)  # D-188 harder planning tasks
         if not self.landmarks and self.scenario != "overturned_vehicle":
             self.landmarks = [
                 Landmark(self.goal.copy(), self.target_label, is_target=True, color=RED)
@@ -163,6 +171,7 @@ class CapabilityEnv(DeterministicEnv):
             "closing_passage",
             "follow_target",
             *OBSTACLE_SCENARIOS,
+            *PLAN_SCENARIOS,
         }:
             self._shortest = 0.0  # no certified shortest path for these objectives
         self._rebuild_obstacle_arrays()
@@ -297,6 +306,8 @@ class CapabilityEnv(DeterministicEnv):
             complete &= self._subgoals_done == 1
         elif self.scenario == "closing_passage":
             complete &= self._blocked
+        elif self.scenario in PLAN_SCENARIOS:
+            complete = update_plan(self, p, dt, t)
         elif self.scenario == "follow_target":
             # acquire_s to acquire (default 5 s), then score until track_until_s (default 20 s).
             overlap = max(0.0, min(t, self.track_until_s) - max(old_t, self.acquire_s))
@@ -330,6 +341,7 @@ class CapabilityEnv(DeterministicEnv):
             tracking_good_s=self._tracking_good_s,
             tracking_total_s=self._tracking_total_s,
             tracking_fraction=self._tracking_good_s / max(self._tracking_total_s, 1e-9),
+            **plan_extras(self),
             shortest_path_valid=float(
                 self.scenario
                 in {"known_goal", "visible_target", "turn_search", "overturned_vehicle"}

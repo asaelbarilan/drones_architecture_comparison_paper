@@ -1,0 +1,7 @@
+_base_: capability_known_goal.yaml
+id: capability_spatial_relation
+task_family: state_reasoning
+instruction: Two red pillars stand ahead. Fly to the red pillar that stands next to the
+  car and stop within 2 metres of it.
+params:
+  scenario: spatial_relation

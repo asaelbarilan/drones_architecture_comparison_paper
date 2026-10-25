@@ -1,0 +1,11 @@
+_base_: capability_known_goal.yaml
+id: capability_revisit
+task_family: multi_stage
+instruction: Visit the red pillar, staying within 2 metres for at least half a second,
+  then visit the blue pillar the same way, then return to the red pillar and stop within
+  2 metres of it.
+max_episode_s: 90
+params:
+  scenario: revisit
+  success:
+    max_flight_time_s: 90

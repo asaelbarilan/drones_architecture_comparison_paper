@@ -1,5 +1,5 @@
 {
- "_comment": "D-185 plan oracle: the correct typed program per task, written once by hand from the public mission text only (privileged reference, never a result).",
+ "_comment": "D-185 plan oracle: the correct typed program per task, written once by hand from the public mission text only (privileged reference, never a result). _planner_latency_s: median first typed-plan latency per task, FULL_H125 development runs (D-187), used by oracle_plan_matched.",
  "known_goal": [
   {
    "kind": "goto",
@@ -166,5 +166,21 @@
    "dwell_s": 0,
    "stop": true
   }
- ]
+ ],
+ "_planner_latency_s": {
+  "approach_hover": 2.38,
+  "closing_passage": 5.52,
+  "conditional_gate": 6.17,
+  "follow_target": 2.48,
+  "known_goal": 1.72,
+  "obstacle_low_wall": 2.39,
+  "obstacle_post": 2.9,
+  "obstacle_slalom": 2.39,
+  "ordered_visit": 4.1,
+  "overturned_vehicle": 3.31,
+  "turn_search": 2.99,
+  "visible_target": 2.39,
+  "closing_passage_late": 5.52,
+  "follow_target_slow": 2.48
+ }
 }

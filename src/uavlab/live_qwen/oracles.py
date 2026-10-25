@@ -134,8 +134,11 @@ def privileged_answer(state, role, obs, captured, now):
         program = oracle_program(state)
         if program is None:
             return False
-        state.log("oracle_plan", now, program=program)
-        state.accept_planner(program, now)
+        # D-187: matched latency, the perfect plan arrives when the model's plan arrived.
+        ready = now + int(float(state.settings.get("oracle_plan_delay_s", 0.0)) * 1e9)
+        state.oracle_plan_pending = (ready, program)
+        state.hold_until = max(state.hold_until, ready)
+        release_look(state, now)
         return True
     if role != "direction":
         return False
@@ -150,8 +153,18 @@ def privileged_answer(state, role, obs, captured, now):
     return True
 
 
+def release_plan(state, now):
+    pending = getattr(state, "oracle_plan_pending", None)
+    if pending is None or now < pending[0]:
+        return
+    state.oracle_plan_pending = None
+    state.log("oracle_plan", now, program=pending[1])
+    state.accept_planner(pending[1], now)
+
+
 def release_look(state, now):
-    """Apply a pending oracle look once its matched delay has passed (D-185 latency match)."""
+    """Apply a pending oracle plan / look once its matched delay has passed (D-185, D-187)."""
+    release_plan(state, now)
     pending = getattr(state, "oracle_pending", None)
     if pending is None or now < pending[0]:
         return

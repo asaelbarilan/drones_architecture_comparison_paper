@@ -731,6 +731,23 @@
         "completion": "evidence"
       },
       "path_planner": "super"
+    },
+    "FULL_H125_OPM": {
+      "pilot_mode": "classical",
+      "architecture": {
+        "name": "FULL + H1 typed contract + H2 executive + H5 measured openings + plan oracle (privileged) delivered after the model's measured planning time",
+        "goal_source": "planned",
+        "verifier": true,
+        "monitor": "default",
+        "recovery": "event",
+        "memory": true,
+        "contract": "typed",
+        "executive": "kinds",
+        "perception": "openings",
+        "oracle_plan": true
+      },
+      "path_planner": "super",
+      "oracle_plan_matched": true
     }
   }
 }

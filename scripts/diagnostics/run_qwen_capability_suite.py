@@ -124,7 +124,10 @@ def privileged_goal(bound, env):
 def privileged_levels(state, bound, env, task):
     """D-185 oracle swaps (reference lines only): the hand-written program and the live scene."""
     if switch(bound, "oracle_plan"):
-        bound["oracle_program"] = json.loads(ORACLE_PROGRAMS.read_text())[task]
+        programs = json.loads(ORACLE_PROGRAMS.read_text())
+        bound["oracle_program"] = programs[task]
+        if bound.get("oracle_plan_matched"):  # D-187: the model's measured first-plan time
+            bound["oracle_plan_delay_s"] = programs["_planner_latency_s"][task]
     if switch(bound, "oracle_grounding"):
         state.oracle_env = env
 

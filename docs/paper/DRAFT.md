@@ -151,7 +151,7 @@ model can plan for a drone. Architecture comparisons should report them as first
   H4 already existed in FULL's planned path ("hidden handles") but never reached C2-C5.
   Planning tasks stay at 0 without a planner: the handles that solve planning need a plan
   connection to act on.
-- **5.10 Timing: where the VLA is fast and where it is slow** (held-out seeds 1-8, about
+- **5.10 Timing: where the VLA is fast and where it is slow** (D-183T; held-out seeds 1-8, about
   15,000 VLA requests; `scripts/paper_vla_timing.py`, Figure T1). As a pilot, the VLA streams
   its first action at a median of 0.26 s and a full 8-action chunk at 0.77 s, the same in every
   architecture, with or without handles. That is well inside the 1.5 s action expiry; the
@@ -162,7 +162,7 @@ model can plan for a drone. Architecture comparisons should report them as first
   Figure T1: `figures/vla_timing.png`.
 
 ![VLA timing per architecture](figures/vla_timing.png)
-- **5.11 Held-out confirmation** (D-184; 22 arms x 12 tasks x held-out seeds 1-10 = 2,640
+- **5.11 Held-out confirmation** (D-184H; 22 arms x 12 tasks x held-out seeds 1-10 = 2,640
   flights, frozen code, run once). Passes / 120, without -> with the handles that fit:
   C2 40 -> 66, C3 52 -> 77, C4 50 -> 75, C5 61 -> 76, C6 62 -> 77, C7 0 -> 22, C8 0 -> 21,
   FULL 71 -> 99, C10 52 -> 75, C13 66 -> 83; C0 (privileged) 95, C1 31. Planning tasks / 40:
@@ -171,6 +171,26 @@ model can plan for a drone. Architecture comparisons should report them as first
   interaction: C7 + H (no shield) collides on both obstacle tasks (20 flights), because the
   measured distance makes it fly far enough to reach them; C8 + H (shield) has none. All other
   arms have 0 collisions. Tables: `reports/paper_heldout/tables.md`.
+- **5.12 Which part limits each architecture** (D-185 to D-187; perfect-part swaps on all
+  architectures, development seeds). Pilot: never (C0-VLA 27 vs C0 28 / 36). Perception: only
+  the overturned vehicle (+1 to +3 per architecture). Plan: no gap left in the handled planner
+  stacks (a perfect plan delivered after the model's 5.5 s planning time scores the same).
+  Planning tasks without a planner: 0 even with perfect perception. Timing: follow_target (look
+  latency) and closing_passage (the wall closes before any plan exists, then no recovery around
+  the corner). Methodological note: a perfect part must be delivered after the model's own
+  measured latency; an instant oracle confused "perfect" with "early" twice (grounding on
+  follow, plan on closing_passage).
+- **5.13 Equal handle budget, then plateau** (D-187). A second fix round per architecture:
+  C10 + H 21 -> 25 (H8 progress-aware review), C2 + H 19 -> 24 (H12 lenient output), and no
+  change for FULL + H, C13 + H or C1. H11 (plan check) is a measured negative.
+- **5.14 Perception options** (D-186, offline, same 54 frames). Box centre on the pillar:
+  YOLO-World 33/39, OWLv2 36/39, the VLM 33/39; overturned car right: 0/9, 2/9, 6/9; time per
+  look 37 ms, 414 ms, 1.5-3 s. Detectors are not more accurate here; YOLO-World is about 50x
+  faster. The fitting use is a hybrid perception box (planned as a variant, step 4).
+- **5.15 Hidden handles** (D-182, D-187). Behaviour credited to boxes is sometimes logic inside
+  them: FULL's planned path carried H3 / H4; C3's verifier carried the coordinate-format repair
+  that C2 lacks (C2 known_goal 0/10 held-out; 3/3 with H12). Vanilla rankings partly measure
+  hidden handles.
 - **Figures: task maps** (`scripts/paper_task_maps.py`). One page per task, one top-down panel
   per architecture, path coloured by time:
   - Figure M0: architecture legend (`figures/maps_legend.png`).

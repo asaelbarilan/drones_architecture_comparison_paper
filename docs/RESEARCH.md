@@ -33,7 +33,7 @@ Setup (D-159 - D-166):
 
 ## Finding 1 (working thesis): vanilla architectures do not work by themselves; the handles do
 
-**Status: confirmed on held-out seeds 1-10 (D-184; 2,640 flights): every architecture improves with the handles that fit it, FULL 71 -> 99 / 120 beats the privileged C0 at 95, and only planner architectures gain planning tasks. Development evidence: D-173 2x2, D-175 stack, D-180 remove-one, D-181/182 transfer.**
+**Status: confirmed on held-out seeds 1-10 (D-184H; 2,640 flights): every architecture improves with the handles that fit it, FULL 71 -> 99 / 120 beats the privileged C0 at 95, and only planner architectures gain planning tasks. Development evidence: D-173 2x2, D-175 stack, D-180 remove-one, D-181/182 transfer.**
 
 The textbook architectures differ in which modules exist and who decides the goal: skills,
 waypoints, direct VLA, hierarchy. Built from those modules alone, they solve simple
@@ -83,11 +83,44 @@ and H8 as separate switches.
   one shared 4B model serving both looks and moves gives the drone about 1.2 m per 3 s cycle,
   slower than the marker.
 - closing_passage: the wall closes at t = 3 s, while the planner is still writing the plan
-  (5-6 s). A model-driven stack never sees the open passage, and the hidden pillar is behind
+  (5.5 s). A model-driven stack never sees the open passage, and the hidden pillar is behind
   a corner the forward range fan cannot plan around. C0 passes it only because it is given the
-  true goal.
+  true goal. Confirmed by D-187: a perfect plan delivered after the model's planning time also
+  fails, and so does the 12 s closing twin. (D-185 briefly read it as a plan gap; that came from
+  an instant plan oracle and is corrected.)
 - Three rounds of handle fixes (look while moving, two wall detours, path progress) did not move
   either task. They are kept as measured negatives (FULL_H1257, FULL_H125D).
+
+## Finding 4: which part limits each architecture (perfect-part swaps, D-185 to D-187)
+
+**Status: development seeds 1060-1062, all architectures; privileged reference lines only.**
+One part at a time replaced by a perfect version, the rest unchanged (the PRISM / StructNav
+method), with the perfect part delivered after the model's own measured time so that "perfect"
+never also means "instant".
+- Pilot: never the limit. Given the true goal, the VLA flies as well as the classical pilot
+  (C0-VLA 27 vs C0 28 / 36).
+- Perception: a limit only on the overturned vehicle (the 4B VLM sometimes picks the upright
+  car), +1 to +3 tasks per architecture. Otherwise perfect grounding changes nothing.
+- Plan: no gap left in the handled planner stacks. A perfect plan delivered after the model's
+  planning time gives the same 30/36 as the model's plan.
+- Planning tasks without a planner (C1-C6): 0 even with perfect perception, so a structural limit.
+- Timing: follow_target fails on look latency (perfect, instant looks pass even a slower marker;
+  the same looks held for 3.0 s fail). closing_passage fails because the wall closes at 3 s,
+  before any plan exists (5.5 s), and once the target is hidden behind the corner nothing in the
+  stack goes around it.
+- Two rounds of handles per architecture (equal budget) then plateau: round 2 helped only C10
+  (H8 progress-aware review, +4) and C2 (H12 lenient output, +5).
+
+## Finding 5: hidden handles inside "boxes"
+
+**Status: found by code audit and confirmed in flight (D-182, D-187).**
+Some behaviour credited to an architecture's boxes is connecting logic living inside them:
+- FULL's planned path read stated standoff / hold and authorized the camera search, so FULL had
+  H3 / H4 and C2-C5 did not (approach_hover and turn_search 0 -> 3/3 once given to them).
+- C3's verifier also repairs the VLM's coordinate format; without it, C2 fails every
+  known-goal flight with the correct coordinates (0/10 held-out). As a separate switch (H12) it
+  fixes C2 (known_goal 0 -> 3/3).
+So vanilla rankings partly measure hidden handles. Report the handles explicitly.
 
 ## Open items
 

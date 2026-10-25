@@ -17,8 +17,9 @@ evidence. Corrections never delete the old entry; they mark it superseded.
    closing_passage, perception only on the overturned vehicle (model limit), look latency on
    follow_target.
 2. Close the gaps with handles, the same number of fix rounds for every architecture:
-   round 2 RUNNING (D-187: H11 plan check, H8 progress-aware review, H12 lenient output, C1 H3/H4).
-3. Harder planning tasks if the current set saturates (length gradient, condition + search,
+   DONE (D-187): two rounds, then plateau. Round 2 helped only C10 (H8, +4) and C2 (H12, +5).
+   closing_passage is timing, not plan (D-185 reading corrected).
+3. NEXT. Harder planning tasks if the current set saturates (length gradient, condition + search,
    revisit from memory, spatial relation; docs/research/EVALUATION_20261024.md).
 4. Hybrid perception variant: the VLM names the object, a fast open-vocabulary detector
    (YOLO-World / OWLv2 from drone_control) re-finds it between looks (D-186).
@@ -35,7 +36,7 @@ D-181: H1+H2+H5 transfer to C13 (22->27) and C10 (16->21). D-182: connection han
 architectures without a planner (H3 search policy, H4 evidence completion, H9 measured distance;
 connections.py, switches search/completion/measure): C2 12->19 ... C7/C8 0->6; planning stays 0.
 Task maps: scripts/paper_task_maps.py -> reports/paper_maps/.
-D-184 HELD-OUT DONE (seeds 1-10, 22 arms, 2,640 flights, commit c2dfc42): FULL 71->99,
+D-184H HELD-OUT DONE (seeds 1-10, 22 arms, 2,640 flights, commit c2dfc42): FULL 71->99,
 C13 66->83, C10 52->75, C2-C6 +15..26, C7/C8 0->22/21; C0 95. Held-out seeds 1-10 are now
 USED: do not tune on them; any further held-out claim needs seeds 11-40.
 

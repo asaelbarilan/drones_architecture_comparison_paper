@@ -1,4 +1,4 @@
-# Handles: results (D-168 to D-182, 2026-10-22)
+# Handles: results (D-168 to D-187, updated 2026-10-25)
 
 Companion to the research note (in the PDF it follows this section). All runs use the same model (Qwen3-VL-4B + D207 adapter),
 the same real-time runtime, the same 12 tasks and development seeds 1060-1062. Each variant
@@ -126,6 +126,38 @@ them and C2-C5 never did. These were hidden handles inside the "full" architectu
 - C7 / C8, the VLA alone: 0 -> 6. The VLA boxes the target correctly; the sensor fixes its
   distance. They still fail the obstacle tasks, because they fly without the path planner.
 - Planning tasks stay 0/12 on all of them. With no planner, nothing holds a branch or an order.
+
+## Step 7: which part limits each architecture (perfect-part swaps)
+
+One part at a time is replaced by a perfect version, delivered after the model's own measured
+time, with everything else unchanged. Passes / 36, development seeds.
+
+| | as is | perfect plan (after 5.5 s) | perfect grounding (after 3 s) | perfect pilot |
+|---|---|---|---|---|
+| FULL + H | 30 | 30 | 30 | - |
+| C13 + H | 27 | - | 27 | - |
+| C3 + H | 21 | - | 24 (overturned car) | - |
+| C0 (true goal) | 28 | - | - | 27 with the VLA pilot |
+
+- The pilot is never the limit, and perception only on the upside-down car.
+- With handles, the plan is no longer the limit either.
+- What is left is structure (no planner: no planning tasks), the 4B model's perception of the
+  car, and timing (follow; closing passage, where the wall closes before any plan exists).
+- Lesson for the method: a perfect part handed over instantly also removes the model's delay.
+  That fooled me twice, so every perfect part is now delivered after the model's own time.
+
+## Step 8: a second round of handles for every architecture, then plateau
+
+| Architecture | round 1 | round 2 | added |
+|---|---|---|---|
+| FULL + H | 30 | 30 | plan check (H11), no gain |
+| C13 + H | 27 | 26 | plan check, no gain |
+| C10 + H | 21 | 25 | H8: the timed review waits while the step makes progress |
+| C2 + H | 19 | 24 | H12: the VLM's coordinate format is accepted (it was fixed only inside C3's verifier) |
+| C1 | 9 | 9 | H3 + H4, no gain |
+
+Hidden handles: FULL's planned path already carried H3 / H4, and C3's verifier carried the format
+repair that C2 lacked. Some "architecture" differences are really these.
 
 ## Where this stands
 

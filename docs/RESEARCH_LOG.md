@@ -4321,7 +4321,7 @@ Live process check again confirms held-out/queued jobs; GPU remains untouched.
 Forward benchmark sensing versus360-degree grid range fan is a remaining
 compatibility issue, not permission to invent free-space or privileged sensing.
 
-### D-183: VLA timing per architecture (2026-10-23)
+### D-183T: VLA timing per architecture (2026-10-23)
 
 From the wall-clock events of held-out seeds 1-8 (about 15,000 VLA requests;
 scripts/paper_vla_timing.py, reports/paper_maps/vla_timing.png):
@@ -4385,7 +4385,7 @@ docs/research/BENCHMARK_PPO_READINESS_20261024_{EVIDENCE.json,MATRIX.md}.
 Source/checkpoint hashes unchanged; no actor, simulator, AWS or protected GPU
 work executed. scripts/check_code.py passes for the isolated CPU diagnostic.
 
-### D-184: held-out result, 22 arms x 12 tasks x seeds 1-10 (2026-10-24)
+### D-184H: held-out result, 22 arms x 12 tasks x seeds 1-10 (2026-10-24)
 
 The run used the frozen commit c2dfc42, with no change after launch: 2,640 flights, all
 exit 0. Tables: reports/paper_heldout/tables.md (Wilson 95 %); maps for seed 1 in
@@ -4420,7 +4420,7 @@ reports/paper_heldout/maps/; timing in reports/paper_heldout/vla_timing.png.
   one. C8 + H (shield) has 0. This is a real interaction: a handle that makes a stack act
   further also needs the safety box. Reported as is.
 - closing_passage and follow_target: 0 for every model-driven arm (latency floor, D-177).
-- Timing over all ten seeds matches D-183.
+- Timing over all ten seeds matches D-183T.
 
 ### D-185: perfect-part (oracle) swaps and latency-relaxed twins, part 1-2 (2026-10-24)
 
@@ -4536,7 +4536,7 @@ Corrections:
    skill goto (C1 + H 0/24). Scoped to H9 measured legs; C1 + H rerun on all three seeds on the
    fixed code (old runs in reports/paper_round2_d187/failed_c1h_h4_scope).
 
-Hidden-handle finding: C2's known_goal 0/10 on the held-out seeds (D-184) came from a format repair
+Hidden-handle finding: C2's known_goal 0/10 on the held-out seeds (D-184H) came from a format repair
 that lives only inside C3's verifier, not from C2's architecture. The vanilla C2 number is
 reported as run, with this confound named.
 
@@ -4546,3 +4546,9 @@ C2 + H have only the gaps every architecture shares left: perception of the over
 closing_passage (timing, then no recovery around an occluder). H11 is kept as a measured
 negative (switch off).
 Evidence: reports/paper_round2_d187/ (run.log, run_followup.log).
+
+### Numbering note (2026-10-25)
+
+Two sessions wrote entries with the same numbers: D-183 and D-184 above are both the public
+benchmark / PPO readiness work and this paper's results. Nothing is deleted; this paper's entries
+are renamed D-183T (VLA timing) and D-184H (held-out result), and their references follow.

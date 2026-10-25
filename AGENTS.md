@@ -19,7 +19,8 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 2. Close the gaps with handles, the same number of fix rounds for every architecture:
    DONE (D-187): two rounds, then plateau. Round 2 helped only C10 (H8, +4) and C2 (H12, +5).
    closing_passage is timing, not plan (D-185 reading corrected).
-3. NEXT. Harder planning tasks if the current set saturates (length gradient, condition + search,
+3. RUNNING (D-188, reports/paper_harder_d188). Harder planning tasks, built in capability_plans.py:
+   ordered_visit_3 / _4, conditional_search, revisit, spatial_relation. Before: harder planning tasks if the current set saturates (length gradient, condition + search,
    revisit from memory, spatial relation; docs/research/EVALUATION_20261024.md).
 4. Hybrid perception variant: the VLM names the object, a fast open-vocabulary detector
    (YOLO-World / OWLv2 from drone_control) re-finds it between looks (D-186).

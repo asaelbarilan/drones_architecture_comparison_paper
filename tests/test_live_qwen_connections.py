@@ -116,3 +116,13 @@ def test_h8_an_idle_review_waits_while_the_step_makes_progress():
     assert not recovery_due(state, interval + 1)
     state.progress_at = 0  # no progress for the whole interval
     assert recovery_due(state, interval + 1)
+
+
+def test_h4_look_again_leaves_other_non_terminal_goals_to_their_owner():
+    from uavlab.contracts import Vec3
+    from uavlab.live_qwen.connections import look_again
+    from uavlab.live_qwen.goals import Goal
+
+    state = unplanned("Fly to the red pillar.", completion="evidence")  # no H9 measured legs
+    state.goal = Goal(1, Vec3(x=0, y=0, z=2), 0, False, ORIGIN_NS + s_to_ns(45), 1)
+    assert not look_again(state, ORIGIN_NS) and state.goal is not None

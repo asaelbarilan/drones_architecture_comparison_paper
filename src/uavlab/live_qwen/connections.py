@@ -68,7 +68,10 @@ def measured_line(state, data, source):
 
 def look_again(state, now):
     """H4: a measured leg that ended short of the object asks for a fresh line / look."""
-    if state.goal is None or state.goal.terminal or not evidence(state):
+    # Only a measured H9 leg (D-187): other non-terminal goals, such as the C1 skill agent's
+    # goto, finish through their own owner and must not be turned into a new look.
+    if (state.goal is None or state.goal.terminal or not evidence(state)
+            or switch(state.settings, "measure") != "range"):
         return False
     state.replan("measured leg reached; look again", now)
     return True

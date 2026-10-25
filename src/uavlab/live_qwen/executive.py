@@ -30,6 +30,7 @@ from .openings import (
     through_point,
     wall_ahead,
 )
+from .plan_check import final_on_every_path
 
 CHECK = '''Answer the yes/no question about THIS camera image. Return ONLY JSON
 {"answer":"yes" or "no","reason":"at most 15 words"}. Question: '''
@@ -59,6 +60,8 @@ def kind(state):
 def accept_contract(state, payload, now):
     """H1: the typed program; executed by kind (H2) or flattened into plain steps."""
     program, repairs = parse_contract(payload, state.mission.instruction)
+    if switch(state.settings, "plan_check") == "structure":
+        program = final_on_every_path(program, repairs)  # H11 (D-187)
     steps = [executable(n) if active(state) else flattened(n) for n in program]
     if state.steps and steps != state.steps:
         raise ValueError("replanning cannot replace the committed program")

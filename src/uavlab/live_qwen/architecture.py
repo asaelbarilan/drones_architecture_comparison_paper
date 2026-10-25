@@ -38,6 +38,8 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
   oracle_grounding False   D-185 privileged: looks return the true box of a visible object
                            (oracles.py; reference lines only, never results)
   oracle_delay_s 0.0       hold an oracle look for the model's measured grounding latency
+  plan_check   none        the parsed typed program is executed as written (default)
+               structure   H11: code checks it against the mission structure (plan_check.py)
 """
 
 import dataclasses
@@ -51,14 +53,15 @@ DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recover
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
                 perception="vlm", tracking="stop", detour="none", search="planner",
                 completion="default", measure="model", oracle_plan=False,
-                oracle_grounding=False, oracle_delay_s=0.0)
+                oracle_grounding=False, oracle_delay_s=0.0, plan_check="none")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
                contract={"flat", "typed"}, executive={"basic", "kinds"},
                perception={"vlm", "openings"}, tracking={"stop", "moving"},
                detour={"none", "wall"}, search={"planner", "policy"},
-               completion={"default", "evidence"}, measure={"model", "range"})
+               completion={"default", "evidence"}, measure={"model", "range"},
+               plan_check={"none", "structure"})
 
 
 def switches(settings):

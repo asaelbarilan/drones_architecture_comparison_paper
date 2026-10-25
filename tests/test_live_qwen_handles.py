@@ -146,3 +146,20 @@ def test_typed_hover_uses_the_tighter_tolerance():
                           MISSION)[0][0]
     state.plan = executable(node)
     assert near_limit(state) == pytest.approx(HOVER_LIMIT_M)
+
+
+def test_h11_plan_check_moves_a_one_sided_final_stop_after_the_condition():
+    from uavlab.live_qwen.plan_check import final_on_every_path
+
+    stop = dict(kind="visit", object="red pillar", near_m=2, dwell_s=0, stop=True)
+    route = dict(kind="search", object="another route around the wall")
+    program = [dict(kind="pass", object="open passage"),
+               dict(kind="condition", question="Is the passage still open?", then=[route],
+                    **{"else": [stop]})]
+    repairs = []
+    fixed = final_on_every_path(program, repairs)
+    assert fixed[-1] == stop and fixed[1]["else"] == [] and fixed[1]["then"] == [route]
+    assert len(repairs) == 1
+    both = [dict(kind="condition", question="Is A open?", then=[dict(stop, object="A")],
+                 **{"else": [dict(stop, object="B")]})]
+    assert final_on_every_path(both, []) == both  # each branch has its own destination

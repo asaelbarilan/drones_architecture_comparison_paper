@@ -1,0 +1,20 @@
+starting 14:10:16 commit cb2040e
+=== reports/paper_round2_d187/s1060/C1_H 14:10:16
+exit=0 passes=3
+=== reports/paper_round2_d187/s1060/FULL_H125_OPM 14:20:54
+exit=0 passes=10
+=== reports/paper_round2_d187/twins/s1060/FULL_H125_OPM 14:27:55
+exit=0 passes=0
+=== reports/paper_round2_d187/s1061/C1_H 14:30:51
+exit=0 passes=3
+=== reports/paper_round2_d187/s1061/FULL_H125_OPM 14:41:28
+exit=0 passes=10
+=== reports/paper_round2_d187/twins/s1061/FULL_H125_OPM 14:48:45
+exit=0 passes=0
+=== reports/paper_round2_d187/s1062/C1_H 14:50:26
+exit=0 passes=3
+=== reports/paper_round2_d187/s1062/FULL_H125_OPM 15:01:10
+exit=0 passes=10
+=== reports/paper_round2_d187/twins/s1062/FULL_H125_OPM 15:08:11
+exit=0 passes=0
+=== DONE 15:09:54

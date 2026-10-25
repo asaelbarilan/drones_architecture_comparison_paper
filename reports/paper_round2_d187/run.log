@@ -1,0 +1,32 @@
+starting 12:14:17 commit 363798c
+=== reports/paper_round2_d187/s1060/FULL_HP 12:14:17
+exit=0 passes=10
+=== reports/paper_round2_d187/s1060/C13_HP 12:22:17
+exit=0 passes=8
+=== reports/paper_round2_d187/s1060/C10_HP 12:30:53
+exit=0 passes=8
+=== reports/paper_round2_d187/s1060/C2_H2 12:39:26
+exit=0 passes=8
+=== reports/paper_round2_d187/s1060/C1_H 12:46:39
+exit=0 passes=0
+=== reports/paper_round2_d187/s1061/FULL_HP 12:51:49
+exit=0 passes=10
+=== reports/paper_round2_d187/s1061/C13_HP 12:59:05
+exit=0 passes=9
+=== reports/paper_round2_d187/s1061/C10_HP 13:07:27
+exit=0 passes=8
+=== reports/paper_round2_d187/s1061/C2_H2 13:15:56
+exit=0 passes=8
+=== reports/paper_round2_d187/s1061/C1_H 13:23:16
+exit=0 passes=0
+=== reports/paper_round2_d187/s1062/FULL_HP 13:28:32
+exit=0 passes=10
+=== reports/paper_round2_d187/s1062/C13_HP 13:35:34
+exit=0 passes=9
+=== reports/paper_round2_d187/s1062/C10_HP 13:43:52
+exit=0 passes=9
+=== reports/paper_round2_d187/s1062/C2_H2 13:52:02
+exit=0 passes=8
+=== reports/paper_round2_d187/s1062/C1_H 13:59:17
+exit=0 passes=3
+=== DONE 14:09:58

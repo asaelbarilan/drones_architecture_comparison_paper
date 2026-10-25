@@ -4505,3 +4505,44 @@ design is a hybrid perception box: the VLM chooses and names the object, and a f
 open-vocabulary detector re-finds it between VLM looks. That adds a box, so it is an
 architecture variant, not a handle.
 Evidence: reports/detector_probe/ (truth.json, per-detector JSON, summary.json).
+
+### D-187: handle round 2 (equal budget) and two corrections (2026-10-25)
+
+Development seeds 1060-1062, 12 tasks (/36). Each architecture got one more fix round aimed at
+the gaps the D-185 oracle swaps showed.
+
+| Architecture | before | round 2 | what was added | result |
+|---|---|---|---|---|
+| FULL + H | 30 | 30 | H11 plan check (final destination on every path) | no change |
+| C13 + H | 27 | 26 | H11 | no change (one obstacle flight lost) |
+| C10 + H | 21 | 25 | H11 + H8 progress-aware review | +4: gate 0 -> 2, search and vehicle +1 each |
+| C2 + H | 19 | 24 | H12 lenient output (world [x, y, z] list wrapped) | +5: known_goal 0 -> 3 |
+| C1 | 9 | 9 | H3 + H4 (first round for the skill agent) | no change |
+| FULL + H, perfect plan after the model's planning time (OPM) | 30 | 30 | privileged reference | no change |
+
+Corrections:
+1. **The closing_passage "plan gap" of D-185 was timing, not the plan.** The instant plan oracle
+   passed 2/3 only because its plan existed at t = 0: the pass step locked the measured gap and a
+   goal behind the wall before the wall closed at 3 s, and SUPER then flew around. Delivered
+   after the model's measured first-plan time (5.5 s on this task; per-task medians in
+   oracle_programs.json), the perfect plan scores 0/3, the same as the model's own plan. Even the
+   12 s closing twin fails 0/3 with the perfect plan: once the target is hidden behind a corner,
+   nothing in the stack goes around it (the D-176 to D-178 detours were negatives). The D-177
+   latency reading is restored, plus a recovery-behind-an-occluder limit.
+2. The C10 + H gate gain under the plan oracle (D-185) was run variance: after the H1 parser drops
+   the invented goto, the model's gate program equals the oracle program. With H8 the gate rises
+   because the timed review no longer overrides a step that is progressing.
+3. A bug of mine in round 2: H4's look-again fired for any non-terminal goal and stalled C1's
+   skill goto (C1 + H 0/24). Scoped to H9 measured legs; C1 + H rerun on all three seeds on the
+   fixed code (old runs in reports/paper_round2_d187/failed_c1h_h4_scope).
+
+Hidden-handle finding: C2's known_goal 0/10 on the held-out seeds (D-184) came from a format repair
+that lives only inside C3's verifier, not from C2's architecture. The vanilla C2 number is
+reported as run, with this confound named.
+
+State of step 2: after two rounds, FULL + H, C13 + H and C1 gain nothing more, and C10 + H and
+C2 + H have only the gaps every architecture shares left: perception of the overturned vehicle
+(4B model), planning tasks without a planner (structure), follow_target (look latency) and
+closing_passage (timing, then no recovery around an occluder). H11 is kept as a measured
+negative (switch off).
+Evidence: reports/paper_round2_d187/ (run.log, run_followup.log).

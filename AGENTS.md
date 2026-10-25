@@ -11,6 +11,19 @@ evidence. Corrections never delete the old entry; they mark it superseded.
 
 ## What this testbed is
 
+## Current plan (user, 2026-10-25)
+
+1. Perfect-part (oracle) swaps on every architecture: DONE (D-185). Gaps: the plan on
+   closing_passage, perception only on the overturned vehicle (model limit), look latency on
+   follow_target.
+2. Close the gaps with handles, the same number of fix rounds for every architecture:
+   round 2 RUNNING (D-187: H11 plan check, H8 progress-aware review, H12 lenient output, C1 H3/H4).
+3. Harder planning tasks if the current set saturates (length gradient, condition + search,
+   revisit from memory, spatial relation; docs/research/EVALUATION_20261024.md).
+4. Hybrid perception variant: the VLM names the object, a fast open-vocabulary detector
+   (YOLO-World / OWLv2 from drone_control) re-finds it between looks (D-186).
+5. Final held-out run on unused seeds 11-40, then the conclusions.
+
 ## Last goal: DONE (user, 2026-10-22; finished D-180)
 
 Handles loop on development seeds 1060-1062: conditional_gate solved (3/3, D-175). The loop

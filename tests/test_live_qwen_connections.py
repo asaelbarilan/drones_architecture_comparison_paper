@@ -93,3 +93,26 @@ def test_h9_needs_only_the_box_when_the_written_line_is_cut_off():
     with pytest.raises(ValueError):
         accept_native_line(native("model"), dict(box=[375, 0, 775, 756], left=None),
                            ranged(2.4), ORIGIN_NS)
+
+
+def test_h12_a_bare_world_list_is_wrapped_only_when_lenient():
+    from uavlab.live_qwen.architecture import unverified_direction
+
+    answer = '{"kind":"world","target":[12.0,0.0,3.0]}'
+    strict = unplanned("Fly to world ENU coordinate (12, 0, 3) metres.")
+    assert unverified_direction(strict, answer)["target"] == [12.0, 0.0, 3.0]
+    lenient = unplanned("Fly to world ENU coordinate (12, 0, 3) metres.", output="lenient")
+    assert unverified_direction(lenient, answer)["target"] == {"world_enu": [12.0, 0.0, 3.0]}
+
+
+def test_h8_an_idle_review_waits_while_the_step_makes_progress():
+    from uavlab.live_qwen.architecture import recovery_due
+
+    state = unplanned("Fly to the red pillar.", goal_source="planned", recovery="periodic",
+                      review="idle")
+    state.steps, state.last_recovery = [dict(objective="x", target="red pillar")], 0
+    interval = s_to_ns(20)
+    state.progress_at = interval  # progress just now
+    assert not recovery_due(state, interval + 1)
+    state.progress_at = 0  # no progress for the whole interval
+    assert recovery_due(state, interval + 1)

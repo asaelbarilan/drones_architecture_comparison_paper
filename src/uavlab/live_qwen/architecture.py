@@ -40,6 +40,10 @@ reproduce the D-158 full stack exactly, so every earlier config keeps its behavi
   oracle_delay_s 0.0       hold an oracle look for the model's measured grounding latency
   plan_check   none        the parsed typed program is executed as written (default)
                structure   H11: code checks it against the mission structure (plan_check.py)
+  review       always      a periodic recovery review fires on its timer (default)
+               idle        H8: it waits until the current step stops making progress
+  output       strict      a direction answer must already have the runtime's format (default)
+               lenient     H12: a bare world [x, y, z] list is wrapped as world_enu
 """
 
 import dataclasses
@@ -49,11 +53,13 @@ import math
 from .mission_plan import add_stated_fields
 from .world_contract import explicit_world
 
+WORLD_CHANNELS = 3
 DEFAULTS = dict(goal_source="planned", verifier=True, monitor="default", recovery="event",
                 memory=True, recovery_interval_s=20.0, contract="flat", executive="basic",
                 perception="vlm", tracking="stop", detour="none", search="planner",
                 completion="default", measure="model", oracle_plan=False,
-                oracle_grounding=False, oracle_delay_s=0.0, plan_check="none")
+                oracle_grounding=False, oracle_delay_s=0.0, plan_check="none",
+                review="always", output="strict")
 CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_native"},
                monitor={"default", "periodic", "none"},
                recovery={"event", "periodic", "none"},
@@ -61,7 +67,8 @@ CHOICES = dict(goal_source={"planned", "instruction", "oracle", "skills", "vla_n
                perception={"vlm", "openings"}, tracking={"stop", "moving"},
                detour={"none", "wall"}, search={"planner", "policy"},
                completion={"default", "evidence"}, measure={"model", "range"},
-               plan_check={"none", "structure"})
+               plan_check={"none", "structure"}, review={"always", "idle"},
+               output={"strict", "lenient"})
 
 
 def switches(settings):
@@ -169,8 +176,13 @@ def held_long_enough(state, now):
 
 def recovery_due(state, now):
     interval = switch(state.settings, "recovery_interval_s") * 1e9
-    return (switch(state.settings, "recovery") == "periodic" and bool(state.steps)
-            and now - state.last_recovery >= interval)
+    due = (switch(state.settings, "recovery") == "periodic" and bool(state.steps)
+           and now - state.last_recovery >= interval)
+    if due and switch(state.settings, "review") == "idle":
+        # H8 (D-187): a timed review never interrupts a step that is still making progress;
+        # it waits until progress has stopped for half an interval (C10's override, D-181).
+        return now - state.progress_at >= interval / 2
+    return due
 
 
 def bounded(position, settings):
@@ -182,8 +194,16 @@ def bounded(position, settings):
 
 
 def unverified_direction(state, payload):
-    """Without a verifier the direction is used as given; the scheduler still owns step order."""
+    """Without a verifier the direction is used as given; the scheduler still owns step order.
+
+    H12 (D-187, output=lenient): a world answer written as a bare [x, y, z] list is wrapped as
+    world_enu, the format repair that otherwise only happens inside the verifier (C2 failed
+    every known_goal flight on "unknown goal kind" with the correct coordinates)."""
     data = json.loads(payload) if isinstance(payload, str) else dict(payload)
+    target = data.get("target")
+    if (switch(state.settings, "output") == "lenient" and data.get("kind") == "world"
+            and isinstance(target, list) and len(target) == WORLD_CHANNELS):
+        data = dict(data, target=dict(world_enu=target))
     last = not state.steps or state.step_index == len(state.steps) - 1
     return dict(data, terminal=data.get("terminal", last) and last)
 
